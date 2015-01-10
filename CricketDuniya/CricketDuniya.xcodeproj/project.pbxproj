@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD4A9CCD1A5C573800CD6FAF /* Untitled.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4A9CCC1A5C573800CD6FAF /* Untitled.png */; };
+		BD4A9CCD1A5C573800CD6FAF /* enter.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4A9CCC1A5C573800CD6FAF /* enter.png */; };
 		BD4A9D1B1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG in Resources */ = {isa = PBXBuildFile; fileRef = BD4A9D1A1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG */; };
 		BD4A9D1D1A5C6D8E00CD6FAF /* uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4A9D1C1A5C6D8E00CD6FAF /* uncheck.png */; };
 		BD4A9D201A5C6EDB00CD6FAF /* SignUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4A9D1F1A5C6EDB00CD6FAF /* SignUpController.m */; };
@@ -94,7 +94,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BD4A9CCC1A5C573800CD6FAF /* Untitled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Untitled.png; path = ../../DocCricDuniya/Untitled.png; sourceTree = "<group>"; };
+		BD4A9CCC1A5C573800CD6FAF /* enter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enter.png; path = ../../DocCricDuniya/enter.png; sourceTree = "<group>"; };
 		BD4A9CDF1A5C630800CD6FAF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BD4A9CE11A5C632400CD6FAF /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		BD4A9CE31A5C634700CD6FAF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -277,7 +277,7 @@
 			children = (
 				BD4A9D1A1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG */,
 				BDFD544E1A5EEA130062881B /* images.jpg */,
-				BD4A9CCC1A5C573800CD6FAF /* Untitled.png */,
+				BD4A9CCC1A5C573800CD6FAF /* enter.png */,
 				BD4A9D1C1A5C6D8E00CD6FAF /* uncheck.png */,
 				BDC6B4901A5AEDD000E09F36 /* Util */,
 				BDC6B4B91A5B1A0700E09F36 /* Classes */,
@@ -779,7 +779,7 @@
 				BD9BB8A51A592E09008D9D06 /* LaunchScreen.xib in Resources */,
 				BD4A9D1D1A5C6D8E00CD6FAF /* uncheck.png in Resources */,
 				BDFD54DC1A5EF2B90062881B /* ashok.jpg in Resources */,
-				BD4A9CCD1A5C573800CD6FAF /* Untitled.png in Resources */,
+				BD4A9CCD1A5C573800CD6FAF /* enter.png in Resources */,
 				BD4A9D1B1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG in Resources */,
 				BDFD54D21A5EF2B90062881B /* Raleway-Regular.ttf in Resources */,
 				BD7001071A5D80820087BD85 /* ResultAndNotificationCustomCell.xib in Resources */,
