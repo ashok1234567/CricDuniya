@@ -51,7 +51,7 @@
 
 - (IBAction)btnActionSignIn:(id)sender {
    
-    
+    [self performSegueWithIdentifier:@"signup" sender:nil];
 }
 -(void)callServiceForSignIn
 {
@@ -68,7 +68,8 @@
     objWebServiceHandler.delegate = self;
     
     //for AFNetworking request
-    [objWebServiceHandler AFNcallThePassedURLASynchronouslyWithRequest:valueDic withMethod:methodName withUrl:methodName forKey:@""];
+    [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
+
 }
 -(void)webServiceHandler:(WebserviceHandler *)webHandler recievedResponse:(NSDictionary *)dicResponce
 {

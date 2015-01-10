@@ -215,7 +215,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
         return nil;
     }
 
-    self.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript", nil];
+    self.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"text/html", nil];
 
     return self;
 }
@@ -456,7 +456,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
         return nil;
     }
 
-    self.acceptableContentTypes = [[NSSet alloc] initWithObjects:@"application/x-plist", nil];
+    self.acceptableContentTypes = [[NSSet alloc] initWithObjects:@"application/x-plist",@"text/html", nil];
 
     return self;
 }

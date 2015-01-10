@@ -37,14 +37,14 @@
             [postString appendString:[NSString stringWithFormat:@"%@=%@&",[[parameters allKeys] objectAtIndex:i],[[parameters allValues] objectAtIndex:i]]];
         }
     }
-    NSString *reqString=[NSString stringWithFormat:@"%@/%@?%@",URL_DOMAIN,methodName,postString];
-    NSLog(@"dicttttt +++ %@",reqString);
+    NSString *reqString=[NSString stringWithFormat:@"%@%@?%@",URL_DOMAIN,methodName,postString];
+   // NSLog(@"dicttttt +++ %@",reqString);
 
     NSString *msgLength =[NSString stringWithFormat:@"%lu",(unsigned long)[reqString length]];
     request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:reqString] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:RequestTimeOutInterval];
-    [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
-    [request addValue:msgLength forHTTPHeaderField:@"Content-Length"];
-    [request setHTTPMethod:reqType];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    //[request addValue:msgLength forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPMethod:@"POST"];
     [request setHTTPBody: [postString dataUsingEncoding:NSUTF8StringEncoding]];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -58,6 +58,12 @@
         if([delegate respondsToSelector:@selector(webServiceHandler:requestFailedWithError:)])
             [delegate performSelector:@selector(webServiceHandler:requestFailedWithError:) withObject:self withObject:error];
     }];
+    
+    [operation start];
+
+   
+    
+    
 }
 #pragma mark - AFNtworking
 // Create request ASynchrinously
@@ -154,9 +160,9 @@
         NSString *msgLength =[NSString stringWithFormat:@"%lu",(unsigned long)[postString length]];
         
         request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:UrlString] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:RequestTimeOutInterval];
-        [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
         [request addValue:msgLength forHTTPHeaderField:@"Content-Length"];
-        [request setHTTPMethod:@"GET"];
+        [request setHTTPMethod:@"POST"];
         //[request setHTTPBody: [postString dataUsingEncoding:NSUTF8StringEncoding]];
         
         
@@ -205,7 +211,7 @@
 //        }else
 //        {
         
-        NSString *tempstr=@"user_name='ashok'&user_password='1234'&user_from='app'&facebook_id='0'";
+        NSString *tempstr=@"user_name=ashok&user_password=1234&user_from=app&facebook_id=0";
            // [request setHTTPBody:[postString dataUsingEncoding:NSUTF8StringEncoding]];
          [request setHTTPBody:[tempstr dataUsingEncoding:NSUTF8StringEncoding]];
         //}
