@@ -1,0 +1,57 @@
+//
+//  PrefixHeader.pch
+//  CricketDuniya
+//
+//  Created by ashok on 1/8/15.
+//  Copyright (c) 2015 apmocon. All rights reserved.
+//
+
+#ifndef CricketDuniya_PrefixHeader_pch
+#define CricketDuniya_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "AppDelegate.h"
+
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "AppDelegate.h"
+#import "ViewController.h"
+#import "ApplicationConstant.h"
+#import "SharedData.h"
+#import "AlertDialogView.h"
+#import "AppLoader.h"
+#import "ValidationManager.h"
+#import "WebserviceHandler.h"
+#import "AFNetworking.h"
+#endif
+#pragma mark - Appliction Webservice URL
+//For Development
+
+////For Staggin
+#define URL_DOMAIN_USER @"http://cricapi.amarujala.com/getdata/"
+#define URL_DOMAIN @"http://cricapi.amarujala.com/getdata/"
+#define URL_DOMAIN_ImageUpload @"http://cricapi.amarujala.com/getdata/"
+
+
+
+
+#define RequestTimeOutInterval   180
+#define URL_Log(url_name,url_string) NSLog(@"%@ :%@",url_name,url_string);
+#define AppName                   @"CricketDuniya"//@"ashok"
+#define SocialType                @"app"
+#define DeviceType                @"iPhone"
+
+#pragma mark - Webservice Methods Name
+#define SignIN_Url               @"user_login"
+
+
+#define GenerateToken_url        @"GenerateToken"zzz

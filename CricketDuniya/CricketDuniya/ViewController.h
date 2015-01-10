@@ -7,9 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TPKeyboardAvoidingScrollView.h"
+#import "WebserviceHandler.h"
+@interface ViewController : UIViewController<WebServiceHandlerDelegate>
 
-@interface ViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *viewLoginOutlet;
+@property (weak, nonatomic) IBOutlet UIButton *btnEnterOutlet;
+- (IBAction)btnEnterAction:(id)sender;
+- (IBAction)btnActionSignIn:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *txtEmailOrMobileNo;
+@property (weak, nonatomic) IBOutlet UITextField *txtPassword;
+@property (weak, nonatomic) IBOutlet UIButton *btnLoginOutlet;
+- (IBAction)btnActionLogin:(id)sender;
 
 @end
 

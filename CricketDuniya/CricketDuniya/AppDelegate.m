@@ -7,8 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "Reachability.h"
 
+AppDelegate *appDelegate;
+SharedData *objSharedData;
 @interface AppDelegate ()
+{
+    AppLoader *objLoader;
+}
 
 @end
 
@@ -17,7 +23,86 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+   
+    objSharedData=[SharedData instance];
+    
+    //call charck network part
+     [self callNetwork];
+    
+    if ([[[UIDevice currentDevice] systemVersion] compare:@"8" options:NSNumericSearch] != NSOrderedAscending)
+        self.isIOS8=TRUE;
+    else
+        self.isIOS8=FALSE;
+    
+    UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, self.window.frame.size.height-4,self.window.frame.size.width,4)];
+    view.backgroundColor=[UIColor redColor];
+    [self.window.rootViewController.view addSubview:view];
     return YES;
+}
+
+#pragma mark - Reachability notification method
+
+- (void) updateInterfaceWithReachability: (Reachability*) curReach
+{
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    [reachability startNotifier];
+    
+    NetworkStatus status = [reachability currentReachabilityStatus];
+    
+    if(status == NotReachable)
+    {
+        self.networkStatus = FALSE;
+        //No internet
+    }
+    else if (status == ReachableViaWiFi)
+    { self.networkStatus = TRUE;
+        //WiFi
+    }
+    else if (status == ReachableViaWWAN)
+    {
+        self.networkStatus = TRUE;
+        //3G
+    }
+}
+
+//Called by Reachability whenever status changes.
+- (void) reachabilityChanged: (NSNotification* )note
+{
+    Reachability* curReach = [note object];
+    NSParameterAssert([curReach isKindOfClass: [Reachability class]]);
+    [self updateInterfaceWithReachability: curReach];
+}
+-(void)callNetwork
+{
+    //use for all type of Reachability
+    // Observe the kNetworkReachabilityChangedNotification. When that notification is posted, the
+    // method "reachabilityChanged" will be called.
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(reachabilityChanged:) name: kReachabilityChangedNotification object: nil];
+    
+    //Change the host name here to change the server your monitoring
+    hostReach = [Reachability reachabilityWithHostName: @"www.apple.com"];
+    [hostReach startNotifier];
+    [self updateInterfaceWithReachability: hostReach];
+    
+    internetReach = [Reachability reachabilityForInternetConnection];
+    [internetReach startNotifier];
+    [self updateInterfaceWithReachability: internetReach];
+    
+    wifiReach = [Reachability reachabilityForLocalWiFi];
+    [wifiReach startNotifier];
+    [self updateInterfaceWithReachability: wifiReach];
+    //use for all type of Reachability
+}
+#pragma mark - Loader methods implementation
+
+-(void)startActivityIndicator:(UIView *)view withText:(NSString *)text{
+    objLoader = [AppLoader initLoaderView];
+    [objLoader startActivityLoader:view :text];
+}
+
+-(void)stopActivityIndicator{
+    [objLoader stopActivityLoader];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
