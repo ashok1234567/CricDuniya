@@ -64,7 +64,7 @@
         imageView.clipsToBounds = YES;
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 0, 24)];
-        label.text = @"Ashok Mehta";
+        label.text =  [objSharedData.logingUserInfo valueForKey:@"firstName"];
         label.font = [UIFont fontWithName:@"Helvetica Neue" size:17];
         label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];

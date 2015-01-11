@@ -45,19 +45,31 @@
     _btnEnterOutlet.hidden=YES;
     _viewLoginOutlet.hidden=NO;
     
-    //Call services for singin
-    [self callServiceForSignIn];
+    
 }
 
 - (IBAction)btnActionSignIn:(id)sender {
-   
-    [self performSegueWithIdentifier:@"signup" sender:nil];
+  
+    if([_txtEmailOrMobileNo.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length<=0){
+        //ShowAlert(AppName, InvalidEmailOrMobileno);
+        [objSharedData shakeAnimation:_txtEmailOrMobileNo];
+        
+    }else if([_txtPassword.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]].length<=0){
+        
+        // ShowAlert(AppName, InvalidPassword);
+                [objSharedData shakeAnimation:_txtPassword];
+    }else{
+        
+        //Call services for singin
+        [self callServiceForSignIn];
+    }
+    
+   // [self performSegueWithIdentifier:@"signup" sender:nil];
 }
 -(void)callServiceForSignIn
 {
   
-
-   NSDictionary* valueDic=[NSDictionary dictionaryWithObjectsAndKeys:@"ashok",@"user_name",@"1234",@"user_password",SocialType,@"user_from",@"0",@"facebook_id",nil];
+   NSDictionary* valueDic=[NSDictionary dictionaryWithObjectsAndKeys:_txtEmailOrMobileNo.text,@"user_name",_txtPassword.text,@"user_password",SocialType,@"user_from",@"0",@"facebook_id",nil];
     
     NSString *methodName = SignIN_Url;
     
@@ -74,7 +86,18 @@
 -(void)webServiceHandler:(WebserviceHandler *)webHandler recievedResponse:(NSDictionary *)dicResponce
 {
     NSLog(@"dicResponce:-%@",dicResponce);
+    
     [appDelegate stopActivityIndicator];
+    if([[dicResponce valueForKey:@"message"] isEqualToString:@"User Login Sucessfully"]){
+        
+        objSharedData.logingUserInfo=[dicResponce valueForKey:@"data"];
+        [self performSegueWithIdentifier:@"login" sender:nil];
+    }else if([[dicResponce valueForKey:@"message"] isEqualToString:@"Registred Sucessfully"]){
+             [self performSegueWithIdentifier:@"signup" sender:nil];
+    }else{
+        ShowAlert(AppName,[dicResponce valueForKey:@"message"]);
+    }
+    
     
 }
 -(void) webServiceHandler:(WebserviceHandler *)webHandler requestFailedWithError:(NSError *)error

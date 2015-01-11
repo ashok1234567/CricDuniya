@@ -29,6 +29,10 @@
 }
 #pragma mark - GetWebservice
 -(void)callWebserviceWithRequest:(NSString *)methodName RequestString:(NSDictionary *)parameters RequestType:(NSString*)reqType{
+    
+    if(appDelegate.networkStatus)
+    {
+        
     NSMutableString *postString=[[NSMutableString alloc] init];
     for (int i=0; i<[parameters allKeys].count; i++) {
         if ([parameters allKeys].count-1==i) {
@@ -37,13 +41,22 @@
             [postString appendString:[NSString stringWithFormat:@"%@=%@&",[[parameters allKeys] objectAtIndex:i],[[parameters allValues] objectAtIndex:i]]];
         }
     }
-    NSString *reqString=[NSString stringWithFormat:@"%@%@?%@",URL_DOMAIN,methodName,postString];
-   // NSLog(@"dicttttt +++ %@",reqString);
+        
+        NSString* encodedUrl = [postString stringByAddingPercentEscapesUsingEncoding:
+                                NSUTF8StringEncoding];
+        
+        NSString *reqString;
+        if([methodName isEqualToString:SignIN_Url]|| [methodName isEqualToString:SignUp_Url] )
+    reqString=[NSString stringWithFormat:@"%@%@?%@",URL_DOMAIN,methodName,encodedUrl];
+        else{
+      reqString=[NSString stringWithFormat:@"%@%@?%@",URL_DOMAIN_USER,methodName,postString];
+        }
+    NSLog(@"dicttttt +++ %@",reqString);
 
     NSString *msgLength =[NSString stringWithFormat:@"%lu",(unsigned long)[reqString length]];
     request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:reqString] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:RequestTimeOutInterval];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
-    //[request addValue:msgLength forHTTPHeaderField:@"Content-Length"];
+    [request addValue:msgLength forHTTPHeaderField:@"Content-Length"];
     [request setHTTPMethod:@"POST"];
     [request setHTTPBody: [postString dataUsingEncoding:NSUTF8StringEncoding]];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -54,13 +67,18 @@
             [delegate performSelector:@selector(webServiceHandler:recievedResponse:) withObject:self withObject:responseObject];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error: %@", [error description]);
-        ShowAlert(@"Xplorer", msgReqFail)
+        ShowAlert(AppName, msgReqFail);
         if([delegate respondsToSelector:@selector(webServiceHandler:requestFailedWithError:)])
             [delegate performSelector:@selector(webServiceHandler:requestFailedWithError:) withObject:self withObject:error];
     }];
     
     [operation start];
-
+    }
+        else
+        {
+            [appDelegate stopActivityIndicator];
+            ShowAlert (NetworkReachabilityTitle, NetworkReachabilityAlert)
+        }
    
     
     

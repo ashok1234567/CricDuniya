@@ -10,7 +10,7 @@
 
 #pragma mark - Custom Alert Methods
 
-#define ShowAlert(title, msg) {}
+#define ShowAlert(title, msg)  [[[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 #define ShowAlertWithTarAndSel(title, msg, tar, sel) {[appDelegate displayAlertView:title withErrorMsg:msg target:tar selector:sel];}
 #define ShowConfirmationAlert(title, msg, tar, btnTitle1, btnTitle2) {[appDelegate displayAlertView:title withErrorMsg:msg target:tar title1:btnTitle1 title2:btnTitle2];}
 #define ShowAlertNative(title, msg)  {UIAlertView *alert=[[UIAlertView alloc]initWithTitle:title message:msg delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK",nil];[alert setTag:105];[alert show];}
@@ -52,7 +52,7 @@
 //#define InvalidLastname     @"Please enter valid lastname."
 #define InvalidFirstname    @"Invalid firstname."
 #define InvalidLastname     @"Invalid lastname."
-
+#define InvalidEmailOrMobileno @"Please enter your email or mobile no."
 #define InvalidEmail        @"Please enter valid Email."
 #define InvalidMobile       @"Please enter valid Mobile."
 #define InvalidDateOfBirth  @"Please enter valid Date of Birth"
@@ -61,6 +61,9 @@
 #define SameFirstname       @"Password should not contain Fullname."
 #define SameLastname        @"Password should not contain Lastname."
 #define InvalidWard         @"Please enter valid ward"
+#define Invalidage         @"Please enter your age"
+#define InvalidGender         @"Please select gender opation"
+
 #define InvalidDesignation  @"Please enter valid Designation"
 #define InvalidPrimaryDx    @"Please enter valid PrimaryDX"
 #define InvalidSpeciality   @"Please enter valid Speciality"

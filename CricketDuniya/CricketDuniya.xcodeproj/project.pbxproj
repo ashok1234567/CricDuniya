@@ -26,6 +26,7 @@
 		BDC6B4B51A5AF34600E09F36 /* WhatNextController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC6B4B41A5AF34600E09F36 /* WhatNextController.m */; };
 		BDC6B4B81A5AF56F00E09F36 /* BaseControllerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC6B4B71A5AF56F00E09F36 /* BaseControllerController.m */; };
 		BDC6B4BD1A5B1A5D00E09F36 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC6B4BC1A5B1A5D00E09F36 /* MenuController.m */; };
+		BDD5879D1A617A2B00200284 /* checkmark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDD5879C1A617A2B00200284 /* checkmark.jpg */; };
 		BDFD544F1A5EEA140062881B /* images.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDFD544E1A5EEA130062881B /* images.jpg */; };
 		BDFD54CB1A5EF2B90062881B /* SharedData.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFD54551A5EF2B90062881B /* SharedData.m */; };
 		BDFD54CC1A5EF2B90062881B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BDFD54571A5EF2B90062881B /* User.m */; };
@@ -130,6 +131,7 @@
 		BDC6B4B71A5AF56F00E09F36 /* BaseControllerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseControllerController.m; sourceTree = "<group>"; };
 		BDC6B4BB1A5B1A5D00E09F36 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuController.h; sourceTree = "<group>"; };
 		BDC6B4BC1A5B1A5D00E09F36 /* MenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuController.m; sourceTree = "<group>"; };
+		BDD5879C1A617A2B00200284 /* checkmark.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = checkmark.jpg; sourceTree = "<group>"; };
 		BDFD544E1A5EEA130062881B /* images.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpg; sourceTree = "<group>"; };
 		BDFD54501A5EEC970062881B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		BDFD54521A5EF2B90062881B /* ApplicationConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationConstant.h; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 		BD9BB8881A592E09008D9D06 = {
 			isa = PBXGroup;
 			children = (
+				BDD5879C1A617A2B00200284 /* checkmark.jpg */,
 				BD6B7A7D1A611A4600C43E8E /* Untitle.png */,
 				BD4A9D1A1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG */,
 				BDFD544E1A5EEA130062881B /* images.jpg */,
@@ -782,6 +785,7 @@
 				BDFD54DC1A5EF2B90062881B /* ashok.jpg in Resources */,
 				BD4A9D1B1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG in Resources */,
 				BDFD54D21A5EF2B90062881B /* Raleway-Regular.ttf in Resources */,
+				BDD5879D1A617A2B00200284 /* checkmark.jpg in Resources */,
 				BD7001071A5D80820087BD85 /* ResultAndNotificationCustomCell.xib in Resources */,
 				BD9BB8A21A592E09008D9D06 /* Images.xcassets in Resources */,
 				BDFD54D31A5EF2B90062881B /* Raleway-SemiBold.ttf in Resources */,

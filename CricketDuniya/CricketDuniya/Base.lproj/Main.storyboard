@@ -25,11 +25,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6QT-Dd-ijj">
-                                <rect key="frame" x="96" y="302" width="126" height="105"/>
+                                <rect key="frame" x="96" y="293" width="126" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <inset key="titleEdgeInsets" minX="-45" minY="0.0" maxX="30" maxY="-80"/>
-                                <inset key="imageEdgeInsets" minX="18" minY="0.0" maxX="0.0" maxY="29"/>
+                                <inset key="titleEdgeInsets" minX="-38" minY="0.0" maxX="33" maxY="-80"/>
+                                <inset key="imageEdgeInsets" minX="24" minY="0.0" maxX="-21" maxY="29"/>
                                 <state key="normal" title="ENTER" image="Untitle.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -98,7 +98,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.17254901959999999" green="0.3803921569" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.17254901960784313" green="0.38039215686274508" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
@@ -222,6 +222,7 @@
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="checkmark.jpg"/>
                                 <connections>
                                     <action selector="btnActionMale:" destination="yN2-c3-Plk" eventType="touchUpInside" id="wPT-dc-41D"/>
                                 </connections>
@@ -236,6 +237,7 @@
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" image="checkmark.jpg"/>
                                 <connections>
                                     <action selector="btnActionFemale:" destination="yN2-c3-Plk" eventType="touchUpInside" id="VDa-rb-ga1"/>
                                 </connections>
@@ -251,7 +253,6 @@
                                 </state>
                                 <connections>
                                     <action selector="btnActionSignUp:" destination="yN2-c3-Plk" eventType="touchUpInside" id="wmr-IA-aen"/>
-                                    <action selector="btnSignupAction:" destination="yN2-c3-Plk" eventType="touchUpInside" id="t3t-d4-Ucg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -263,15 +264,14 @@
                         <outlet property="btnMaleOutlet" destination="SZE-LN-s02" id="Ud9-2n-Zhq"/>
                         <outlet property="btnOutletFemale" destination="eNd-zh-8b2" id="P64-a4-B8C"/>
                         <outlet property="btnSignuOutlet" destination="cAm-AI-76a" id="34U-mv-IFR"/>
-                        <outlet property="btnoutletSignUp" destination="cAm-AI-76a" id="vc3-6w-wjm"/>
                         <outlet property="txtAge" destination="Qye-qa-oib" id="XXK-Zp-Sk6"/>
                         <outlet property="txtFirstName" destination="Yln-sV-CLK" id="uA8-ea-jZD"/>
-                        <segue destination="ALv-5C-xfn" kind="modal" identifier="fromsignup" animates="NO" id="Bel-fM-Cey"/>
+                        <segue destination="ALv-5C-xfn" kind="modal" identifier="dashboard" id="19r-YL-hQz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5QI-3d-6Go" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="651" y="1727"/>
+            <point key="canvasLocation" x="669" y="1719"/>
         </scene>
         <!--Base Controller Controller-->
         <scene sceneID="fFH-QE-q2r">
@@ -419,6 +419,9 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnActionMatch2:" destination="fhA-9L-fAZ" eventType="touchUpInside" id="kOR-Lb-ZVu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qjK-iN-hsr">
                                 <rect key="frame" x="217" y="68" width="87" height="19"/>
@@ -428,6 +431,9 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnActionMatch3:" destination="fhA-9L-fAZ" eventType="touchUpInside" id="xgi-DJ-lC9"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Rwf-jq-vJA">
                                 <rect key="frame" x="0.0" y="89" width="320" height="479"/>
@@ -607,6 +613,9 @@
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="tblActionFullScore:" destination="fhA-9L-fAZ" eventType="touchUpInside" id="bAX-qt-nB7"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="------------------------------------------------------------" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vpS-oY-0bb">
                                         <rect key="frame" x="19" y="298" width="282" height="3"/>
@@ -661,14 +670,14 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BALL BY COMMENNTRY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0un-UU-NIv">
-                                        <rect key="frame" x="25" y="323" width="226" height="21"/>
+                                        <rect key="frame" x="25" y="325" width="226" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
                                         <color key="textColor" red="0.12549019610000001" green="0.2274509804" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UWB-lU-vmk">
-                                        <rect key="frame" x="269" y="323" width="26" height="22"/>
+                                        <rect key="frame" x="269" y="324" width="26" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="R">
@@ -709,10 +718,31 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="btnActionMatch1" destination="48b-wB-Ui0" id="aNw-lL-D97"/>
+                        <outlet property="btnActionReloadCommenntry" destination="UWB-lU-vmk" id="m3V-C2-fru"/>
+                        <outlet property="btnOutletMatch1" destination="48b-wB-Ui0" id="n5h-xN-Sz6"/>
+                        <outlet property="imgCommenntry" destination="DgU-gg-p5a" id="rhR-9e-bsC"/>
+                        <outlet property="lblAskingRunRate" destination="Vam-ya-4bD" id="inb-hp-nDG"/>
+                        <outlet property="lblBallMember1" destination="P0n-d7-u5N" id="SHd-sb-K90"/>
+                        <outlet property="lblBallMember2" destination="4le-Wn-qwB" id="Phl-OM-C5h"/>
+                        <outlet property="lblBallbyCommenntry" destination="xgA-4K-fpU" id="7Yw-5a-zKn"/>
+                        <outlet property="lblBatingMember1" destination="b5h-w4-t3W" id="j5D-wA-AM9"/>
+                        <outlet property="lblBatingMember2" destination="l42-fK-YA9" id="sh2-w6-pvY"/>
+                        <outlet property="lblPresentRunRate" destination="05g-N2-Czz" id="AFy-RT-Exu"/>
+                        <outlet property="lblRunmember2" destination="3nl-Ij-yb0" id="hUe-6l-92s"/>
+                        <outlet property="lblScoreTarget1" destination="Cw6-3o-obw" id="4dy-7B-VZT"/>
+                        <outlet property="lblScoreTarget2" destination="9Q9-W0-XzM" id="lNc-rM-eE1"/>
+                        <outlet property="lblScoreTargetTeam2" destination="WbY-AO-obx" id="8mQ-1D-N46"/>
+                        <outlet property="lblTeamName1" destination="DAg-aV-4OF" id="KCD-GN-qtD"/>
+                        <outlet property="lblTeamName2" destination="fie-4t-VE8" id="Xns-lC-qld"/>
+                        <outlet property="lblThisOver" destination="D6C-2w-XIE" id="X0s-wB-mSh"/>
+                        <outlet property="lblmeMember1" destination="msA-f9-7oz" id="p0f-Su-pIA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OHC-p2-v7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1893" y="317"/>
+            <point key="canvasLocation" x="1905" y="408"/>
         </scene>
         <!--WHAT NEXT-->
         <scene sceneID="SYz-E4-Vqe">
@@ -757,6 +787,7 @@
     <resources>
         <image name="Cricket Duniya logo copy.JPG" width="269" height="79"/>
         <image name="Untitle.png" width="81" height="78"/>
+        <image name="checkmark.jpg" width="20" height="20"/>
         <image name="images.jpg" width="50" height="50"/>
         <image name="uncheck.png" width="19" height="18"/>
     </resources>

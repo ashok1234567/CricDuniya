@@ -41,6 +41,7 @@ static SharedData * objAppSharedData;
 @synthesize dictPatientInfo=_dictPatientInfo;
 @synthesize isComeFromPatientDashboard=_isComeFromPatientDashboard;
 @synthesize strLastTagName=_strLastTagName;
+@synthesize logingUserInfo=_logingUserInfo;
 
 
 
@@ -314,5 +315,35 @@ static SharedData * objAppSharedData;
     
     return image;
 }
-
+-(void)shakeAnimation:(UIView*) view {
+    const int reset = 5;
+    const int maxShakes = 6;
+    
+    //pass these as variables instead of statics or class variables if shaking two controls simultaneously
+    static int shakes = 2;
+    static int translate = reset;
+    
+    [UIView animateWithDuration:0.09-(shakes*.01) // reduce duration every shake from .09 to .04
+                          delay:0.01f//edge wait delay
+                        options:(enum UIViewAnimationOptions) UIViewAnimationCurveEaseInOut
+                     animations:^{view.transform = CGAffineTransformMakeTranslation(translate, 0);}
+                     completion:^(BOOL finished){
+                         if(shakes < maxShakes){
+                             shakes++;
+                             
+                             //throttle down movement
+                             if (translate>0)
+                                 translate--;
+                             
+                             //change direction
+                             translate*=-1;
+                             [self shakeAnimation:view];
+                         } else {
+                             view.transform = CGAffineTransformIdentity;
+                             shakes = 0;//ready for next time
+                             translate = reset;//ready for next time
+                             return;
+                         }
+                     }];
+}
 @end

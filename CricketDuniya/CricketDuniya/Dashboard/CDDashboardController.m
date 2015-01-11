@@ -18,6 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:58/255.0f green:147/255.0f blue:74/255.0f alpha:1.0]};
+    
+    [self callServiceForDashboard];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,5 +48,46 @@
     // Pass the selected object to the new view controller.
 }
 */
+-(void)callServiceForDashboard
+{
+    
+  //  NSDictionary* valueDic=[NSDictionary dictionaryWithObjectsAndKeys:_txtFirstName.text,@"first_last_name",_txtAge.text,@"gender",@"M",@"age",@"",@"profile_img",SocialType,@"user_from",@"0",@"facebook_id",nil];
+    
+    NSDictionary* valueDic=[[NSDictionary alloc]init];
+    NSString *methodName = LiveScore_Url;
+    
+    //for ActivityIndicator start
+    //  [appDelegate startActivityIndicator:self.view withText:Progressing];
+    
+    WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
+    objWebServiceHandler.delegate = self;
+    
+    //for AFNetworking request
+    [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
+    
+}
 
+-(void)webServiceHandler:(WebserviceHandler *)webHandler recievedResponse:(NSDictionary *)dicResponce
+{
+    NSLog(@"dicResponce:-%@",[dicResponce valueForKey:@"microscorecard_data_items"]);
+    [appDelegate stopActivityIndicator];
+    
+    
+    
+}
+-(void) webServiceHandler:(WebserviceHandler *)webHandler requestFailedWithError:(NSError *)error
+{
+    
+    NSLog(@"dicResponce:-%@",[error description]);
+    [appDelegate stopActivityIndicator];
+    //remove it after WS call
+}
+
+- (IBAction)btnActionMatch2:(id)sender {
+}
+
+- (IBAction)btnActionMatch3:(id)sender {
+}
+- (IBAction)tblActionFullScore:(id)sender {
+}
 @end

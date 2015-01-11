@@ -16,6 +16,7 @@
 @interface SharedData : NSObject<WebServiceHandlerDelegate >
 @property (nonatomic,strong)  CLLocation *currentLocation;
 @property (nonatomic,strong)  NSString* str_DeviceToken;
+@property (nonatomic,strong)  NSMutableDictionary* logingUserInfo;
 @property (strong, nonatomic) User *objCurrentUser;
 @property (nonatomic,assign)  BOOL isLoggedin;
 @property (nonatomic,assign)  BOOL bool_sliderOpen,isCheckTrue;
@@ -70,4 +71,7 @@
 
 #pragma mark ImageFrom UIColor
 + (UIImage *)imageWithColor:(UIColor *)color;
+
+#pragma mark anmate text view
+-(void)shakeAnimation:(UIView*) view;
 @end

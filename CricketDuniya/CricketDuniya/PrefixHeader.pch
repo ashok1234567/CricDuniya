@@ -37,12 +37,9 @@
 //For Development
 
 ////For Staggin
-#define URL_DOMAIN_USER @"http://cricapi.amarujala.com/getdata/"
+#define URL_DOMAIN_USER @"http://api.amarujala.com/crid/livescore/"
 #define URL_DOMAIN @"http://cricapi.amarujala.com/getdata/"
-#define URL_DOMAIN_ImageUpload @"http://cricapi.amarujala.com/getdata/"
-
-
-
+//#define URL_DOMAIN_ImageUpload @"http://cricapi.amarujala.com/getdata/"
 
 #define RequestTimeOutInterval   180
 #define URL_Log(url_name,url_string) NSLog(@"%@ :%@",url_name,url_string);
@@ -52,6 +49,8 @@
 
 #pragma mark - Webservice Methods Name
 #define SignIN_Url               @"user_login"
+#define SignUp_Url               @"update_profile"
+#define LiveScore_Url           @"livematchs.json"
 
 
-#define GenerateToken_url        @"GenerateToken"zzz
+#define GenerateToken_url        @"GenerateToken"

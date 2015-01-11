@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SignUpController : UIViewController
+@interface SignUpController : UIViewController<WebServiceHandlerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *btnSignuOutlet;
 - (IBAction)btnSignupAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *txtFirstName;
