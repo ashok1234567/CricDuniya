@@ -42,7 +42,7 @@ static SharedData * objAppSharedData;
 @synthesize isComeFromPatientDashboard=_isComeFromPatientDashboard;
 @synthesize strLastTagName=_strLastTagName;
 @synthesize logingUserInfo=_logingUserInfo;
-
+@synthesize isNoLiveMatch=_isNoLiveMatch;
 
 
 -(id)init

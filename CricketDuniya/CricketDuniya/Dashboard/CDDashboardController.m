@@ -8,6 +8,8 @@
 
 #import "CDDashboardController.h"
 #import "REFrostedViewController.h"
+#import "AS_CustomNavigationController.h"
+#import "ScheduleController.h"
 @interface CDDashboardController ()
 
 @end
@@ -19,6 +21,12 @@
     // Do any additional setup after loading the view.
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:58/255.0f green:147/255.0f blue:74/255.0f alpha:1.0]};
     
+//    if(objSharedData.isNoLiveMatch){
+//        AS_CustomNavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentController"];
+//        ScheduleController *objScheduleController = [self.storyboard instantiateViewControllerWithIdentifier:@"schedule"];
+//        
+//        navigationController.viewControllers = @[objScheduleController];
+//    }
     [self callServiceForDashboard];
 }
 
@@ -57,7 +65,7 @@
     NSString *methodName = LiveScore_Url;
     
     //for ActivityIndicator start
-    //  [appDelegate startActivityIndicator:self.view withText:Progressing];
+    [appDelegate startActivityIndicator:self.view withText:Progressing];
     
     WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
     objWebServiceHandler.delegate = self;

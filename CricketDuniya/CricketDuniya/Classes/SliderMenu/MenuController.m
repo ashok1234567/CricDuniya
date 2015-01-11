@@ -13,6 +13,7 @@
 #import "WhatNextController.h"
 #import "CategoryCustomCell.h"
 #import "ResultAndNotificationCustomCell.h"
+#import "ScheduleController.h"
 @interface MenuController ()
 {
     NSArray *titles;
@@ -43,7 +44,6 @@
         [objDicNotification addObject:objTempDicResult];
     }
     
-    
     titles = @[@"LIVE SCORE", @"WHAT NEXT", @"MY PAGE",@"LAST OVER CHANGE PEY",@"SCHEDULE",@"LEASER BOARD",@"NEWS & STATS",@"INVITE FRIENDS",@"SETTING",@"LOG OUT"];
 
 
@@ -64,7 +64,7 @@
         imageView.clipsToBounds = YES;
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 0, 24)];
-        label.text =  [objSharedData.logingUserInfo valueForKey:@"firstName"];
+        label.text =  [objSharedData.logingUserInfo valueForKey:@"userName"];
         label.font = [UIFont fontWithName:@"Helvetica Neue" size:17];
         label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
@@ -155,13 +155,17 @@
     if (indexPath.row == 0) {
         CDDashboardController *homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Dashboard"];
         navigationController.viewControllers = @[homeViewController];
-    } else {
+    } else  if (indexPath.row == 1) {
         WhatNextController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"whatnext"];
         navigationController.viewControllers = @[secondViewController];
-    }
-    if (indexPath.row == 9) {
+    }else  if (indexPath.row == 4){
         
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        ScheduleController *objScheduleController = [self.storyboard instantiateViewControllerWithIdentifier:@"schedule"];
+        navigationController.viewControllers = @[objScheduleController];
+        
+    }else if (indexPath.row == 9) {
+        
+       // [self.navigationController popToRootViewControllerAnimated:YES];
     }
     
     self.frostedViewController.contentViewController = navigationController;

@@ -52,5 +52,9 @@
 #define SignUp_Url               @"update_profile"
 #define LiveScore_Url           @"livematchs.json"
 
+#define LiveScheduleMatch_Url           @"livematchs.json"
+#define LiveScheduleSeries_Url           @"livematchs.json"
+#define LiveScheduleCountry_Url           @"livematchs.json"
+
 
 #define GenerateToken_url        @"GenerateToken"

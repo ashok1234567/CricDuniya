@@ -83,7 +83,7 @@
     NSString *methodName = SignUp_Url;
     
     //for ActivityIndicator start
-    //  [appDelegate startActivityIndicator:self.view withText:Progressing];
+      [appDelegate startActivityIndicator:self.view withText:Progressing];
     
     WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
     objWebServiceHandler.delegate = self;

@@ -19,6 +19,7 @@
 @property (nonatomic,strong)  NSMutableDictionary* logingUserInfo;
 @property (strong, nonatomic) User *objCurrentUser;
 @property (nonatomic,assign)  BOOL isLoggedin;
+@property (nonatomic,assign)  BOOL isNoLiveMatch;
 @property (nonatomic,assign)  BOOL bool_sliderOpen,isCheckTrue;
 @property (nonatomic,strong)  id btn_sender;
 @property(nonatomic,retain) MKPlacemark *myPlacemark;

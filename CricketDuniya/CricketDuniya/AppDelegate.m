@@ -8,12 +8,13 @@
 
 #import "AppDelegate.h"
 #import "Reachability.h"
-
+#import "AlertDialogProgressView.h"
 AppDelegate *appDelegate;
 SharedData *objSharedData;
 @interface AppDelegate ()
 {
     AppLoader *objLoader;
+      AlertDialogProgressView *_alertDialogProgressView;
 }
 
 @end
@@ -96,13 +97,26 @@ SharedData *objSharedData;
 }
 #pragma mark - Loader methods implementation
 
+#pragma mark - AlertDialogProgressViewDelegate methods implementation
+-(void)startActivityIndicator{
+    [self startActivityIndicator:nil withText:@"Data Uploading..."];
+}
 -(void)startActivityIndicator:(UIView *)view withText:(NSString *)text{
-    objLoader = [AppLoader initLoaderView];
-    [objLoader startActivityLoader:view :text];
+    
+    if(_alertDialogProgressView == nil){
+        _alertDialogProgressView = [[AlertDialogProgressView alloc] initWithView:appDelegate.window];
+    }
+    [appDelegate.window addSubview:_alertDialogProgressView];
+    _alertDialogProgressView.delegate = self;
+    _alertDialogProgressView.detailsLabelText = text;
+    _alertDialogProgressView.taskInProgress = YES;
+    [_alertDialogProgressView show:YES];
 }
 
 -(void)stopActivityIndicator{
-    [objLoader stopActivityLoader];
+    if (_alertDialogProgressView.taskInProgress == YES) {
+        [_alertDialogProgressView hide:YES];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

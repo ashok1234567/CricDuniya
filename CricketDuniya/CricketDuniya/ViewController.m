@@ -38,6 +38,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark  TextField Delegate methods
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+   
+    return YES;
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+
+}
+
+
 #pragma mark Custom methods
 
 - (IBAction)btnEnterAction:(id)sender {
@@ -74,7 +86,7 @@
     NSString *methodName = SignIN_Url;
     
     //for ActivityIndicator start
-  //  [appDelegate startActivityIndicator:self.view withText:Progressing];
+    [appDelegate startActivityIndicator:self.view withText:Progressing];
     
     WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
     objWebServiceHandler.delegate = self;
@@ -91,6 +103,7 @@
     if([[dicResponce valueForKey:@"message"] isEqualToString:@"User Login Sucessfully"]){
         
         objSharedData.logingUserInfo=[dicResponce valueForKey:@"data"];
+        objSharedData.isNoLiveMatch=YES;
         [self performSegueWithIdentifier:@"login" sender:nil];
     }else if([[dicResponce valueForKey:@"message"] isEqualToString:@"Registred Sucessfully"]){
              [self performSegueWithIdentifier:@"signup" sender:nil];
