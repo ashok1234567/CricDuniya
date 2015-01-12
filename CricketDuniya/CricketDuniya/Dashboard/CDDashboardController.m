@@ -11,7 +11,9 @@
 #import "AS_CustomNavigationController.h"
 #import "ScheduleController.h"
 @interface CDDashboardController ()
-
+{
+    NSMutableDictionary*objDicLiveMatchData;
+}
 @end
 
 @implementation CDDashboardController
@@ -33,6 +35,16 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+#pragma mark Custom methods
+-(void)reloadDataOnScreen {
+    
+    _lblTeamName1.text=[objDicLiveMatchData objectForKey:@"batting_team_tinitial"];
+     _lblTeamName2.text=[objDicLiveMatchData objectForKey:@"bowling_team_tinitial"];//
+     _lblAskingRunRate.text=[objDicLiveMatchData objectForKey:@"match_status"];
+     _lblScoreTarget1.text=[objDicLiveMatchData objectForKey:@"inning_descr_s"];
+     _lblScoreTarget2.text=[objDicLiveMatchData objectForKey:@"inning_descr_s"];
+    
 }
 - (IBAction)btnMenu:(id)sender {
     // Dismiss keyboard (optional)
@@ -78,7 +90,20 @@
 -(void)webServiceHandler:(WebserviceHandler *)webHandler recievedResponse:(NSDictionary *)dicResponce
 {
     NSLog(@"dicResponce:-%@",[dicResponce valueForKey:@"microscorecard_data_items"]);
-    [appDelegate stopActivityIndicator];
+     [appDelegate stopActivityIndicator];
+    
+    if([dicResponce valueForKey:@"microscorecard_data_items"]){
+        objDicLiveMatchData=[[dicResponce valueForKey:@"microscorecard_data_items"] objectAtIndex:0];
+        //setup or reload live data
+        
+        [self reloadDataOnScreen];
+    }
+    
+    
+    ScheduleController *objScheduleController = [self.storyboard instantiateViewControllerWithIdentifier:@"schedule"];
+    self.navigationController.viewControllers = @[objScheduleController];
+    
+   
     
     
     

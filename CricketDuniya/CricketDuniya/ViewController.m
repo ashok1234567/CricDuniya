@@ -103,8 +103,10 @@
     if([[dicResponce valueForKey:@"message"] isEqualToString:@"User Login Sucessfully"]){
         
         objSharedData.logingUserInfo=[dicResponce valueForKey:@"data"];
-        objSharedData.isNoLiveMatch=YES;
+        
         [self performSegueWithIdentifier:@"login" sender:nil];
+        
+        
     }else if([[dicResponce valueForKey:@"message"] isEqualToString:@"Registred Sucessfully"]){
              [self performSegueWithIdentifier:@"signup" sender:nil];
     }else{
