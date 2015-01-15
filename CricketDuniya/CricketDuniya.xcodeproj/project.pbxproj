@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD2836B81A68297800AE2BA8 /* SelectionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2836B71A68297800AE2BA8 /* SelectionsController.m */; };
 		BD4A9D1B1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG in Resources */ = {isa = PBXBuildFile; fileRef = BD4A9D1A1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG */; };
 		BD4A9D1D1A5C6D8E00CD6FAF /* uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4A9D1C1A5C6D8E00CD6FAF /* uncheck.png */; };
 		BD4A9D201A5C6EDB00CD6FAF /* SignUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4A9D1F1A5C6EDB00CD6FAF /* SignUpController.m */; };
@@ -107,6 +108,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD2836B61A68297800AE2BA8 /* SelectionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionsController.h; sourceTree = "<group>"; };
+		BD2836B71A68297800AE2BA8 /* SelectionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionsController.m; sourceTree = "<group>"; };
 		BD4A9CDF1A5C630800CD6FAF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BD4A9CE11A5C632400CD6FAF /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		BD4A9CE31A5C634700CD6FAF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -286,6 +289,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD2836B51A68294C00AE2BA8 /* Selection */ = {
+			isa = PBXGroup;
+			children = (
+				BD2836B61A68297800AE2BA8 /* SelectionsController.h */,
+				BD2836B71A68297800AE2BA8 /* SelectionsController.m */,
+			);
+			path = Selection;
+			sourceTree = "<group>";
+		};
 		BD4A9D191A5C642800CD6FAF /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +387,7 @@
 			children = (
 				BDC673541A62AE0A0023D2F4 /* ScheduleController.h */,
 				BDC673551A62AE0A0023D2F4 /* ScheduleController.m */,
+				BD2836B51A68294C00AE2BA8 /* Selection */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -908,6 +921,7 @@
 				BDFD54E91A5EF2B90062881B /* RegexKitLite.m in Sources */,
 				BDFD54EF1A5EF2B90062881B /* AFSecurityPolicy.m in Sources */,
 				BDFD54E51A5EF2B90062881B /* TPKeyboardAvoidingCollectionView.m in Sources */,
+				BD2836B81A68297800AE2BA8 /* SelectionsController.m in Sources */,
 				BDFD54E71A5EF2B90062881B /* TPKeyboardAvoidingTableView.m in Sources */,
 				BD9BB89D1A592E09008D9D06 /* ViewController.m in Sources */,
 				BDFD54DA1A5EF2B90062881B /* UINavigationItem+iOS7Spacing.m in Sources */,

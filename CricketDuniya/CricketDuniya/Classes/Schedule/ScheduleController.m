@@ -8,7 +8,8 @@
 
 #import "ScheduleController.h"
 #import "REFrostedViewController.h"
-@interface ScheduleController ()<WebServiceHandlerDelegate>
+#import "SelectionsController.h"
+@interface ScheduleController ()<WebServiceHandlerDelegate,SelectCategory>
 {
     NSMutableArray *objArrScheduleData;
 }
@@ -54,15 +55,19 @@
     self.frostedViewController.direction=REFrostedViewControllerDirectionRight;
     [self.frostedViewController presentMenuViewController];
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    SelectionsController *objSelectionsController=[segue destinationViewController];
+    UIButton *tempbtn=(UIButton*)sender;
+    objSelectionsController.category=tempbtn.tag;
+    objSelectionsController.Pdelegate=self;
 }
-*/
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -111,17 +116,24 @@
             break;
         case 2:
             //call service for series/tuornament data
-               [self callServiceForSchedule:LiveScheduleSeries_Url];
+         [self performSegueWithIdentifier:@"tournament" sender:sender];
+            
             break;
         case 3:
             //call service for country
-               [self callServiceForSchedule:LiveScheduleCountry_Url];
+            [self performSegueWithIdentifier:@"country" sender:sender];
             break;
             
         default:
             break;
     }
 }
+-(void)SelectedCategory:(NSString*)Cat{
+    NSLog(@"cat=%@",Cat);
+    ///web server for load data for selected category
+}
+
+#pragma marg WebService
 
 -(void)callServiceForSchedule :(NSString*)methodName
 {
