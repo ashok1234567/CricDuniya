@@ -98,10 +98,11 @@
         
         [self reloadDataOnScreen];
     }
-    
+    else
+        {
     ScheduleController *objScheduleController = [self.storyboard instantiateViewControllerWithIdentifier:@"schedule"];
     self.navigationController.viewControllers = @[objScheduleController];
-    
+        }
    
     
     

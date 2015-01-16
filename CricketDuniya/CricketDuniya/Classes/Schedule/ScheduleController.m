@@ -25,18 +25,37 @@
      self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:58/255.0f green:147/255.0f blue:74/255.0f alpha:1.0]};
     
     
-    for (int i=0; i<5; i++) {
-        NSMutableDictionary *objTempDicResult=[[NSMutableDictionary alloc]init];
-        [objTempDicResult setValue:@"Jan, 2015" forKey:@"data1"];
-        [objTempDicResult setValue:@"14 JAN" forKey:@"data2"];
-        [objTempDicResult setValue:@"IND v/s PAK,3rd match" forKey:@"data3"];
-        [objTempDicResult setValue:@"20.00 IST/ 13.34 GMT" forKey:@"data4"];
-        [objTempDicResult setValue:@"New Dehli, India" forKey:@"data5"];
-        
-        [objArrScheduleData addObject:objTempDicResult];
-       
-    }
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:[NSDate date]];
 
+    int year = [components year];
+    int month = [components month];
+        //int day = [components day];
+
+
+    NSString * dateString = [NSString stringWithFormat: @"%d", month];
+
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM"];
+    NSDate* myDate = [dateFormatter dateFromString:dateString];
+
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM"];
+    NSString *stringFromDate = [[formatter stringFromDate:myDate] lowercaseString];
+
+        // NSString *stringFromDate =[self monthNameFromDate:[NSDate date]];
+
+    NSMutableString *methodName=[NSMutableString string];
+    [methodName appendString:@"fixtures/"];
+    [methodName appendString:stringFromDate];
+    [methodName appendString:@"-"];
+    [methodName appendString: [NSString stringWithFormat:@"%d",year]];
+    [methodName appendString: @".json"];
+
+
+
+
+    [self callServiceForSchedule:methodName];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,20 +104,19 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     UILabel *lblDate=(UILabel*)[cell viewWithTag:5];
-    lblDate.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"data1"];
-    lblDate.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"data1"];
+    lblDate.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mdate"];
 
     UILabel *lblDay=(UILabel*)[cell viewWithTag:1];
-    lblDay.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"data2"];
-    
+    lblDay.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mdate"];
+
     UILabel *lblMatchName=(UILabel*)[cell viewWithTag:2];
-    lblMatchName.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"data3"];
-    
+    lblMatchName.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mname"];
+
     UILabel *lblMatchTime=(UILabel*)[cell viewWithTag:3];
-    lblMatchTime.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"data4"];
-    
+    lblMatchTime.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mtime"];
+
     UILabel *lblMatchVenue=(UILabel*)[cell viewWithTag:4];
-    lblMatchVenue.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"data5"];
+    lblMatchVenue.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mvenue"];
     
         
         return cell;
@@ -116,12 +134,14 @@
             break;
         case 2:
             //call service for series/tuornament data
+            _selected_category=2;
          [self performSegueWithIdentifier:@"tournament" sender:sender];
             
             break;
         case 3:
             //call service for country
             [self performSegueWithIdentifier:@"country" sender:sender];
+            _selected_category=3;
             break;
             
         default:
@@ -129,8 +149,35 @@
     }
 }
 -(void)SelectedCategory:(NSString*)Cat{
-    NSLog(@"cat=%@",Cat);
-    ///web server for load data for selected category
+
+    NSDictionary* selectedValue=[[NSDictionary alloc]init];
+
+    selectedValue= Cat;
+
+    if (_selected_category==2)
+        {
+    NSLog(@"tournamentid=%@",[selectedValue valueForKey:@"tournamentid"]);
+        NSMutableString *methodName=[NSMutableString string];
+        [methodName appendString:@"fixtures/"];
+        [methodName appendString:[selectedValue valueForKey:@"tournamentid"]];
+        [methodName appendString:@"_match_list.json"];
+
+        [self callServiceForSchedule:methodName];
+
+        }
+    else if (_selected_category==3)
+        {
+     NSLog(@"team_a=%@",[selectedValue valueForKey:@"team_a"]);
+        NSMutableString *methodName=[NSMutableString string];
+        [methodName appendString:@"fixtures/"];
+        [methodName appendString:[[[selectedValue valueForKey:@"team_a"] stringByReplacingOccurrencesOfString:@" " withString:@"_"] lowercaseString]];
+        [methodName appendString:@".json"];
+
+        [self callServiceForSchedule:methodName];
+        }
+
+
+
 }
 
 #pragma marg WebService
@@ -156,10 +203,12 @@
 
 -(void)webServiceHandler:(WebserviceHandler *)webHandler recievedResponse:(NSDictionary *)dicResponce
 {
-    NSLog(@"dicResponce:-%@",[dicResponce valueForKey:@"microscorecard_data_items"]);
+
+
+    objArrScheduleData =dicResponce ;
+    [self.mytbl reloadData];
     [appDelegate stopActivityIndicator];
-    
-    
+
     
 }
 -(void) webServiceHandler:(WebserviceHandler *)webHandler requestFailedWithError:(NSError *)error

@@ -10,5 +10,7 @@
 
 @interface ScheduleController : UIViewController
 - (IBAction)btnActionSoftByCatgory:(id)sender;
+@property (nonatomic)int selected_category;
+@property (strong, nonatomic) IBOutlet UITableView *mytbl;
 
 @end

@@ -19,6 +19,7 @@
 }
 @property (nonatomic)int category;
 @property (nonatomic, retain) id <SelectCategory> Pdelegate;;
+@property (strong, nonatomic) IBOutlet UITableView *mytbl;
 
 - (IBAction)btnCancel:(id)sender;
 @end

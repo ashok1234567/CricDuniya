@@ -21,23 +21,23 @@
     // Do any additional setup after loading the view.
     
     
-//    switch (_category) {
-//        
-//        case 2:
-//            //call service for series/tuornament data
-//            
-//              [self callServiceForSchedule:LiveScheduleSeries_Url];
-//            break;
-//        case 3:
-//            //call service for country
-//              [self callServiceForSchedule:LiveScheduleCountry_Url];
-//            break;
-//            
-//        default:
-//            break;
-//    }
+    switch (_category) {
+        
+        case 2:
+            //call service for series/tuornament data
+            
+              [self callServiceForSchedule:Tournament_Url];
+            break;
+        case 3:
+            //call service for country
+              [self callServiceForSchedule:Country_Url];
+            break;
+            
+        default:
+            break;
+    }
 
-    objArrScheduleData=[[NSMutableArray alloc]initWithObjects:@"test",@"test",@"test",@"test",@"test",@"test", nil];
+        // objArrScheduleData=[[NSMutableArray alloc]initWithObjects:@"test",@"test",@"test",@"test",@"test",@"test", nil];
     
 }
 
@@ -71,8 +71,16 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    cell.textLabel.text=[objArrScheduleData objectAtIndex:indexPath.row];
+    if (_category==2)
+        {
+    cell.textLabel.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"tournament_name"];
+        }
+    else if (_category==3)
+        {
+        cell.textLabel.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"team_a"];
+
+        }
+
     
     return cell;
     
@@ -106,7 +114,9 @@
 
 -(void)webServiceHandler:(WebserviceHandler *)webHandler recievedResponse:(NSDictionary *)dicResponce
 {
-    NSLog(@"dicResponce:-%@",[dicResponce valueForKey:@"microscorecard_data_items"]);
+    NSLog(@"dicResponce:-%@",dicResponce);
+    objArrScheduleData =dicResponce ;
+    [self.mytbl reloadData];
     [appDelegate stopActivityIndicator];
  
 }
