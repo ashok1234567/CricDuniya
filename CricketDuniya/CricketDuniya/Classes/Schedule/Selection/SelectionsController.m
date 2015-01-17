@@ -19,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //setup  table view edge
+    [self.mytbl setContentInset:UIEdgeInsetsMake(-40, 0, 0, 0)];
     
     
     switch (_category) {
