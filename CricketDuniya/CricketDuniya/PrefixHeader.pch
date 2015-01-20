@@ -51,6 +51,7 @@
 #define SignIN_Url               @"user_login"
 #define SignUp_Url               @"update_profile"
 #define LiveScore_Url           @"livematchs.json"
+#define MiniScore_Url           @"2/"
 
 #define LiveScheduleMatch_Url           @"fixtures/"
 #define LiveScheduleSeries_Url           @"livematchs.json"
