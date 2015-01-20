@@ -32,6 +32,7 @@
 #import "ValidationManager.h"
 #import "WebserviceHandler.h"
 #import "AFNetworking.h"
+#import <FacebookSDK/FacebookSDK.h>
 #endif
 #pragma mark - Appliction Webservice URL
 //For Development
@@ -39,7 +40,10 @@
 ////For Staggin
 #define URL_DOMAIN_USER @"http://api.amarujala.com/crid/livescore/"
 #define URL_DOMAIN @"http://cricapi.amarujala.com/getdata/"
-//#define URL_DOMAIN_ImageUpload @"http://cricapi.amarujala.com/getdata/"
+
+#define fbAppID @"1571908079716997"
+
+
 
 #define RequestTimeOutInterval   180
 #define URL_Log(url_name,url_string) NSLog(@"%@ :%@",url_name,url_string);

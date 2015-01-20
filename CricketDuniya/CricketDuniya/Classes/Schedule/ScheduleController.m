@@ -22,6 +22,8 @@
     // Do any additional setup after loading the view.
     
     objArrScheduleData=[[NSMutableArray alloc]initWithCapacity:0];
+    
+    //set navagition title color
      self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:58/255.0f green:147/255.0f blue:74/255.0f alpha:1.0]};
     
     
@@ -54,7 +56,7 @@
 
 
 
-
+    //call web services for get schedule from server and open new controller 
     [self callServiceForSchedule:methodName];
 }
 

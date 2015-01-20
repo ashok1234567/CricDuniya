@@ -14,6 +14,7 @@
 #import "CategoryCustomCell.h"
 #import "ResultAndNotificationCustomCell.h"
 #import "ScheduleController.h"
+#import "LeaderBoardController.h"
 @interface MenuController ()
 {
     NSArray *titles;
@@ -162,6 +163,11 @@
         
         ScheduleController *objScheduleController = [self.storyboard instantiateViewControllerWithIdentifier:@"schedule"];
         navigationController.viewControllers = @[objScheduleController];
+    }else if(indexPath.row==5){
+        
+        LeaderBoardController *objLeaderBoardController = [self.storyboard instantiateViewControllerWithIdentifier:@"leaderboard"];
+        navigationController.viewControllers = @[objLeaderBoardController];
+    
         
     }else if (indexPath.row == 9) {
         

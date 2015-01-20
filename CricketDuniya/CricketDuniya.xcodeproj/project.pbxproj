@@ -23,13 +23,15 @@
 		BD9BB8A21A592E09008D9D06 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD9BB8A11A592E09008D9D06 /* Images.xcassets */; };
 		BD9BB8A51A592E09008D9D06 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD9BB8A31A592E09008D9D06 /* LaunchScreen.xib */; };
 		BD9BB8B11A592E0A008D9D06 /* CricketDuniyaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9BB8B01A592E0A008D9D06 /* CricketDuniyaTests.m */; };
+		BDA975EB1A6EC8C7009A69C3 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA975EA1A6EC8C7009A69C3 /* FacebookSDK.framework */; };
+		BDA975EF1A6ED6F8009A69C3 /* LeaderBoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA975EE1A6ED6F8009A69C3 /* LeaderBoardController.m */; };
 		BDC673561A62AE0A0023D2F4 /* ScheduleController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC673551A62AE0A0023D2F4 /* ScheduleController.m */; };
 		BDC6B4B11A5AF1A000E09F36 /* CDDashboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC6B4B01A5AF1A000E09F36 /* CDDashboardController.m */; };
 		BDC6B4B51A5AF34600E09F36 /* WhatNextController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC6B4B41A5AF34600E09F36 /* WhatNextController.m */; };
 		BDC6B4B81A5AF56F00E09F36 /* BaseControllerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC6B4B71A5AF56F00E09F36 /* BaseControllerController.m */; };
 		BDC6B4BD1A5B1A5D00E09F36 /* MenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC6B4BC1A5B1A5D00E09F36 /* MenuController.m */; };
 		BDD5879D1A617A2B00200284 /* checkmark.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BDD5879C1A617A2B00200284 /* checkmark.jpg */; };
-		BDD5AF601A62BDB700604979 /* AlertDialogProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD5AF541A62BDB700604979 /* AlertDialogProgressView.m */; };
+		BDD5AF601A62BDB700604979 /* AlertDialogProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = BDD5AF541A62BDB700604979 /* AlertDialogProgressView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BDD5AF611A62BDB700604979 /* loader_rotate_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD5AF561A62BDB700604979 /* loader_rotate_arrow.png */; };
 		BDD5AF621A62BDB700604979 /* loader_step1.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD5AF571A62BDB700604979 /* loader_step1.png */; };
 		BDD5AF631A62BDB700604979 /* loader_step1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDD5AF581A62BDB700604979 /* loader_step1@2x.png */; };
@@ -138,6 +140,9 @@
 		BD9BB8AA1A592E0A008D9D06 /* CricketDuniyaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CricketDuniyaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9BB8AF1A592E0A008D9D06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD9BB8B01A592E0A008D9D06 /* CricketDuniyaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CricketDuniyaTests.m; sourceTree = "<group>"; };
+		BDA975EA1A6EC8C7009A69C3 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		BDA975ED1A6ED6F8009A69C3 /* LeaderBoardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderBoardController.h; sourceTree = "<group>"; };
+		BDA975EE1A6ED6F8009A69C3 /* LeaderBoardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderBoardController.m; sourceTree = "<group>"; };
 		BDC673541A62AE0A0023D2F4 /* ScheduleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleController.h; sourceTree = "<group>"; };
 		BDC673551A62AE0A0023D2F4 /* ScheduleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleController.m; sourceTree = "<group>"; };
 		BDC6B4AF1A5AF1A000E09F36 /* CDDashboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDDashboardController.h; sourceTree = "<group>"; };
@@ -273,6 +278,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDA975EB1A6EC8C7009A69C3 /* FacebookSDK.framework in Frameworks */,
 				BDFD55031A5EFB2E0062881B /* libxml2.2.dylib in Frameworks */,
 				BDFD55011A5EFB280062881B /* Security.framework in Frameworks */,
 				BDFD54FF1A5EFB1C0062881B /* SystemConfiguration.framework in Frameworks */,
@@ -301,6 +307,7 @@
 		BD4A9D191A5C642800CD6FAF /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				BDA975EA1A6EC8C7009A69C3 /* FacebookSDK.framework */,
 				BDFD55021A5EFB2E0062881B /* libxml2.2.dylib */,
 				BDFD55001A5EFB280062881B /* Security.framework */,
 				BDFD54FE1A5EFB1C0062881B /* SystemConfiguration.framework */,
@@ -382,6 +389,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BDA975EC1A6ED6E5009A69C3 /* Leader Borad */ = {
+			isa = PBXGroup;
+			children = (
+				BDA975ED1A6ED6F8009A69C3 /* LeaderBoardController.h */,
+				BDA975EE1A6ED6F8009A69C3 /* LeaderBoardController.m */,
+			);
+			path = "Leader Borad";
+			sourceTree = "<group>";
+		};
 		BDC673531A62ADE80023D2F4 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +475,7 @@
 		BDC6B4B91A5B1A0700E09F36 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BDA975EC1A6ED6E5009A69C3 /* Leader Borad */,
 				BDC673531A62ADE80023D2F4 /* Schedule */,
 				BDC6B4BA1A5B1A4A00E09F36 /* SliderMenu */,
 				BDC6B4B21A5AF33000E09F36 /* WhatNext */,
@@ -908,6 +925,7 @@
 				BDFD54DD1A5EF2B90062881B /* RECommonFunctions.m in Sources */,
 				BDFD54D41A5EF2B90062881B /* AppLoader.m in Sources */,
 				BDFD54F71A5EF2BA0062881B /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				BDA975EF1A6ED6F8009A69C3 /* LeaderBoardController.m in Sources */,
 				BDFD54F81A5EF2BA0062881B /* UIAlertView+AFNetworking.m in Sources */,
 				BDFD54E31A5EF2B90062881B /* MCSpriteLayer.m in Sources */,
 				BDFD54EC1A5EF2B90062881B /* AFHTTPRequestOperationManager.m in Sources */,
@@ -1073,6 +1091,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/vivekjain/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/CricketDuniya/PrefixHeader.pch";
 				INFOPLIST_FILE = CricketDuniya/Info.plist;
@@ -1086,6 +1108,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/vivekjain/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/CricketDuniya/PrefixHeader.pch";
 				INFOPLIST_FILE = CricketDuniya/Info.plist;
