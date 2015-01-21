@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnLoginOutlet;
 - (IBAction)btnActionLogin:(id)sender;
 - (IBAction)btnActionLoginWithFacebook:(id)sender;
+- (IBAction)TextDidChange:(id)sender;
 
 @end
 

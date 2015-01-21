@@ -13,6 +13,8 @@
 		BD4A9D201A5C6EDB00CD6FAF /* SignUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4A9D1F1A5C6EDB00CD6FAF /* SignUpController.m */; };
 		BD4A9D241A5C7F7300CD6FAF /* CategoryCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4A9D221A5C7F7300CD6FAF /* CategoryCustomCell.m */; };
 		BD4A9D251A5C7F7300CD6FAF /* CategoryCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4A9D231A5C7F7300CD6FAF /* CategoryCustomCell.xib */; };
+		BD52FA561A7008F2007A239A /* MatchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD52FA551A7008F2007A239A /* MatchResultController.m */; };
+		BD52FA5A1A702F41007A239A /* FullLiveScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD52FA591A702F41007A239A /* FullLiveScoreController.m */; };
 		BD6B7A7E1A611A4600C43E8E /* Untitle.png in Resources */ = {isa = PBXBuildFile; fileRef = BD6B7A7D1A611A4600C43E8E /* Untitle.png */; };
 		BD7001061A5D80820087BD85 /* ResultAndNotificationCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7001041A5D80820087BD85 /* ResultAndNotificationCustomCell.m */; };
 		BD7001071A5D80820087BD85 /* ResultAndNotificationCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD7001051A5D80820087BD85 /* ResultAndNotificationCustomCell.xib */; };
@@ -123,6 +125,10 @@
 		BD4A9D211A5C7F7300CD6FAF /* CategoryCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCustomCell.h; sourceTree = "<group>"; };
 		BD4A9D221A5C7F7300CD6FAF /* CategoryCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCustomCell.m; sourceTree = "<group>"; };
 		BD4A9D231A5C7F7300CD6FAF /* CategoryCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryCustomCell.xib; sourceTree = "<group>"; };
+		BD52FA541A7008F2007A239A /* MatchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchResultController.h; sourceTree = "<group>"; };
+		BD52FA551A7008F2007A239A /* MatchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchResultController.m; sourceTree = "<group>"; };
+		BD52FA581A702F41007A239A /* FullLiveScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullLiveScoreController.h; sourceTree = "<group>"; };
+		BD52FA591A702F41007A239A /* FullLiveScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullLiveScoreController.m; sourceTree = "<group>"; };
 		BD6B7A7D1A611A4600C43E8E /* Untitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Untitle.png; sourceTree = "<group>"; };
 		BD7001031A5D80820087BD85 /* ResultAndNotificationCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultAndNotificationCustomCell.h; sourceTree = "<group>"; };
 		BD7001041A5D80820087BD85 /* ResultAndNotificationCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultAndNotificationCustomCell.m; sourceTree = "<group>"; };
@@ -319,6 +325,24 @@
 			name = Framework;
 			sourceTree = "<group>";
 		};
+		BD52FA531A700883007A239A /* MatchResult */ = {
+			isa = PBXGroup;
+			children = (
+				BD52FA541A7008F2007A239A /* MatchResultController.h */,
+				BD52FA551A7008F2007A239A /* MatchResultController.m */,
+			);
+			path = MatchResult;
+			sourceTree = "<group>";
+		};
+		BD52FA571A702F16007A239A /* FullLiveScore */ = {
+			isa = PBXGroup;
+			children = (
+				BD52FA581A702F41007A239A /* FullLiveScoreController.h */,
+				BD52FA591A702F41007A239A /* FullLiveScoreController.m */,
+			);
+			path = FullLiveScore;
+			sourceTree = "<group>";
+		};
 		BD9BB8881A592E09008D9D06 = {
 			isa = PBXGroup;
 			children = (
@@ -475,6 +499,8 @@
 		BDC6B4B91A5B1A0700E09F36 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BD52FA571A702F16007A239A /* FullLiveScore */,
+				BD52FA531A700883007A239A /* MatchResult */,
 				BDA975EC1A6ED6E5009A69C3 /* Leader Borad */,
 				BDC673531A62ADE80023D2F4 /* Schedule */,
 				BDC6B4BA1A5B1A4A00E09F36 /* SliderMenu */,
@@ -930,6 +956,7 @@
 				BDFD54E31A5EF2B90062881B /* MCSpriteLayer.m in Sources */,
 				BDFD54EC1A5EF2B90062881B /* AFHTTPRequestOperationManager.m in Sources */,
 				BDFD54E21A5EF2B90062881B /* UIViewController+REFrostedViewController.m in Sources */,
+				BD52FA561A7008F2007A239A /* MatchResultController.m in Sources */,
 				BDFD54EE1A5EF2B90062881B /* AFNetworkReachabilityManager.m in Sources */,
 				BDFD54ED1A5EF2B90062881B /* AFHTTPSessionManager.m in Sources */,
 				BDC6B4BD1A5B1A5D00E09F36 /* MenuController.m in Sources */,
@@ -956,6 +983,7 @@
 				BD9BB89A1A592E09008D9D06 /* AppDelegate.m in Sources */,
 				BD9BB8971A592E09008D9D06 /* main.m in Sources */,
 				BDFD54F61A5EF2BA0062881B /* AFNetworkActivityIndicatorManager.m in Sources */,
+				BD52FA5A1A702F41007A239A /* FullLiveScoreController.m in Sources */,
 				BD7001061A5D80820087BD85 /* ResultAndNotificationCustomCell.m in Sources */,
 				BDFD54D91A5EF2B90062881B /* UIImage+scale_resize.m in Sources */,
 				BDFD54DF1A5EF2B90062881B /* REFrostedViewController.m in Sources */,

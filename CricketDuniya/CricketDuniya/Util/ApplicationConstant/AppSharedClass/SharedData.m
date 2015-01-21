@@ -323,6 +323,10 @@ static SharedData * objAppSharedData;
     static int shakes = 2;
     static int translate = reset;
     
+    
+    [view.layer setBorderColor:[UIColor redColor].CGColor];
+    [view.layer setBorderWidth:1.0f];
+    
     [UIView animateWithDuration:0.09-(shakes*.01) // reduce duration every shake from .09 to .04
                           delay:0.01f//edge wait delay
                         options:(enum UIViewAnimationOptions) UIViewAnimationCurveEaseInOut

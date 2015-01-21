@@ -15,6 +15,7 @@
 #import "ResultAndNotificationCustomCell.h"
 #import "ScheduleController.h"
 #import "LeaderBoardController.h"
+#import "MatchResultController.h"
 @interface MenuController ()
 {
     NSArray *titles;
@@ -45,7 +46,7 @@
         [objDicNotification addObject:objTempDicResult];
     }
     
-    titles = @[@"LIVE SCORE", @"WHAT NEXT", @"MY PAGE",@"LAST OVER CHANGE PEY",@"SCHEDULE",@"LEASER BOARD",@"NEWS & STATS",@"INVITE FRIENDS",@"SETTING",@"LOG OUT"];
+    titles = @[@"LIVE SCORE", @"WHAT NEXT", @"MY PAGE",@"LAST OVER CHANGE PEY",@"SCHEDULE",@"LEASER BOARD",@"MATCH RESULT",@"INVITE FRIENDS",@"SETTING",@"LOG OUT"];
 
 
      [self.tblMenuAndNotification registerNib:[UINib nibWithNibName:@"CategoryCustomCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"Cell"];
@@ -167,11 +168,17 @@
         
         LeaderBoardController *objLeaderBoardController = [self.storyboard instantiateViewControllerWithIdentifier:@"leaderboard"];
         navigationController.viewControllers = @[objLeaderBoardController];
-    
+    //metchresult
+        
+    }else if(indexPath.row==6){
+        
+        MatchResultController *objMatchResultController = [self.storyboard instantiateViewControllerWithIdentifier:@"metchresult"];
+        navigationController.viewControllers = @[objMatchResultController];
+        //metchresult
         
     }else if (indexPath.row == 9) {
         
-       // [self.navigationController popToRootViewControllerAnimated:YES];
+       //  [self.navigationController popToRootViewControllerAnimated:YES];
     }
     
     self.frostedViewController.contentViewController = navigationController;

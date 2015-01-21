@@ -23,13 +23,9 @@
         // Do any additional setup after loading the view.
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:58/255.0f green:147/255.0f blue:74/255.0f alpha:1.0]};
 
-        //    if(objSharedData.isNoLiveMatch){
-        //        AS_CustomNavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentController"];
-        //        ScheduleController *objScheduleController = [self.storyboard instantiateViewControllerWithIdentifier:@"schedule"];
-        //
-        //        navigationController.viewControllers = @[objScheduleController];
-        //    }
-    [self callServiceForDashboard];
+    
+    //call for live score
+   // [self callServiceForDashboard];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -121,6 +117,7 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
 
 
     NSMutableDictionary*objcommetry;
+    if([[objDicLiveMatchData objectForKey:@"recent_commentry"] count]>0)
     objcommetry=[[objDicLiveMatchData objectForKey:@"recent_commentry"] objectAtIndex:0];
     _lblBallbyCommenntry.text=[objcommetry objectForKey:@"comm_text"];
 

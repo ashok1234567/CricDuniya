@@ -54,6 +54,13 @@
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
 
+    
+
+}
+- (BOOL) textField: (UITextField *)theTextField shouldChangeCharactersInRange: (NSRange)range replacementString: (NSString *)string {
+    
+     [theTextField.layer setBorderColor:[UIColor clearColor].CGColor];
+    return YES;
 }
 
 
@@ -92,6 +99,11 @@
     
     isLoginWithFB=YES;
     [self facebookLogin];
+    
+}
+
+- (IBAction)TextDidChange:(id)sender {
+    
     
 }
 

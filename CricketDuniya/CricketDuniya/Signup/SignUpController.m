@@ -33,17 +33,26 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (BOOL) textField: (UITextField *)theTextField shouldChangeCharactersInRange: (NSRange)range replacementString: (NSString *)string {
+    
+    [theTextField.layer setBorderColor:[UIColor clearColor].CGColor];
+    return YES;
+}
 
 - (IBAction)btnActionMale:(id)sender {
     self.btnMaleOutlet.selected=YES;
         self.btnOutletFemale.selected=NO;
-
+   
+  [ self.btnMaleOutlet.layer setBorderColor:[UIColor clearColor].CGColor];
+      [ self.btnOutletFemale.layer setBorderColor:[UIColor clearColor].CGColor];
     
     
 }
 - (IBAction)btnActionFemale:(id)sender {
     self.btnMaleOutlet.selected=NO;
     self.btnOutletFemale.selected=YES;
+    [ self.btnMaleOutlet.layer setBorderColor:[UIColor clearColor].CGColor];
+    [ self.btnOutletFemale.layer setBorderColor:[UIColor clearColor].CGColor];
 }
 - (IBAction)btnActionSignUp:(id)sender {
     
