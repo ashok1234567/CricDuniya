@@ -48,7 +48,7 @@
         // NSString *stringFromDate =[self monthNameFromDate:[NSDate date]];
 
     NSMutableString *methodName=[NSMutableString string];
-    [methodName appendString:@"fixtures/"];
+    [methodName appendString:@"livescore/fixtures/"];
     [methodName appendString:stringFromDate];
     [methodName appendString:@"-"];
     [methodName appendString: [NSString stringWithFormat:@"%d",year]];
@@ -160,7 +160,7 @@
         {
     NSLog(@"tournamentid=%@",[selectedValue valueForKey:@"tournamentid"]);
         NSMutableString *methodName=[NSMutableString string];
-        [methodName appendString:@"fixtures/"];
+        [methodName appendString:@"livescore/fixtures/"];
         [methodName appendString:[selectedValue valueForKey:@"tournamentid"]];
         [methodName appendString:@"_match_list.json"];
 
@@ -171,7 +171,7 @@
         {
      NSLog(@"team_a=%@",[selectedValue valueForKey:@"team_a"]);
         NSMutableString *methodName=[NSMutableString string];
-        [methodName appendString:@"fixtures/"];
+        [methodName appendString:@"livescore/fixtures/"];
         [methodName appendString:[[[selectedValue valueForKey:@"team_a"] stringByReplacingOccurrencesOfString:@" " withString:@"_"] lowercaseString]];
         [methodName appendString:@".json"];
 

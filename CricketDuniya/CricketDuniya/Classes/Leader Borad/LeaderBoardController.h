@@ -16,5 +16,6 @@
 - (IBAction)btnActionWeek:(id)sender;
 - (IBAction)btnActionMonth:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tblLeaderBoard;
+@property (weak, nonatomic) IBOutlet UITableView *myTbl;
 
 @end

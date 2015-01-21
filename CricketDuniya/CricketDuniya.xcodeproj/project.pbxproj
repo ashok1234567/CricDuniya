@@ -97,6 +97,7 @@
 		BDFD54FF1A5EFB1C0062881B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDFD54FE1A5EFB1C0062881B /* SystemConfiguration.framework */; };
 		BDFD55011A5EFB280062881B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDFD55001A5EFB280062881B /* Security.framework */; };
 		BDFD55031A5EFB2E0062881B /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BDFD55021A5EFB2E0062881B /* libxml2.2.dylib */; };
+		C5B5811E1A6FB65200E029A0 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5B5811D1A6FB65200E029A0 /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -271,6 +272,7 @@
 		BDFD54FE1A5EFB1C0062881B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		BDFD55001A5EFB280062881B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BDFD55021A5EFB2E0062881B /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		C5B5811D1A6FB65200E029A0 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Users/itgurus/Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +280,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5B5811E1A6FB65200E029A0 /* FacebookSDK.framework in Frameworks */,
 				BDA975EB1A6EC8C7009A69C3 /* FacebookSDK.framework in Frameworks */,
 				BDFD55031A5EFB2E0062881B /* libxml2.2.dylib in Frameworks */,
 				BDFD55011A5EFB280062881B /* Security.framework in Frameworks */,
@@ -322,6 +325,7 @@
 		BD9BB8881A592E09008D9D06 = {
 			isa = PBXGroup;
 			children = (
+				C5B5811D1A6FB65200E029A0 /* FacebookSDK.framework */,
 				BDD5879C1A617A2B00200284 /* checkmark.jpg */,
 				BD6B7A7D1A611A4600C43E8E /* Untitle.png */,
 				BD4A9D1A1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG */,
@@ -1094,6 +1098,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/vivekjain/Documents/FacebookSDK,
+					/Users/itgurus/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/CricketDuniya/PrefixHeader.pch";
@@ -1111,6 +1116,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/vivekjain/Documents/FacebookSDK,
+					/Users/itgurus/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/CricketDuniya/PrefixHeader.pch";

@@ -38,7 +38,7 @@
 //For Development
 
 ////For Staggin
-#define URL_DOMAIN_USER @"http://api.amarujala.com/crid/livescore/"
+#define URL_DOMAIN_USER @"http://api.amarujala.com/crid/"
 #define URL_DOMAIN @"http://cricapi.amarujala.com/getdata/"
 
 #define fbAppID @"1571908079716997"
@@ -54,15 +54,20 @@
 #pragma mark - Webservice Methods Name
 #define SignIN_Url               @"user_login"
 #define SignUp_Url               @"update_profile"
-#define LiveScore_Url           @"livematchs.json"
-#define MiniScore_Url           @"2/"
+#define LiveScore_Url           @"livescore/livematchs.json"
+#define MiniScore_Url           @"livescore/2/"
 
-#define LiveScheduleMatch_Url           @"fixtures/"
-#define LiveScheduleSeries_Url           @"livematchs.json"
-#define LiveScheduleCountry_Url           @"livematchs.json"
+#define LiveScheduleMatch_Url           @"livescore/fixtures/"
+#define LiveScheduleSeries_Url           @"livescore/livematchs.json"
+#define LiveScheduleCountry_Url           @"livescore/livematchs.json"
 
-#define Tournament_Url           @"fixtures/tournaments_list.json"
-#define Country_Url           @"fixtures/team_list.json"
+#define LeaderboardComplete_Url           @"complete_leaderboard.json"
+#define LeaderboardDaily_Url           @"daily_leaderboard.json"
+#define LeaderboardWeekly_Url           @"weekly_leaderboard.json"
+#define LeaderboardMonthly_Url           @"monthly_leaderboard.json"
+
+#define Tournament_Url           @"livescore/fixtures/tournaments_list.json"
+#define Country_Url           @"livescore/fixtures/team_list.json"
 
 
 #define GenerateToken_url        @"GenerateToken"
