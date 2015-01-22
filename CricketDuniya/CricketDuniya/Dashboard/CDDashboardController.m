@@ -25,7 +25,7 @@
 
     
     //call for live score
-   // [self callServiceForDashboard];
+    [self callServiceForDashboard];
 }
 
 - (void)didReceiveMemoryWarning {

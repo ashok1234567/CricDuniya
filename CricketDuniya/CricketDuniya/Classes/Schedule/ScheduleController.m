@@ -27,37 +27,8 @@
      self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:58/255.0f green:147/255.0f blue:74/255.0f alpha:1.0]};
     
     
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:[NSDate date]];
 
-    int year = [components year];
-    int month = [components month];
-        //int day = [components day];
-
-
-    NSString * dateString = [NSString stringWithFormat: @"%d", month];
-
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MM"];
-    NSDate* myDate = [dateFormatter dateFromString:dateString];
-
-
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MMM"];
-    NSString *stringFromDate = [[formatter stringFromDate:myDate] lowercaseString];
-
-        // NSString *stringFromDate =[self monthNameFromDate:[NSDate date]];
-
-    NSMutableString *methodName=[NSMutableString string];
-    [methodName appendString:@"livescore/fixtures/"];
-    [methodName appendString:stringFromDate];
-    [methodName appendString:@"-"];
-    [methodName appendString: [NSString stringWithFormat:@"%d",year]];
-    [methodName appendString: @".json"];
-
-
-
-    //call web services for get schedule from server and open new controller 
-    [self callServiceForSchedule:methodName];
+    [self callMonthSchedule];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -104,12 +75,19 @@
         static NSString *CellIdentifier = @"Cell";
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+
+
+    NSArray *myArray = [[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mdate"] componentsSeparatedByString:@", "];
+    NSMutableString *matchDate=[NSMutableString string];
+    [matchDate appendString:[[myArray objectAtIndex:1] substringFromIndex:3]];
+    [matchDate appendString:@"\n"];
+    [matchDate appendString:[myArray objectAtIndex:0]];
+
     UILabel *lblDate=(UILabel*)[cell viewWithTag:5];
     lblDate.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mdate"];
 
     UILabel *lblDay=(UILabel*)[cell viewWithTag:1];
-    lblDay.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mdate"];
+    lblDay.text=matchDate;
 
     UILabel *lblMatchName=(UILabel*)[cell viewWithTag:2];
     lblMatchName.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mname"];
@@ -131,8 +109,8 @@
     switch (tempbtn.tag) {
         case 1:
             //call service for month data
-            
-            [self callServiceForSchedule:LiveScheduleMatch_Url];
+            [self callMonthSchedule];
+                //[self callServiceForSchedule:LiveScheduleMatch_Url];
             break;
         case 2:
             //call service for series/tuornament data
@@ -149,6 +127,41 @@
         default:
             break;
     }
+}
+
+-(void)callMonthSchedule
+{
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:[NSDate date]];
+
+    int year = [components year];
+    int month = [components month];
+        //int day = [components day];
+
+
+    NSString * dateString = [NSString stringWithFormat: @"%d", month];
+
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM"];
+    NSDate* myDate = [dateFormatter dateFromString:dateString];
+
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM"];
+    NSString *stringFromDate = [[formatter stringFromDate:myDate] lowercaseString];
+
+        // NSString *stringFromDate =[self monthNameFromDate:[NSDate date]];
+
+    NSMutableString *methodName=[NSMutableString string];
+    [methodName appendString:@"livescore/fixtures/"];
+    [methodName appendString:stringFromDate];
+    [methodName appendString:@"-"];
+    [methodName appendString: [NSString stringWithFormat:@"%d",year]];
+    [methodName appendString: @".json"];
+
+
+
+        //call web services for get schedule from server and open new controller
+    [self callServiceForSchedule:methodName];
 }
 -(void)SelectedCategory:(NSString*)Cat{
 

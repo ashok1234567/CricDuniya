@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MatchResultController : UIViewController
+@property (nonatomic)int selected_category;
 @property (weak, nonatomic) IBOutlet UITableView *tblMatchResult;
 
 @end

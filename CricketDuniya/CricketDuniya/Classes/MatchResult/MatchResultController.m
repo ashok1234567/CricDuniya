@@ -21,6 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    objArrMatchResult=[[NSMutableArray alloc]initWithCapacity:0];
+    [self callMonthSchedule];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,21 +46,27 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-//    UILabel *lblDate=(UILabel*)[cell viewWithTag:5];
-//    lblDate.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mdate"];
-//    
-//    UILabel *lblDay=(UILabel*)[cell viewWithTag:1];
-//    lblDay.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mdate"];
-//    
-//    UILabel *lblMatchName=(UILabel*)[cell viewWithTag:2];
-//    lblMatchName.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mname"];
-//    
-//    UILabel *lblMatchTime=(UILabel*)[cell viewWithTag:3];
-//    lblMatchTime.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mtime"];
-//    
-//    UILabel *lblMatchVenue=(UILabel*)[cell viewWithTag:4];
-//    lblMatchVenue.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mvenue"];
+
+    NSArray *myArray = [[[objArrMatchResult objectAtIndex:indexPath.row] valueForKey:@"mdate"] componentsSeparatedByString:@", "];
+    NSMutableString *matchDate=[NSMutableString string];
+    [matchDate appendString:[[myArray objectAtIndex:1] substringFromIndex:3]];
+    [matchDate appendString:@"\n"];
+    [matchDate appendString:[myArray objectAtIndex:0]];
+
+    UILabel *lblDate=(UILabel*)[cell viewWithTag:5];
+    lblDate.text=[[objArrMatchResult objectAtIndex:indexPath.row] valueForKey:@"mdate"];
+
+    UILabel *lblDay=(UILabel*)[cell viewWithTag:1];
+    lblDay.text=matchDate;
+
+    UILabel *lblMatchName=(UILabel*)[cell viewWithTag:2];
+    lblMatchName.text=[[objArrMatchResult objectAtIndex:indexPath.row] valueForKey:@"mname"];
+
+    UILabel *lblMatchTime=(UILabel*)[cell viewWithTag:3];
+    lblMatchTime.text=[[objArrMatchResult objectAtIndex:indexPath.row] valueForKey:@"mtime"];
+
+    UILabel *lblMatchVenue=(UILabel*)[cell viewWithTag:4];
+    lblMatchVenue.text=[[objArrMatchResult objectAtIndex:indexPath.row] valueForKey:@"match_results"];
     
     
     return cell;
@@ -65,24 +74,87 @@
     
 }
 -(void)SelectedCategory:(NSString*)Cat{
+    NSDictionary* selectedValue=[[NSDictionary alloc]init];
+    NSLog(@"Avinash Mahajan @%d",_selected_category);
+    selectedValue= Cat;
+
+    if (_selected_category==2)
+        {
+        NSLog(@"tournamentid=%@",[selectedValue valueForKey:@"tournamentid"]);
+        NSMutableString *methodName=[NSMutableString string];
+        [methodName appendString:@"livescore/results/"];
+        [methodName appendString:[selectedValue valueForKey:@"tournamentid"]];
+        [methodName appendString:@"_match_list.json"];
+
+        [self callServiceForSchedule:methodName];
+
+        }
+    else if (_selected_category==3)
+        {
+        NSLog(@"team_a=%@",[selectedValue valueForKey:@"team_a"]);
+        NSMutableString *methodName=[NSMutableString string];
+        [methodName appendString:@"livescore/results/"];
+        [methodName appendString:[[[selectedValue valueForKey:@"team_a"] stringByReplacingOccurrencesOfString:@" " withString:@"_"] lowercaseString]];
+        [methodName appendString:@".json"];
+
+        [self callServiceForSchedule:methodName];
+        }
 
 }
+
+-(void)callMonthSchedule
+{
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit fromDate:[NSDate date]];
+
+    int year = [components year];
+    int month = [components month];
+        //int day = [components day];
+
+
+    NSString * dateString = [NSString stringWithFormat: @"%d", month];
+
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"MM"];
+    NSDate* myDate = [dateFormatter dateFromString:dateString];
+
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM"];
+    NSString *stringFromDate = [[formatter stringFromDate:myDate] lowercaseString];
+
+        // NSString *stringFromDate =[self monthNameFromDate:[NSDate date]];
+
+    NSMutableString *methodName=[NSMutableString string];
+    [methodName appendString:@"livescore/results/"];
+    [methodName appendString:stringFromDate];
+    [methodName appendString:@"-"];
+    [methodName appendString: [NSString stringWithFormat:@"%d",year]];
+    [methodName appendString: @".json"];
+
+
+
+        //call web services for get schedule from server and open new controller
+    [self callServiceForSchedule:methodName];
+}
+
+
 - (IBAction)btnActionSoftByCatgory:(id)sender {
     UIButton *tempbtn=(UIButton*)sender;
     switch (tempbtn.tag) {
         case 1:
             //call service for month data
             
-           // [self callServiceForSchedule:LiveScheduleMatch_Url];
+           [self callMonthSchedule];
             break;
         case 2:
             //call service for series/tuornament data
-           
+           _selected_category=2;
             [self performSegueWithIdentifier:@"tournament" sender:sender];
             
             break;
         case 3:
             //call service for country
+            _selected_category=3;
             [self performSegueWithIdentifier:@"country" sender:sender];
            
             break;
@@ -138,7 +210,7 @@
 
 -(void)webServiceHandler:(WebserviceHandler *)webHandler recievedResponse:(NSDictionary *)dicResponce
 {
-    
+    NSLog(@"MatchResults:-%@",dicResponce);
     objArrMatchResult =dicResponce ;
     [self.tblMatchResult reloadData];
     [appDelegate stopActivityIndicator];
