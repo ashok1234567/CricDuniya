@@ -18,6 +18,15 @@
 		BD6B7A7E1A611A4600C43E8E /* Untitle.png in Resources */ = {isa = PBXBuildFile; fileRef = BD6B7A7D1A611A4600C43E8E /* Untitle.png */; };
 		BD7001061A5D80820087BD85 /* ResultAndNotificationCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7001041A5D80820087BD85 /* ResultAndNotificationCustomCell.m */; };
 		BD7001071A5D80820087BD85 /* ResultAndNotificationCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD7001051A5D80820087BD85 /* ResultAndNotificationCustomCell.xib */; };
+		BD7909691A715B1800F8CD39 /* FirstHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD7909681A715B1800F8CD39 /* FirstHeader.xib */; };
+		BD79096E1A716BD600F8CD39 /* FirstCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79096C1A716BD600F8CD39 /* FirstCellView.m */; };
+		BD79096F1A716BD600F8CD39 /* FirstCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD79096D1A716BD600F8CD39 /* FirstCellView.xib */; };
+		BD7909711A71753600F8CD39 /* FirstFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD7909701A71753600F8CD39 /* FirstFooter.xib */; };
+		BD7909731A717B7A00F8CD39 /* SecoundHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD7909721A717B7A00F8CD39 /* SecoundHeader.xib */; };
+		BD7909781A717E7500F8CD39 /* SecoundCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7909761A717E7500F8CD39 /* SecoundCellView.m */; };
+		BD7909791A717E7500F8CD39 /* SecoundCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD7909771A717E7500F8CD39 /* SecoundCellView.xib */; };
+		BD79097E1A71811000F8CD39 /* ThirdCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD79097C1A71811000F8CD39 /* ThirdCellView.m */; };
+		BD79097F1A71811000F8CD39 /* ThirdCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD79097D1A71811000F8CD39 /* ThirdCellView.xib */; };
 		BD9BB8971A592E09008D9D06 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9BB8961A592E09008D9D06 /* main.m */; };
 		BD9BB89A1A592E09008D9D06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9BB8991A592E09008D9D06 /* AppDelegate.m */; };
 		BD9BB89D1A592E09008D9D06 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9BB89C1A592E09008D9D06 /* ViewController.m */; };
@@ -133,6 +142,18 @@
 		BD7001031A5D80820087BD85 /* ResultAndNotificationCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultAndNotificationCustomCell.h; sourceTree = "<group>"; };
 		BD7001041A5D80820087BD85 /* ResultAndNotificationCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultAndNotificationCustomCell.m; sourceTree = "<group>"; };
 		BD7001051A5D80820087BD85 /* ResultAndNotificationCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultAndNotificationCustomCell.xib; sourceTree = "<group>"; };
+		BD7909681A715B1800F8CD39 /* FirstHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstHeader.xib; sourceTree = "<group>"; };
+		BD79096B1A716BD600F8CD39 /* FirstCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstCellView.h; sourceTree = "<group>"; };
+		BD79096C1A716BD600F8CD39 /* FirstCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstCellView.m; sourceTree = "<group>"; };
+		BD79096D1A716BD600F8CD39 /* FirstCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstCellView.xib; sourceTree = "<group>"; };
+		BD7909701A71753600F8CD39 /* FirstFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FirstFooter.xib; path = FirstCell/FirstFooter.xib; sourceTree = "<group>"; };
+		BD7909721A717B7A00F8CD39 /* SecoundHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SecoundHeader.xib; path = FirstCell/SecoundHeader.xib; sourceTree = "<group>"; };
+		BD7909751A717E7500F8CD39 /* SecoundCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecoundCellView.h; sourceTree = "<group>"; };
+		BD7909761A717E7500F8CD39 /* SecoundCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecoundCellView.m; sourceTree = "<group>"; };
+		BD7909771A717E7500F8CD39 /* SecoundCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecoundCellView.xib; sourceTree = "<group>"; };
+		BD79097B1A71811000F8CD39 /* ThirdCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdCellView.h; sourceTree = "<group>"; };
+		BD79097C1A71811000F8CD39 /* ThirdCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdCellView.m; sourceTree = "<group>"; };
+		BD79097D1A71811000F8CD39 /* ThirdCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdCellView.xib; sourceTree = "<group>"; };
 		BD9BB8911A592E09008D9D06 /* CricketDuniya.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CricketDuniya.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD9BB8951A592E09008D9D06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD9BB8961A592E09008D9D06 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -337,10 +358,47 @@
 		BD52FA571A702F16007A239A /* FullLiveScore */ = {
 			isa = PBXGroup;
 			children = (
+				BD79097A1A7180F000F8CD39 /* ThirdView */,
+				BD7909741A717E3300F8CD39 /* SecondCell */,
+				BD79096A1A716B9900F8CD39 /* FirstCell */,
 				BD52FA581A702F41007A239A /* FullLiveScoreController.h */,
 				BD52FA591A702F41007A239A /* FullLiveScoreController.m */,
+				BD7909681A715B1800F8CD39 /* FirstHeader.xib */,
+				BD7909701A71753600F8CD39 /* FirstFooter.xib */,
+				BD7909721A717B7A00F8CD39 /* SecoundHeader.xib */,
 			);
 			path = FullLiveScore;
+			sourceTree = "<group>";
+		};
+		BD79096A1A716B9900F8CD39 /* FirstCell */ = {
+			isa = PBXGroup;
+			children = (
+				BD79096B1A716BD600F8CD39 /* FirstCellView.h */,
+				BD79096C1A716BD600F8CD39 /* FirstCellView.m */,
+				BD79096D1A716BD600F8CD39 /* FirstCellView.xib */,
+			);
+			path = FirstCell;
+			sourceTree = "<group>";
+		};
+		BD7909741A717E3300F8CD39 /* SecondCell */ = {
+			isa = PBXGroup;
+			children = (
+				BD7909751A717E7500F8CD39 /* SecoundCellView.h */,
+				BD7909761A717E7500F8CD39 /* SecoundCellView.m */,
+				BD7909771A717E7500F8CD39 /* SecoundCellView.xib */,
+			);
+			name = SecondCell;
+			path = SecoundCell;
+			sourceTree = "<group>";
+		};
+		BD79097A1A7180F000F8CD39 /* ThirdView */ = {
+			isa = PBXGroup;
+			children = (
+				BD79097B1A71811000F8CD39 /* ThirdCellView.h */,
+				BD79097C1A71811000F8CD39 /* ThirdCellView.m */,
+				BD79097D1A71811000F8CD39 /* ThirdCellView.xib */,
+			);
+			path = ThirdView;
 			sourceTree = "<group>";
 		};
 		BD9BB8881A592E09008D9D06 = {
@@ -901,9 +959,13 @@
 				BDD5AF671A62BDB700604979 /* loader_step3@2x.png in Resources */,
 				BDFD544F1A5EEA140062881B /* images.jpg in Resources */,
 				BDD5AF651A62BDB700604979 /* loader_step2@2x.png in Resources */,
+				BD79096F1A716BD600F8CD39 /* FirstCellView.xib in Resources */,
+				BD7909791A717E7500F8CD39 /* SecoundCellView.xib in Resources */,
 				BDD5AF691A62BDB700604979 /* loader_step4@2x.png in Resources */,
 				BDD5AF661A62BDB700604979 /* loader_step3.png in Resources */,
+				BD7909691A715B1800F8CD39 /* FirstHeader.xib in Resources */,
 				BD9BB8A01A592E09008D9D06 /* Main.storyboard in Resources */,
+				BD7909731A717B7A00F8CD39 /* SecoundHeader.xib in Resources */,
 				BDD5AF681A62BDB700604979 /* loader_step4.png in Resources */,
 				BDD5AF631A62BDB700604979 /* loader_step1@2x.png in Resources */,
 				BD9BB8A51A592E09008D9D06 /* LaunchScreen.xib in Resources */,
@@ -911,6 +973,8 @@
 				BD6B7A7E1A611A4600C43E8E /* Untitle.png in Resources */,
 				BDFD54DC1A5EF2B90062881B /* ashok.jpg in Resources */,
 				BDD5AF611A62BDB700604979 /* loader_rotate_arrow.png in Resources */,
+				BD7909711A71753600F8CD39 /* FirstFooter.xib in Resources */,
+				BD79097F1A71811000F8CD39 /* ThirdCellView.xib in Resources */,
 				BD4A9D1B1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG in Resources */,
 				BDD5AF621A62BDB700604979 /* loader_step1.png in Resources */,
 				BDFD54D21A5EF2B90062881B /* Raleway-Regular.ttf in Resources */,
@@ -957,9 +1021,11 @@
 				BDFD54EC1A5EF2B90062881B /* AFHTTPRequestOperationManager.m in Sources */,
 				BDFD54E21A5EF2B90062881B /* UIViewController+REFrostedViewController.m in Sources */,
 				BD52FA561A7008F2007A239A /* MatchResultController.m in Sources */,
+				BD79097E1A71811000F8CD39 /* ThirdCellView.m in Sources */,
 				BDFD54EE1A5EF2B90062881B /* AFNetworkReachabilityManager.m in Sources */,
 				BDFD54ED1A5EF2B90062881B /* AFHTTPSessionManager.m in Sources */,
 				BDC6B4BD1A5B1A5D00E09F36 /* MenuController.m in Sources */,
+				BD7909781A717E7500F8CD39 /* SecoundCellView.m in Sources */,
 				BDFD54CB1A5EF2B90062881B /* SharedData.m in Sources */,
 				BDFD54F41A5EF2BA0062881B /* Reachability.m in Sources */,
 				BDFD54EA1A5EF2B90062881B /* ValidationManager.m in Sources */,
@@ -995,6 +1061,7 @@
 				BDC6B4B81A5AF56F00E09F36 /* BaseControllerController.m in Sources */,
 				BDC6B4B11A5AF1A000E09F36 /* CDDashboardController.m in Sources */,
 				BDFD54D71A5EF2B90062881B /* StringEncryption.m in Sources */,
+				BD79096E1A716BD600F8CD39 /* FirstCellView.m in Sources */,
 				BDFD54FC1A5EF2BA0062881B /* UIRefreshControl+AFNetworking.m in Sources */,
 				BDFD54F21A5EF2BA0062881B /* AFURLResponseSerialization.m in Sources */,
 				BDFD54FB1A5EF2BA0062881B /* UIProgressView+AFNetworking.m in Sources */,

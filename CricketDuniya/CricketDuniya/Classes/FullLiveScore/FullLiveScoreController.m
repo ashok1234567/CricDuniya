@@ -7,10 +7,15 @@
 //
 
 #import "FullLiveScoreController.h"
+#import "FirstCellView.h"
+#import "SecoundCellView.h"
+#import "ThirdCellView.h"
 
+//define macros
 #define arrBatting @"batting"
 #define arrBowling @"bowling"
 #define arrMatchInfo @"matchinfo"
+
 @interface FullLiveScoreController ()
 
 {
@@ -24,6 +29,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+     [_tblFullScoreBoard registerNib:[UINib nibWithNibName:@"FirstCellView" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"Cell1"];
+     [_tblFullScoreBoard registerNib:[UINib nibWithNibName:@"SecoundCellView" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"Cell2"];
+     [_tblFullScoreBoard registerNib:[UINib nibWithNibName:@"ThirdCellView" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"Cell3"];
     
     
    NSMutableArray *objArrBatting=[[NSMutableArray alloc]initWithObjects:@"1",@"2",@"3", nil];
@@ -68,14 +77,47 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+   
     
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+    if (indexPath.section==0) {
+        static NSString *CellIdentifier = @"Cell1";
+        
+        FirstCellView *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        cell.lblPlayerName.text=@"Rohit Sharma";
     return cell;
+    }else  if (indexPath.section==1){
+        
+        static NSString *CellIdentifier = @"Cell2";
+        
+        SecoundCellView *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        return cell;
+    }else {
+        static NSString *CellIdentifier = @"Cell3";
+        
+        ThirdCellView *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        return cell;
+    }
     
     
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    switch (indexPath.section)
+    {
+        case 0:
+            return 55.f;
+            break;
+        case 1:
+            return 40.f;
+            break;
+        case 2:
+            return 1109.0f;
+            break;
+        default: return 0;
+            break;
+            
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -84,13 +126,13 @@
     switch (section)
     {
         case 0:
-            return 100.f;
+            return 180.f;
             break;
         case 1:
-             return 15.f;
+             return 30.f;
             break;
         case 2:
-             return 15.f;
+             return 50.f;
             break;
         default: return 0;
             break;
@@ -98,34 +140,60 @@
     }
    
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    
+    
+    switch (section)
+    {
+        case 0:
+            return 100.f;
+            break;
+        case 1:
+            return 0.1f;
+            break;
+        case 2:
+            return 0.1f;
+            break;
+        default: return 0.1f;
+            break;
+            
+    }
+    
+}
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(15.0, 0, 150,15.0)];
+     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0,50,50.0)];
     switch (section)
     {
         case 0:{
-            UILabel *label = [[UILabel alloc] initWithFrame:header.frame];
-            label.backgroundColor= [UIColor clearColor];
-            label.textColor= [UIColor blackColor];
-            label.font = [UIFont fontWithName:@"Helvetica Neue" size:10.0];
-            label.text = @"BATTING";
-            [header addSubview:label];
+            
+           UIView *firstHeaderView=[[[NSBundle mainBundle] loadNibNamed:@"FirstHeader" owner:self options:nil] lastObject];
+            firstHeaderView.frame=header.frame;
+            
+            
+            UILabel *label=(UILabel*)[firstHeaderView viewWithTag:1];
+            label.text = @"INDIA";
+            [header addSubview:firstHeaderView];
         }
             break;
         case 1:{
-            UILabel *label = [[UILabel alloc] initWithFrame:header.frame];
-            label.backgroundColor= [UIColor clearColor];
-            label.textColor= [UIColor blackColor];
-            label.font = [UIFont fontWithName:@"Helvetica Neue" size:10.0];
-            label.text = @"BOLWER";
-            [header addSubview:label];
+            
+           //SecoundHeader
+            
+            UIView *firstHeaderView=[[[NSBundle mainBundle] loadNibNamed:@"SecoundHeader" owner:self options:nil] lastObject];
+            firstHeaderView.frame=header.frame;
+            
+            
+//            UILabel *label=(UILabel*)[firstHeaderView viewWithTag:1];
+//            label.text = @"INDIA";
+            [header addSubview:firstHeaderView];
         }
             break;
         case 2:{
-            UILabel *label = [[UILabel alloc] initWithFrame:header.frame];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10.0,20,100,30.0)];
             label.backgroundColor= [UIColor clearColor];
             label.textColor= [UIColor blackColor];
-            label.font = [UIFont fontWithName:@"Helvetica Neue" size:10.0];
+            label.font = [UIFont fontWithName:@"Helvetica Neue" size:11.0];
             label.text = @"MATCH INFO";
             [header addSubview:label];
         }
@@ -135,6 +203,34 @@
 
    
     
+    return header;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0,50,50.0)];
+    switch (section)
+    {
+        case 0:{
+            
+            UIView *firstHeaderView=[[[NSBundle mainBundle] loadNibNamed:@"FirstFooter" owner:self options:nil] lastObject];
+            firstHeaderView.frame=header.frame;
+            
+            
+            UILabel *label=(UILabel*)[firstHeaderView viewWithTag:1];
+            label.text = @"18";
+            [header addSubview:firstHeaderView];
+        }
+            break;
+        case 1:{
+        
+        }
+            break;
+        case 2:{
+          
+        }
+            break;
+            
+    }
     return header;
 }
 
@@ -149,5 +245,9 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark Custom Methods
 
+- (IBAction)btnActionCancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end
