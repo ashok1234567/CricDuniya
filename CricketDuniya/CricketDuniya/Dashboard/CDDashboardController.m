@@ -202,7 +202,7 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
         if([dicResponce valueForKey:@"microscorecard_data_items"])
             {
             NSLog(@"dicResponcelivematch:-%@",[dicResponce valueForKey:@"microscorecard_data_items"]);
-            objDicLiveMatchData=[[dicResponce valueForKey:@"microscorecard_data_items"] objectAtIndex:1];
+            objDicLiveMatchData=[[dicResponce valueForKey:@"microscorecard_data_items"] objectAtIndex:0];
                 //setup or reload live data
 
             if ([[objDicLiveMatchData objectForKey:@"match_status"] isEqualToString:@"No Live Match"] )
