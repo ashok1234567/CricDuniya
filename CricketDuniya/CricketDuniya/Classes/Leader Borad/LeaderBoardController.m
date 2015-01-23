@@ -123,8 +123,8 @@
     label.backgroundColor= [UIColor clearColor];
     label.textColor= [UIColor blackColor];
     label.font = [UIFont fontWithName:@"Helvetica Neue Medium" size:11.0];
-    label.text = @"OVER ALL";
-    [header addSubview:label];
+        // label.text = @"OVER ALL";
+        //[header addSubview:label];
     return header;
 }
 

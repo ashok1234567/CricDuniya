@@ -79,12 +79,22 @@
 
     NSArray *myArray = [[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mdate"] componentsSeparatedByString:@", "];
     NSMutableString *matchDate=[NSMutableString string];
+    NSMutableString *matchMonth=[NSMutableString string];
     [matchDate appendString:[[myArray objectAtIndex:1] substringFromIndex:3]];
     [matchDate appendString:@"\n"];
     [matchDate appendString:[myArray objectAtIndex:0]];
 
+    [matchMonth appendString:[[myArray objectAtIndex:1] substringToIndex:3]];
+[matchMonth appendString:@","];
+    [matchMonth appendString:[myArray objectAtIndex:2]];
+
+
+
     UILabel *lblDate=(UILabel*)[cell viewWithTag:5];
-    lblDate.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mdate"];
+    lblDate.text=matchMonth;
+
+    UILabel *lblnamne=(UILabel*)[cell viewWithTag:6];
+    lblnamne.text=[[objArrScheduleData objectAtIndex:indexPath.row] valueForKey:@"mname"];
 
     UILabel *lblDay=(UILabel*)[cell viewWithTag:1];
     lblDay.text=matchDate;

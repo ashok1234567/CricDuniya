@@ -53,8 +53,16 @@
     [matchDate appendString:@"\n"];
     [matchDate appendString:[myArray objectAtIndex:0]];
 
+ 
+
+    NSMutableString *matchMonth=[NSMutableString string];
+
+    [matchMonth appendString:[[myArray objectAtIndex:1] substringToIndex:3]];
+    [matchMonth appendString:@","];
+    [matchMonth appendString:[myArray objectAtIndex:2]];
+
     UILabel *lblDate=(UILabel*)[cell viewWithTag:5];
-    lblDate.text=[[objArrMatchResult objectAtIndex:indexPath.row] valueForKey:@"mdate"];
+    lblDate.text=matchMonth;
 
     UILabel *lblDay=(UILabel*)[cell viewWithTag:1];
     lblDay.text=matchDate;
@@ -66,7 +74,12 @@
     lblMatchTime.text=[[objArrMatchResult objectAtIndex:indexPath.row] valueForKey:@"mtime"];
 
     UILabel *lblMatchVenue=(UILabel*)[cell viewWithTag:4];
+
+    if (![[[objArrMatchResult objectAtIndex:indexPath.row] valueForKey:@"match_results"] isEqual:[NSNull null]])
+        {
+
     lblMatchVenue.text=[[objArrMatchResult objectAtIndex:indexPath.row] valueForKey:@"match_results"];
+        }
     
     
     return cell;
