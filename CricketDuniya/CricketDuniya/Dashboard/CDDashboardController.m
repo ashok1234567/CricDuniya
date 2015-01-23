@@ -25,7 +25,7 @@
 
     
     //call for live score
-   // [self callServiceForDashboard];
+    [self callServiceForDashboard];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,13 +35,20 @@
 #pragma mark Custom methods
 -(void)callMiniScore :(NSString*)matchId{
     NSMutableString *matchName=[NSMutableString string];
-    [matchName appendString:@"2/"];
+    [matchName appendString:@"livescore/2/"];
     [matchName appendString:matchId];
     [matchName appendString:@"_s.json"];
 
     [self callServiceForMiniScore:matchName];
 }
+-(void)calFullScore :(NSString*)matchId{
+    NSMutableString *matchName=[NSMutableString string];
+    [matchName appendString:@"livescore/2/"];
+    [matchName appendString:matchId];
+    [matchName appendString:@".json"];
 
+    [self callServiceForMiniScore:matchName];
+}
 -(void)reloadDataOnScreen {
 
        NSLog(@"dicResponcelivescore:-%@",objDicLiveMatchData );
@@ -68,7 +75,7 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
     _lblBowlingTeamInitial.text=[objDicLiveMatchData objectForKey:@"bowling_teamt_initial"];
     _lblIningDescription.text=[objDicLiveMatchData objectForKey:@"inning_descr"];
     _lblCurrentRate.text=[objDicLiveMatchData objectForKey:@"curr_runrate"];
-    _lblRequiredRate.text=[objDicLiveMatchData objectForKey:@"requird_runrate"];
+        //_lblRequiredRate.text=[objDicLiveMatchData objectForKey:@"requird_runrate"];
 
  NSMutableString *player1=[NSMutableString string];
 
@@ -195,7 +202,7 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
         if([dicResponce valueForKey:@"microscorecard_data_items"])
             {
             NSLog(@"dicResponcelivematch:-%@",[dicResponce valueForKey:@"microscorecard_data_items"]);
-            objDicLiveMatchData=[[dicResponce valueForKey:@"microscorecard_data_items"] objectAtIndex:0];
+            objDicLiveMatchData=[[dicResponce valueForKey:@"microscorecard_data_items"] objectAtIndex:1];
                 //setup or reload live data
 
             if ([[objDicLiveMatchData objectForKey:@"match_status"] isEqualToString:@"No Live Match"] )
@@ -219,6 +226,7 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
         [self reloadDataOnScreen];
         [appDelegate stopActivityIndicator];
         }
+    
 
 
 }
@@ -236,5 +244,5 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
 - (IBAction)btnActionMatch3:(id)sender {
 }
 - (IBAction)tblActionFullScore:(id)sender {
-}
+    }
 @end

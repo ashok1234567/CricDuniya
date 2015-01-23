@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -54,6 +54,14 @@
                 <color key="backgroundColor" red="0.2274509804" green="0.57647058819999997" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.2274509804" green="0.57647058819999997" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="lblBowler" destination="Q7d-1x-MzW" id="nzM-eg-tsN"/>
+                <outlet property="lblEr" destination="oY5-Oa-3Tc" id="Zn8-Ms-g0N"/>
+                <outlet property="lblMaiden" destination="Rfo-Bd-AaG" id="ZwE-io-oAJ"/>
+                <outlet property="lblOver" destination="XpR-P1-VpN" id="TSk-ID-sXX"/>
+                <outlet property="lblRuns" destination="nQs-sH-ePW" id="Tx6-cG-D5T"/>
+                <outlet property="lblWicket" destination="FYN-3y-m0Q" id="Eq2-5Z-aF8"/>
+            </connections>
             <point key="canvasLocation" x="207" y="268"/>
         </tableViewCell>
     </objects>

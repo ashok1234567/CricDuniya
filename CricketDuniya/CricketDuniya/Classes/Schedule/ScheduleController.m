@@ -221,6 +221,7 @@
 
 
     objArrScheduleData =dicResponce ;
+    NSLog(@"objArrScheduleData:-%@",objArrScheduleData);
     [self.mytbl reloadData];
     [appDelegate stopActivityIndicator];
 
