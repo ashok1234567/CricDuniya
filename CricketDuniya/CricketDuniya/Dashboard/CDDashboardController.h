@@ -37,11 +37,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblBowlerMaidens;
 @property (weak, nonatomic) IBOutlet UILabel *lblBowlerRuns;
 @property (weak, nonatomic) IBOutlet UILabel *lblBowlerWicket;
+@property (weak, nonatomic) IBOutlet UIButton *btnMatch3;
 @property (weak, nonatomic) IBOutlet UILabel *lblBowlerER;
+- (IBAction)btnActionMatch:(id)sender;
 
 - (IBAction)tblActionFullScore:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *btnActionReloadCommenntry;
 @property (weak, nonatomic) IBOutlet UITextView *lblBallbyCommenntry;
 @property (weak, nonatomic) IBOutlet UIImageView *imgCommenntry;
+@property (weak, nonatomic) IBOutlet UIButton *btnMatch2;
 @property (nonatomic)int selected_service;
+@property (weak, nonatomic) IBOutlet UIButton *btnMatch1;
 @end

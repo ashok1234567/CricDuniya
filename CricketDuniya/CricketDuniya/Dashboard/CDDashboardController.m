@@ -13,6 +13,7 @@
 @interface CDDashboardController ()
 {
     NSMutableDictionary*objDicLiveMatchData;
+    NSArray *objTotalMatchs;
 }
 @end
 
@@ -24,6 +25,10 @@
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:58/255.0f green:147/255.0f blue:74/255.0f alpha:1.0]};
 
     
+    //hide match button
+    self.btnMatch1.hidden=YES;
+        self.btnMatch2.hidden=YES;
+        self.btnMatch3.hidden=YES;
     //call for live score
     [self callServiceForDashboard];
 }
@@ -195,27 +200,42 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
 -(void)webServiceHandler:(WebserviceHandler *)webHandler recievedResponse:(NSDictionary *)dicResponce
 {
 
-
+[appDelegate stopActivityIndicator];
 
     if (_selected_service==1)
         {
         if([dicResponce valueForKey:@"microscorecard_data_items"])
             {
             NSLog(@"dicResponcelivematch:-%@",[dicResponce valueForKey:@"microscorecard_data_items"]);
-            objDicLiveMatchData=[[dicResponce valueForKey:@"microscorecard_data_items"] objectAtIndex:1];
+               
+                objTotalMatchs=[dicResponce valueForKey:@"microscorecard_data_items"];
+                if ([[[objTotalMatchs objectAtIndex:0] objectForKey:@"match_status"] isEqualToString:@"No Live Match"] )
+                {
+                    ScheduleController *objScheduleController = [self.storyboard instantiateViewControllerWithIdentifier:@"schedule"];
+                    self.navigationController.viewControllers = @[objScheduleController];
+                }
+                else
+                {
+            objDicLiveMatchData=[[dicResponce valueForKey:@"microscorecard_data_items"] objectAtIndex:0];
+                
+                if([[dicResponce valueForKey:@"microscorecard_data_items"] count]==1){
+                    self.btnMatch1.hidden=NO;
+                    [self callMiniScore:[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"]];
+
+                }
+                else if ([[dicResponce valueForKey:@"microscorecard_data_items"] count]==2){
+                    self.btnMatch1.hidden=NO;
+                    self.btnMatch2.hidden=NO;
+                }else if([[dicResponce valueForKey:@"microscorecard_data_items"] count]==3){
+                    self.btnMatch1.hidden=NO;
+                    self.btnMatch2.hidden=NO;
+                    self.btnMatch3.hidden=NO;
+                }
                 //setup or reload live data
 
-            if ([[objDicLiveMatchData objectForKey:@"match_status"] isEqualToString:@"No Live Match"] )
-                {
-                ScheduleController *objScheduleController = [self.storyboard instantiateViewControllerWithIdentifier:@"schedule"];
-                self.navigationController.viewControllers = @[objScheduleController];
-                }
-            else
-                {
+           
 
-                [self callMiniScore:[objDicLiveMatchData objectForKey:@"matchid"]];
-                [appDelegate stopActivityIndicator];
-                }
+                               }
             }
 
         }
@@ -237,12 +257,20 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
     [appDelegate stopActivityIndicator];
         //remove it after WS call
 }
-
+- (IBAction)btnActionMatch:(id)sender {
+    
+     [self callMiniScore:[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"]];
+    
+}
 - (IBAction)btnActionMatch2:(id)sender {
+     [self callMiniScore:[[objTotalMatchs objectAtIndex:1] objectForKey:@"matchid"]];
 }
 
 - (IBAction)btnActionMatch3:(id)sender {
+     [self callMiniScore:[[objTotalMatchs objectAtIndex:2] objectForKey:@"matchid"]];
 }
+
+
 - (IBAction)tblActionFullScore:(id)sender {
     }
 @end
