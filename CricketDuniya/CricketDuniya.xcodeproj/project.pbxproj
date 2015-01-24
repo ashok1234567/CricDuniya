@@ -15,6 +15,12 @@
 		BD4A9D251A5C7F7300CD6FAF /* CategoryCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4A9D231A5C7F7300CD6FAF /* CategoryCustomCell.xib */; };
 		BD52FA561A7008F2007A239A /* MatchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD52FA551A7008F2007A239A /* MatchResultController.m */; };
 		BD52FA5A1A702F41007A239A /* FullLiveScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD52FA591A702F41007A239A /* FullLiveScoreController.m */; };
+		BD6938521A735E2F00D291FE /* MyPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6938511A735E2F00D291FE /* MyPageController.m */; };
+		BD6938551A735E4500D291FE /* HeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6938541A735E4500D291FE /* HeadView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BD69385C1A7375E800D291FE /* AnwserCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69385A1A7375E800D291FE /* AnwserCellView.m */; };
+		BD69385D1A7375E800D291FE /* AnwserCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD69385B1A7375E800D291FE /* AnwserCellView.xib */; };
+		BD6938621A737CB500D291FE /* ClosedCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6938601A737CB500D291FE /* ClosedCellView.m */; };
+		BD6938631A737CB500D291FE /* ClosedCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD6938611A737CB500D291FE /* ClosedCellView.xib */; };
 		BD6B7A7E1A611A4600C43E8E /* Untitle.png in Resources */ = {isa = PBXBuildFile; fileRef = BD6B7A7D1A611A4600C43E8E /* Untitle.png */; };
 		BD7001061A5D80820087BD85 /* ResultAndNotificationCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7001041A5D80820087BD85 /* ResultAndNotificationCustomCell.m */; };
 		BD7001071A5D80820087BD85 /* ResultAndNotificationCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD7001051A5D80820087BD85 /* ResultAndNotificationCustomCell.xib */; };
@@ -138,6 +144,16 @@
 		BD52FA551A7008F2007A239A /* MatchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchResultController.m; sourceTree = "<group>"; };
 		BD52FA581A702F41007A239A /* FullLiveScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullLiveScoreController.h; sourceTree = "<group>"; };
 		BD52FA591A702F41007A239A /* FullLiveScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullLiveScoreController.m; sourceTree = "<group>"; };
+		BD6938501A735E2F00D291FE /* MyPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageController.h; sourceTree = "<group>"; };
+		BD6938511A735E2F00D291FE /* MyPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageController.m; sourceTree = "<group>"; };
+		BD6938531A735E4500D291FE /* HeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadView.h; sourceTree = "<group>"; };
+		BD6938541A735E4500D291FE /* HeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadView.m; sourceTree = "<group>"; };
+		BD6938591A7375E800D291FE /* AnwserCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnwserCellView.h; sourceTree = "<group>"; };
+		BD69385A1A7375E800D291FE /* AnwserCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnwserCellView.m; sourceTree = "<group>"; };
+		BD69385B1A7375E800D291FE /* AnwserCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnwserCellView.xib; sourceTree = "<group>"; };
+		BD69385F1A737CB500D291FE /* ClosedCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClosedCellView.h; sourceTree = "<group>"; };
+		BD6938601A737CB500D291FE /* ClosedCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClosedCellView.m; sourceTree = "<group>"; };
+		BD6938611A737CB500D291FE /* ClosedCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClosedCellView.xib; sourceTree = "<group>"; };
 		BD6B7A7D1A611A4600C43E8E /* Untitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Untitle.png; sourceTree = "<group>"; };
 		BD7001031A5D80820087BD85 /* ResultAndNotificationCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultAndNotificationCustomCell.h; sourceTree = "<group>"; };
 		BD7001041A5D80820087BD85 /* ResultAndNotificationCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultAndNotificationCustomCell.m; sourceTree = "<group>"; };
@@ -370,6 +386,36 @@
 			path = FullLiveScore;
 			sourceTree = "<group>";
 		};
+		BD69384F1A735E1300D291FE /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				BD6938501A735E2F00D291FE /* MyPageController.h */,
+				BD6938511A735E2F00D291FE /* MyPageController.m */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		BD6938581A7375CD00D291FE /* AnwserView */ = {
+			isa = PBXGroup;
+			children = (
+				BD69385E1A737C9A00D291FE /* ClosedCell */,
+				BD6938591A7375E800D291FE /* AnwserCellView.h */,
+				BD69385A1A7375E800D291FE /* AnwserCellView.m */,
+				BD69385B1A7375E800D291FE /* AnwserCellView.xib */,
+			);
+			path = AnwserView;
+			sourceTree = "<group>";
+		};
+		BD69385E1A737C9A00D291FE /* ClosedCell */ = {
+			isa = PBXGroup;
+			children = (
+				BD69385F1A737CB500D291FE /* ClosedCellView.h */,
+				BD6938601A737CB500D291FE /* ClosedCellView.m */,
+				BD6938611A737CB500D291FE /* ClosedCellView.xib */,
+			);
+			path = ClosedCell;
+			sourceTree = "<group>";
+		};
 		BD79096A1A716B9900F8CD39 /* FirstCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +539,8 @@
 		BDC6B4901A5AEDD000E09F36 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				BD6938531A735E4500D291FE /* HeadView.h */,
+				BD6938541A735E4500D291FE /* HeadView.m */,
 				BDD5AF521A62BDB700604979 /* CustomActivityIndicator */,
 				BDFD54511A5EF2B90062881B /* ApplicationConstant */,
 				BDFD54581A5EF2B90062881B /* Base64 */,
@@ -557,6 +605,8 @@
 		BDC6B4B91A5B1A0700E09F36 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BD6938581A7375CD00D291FE /* AnwserView */,
+				BD69384F1A735E1300D291FE /* MyPage */,
 				BD52FA571A702F16007A239A /* FullLiveScore */,
 				BD52FA531A700883007A239A /* MatchResult */,
 				BDA975EC1A6ED6E5009A69C3 /* Leader Borad */,
@@ -966,9 +1016,11 @@
 				BD7909691A715B1800F8CD39 /* FirstHeader.xib in Resources */,
 				BD9BB8A01A592E09008D9D06 /* Main.storyboard in Resources */,
 				BD7909731A717B7A00F8CD39 /* SecoundHeader.xib in Resources */,
+				BD69385D1A7375E800D291FE /* AnwserCellView.xib in Resources */,
 				BDD5AF681A62BDB700604979 /* loader_step4.png in Resources */,
 				BDD5AF631A62BDB700604979 /* loader_step1@2x.png in Resources */,
 				BD9BB8A51A592E09008D9D06 /* LaunchScreen.xib in Resources */,
+				BD6938631A737CB500D291FE /* ClosedCellView.xib in Resources */,
 				BD4A9D1D1A5C6D8E00CD6FAF /* uncheck.png in Resources */,
 				BD6B7A7E1A611A4600C43E8E /* Untitle.png in Resources */,
 				BDFD54DC1A5EF2B90062881B /* ashok.jpg in Resources */,
@@ -1021,9 +1073,12 @@
 				BDFD54EC1A5EF2B90062881B /* AFHTTPRequestOperationManager.m in Sources */,
 				BDFD54E21A5EF2B90062881B /* UIViewController+REFrostedViewController.m in Sources */,
 				BD52FA561A7008F2007A239A /* MatchResultController.m in Sources */,
+				BD6938551A735E4500D291FE /* HeadView.m in Sources */,
 				BD79097E1A71811000F8CD39 /* ThirdCellView.m in Sources */,
+				BD6938521A735E2F00D291FE /* MyPageController.m in Sources */,
 				BDFD54EE1A5EF2B90062881B /* AFNetworkReachabilityManager.m in Sources */,
 				BDFD54ED1A5EF2B90062881B /* AFHTTPSessionManager.m in Sources */,
+				BD69385C1A7375E800D291FE /* AnwserCellView.m in Sources */,
 				BDC6B4BD1A5B1A5D00E09F36 /* MenuController.m in Sources */,
 				BD7909781A717E7500F8CD39 /* SecoundCellView.m in Sources */,
 				BDFD54CB1A5EF2B90062881B /* SharedData.m in Sources */,
@@ -1048,6 +1103,7 @@
 				BDFD54CC1A5EF2B90062881B /* User.m in Sources */,
 				BD9BB89A1A592E09008D9D06 /* AppDelegate.m in Sources */,
 				BD9BB8971A592E09008D9D06 /* main.m in Sources */,
+				BD6938621A737CB500D291FE /* ClosedCellView.m in Sources */,
 				BDFD54F61A5EF2BA0062881B /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BD52FA5A1A702F41007A239A /* FullLiveScoreController.m in Sources */,
 				BD7001061A5D80820087BD85 /* ResultAndNotificationCustomCell.m in Sources */,

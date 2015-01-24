@@ -16,6 +16,7 @@
 #import "ScheduleController.h"
 #import "LeaderBoardController.h"
 #import "MatchResultController.h"
+#import "MyPageController.h";
 @interface MenuController ()
 {
     NSArray *titles;
@@ -159,7 +160,10 @@
         navigationController.viewControllers = @[homeViewController];
     } else  if (indexPath.row == 1) {
         WhatNextController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"whatnext"];
-        navigationController.viewControllers = @[secondViewController];
+        navigationController.viewControllers = @[secondViewController];//mypage
+    }else if (indexPath.row == 2) {
+        MyPageController *objMyPageController = [self.storyboard instantiateViewControllerWithIdentifier:@"mypage"];
+        navigationController.viewControllers = @[objMyPageController];//mypage
     }else  if (indexPath.row == 4){
         
         ScheduleController *objScheduleController = [self.storyboard instantiateViewControllerWithIdentifier:@"schedule"];

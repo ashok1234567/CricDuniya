@@ -41,7 +41,7 @@
 -(void)callMiniScore :(NSString*)matchId{
     NSMutableString *matchName=[NSMutableString string];
     [matchName appendString:@"livescore/2/"];
-    [matchName appendString:matchId];
+    [matchName appendString:[NSString stringWithFormat:@"%@", matchId]];
     [matchName appendString:@"_s.json"];
 
     [self callServiceForMiniScore:matchName];
