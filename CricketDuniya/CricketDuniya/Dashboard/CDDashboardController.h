@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface CDDashboardController : UIViewController<WebServiceHandlerDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *lblResult;
+@property (weak, nonatomic) IBOutlet UILabel *lblStatus;
+@property (weak, nonatomic) IBOutlet UILabel *tempRR;
+@property (weak, nonatomic) IBOutlet UILabel *tempCR;
 @property (weak, nonatomic) IBOutlet UIButton *btnOutletMatch1;
 - (IBAction)btnActionMatch2:(id)sender;
 - (IBAction)btnActionMatch3:(id)sender;

@@ -49,7 +49,14 @@
         if([methodName isEqualToString:SignIN_Url]|| [methodName isEqualToString:SignUp_Url] )
     reqString=[NSString stringWithFormat:@"%@%@?%@",URL_DOMAIN,methodName,encodedUrl];
         else{
+            NSString *string = @"http";
+             NSLog(@"dicttttt +++ %@",postString);
+            if ([methodName rangeOfString:string].location == NSNotFound){
+          //  if([postString rangeOfString:@"http"].location==NSNotFound){
       reqString=[NSString stringWithFormat:@"%@%@?%@",URL_DOMAIN_USER,methodName,postString];
+            }else{
+                reqString=[NSString stringWithFormat:@"%@?%@",methodName,postString];
+            }
         }
     NSLog(@"dicttttt +++ %@",reqString);
 

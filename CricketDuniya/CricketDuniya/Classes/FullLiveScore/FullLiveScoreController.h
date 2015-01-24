@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface FullLiveScoreController : UIViewController
-- (IBAction)btnActionCancel:(id)sender;
 
+- (IBAction)btnActionCancel:(id)sender;
+@property (retain, nonatomic)NSString *urlForFullScore;
 @property (weak, nonatomic) IBOutlet UITableView *tblFullScoreBoard;
 @end

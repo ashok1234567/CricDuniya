@@ -33,6 +33,7 @@
 #import "WebserviceHandler.h"
 #import "AFNetworking.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "UIImageView+AFNetworking.h"
 #endif
 #pragma mark - Appliction Webservice URL
 //For Development

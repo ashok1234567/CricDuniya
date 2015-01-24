@@ -21,7 +21,7 @@
 #define arrBattingTeamPlayer @"battingTeamPlayer"
 #define arrBowlingTeamPlayer @"bowlingTeamPlayer"
 
-@interface FullLiveScoreController ()
+@interface FullLiveScoreController ()<WebServiceHandlerDelegate>
 
 {
     NSMutableDictionary *objDicFullScore;
@@ -30,12 +30,14 @@
     NSMutableArray *objArrBattingPlayer;
     NSMutableArray *objArrBowlingPlayer;
     NSMutableArray *objArrMatch;
+    
+    NSString *battingTeam,*bowlingTeam;
   
 }
 @end
 
 @implementation FullLiveScoreController
-
+@synthesize urlForFullScore;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -50,25 +52,25 @@
      NSMutableArray *objArrBowling=[[NSMutableArray alloc]initWithObjects:@"1",@"2", nil];
      NSMutableArray *objArrMatchInfo=[[NSMutableArray alloc]initWithObjects:@"1", nil];
     objDicFullScore=[[NSMutableDictionary alloc]init];
-//    [objDicFullScore setValue:objArrBatting forKey:arrBatting];
-//    [objDicFullScore setValue:objArrBowling forKey:arrBowling];
-//    [objDicFullScore setValue:objArrMatchInfo forKey:arrMatchInfo];
 
 
-
-
-    [self calFullScore];
     
+}
+-(void)viewWillAppear:(BOOL)animated{
+    
+    //cal web services for fullscore 
+    [self calFullScore];
 }
 
 -(void)calFullScore {
-    NSMutableString *matchName=[NSMutableString string];
-    [matchName appendString:@"livescore/2/"];
-    [matchName appendString:@"1430"];
-    [matchName appendString:@".json"];
+//    NSMutableString *matchName=[NSMutableString string];
+//    [matchName appendString:@"livescore/2/"];
+//    [matchName appendString:@"1430"];
+//    [matchName appendString:@".json"];
 
-    [self callServiceForSchedule:matchName];
+    [self callServiceForSchedule:urlForFullScore];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -84,7 +86,7 @@
     
     switch (section) {
         case 0:
-            NSLog(@"objArrBowlingPlayerCount:-%d",[[objDicFullScore valueForKey:arrBattingTeamPlayer] count]);
+           // NSLog(@"objArrBowlingPlayerCount:-%d",[[objDicFullScore valueForKey:arrBattingTeamPlayer] count]);
            return  [[objDicFullScore valueForKey:arrBattingTeamPlayer] count];
             break;
         case 1:
@@ -143,8 +145,9 @@
         cell.lblUmpires.text=[objArrMatch  valueForKey:@"umpires_1"];
         cell.lbl3rdUmpire.text=[objArrMatch  valueForKey:@"umpires_tv"];
         cell.lblMetchReferee.text=[objArrMatch  valueForKey:@"match_referees"];
-            //       cell.lblTeam1Banch.text=[objArrMatch  valueForKey:@"batting_team"];
-//        cell.lblTeam2Banch.text=[objArrMatch  valueForKey:@"bowling_team"];
+       
+        cell.lblTeam1.text=battingTeam;
+       cell.lblTeam2.text=bowlingTeam;
         return cell;
     }
     
@@ -218,10 +221,81 @@
             
            UIView *firstHeaderView=[[[NSBundle mainBundle] loadNibNamed:@"FirstHeader" owner:self options:nil] lastObject];
             firstHeaderView.frame=header.frame;
+            if(objArrMatch!=nil){
+            
+            UILabel *labelteam1=(UILabel*)[firstHeaderView viewWithTag:1];
+            labelteam1.text = [objArrMatch valueForKey:@"batting_team_tinitial"];
+            
+            UILabel *labelteam2=(UILabel*)[firstHeaderView viewWithTag:2];
+            labelteam2.text = [objArrMatch valueForKey:@"bowling_teamt_initial"];
+            
+            UILabel *labelteam1time=(UILabel*)[firstHeaderView viewWithTag:3];
+            NSArray *myArray = [[objArrMatch valueForKey:@"match_time"] componentsSeparatedByString:@" "];
+            
+           
+            
+            NSMutableString *matchDate=[NSMutableString string];
+            [matchDate appendString:[myArray objectAtIndex:0]];
+            [matchDate appendString:@" "];
+            [matchDate appendString:[myArray objectAtIndex:1]];
+            [matchDate appendString:@" "];
+            [matchDate appendString:[myArray objectAtIndex:2]];
+            
+            NSMutableString *matchTime=[NSMutableString string];
+            [matchTime appendString:[myArray objectAtIndex:3]];
+            [matchTime appendString:@" "];
+            [matchTime appendString:[myArray objectAtIndex:4]];
             
             
-            UILabel *label=(UILabel*)[firstHeaderView viewWithTag:1];
-            label.text = @"INDIA";
+           
+           
+            labelteam1time.text = matchTime;
+            
+            UILabel *labelteam1score=(UILabel*)[firstHeaderView viewWithTag:4];
+            labelteam1score.text = [objArrMatch valueForKey:@"inning_descr"];
+            UILabel *labelvanue=(UILabel*)[firstHeaderView viewWithTag:5];
+            labelvanue.text = [objArrMatch valueForKey:@"match_venue"];
+            
+            
+          
+            
+            UILabel *labelteam1CRR=(UILabel*)[firstHeaderView viewWithTag:6];
+            labelteam1CRR.text = [objArrMatch valueForKey:@"curr_runrate"];
+            
+            UILabel *labelteam1RRR=(UILabel*)[firstHeaderView viewWithTag:7];
+            labelteam1RRR.text = [objArrMatch valueForKey:@"batting_team_tinitial"];
+            UILabel *labelteam2Score=(UILabel*)[firstHeaderView viewWithTag:8];
+            labelteam2Score.text = [[objArrMatch valueForKeyPath:@"match_score.inning"] objectAtIndex:0];
+          
+            UILabel *labelMatchDay=(UILabel*)[firstHeaderView viewWithTag:9];
+            labelMatchDay.text = matchDate;
+            
+                
+                UILabel *labelMatchStatus=(UILabel*)[firstHeaderView viewWithTag:10];
+              labelMatchStatus.text= [objArrMatch valueForKey:@"match_status"];
+                
+                UILabel *labelMatchResult=(UILabel*)[firstHeaderView viewWithTag:11];
+                 labelMatchResult.text= [objArrMatch valueForKey:@"match_status_overs_remaining"];
+                
+                 UILabel *labelRR1=(UILabel*)[firstHeaderView viewWithTag:100];
+                 UILabel *labelRR2=(UILabel*)[firstHeaderView viewWithTag:101];
+                if([[objArrMatch valueForKey:@"match_status"] isEqualToString:@"Completed"]){
+                    labelteam1CRR.hidden=YES;
+                    labelteam1RRR.hidden=YES;
+                    labelRR1.hidden=YES;
+                    labelRR2.hidden=YES;
+                    labelMatchStatus.hidden=NO;
+                    labelMatchResult.hidden=NO;
+                }else{
+                    labelMatchStatus.hidden=YES;
+                    labelMatchResult.hidden=YES;
+                }
+            
+            
+            
+            
+            }
+            
             [header addSubview:firstHeaderView];
         }
             break;
@@ -264,9 +338,14 @@
             UIView *firstHeaderView=[[[NSBundle mainBundle] loadNibNamed:@"FirstFooter" owner:self options:nil] lastObject];
             firstHeaderView.frame=header.frame;
             
-            
+            if(objArrMatch!=nil){
             UILabel *label=(UILabel*)[firstHeaderView viewWithTag:1];
-            label.text = @"18";
+                if([[objArrMatch valueForKeyPath:@"inning.inning_items"] count]>0)
+            label.text = [[[objArrMatch valueForKeyPath:@"inning.inning_items"] objectAtIndex:0] valueForKeyPath:@"extras"];//extras
+            
+            UILabel *labeltotal=(UILabel*)[firstHeaderView viewWithTag:3];
+            labeltotal.text = [[objArrMatch valueForKeyPath:@"match_score.inning"] objectAtIndex:0];
+            }
             [header addSubview:firstHeaderView];
         }
             break;
@@ -327,6 +406,23 @@
 
     NSLog(@"Fullscore:-%@",dicResponce);
           objArrMatch =dicResponce ;
+    battingTeam=@"";
+    bowlingTeam=@"";
+    
+    for (int i=0; i<[[objArrMatch  valueForKey:@"batting_team"] count]; i++) {
+        battingTeam=[battingTeam stringByAppendingString:[[objArrMatch  valueForKey:@"batting_team"] objectAtIndex:i]];
+        battingTeam=[battingTeam stringByAppendingString:@", "];
+        
+    }
+    for (int i=0; i<[[objArrMatch  valueForKey:@"bowling_team"] count]; i++) {
+       
+        
+        bowlingTeam=[bowlingTeam stringByAppendingString:[[objArrMatch  valueForKey:@"bowling_team"] objectAtIndex:i]];
+        bowlingTeam=[bowlingTeam stringByAppendingString:@", "];
+        
+        
+    }
+    
     objArrBattingTeam =[dicResponce valueForKey:@"batting_team"] ;
     objArtBowlingTeam =[dicResponce valueForKey:@"bowling_team"] ;
 

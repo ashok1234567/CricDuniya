@@ -10,10 +10,12 @@
 #import "REFrostedViewController.h"
 #import "AS_CustomNavigationController.h"
 #import "ScheduleController.h"
+#import "FullLiveScoreController.h"
 @interface CDDashboardController ()
 {
     NSMutableDictionary*objDicLiveMatchData;
     NSArray *objTotalMatchs;
+    NSString *urlLiveMatchFullScore;
 }
 @end
 
@@ -24,11 +26,15 @@
         // Do any additional setup after loading the view.
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:58/255.0f green:147/255.0f blue:74/255.0f alpha:1.0]};
 
+    urlLiveMatchFullScore=@"";
     
     //hide match button
     self.btnMatch1.hidden=YES;
         self.btnMatch2.hidden=YES;
         self.btnMatch3.hidden=YES;
+   
+}
+-(void)viewWillAppear:(BOOL)animated{
     //call for live score
     [self callServiceForDashboard];
 }
@@ -60,6 +66,9 @@
 
 
 NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsSeparatedByString:@" "];
+    
+    urlLiveMatchFullScore=[objDicLiveMatchData objectForKey:@"fullscore"];
+    
     NSMutableString *matchDate=[NSMutableString string];
     [matchDate appendString:[myArray objectAtIndex:0]];
     [matchDate appendString:@" "];
@@ -129,9 +138,26 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
 
 
     NSMutableDictionary*objcommetry;
-    if([[objDicLiveMatchData objectForKey:@"recent_commentry"] count]>0)
+    if([[objDicLiveMatchData objectForKey:@"recent_commentry"] count]>0){
     objcommetry=[[objDicLiveMatchData objectForKey:@"recent_commentry"] objectAtIndex:0];
     _lblBallbyCommenntry.text=[objcommetry objectForKey:@"comm_text"];
+        [_imgCommenntry setImageWithURL:[NSURL URLWithString:[[objDicLiveMatchData valueForKeyPath:@"recent_commentry.sponsor"] objectAtIndex:0]]];
+    }
+    
+    if([[objDicLiveMatchData valueForKey:@"match_status"] isEqualToString:@"Completed"]){
+        _lblRequiredRate.hidden=YES;
+        _lblCurrentRate.hidden=YES;
+        _tempCR.hidden=YES;
+        _tempRR.hidden=YES;
+        
+        _lblStatus.text=[objDicLiveMatchData valueForKey:@"match_status"];
+        _lblResult.text=[objDicLiveMatchData valueForKey:@"match_status_overs_remaining"];
+        _lblStatus.hidden=NO;
+        _lblResult.hidden=NO;
+    }else{
+        _lblStatus.hidden=YES;
+        _lblResult.hidden=YES;
+    }
 
 }
 
@@ -147,6 +173,16 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
     self.frostedViewController.backgroundFadeAmount=0.2;
     self.frostedViewController.direction=REFrostedViewControllerDirectionRight;
     [self.frostedViewController presentMenuViewController];
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    FullLiveScoreController *objFullLiveScoreController=[segue destinationViewController];
+    objFullLiveScoreController.urlForFullScore=[NSString stringWithFormat:@"%@", urlLiveMatchFullScore];
 }
 
 /*
