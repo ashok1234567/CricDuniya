@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD0754FF1A7502C000346A28 /* SmallWhatNextController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0754FD1A7502C000346A28 /* SmallWhatNextController.m */; };
+		BD0755001A7502C000346A28 /* SmallWhatNextController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD0754FE1A7502C000346A28 /* SmallWhatNextController.xib */; };
+		BD0755021A75642600346A28 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD0755011A75642600346A28 /* Default-568h@2x.png */; };
 		BD2836B81A68297800AE2BA8 /* SelectionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2836B71A68297800AE2BA8 /* SelectionsController.m */; };
 		BD4A9D1B1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG in Resources */ = {isa = PBXBuildFile; fileRef = BD4A9D1A1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG */; };
 		BD4A9D1D1A5C6D8E00CD6FAF /* uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4A9D1C1A5C6D8E00CD6FAF /* uncheck.png */; };
@@ -127,6 +130,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD0754FC1A7502C000346A28 /* SmallWhatNextController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallWhatNextController.h; sourceTree = "<group>"; };
+		BD0754FD1A7502C000346A28 /* SmallWhatNextController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallWhatNextController.m; sourceTree = "<group>"; };
+		BD0754FE1A7502C000346A28 /* SmallWhatNextController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallWhatNextController.xib; sourceTree = "<group>"; };
+		BD0755011A75642600346A28 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BD2836B61A68297800AE2BA8 /* SelectionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionsController.h; sourceTree = "<group>"; };
 		BD2836B71A68297800AE2BA8 /* SelectionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionsController.m; sourceTree = "<group>"; };
 		BD4A9CDF1A5C630800CD6FAF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -338,6 +345,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD0754FB1A75029200346A28 /* SmallWindow */ = {
+			isa = PBXGroup;
+			children = (
+				BD0754FC1A7502C000346A28 /* SmallWhatNextController.h */,
+				BD0754FD1A7502C000346A28 /* SmallWhatNextController.m */,
+				BD0754FE1A7502C000346A28 /* SmallWhatNextController.xib */,
+			);
+			path = SmallWindow;
+			sourceTree = "<group>";
+		};
 		BD2836B51A68294C00AE2BA8 /* Selection */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +510,7 @@
 		BD9BB8941A592E09008D9D06 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BD0755011A75642600346A28 /* Default-568h@2x.png */,
 				BD9BB8951A592E09008D9D06 /* Info.plist */,
 				BD9BB8961A592E09008D9D06 /* main.m */,
 				BDFD54501A5EEC970062881B /* PrefixHeader.pch */,
@@ -595,6 +613,7 @@
 		BDC6B4B21A5AF33000E09F36 /* WhatNext */ = {
 			isa = PBXGroup;
 			children = (
+				BD0754FB1A75029200346A28 /* SmallWindow */,
 				BDC6B4B31A5AF34600E09F36 /* WhatNextController.h */,
 				BDC6B4B41A5AF34600E09F36 /* WhatNextController.m */,
 			);
@@ -971,6 +990,7 @@
 				TargetAttributes = {
 					BD9BB8901A592E09008D9D06 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 2P4GTY3S8F;
 					};
 					BD9BB8A91A592E0A008D9D06 = {
 						CreatedOnToolsVersion = 6.1;
@@ -1028,12 +1048,14 @@
 				BD7909711A71753600F8CD39 /* FirstFooter.xib in Resources */,
 				BD79097F1A71811000F8CD39 /* ThirdCellView.xib in Resources */,
 				BD4A9D1B1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG in Resources */,
+				BD0755001A7502C000346A28 /* SmallWhatNextController.xib in Resources */,
 				BDD5AF621A62BDB700604979 /* loader_step1.png in Resources */,
 				BDFD54D21A5EF2B90062881B /* Raleway-Regular.ttf in Resources */,
 				BDD5879D1A617A2B00200284 /* checkmark.jpg in Resources */,
 				BD7001071A5D80820087BD85 /* ResultAndNotificationCustomCell.xib in Resources */,
 				BDD5AF641A62BDB700604979 /* loader_step2.png in Resources */,
 				BD9BB8A21A592E09008D9D06 /* Images.xcassets in Resources */,
+				BD0755021A75642600346A28 /* Default-568h@2x.png in Resources */,
 				BDFD54D31A5EF2B90062881B /* Raleway-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1056,6 +1078,7 @@
 				BDFD54DE1A5EF2B90062881B /* REFrostedContainerViewController.m in Sources */,
 				BDFD54F91A5EF2BA0062881B /* UIButton+AFNetworking.m in Sources */,
 				BDFD54D61A5EF2B90062881B /* NSString+HTML.m in Sources */,
+				BD0754FF1A7502C000346A28 /* SmallWhatNextController.m in Sources */,
 				BDFD54DB1A5EF2B90062881B /* AS_CustomNavigationController.m in Sources */,
 				BDFD54F01A5EF2B90062881B /* AFURLConnectionOperation.m in Sources */,
 				BDFD54E61A5EF2B90062881B /* TPKeyboardAvoidingScrollView.m in Sources */,
@@ -1179,7 +1202,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1199,6 +1223,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "977a9386-1003-4f19-b909-9be3cedfbc85";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1220,7 +1245,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1233,6 +1259,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "977a9386-1003-4f19-b909-9be3cedfbc85";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1242,6 +1269,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/vivekjain/Documents/FacebookSDK,
@@ -1253,6 +1281,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "977a9386-1003-4f19-b909-9be3cedfbc85";
 			};
 			name = Debug;
 		};
@@ -1260,6 +1289,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/vivekjain/Documents/FacebookSDK,
@@ -1271,6 +1301,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "977a9386-1003-4f19-b909-9be3cedfbc85";
 			};
 			name = Release;
 		};

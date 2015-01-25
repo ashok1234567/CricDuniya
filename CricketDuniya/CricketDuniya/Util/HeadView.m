@@ -21,18 +21,15 @@
         
         UILabel *lblMatchTitle1=[[UILabel alloc]init];
         UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame = CGRectMake(0,5, 158, 60.5);
+        btn.frame = CGRectMake(0,5, 145, 60.5);
         lblMatchTitle1.frame=CGRectMake(5, 0, 158,20.5);
-        [lblMatchTitle1 setFont:[UIFont fontWithName:@"Arial" size:12]];
+        [lblMatchTitle1 setFont:[UIFont fontWithName:@"Arial" size:11]];
+          [lblMatchTitle1 setTextColor:[UIColor lightGrayColor]];
+        
         [btn addTarget:self action:@selector(doSelected) forControlEvents:UIControlEventTouchUpInside];
-
-//        [btn setBackgroundImage:[UIImage imageNamed:@"btn_momal"] forState:UIControlStateNormal];
-//        [btn setBackgroundImage:[UIImage imageNamed:@"btn_on"] forState:UIControlStateHighlighted];
-         [btn.titleLabel setFont:[UIFont fontWithName:@"Arial" size:12]];
-        [btn.titleLabel setTextColor:[UIColor blackColor]];
-        
+         [btn.titleLabel setFont:[UIFont boldSystemFontOfSize:12]];
         btn.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        
+         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self addSubview:btn];
         [self addSubview:lblMatchTitle1];
         self.backBtn = btn;

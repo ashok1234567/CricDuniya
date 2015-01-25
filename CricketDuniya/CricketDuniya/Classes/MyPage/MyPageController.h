@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "HeadView.h"
 @interface MyPageController : UIViewController<HeadViewDelegate>
-{NSInteger _currentSection;
+{
+    NSInteger _currentSection;
     NSInteger _currentSectionClosed;
 NSInteger _currentRow;
     NSInteger _currentRowClosed;

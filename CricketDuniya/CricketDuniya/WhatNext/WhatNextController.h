@@ -7,7 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface WhatNextController : UIViewController
-
+#import "HeadView.h"
+@interface WhatNextController : UIViewController<HeadViewDelegate>
+{
+NSInteger _currentSection;
+NSInteger _currentSectionClosed;
+NSInteger _currentRow;
+NSInteger _currentRowClosed;
+NSInteger _tblTag;
+    __weak IBOutlet UIButton *btnANS1;
+}
+@property (weak, nonatomic) IBOutlet UILabel *lblANS4Point;
+@property (weak, nonatomic) IBOutlet UILabel *lblANS3Point;
+@property (weak, nonatomic) IBOutlet UILabel *lblANS2Point;
+@property (weak, nonatomic) IBOutlet UILabel *lblANS1Point;
+@property (weak, nonatomic) IBOutlet UIButton *btnANS4;
+@property (weak, nonatomic) IBOutlet UIButton *btnANS3;
+@property (weak, nonatomic) IBOutlet UIButton *btnANS2;
+@property (weak, nonatomic) IBOutlet UITextView *lblQuestion;
+@property(nonatomic, retain) NSMutableArray* headViewArray;
+@property(nonatomic, retain) NSMutableArray* headViewClosed;
+@property (weak, nonatomic) IBOutlet UITableView *tblLiveContestQue;
+@property (weak, nonatomic) IBOutlet UITableView *tblClosedContestQue;
 @end

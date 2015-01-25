@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.apmocon.$(PRODUCT_NAME:rfc1034identifier)</string>
+	<string>com.apmocon.cd</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -25,14 +25,14 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb1571908079716997</string>
+				<string>fb802910843112221</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>1571908079716997</string>
+	<string>802910843112221</string>
 	<key>FacebookDisplayName</key>
 	<string>Cricket Duniya</string>
 	<key>LSRequiresIPhoneOS</key>

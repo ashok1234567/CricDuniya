@@ -91,6 +91,8 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
     _lblCurrentRate.text=[objDicLiveMatchData objectForKey:@"curr_runrate"];
         //_lblRequiredRate.text=[objDicLiveMatchData objectForKey:@"requird_runrate"];
 
+    _lblTeam2Score.text = [[objDicLiveMatchData valueForKeyPath:@"match_score.inning"] objectAtIndex:0];
+    
  NSMutableString *player1=[NSMutableString string];
 
     if ([[objDicLiveMatchData objectForKey:@"player_1_batting_status"] isEqualToString:@"ONST"])
@@ -157,6 +159,10 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
     }else{
         _lblStatus.hidden=YES;
         _lblResult.hidden=YES;
+        _lblRequiredRate.hidden=NO;
+        _lblCurrentRate.hidden=NO;
+        _tempCR.hidden=NO;
+        _tempRR.hidden=NO;
     }
 
 }
@@ -256,7 +262,7 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
                 
                 if([[dicResponce valueForKey:@"microscorecard_data_items"] count]==1){
                     self.btnMatch1.hidden=NO;
-                    [self callMiniScore:[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"]];
+                   // [self callMiniScore:[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"]];
 
                 }
                 else if ([[dicResponce valueForKey:@"microscorecard_data_items"] count]==2){
@@ -268,7 +274,7 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
                     self.btnMatch3.hidden=NO;
                 }
                 //setup or reload live data
-
+                    [self callMiniScore:[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"]];
            
 
                                }

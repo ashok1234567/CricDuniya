@@ -75,4 +75,7 @@
 
 #pragma mark anmate text view
 -(void)shakeAnimation:(UIView*) view;
+
+#pragma mark SmallWindow
+-(void)ShowWhatNextSmallWindow;
 @end

@@ -47,7 +47,7 @@
         [objDicNotification addObject:objTempDicResult];
     }
     
-    titles = @[@"LIVE SCORE", @"WHAT NEXT", @"MY PAGE",@"LAST OVER CHANGE PEY",@"SCHEDULE",@"LEASER BOARD",@"MATCH RESULT",@"INVITE FRIENDS",@"SETTING",@"LOG OUT"];
+    titles = @[@"LIVE SCORE", @"WHAT NEXT", @"MY PAGE",@"LAST OVER CHANGE PEY",@"SCHEDULE",@"LEADER BOARD",@"MATCH RESULT",@"INVITE FRIENDS",@"SETTING",@"LOG OUT"];
 
 
      [self.tblMenuAndNotification registerNib:[UINib nibWithNibName:@"CategoryCustomCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"Cell"];

@@ -42,7 +42,8 @@
 #define URL_DOMAIN_USER @"http://api.amarujala.com/crid/"
 #define URL_DOMAIN @"http://cricapi.amarujala.com/getdata/"
 
-#define fbAppID @"1571908079716997"
+#define fbAppID @"802910843112221"
+//#define fbAppID @"1571908079716997"
 
 
 

@@ -91,7 +91,7 @@
         [self callServiceForSignIn];
     }
     
-   // [self performSegueWithIdentifier:@"signup" sender:nil];
+   // [objSharedData ShowWhatNextSmallWindow];
 }
 - (IBAction)btnActionLogin:(id)sender {
 }

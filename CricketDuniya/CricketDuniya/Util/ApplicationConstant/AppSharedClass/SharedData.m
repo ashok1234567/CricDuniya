@@ -11,7 +11,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #include <ifaddrs.h>
 #include <arpa/inet.h>
-
+#import "SmallWhatNextController.h"
 static SharedData * objAppSharedData;
 
 @implementation SharedData
@@ -349,5 +349,13 @@ static SharedData * objAppSharedData;
                              return;
                          }
                      }];
+}
+-(void)ShowWhatNextSmallWindow{
+    
+//    SmallWhatNextController  *objRVSignupViewController = [[SmallWhatNextController alloc] initWithNibName:@"SmallWhatNextController" bundle:nil];
+//    [objRVSignupViewController.view setFrame:CGRectMake(0,appDelegate.window.frame.origin.y+(appDelegate.window.frame.size.height/2), appDelegate.window.frame.size.width, appDelegate.window.frame.size.height-appDelegate.window.frame.size.height/2)];
+//    
+//    [appDelegate.window addSubview:objRVSignupViewController.view];
+    
 }
 @end

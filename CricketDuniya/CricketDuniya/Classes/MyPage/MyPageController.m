@@ -21,6 +21,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:58/255.0f green:147/255.0f blue:74/255.0f alpha:1.0]};
+    
+    
     [_tblLiveContestQue registerNib:[UINib nibWithNibName:@"AnwserCellView" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"Cellans"];
      [_tblClosedContestQue registerNib:[UINib nibWithNibName:@"ClosedCellView" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cellclosed"];
     
@@ -53,7 +56,7 @@
 - (void)loadModelLive{
     _currentRow = -1;
     headViewArray = [[NSMutableArray alloc]init ];
-    for(int i = 0;i< 10 ;i++)
+    for(int i = 0;i< 3 ;i++)
     {
         HeadView* headview = [[HeadView alloc] init];
         headview.delegate = self;
@@ -68,7 +71,7 @@
 - (void)loadModelClosed{
     _currentRow = -1;
     headViewClosed = [[NSMutableArray alloc]init ];
-    for(int i = 0;i< 10 ;i++)
+    for(int i = 0;i< 2 ;i++)
     {
         HeadView* headview = [[HeadView alloc] init];
         headview.delegate = self;
@@ -94,19 +97,19 @@
     if(tableView.tag==1){
     HeadView* headView = [self.headViewArray objectAtIndex:indexPath.section];
     
-    return headView.open?45:0;
+    return headView.open?35:0;
     }else {
         HeadView* headView = [self.headViewClosed objectAtIndex:indexPath.section];
         
-        return headView.open?45:0;
+        return headView.open?35:0;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 70;
+    return 50.0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 0.1;
+    return 10.0;
 }
 
 
@@ -138,51 +141,23 @@
 
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    static NSString *indentifier = @"cell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:indentifier];
-//    if (!cell) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:indentifier];
-//        UIButton* backBtn=  [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 340, 45)];
-//        backBtn.tag = 20000;
-//        [backBtn setBackgroundImage:[UIImage imageNamed:@"btn_on"] forState:UIControlStateHighlighted];
-//        backBtn.userInteractionEnabled = NO;
-//        [cell.contentView addSubview:backBtn];
-//        
-//        
-//        UIImageView* line = [[UIImageView alloc]initWithFrame:CGRectMake(0, 44, 340, 1)];
-//        line.backgroundColor = [UIColor grayColor];
-//        [cell.contentView addSubview:line];
-//      
-//        
-//    }
-//    UIButton* backBtn = (UIButton*)[cell.contentView viewWithTag:20000];
-//    HeadView* view = [self.headViewArray objectAtIndex:indexPath.section];
-//    [backBtn setBackgroundImage:[UIImage imageNamed:@"btn_2_nomal"] forState:UIControlStateNormal];
-    
-//    if (view.open) {
-//        if (indexPath.row == _currentRow) {
-//            [backBtn setBackgroundImage:[UIImage imageNamed:@"btn_nomal"] forState:UIControlStateNormal];
-//        }
-//    }
-//    
+   
     if(tableView.tag==1){
         static NSString *CellIdentifier = @"Cellans";
         
         AnwserCellView *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         cell.lblAns.text=[NSString stringWithFormat:@"Ans_%d",indexPath.row+1];
+        [cell.imgBG.layer setCornerRadius:2.0];
         return cell;
     }else if(tableView.tag==2){
         
         static NSString *CellIdentifier = @"cellclosed";
         ClosedCellView *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         cell.lblAns.text=[NSString stringWithFormat:@"Ans_%d",indexPath.row+1];
+        [cell.imgBG.layer setCornerRadius:2.0];
         return cell;
     }else{
-    
-//    cell.textLabel.text = [NSString stringWithFormat:@"Ans_%d",indexPath.row];
-//    cell.textLabel.backgroundColor = [UIColor clearColor];
-//    cell.textLabel.textColor = [UIColor whiteColor];
-//    
+   
     return nil;
     }
 }

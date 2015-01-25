@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CDDashboardController : UIViewController<WebServiceHandlerDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *lblTeam2Score;
 @property (weak, nonatomic) IBOutlet UILabel *lblResult;
 @property (weak, nonatomic) IBOutlet UILabel *lblStatus;
 @property (weak, nonatomic) IBOutlet UILabel *tempRR;

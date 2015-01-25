@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblAns;
 @property (weak, nonatomic) IBOutlet UILabel *lblpoints;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgBG;
 @end
