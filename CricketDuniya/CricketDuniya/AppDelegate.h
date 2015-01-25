@@ -28,6 +28,9 @@ extern SharedData *objSharedData;
 @property (nonatomic, assign) BOOL bool_isIOS7BtnSpace;
 @property (nonatomic, assign) BOOL isIphone5, isIOS8;
 
+-(void)StartTimeForRefresh;
+-(void)StopTimeForRefresh;
+
 
 //Methods
 -(void)startActivityIndicator:(UIView *)view withText:(NSString *)text;

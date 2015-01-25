@@ -28,7 +28,7 @@ static SharedData * objAppSharedData;
 @synthesize strDoctorStatus=_strDoctorStatus;
 @synthesize strDoctorDepartment=_strDoctorDepartment;
 @synthesize isCheckTrue=_isCheckTruet;
-
+@synthesize Pdelegate=_Pdelegate;
 //For chat
 @synthesize strLoginJid=_strLoginJid;
 @synthesize strJidPassword=_strJidPassword;
@@ -357,5 +357,58 @@ static SharedData * objAppSharedData;
 //    
 //    [appDelegate.window addSubview:objRVSignupViewController.view];
     
+}
+-(UIView*)NumberOfMatchButton :(int)buttonCount{
+    
+    CGRect windowFrame=appDelegate.window.frame;
+    float width=roundf(windowFrame.size.width/buttonCount);
+    objMatchButtons=[[UIView alloc]initWithFrame:CGRectMake(0, 65, windowFrame.size.width, 30)];
+    [objMatchButtons setBackgroundColor:[UIColor clearColor]];
+    
+    
+    for (int i=0; i<buttonCount; i++) {
+        UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
+        
+        if(i==0){
+            [btn setSelected:YES];
+        btn.frame=CGRectMake((width*i)+10,0, width-20, 30);
+        }else{
+         btn.frame=CGRectMake((width*i),0, width-10, 30);
+        }
+        [btn setTitle:[NSString stringWithFormat:@"Match %d",i+1] forState:UIControlStateNormal];
+        btn.tag=i;
+        [btn addTarget:self action:@selector(selectbtn:) forControlEvents:UIControlEventTouchUpInside];
+       // [btn.titleLabel setFont:[UIFont fontWithName:@"Helvetica Neue Medium" size:10]];
+        btn.titleLabel.font=[UIFont boldSystemFontOfSize:12];
+        
+        //state
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+        [btn setTitleColor:[UIColor colorWithRed:68/255.0 green:117/255.0 blue:129/255.0 alpha:1.0] forState:UIControlStateNormal];
+       
+        [btn setBackgroundImage:[UIImage imageNamed:@"1_0040_Layer-2"] forState:UIControlStateSelected];
+        [btn setBackgroundImage:[UIImage imageNamed:@"1_0040_Layer-21"] forState:UIControlStateNormal];
+       
+        
+        [objMatchButtons addSubview:btn];
+    }
+    
+    return objMatchButtons;
+    
+    
+}
+-(void)selectbtn:(id)sender{
+    
+    UIButton *selectedbtn=(UIButton*)sender;
+    for(UIButton *btn in objMatchButtons.subviews){
+        
+        if(btn.tag==selectedbtn.tag){
+             [_Pdelegate selectedMatch:sender];
+            [btn setSelected:YES];
+        }else{
+            [btn setSelected:NO];
+        }
+    }
+    
+   
 }
 @end

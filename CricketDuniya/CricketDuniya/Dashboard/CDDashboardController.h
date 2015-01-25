@@ -45,7 +45,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnMatch3;
 @property (weak, nonatomic) IBOutlet UILabel *lblBowlerER;
 - (IBAction)btnActionMatch:(id)sender;
-
+-(void)callServiceForDashboard;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrContainer;
 - (IBAction)tblActionFullScore:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *btnActionReloadCommenntry;
 @property (weak, nonatomic) IBOutlet UITextView *lblBallbyCommenntry;

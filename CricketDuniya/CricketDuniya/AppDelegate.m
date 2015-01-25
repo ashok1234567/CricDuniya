@@ -15,6 +15,8 @@ SharedData *objSharedData;
 {
     AppLoader *objLoader;
       AlertDialogProgressView *_alertDialogProgressView;
+    NSTimer *timer;
+    float myTime;
 }
 
 @end
@@ -35,6 +37,8 @@ SharedData *objSharedData;
         self.isIOS8=TRUE;
     else
         self.isIOS8=FALSE;
+    
+    
     
     UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, self.window.frame.size.height-4,self.window.frame.size.width,4)];
     view.backgroundColor=[UIColor redColor];
@@ -116,6 +120,30 @@ SharedData *objSharedData;
 -(void)stopActivityIndicator{
     if (_alertDialogProgressView.taskInProgress == YES) {
         [_alertDialogProgressView hide:YES];
+    }
+}
+-(void)StartTimeForRefresh{
+    
+    myTime=0;
+   timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown:) userInfo:nil repeats:YES];
+}
+
+-(void)countDown:(NSTimer *) aTimer {
+   
+    myTime=myTime+1;
+    NSLog(@"Titmer running=%f",aTimer.timeInterval);
+
+    if(myTime==30.0){
+        myTime=0;
+        NSLog(@"callwebservies");
+    }
+
+}
+
+-(void)StopTimeForRefresh{
+    if(timer){
+    [timer invalidate];
+    timer=nil;
     }
 }
 

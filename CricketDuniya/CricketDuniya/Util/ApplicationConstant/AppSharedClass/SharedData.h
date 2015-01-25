@@ -13,7 +13,20 @@
 #import "WebserviceHandler.h"
 #import <MapKit/MKPlacemark.h>
 
+@protocol MatchBtnSection <NSObject>
+
+@required
+-(void)selectedMatch:(id)sender;
+
+@end
+
+
 @interface SharedData : NSObject<WebServiceHandlerDelegate >
+{
+    UIView *objMatchButtons;
+}
+@property(nonatomic, retain) id<MatchBtnSection> Pdelegate;
+
 @property (nonatomic,strong)  CLLocation *currentLocation;
 @property (nonatomic,strong)  NSString* str_DeviceToken;
 @property (nonatomic,strong)  NSMutableDictionary* logingUserInfo;
@@ -78,4 +91,7 @@
 
 #pragma mark SmallWindow
 -(void)ShowWhatNextSmallWindow;
+
+#pragma mark MatchButton
+-(UIView*)NumberOfMatchButton :(int)buttonCount;
 @end

@@ -31,6 +31,9 @@
 }
 -(void)preperLayout{
     
+    
+   
+    
     //setup textfield layout
     UIView *paddingViewUserName = [[UIView alloc] initWithFrame:CGRectMake(0, 0,15, 35)];
     self.txtEmailOrMobileNo.leftView = paddingViewUserName;

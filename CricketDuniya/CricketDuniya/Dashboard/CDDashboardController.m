@@ -11,7 +11,7 @@
 #import "AS_CustomNavigationController.h"
 #import "ScheduleController.h"
 #import "FullLiveScoreController.h"
-@interface CDDashboardController ()
+@interface CDDashboardController ()<MatchBtnSection>
 {
     NSMutableDictionary*objDicLiveMatchData;
     NSArray *objTotalMatchs;
@@ -23,6 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+   
+    
+    
         // Do any additional setup after loading the view.
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:58/255.0f green:147/255.0f blue:74/255.0f alpha:1.0]};
 
@@ -32,11 +37,17 @@
     self.btnMatch1.hidden=YES;
         self.btnMatch2.hidden=YES;
         self.btnMatch3.hidden=YES;
+    
+    //call for live score
+    [self callServiceForDashboard];
+    
    
 }
 -(void)viewWillAppear:(BOOL)animated{
-    //call for live score
-    [self callServiceForDashboard];
+   
+    
+   
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -207,7 +218,8 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
     NSDictionary* valueDic=[[NSDictionary alloc]init];
 
         //for ActivityIndicator start
-    [appDelegate startActivityIndicator:self.view withText:Progressing];
+     [self performSelector:@selector(startActivityIndicator) withObject:nil afterDelay:0.5];
+   // [appDelegate startActivityIndicator:self.view withText:Progressing];
 
     WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
     objWebServiceHandler.delegate = self;
@@ -229,7 +241,9 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
     NSString *methodName = LiveScore_Url;
 
         //for ActivityIndicator start
-    [appDelegate startActivityIndicator:self.view withText:Progressing];
+    [self performSelector:@selector(startActivityIndicator) withObject:nil afterDelay:0.5];
+   
+     //[appDelegate performSelectorInBackground:@selector(startActivityIndicator) withObject:nil];
 
     WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
     objWebServiceHandler.delegate = self;
@@ -238,11 +252,12 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
     [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
 
 }
+-(void)startActivityIndicator{
+     [appDelegate startActivityIndicator:self.view withText:Progressing];
+}
 
 -(void)webServiceHandler:(WebserviceHandler *)webHandler recievedResponse:(NSDictionary *)dicResponce
 {
-
-[appDelegate stopActivityIndicator];
 
     if (_selected_service==1)
         {
@@ -258,21 +273,29 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
                 }
                 else
                 {
+                    [appDelegate StartTimeForRefresh];
             objDicLiveMatchData=[[dicResponce valueForKey:@"microscorecard_data_items"] objectAtIndex:0];
                 
-                if([[dicResponce valueForKey:@"microscorecard_data_items"] count]==1){
-                    self.btnMatch1.hidden=NO;
-                   // [self callMiniScore:[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"]];
-
-                }
-                else if ([[dicResponce valueForKey:@"microscorecard_data_items"] count]==2){
-                    self.btnMatch1.hidden=NO;
-                    self.btnMatch2.hidden=NO;
-                }else if([[dicResponce valueForKey:@"microscorecard_data_items"] count]==3){
-                    self.btnMatch1.hidden=NO;
-                    self.btnMatch2.hidden=NO;
-                    self.btnMatch3.hidden=NO;
-                }
+                    
+                    objSharedData.Pdelegate=self;
+                    //load match buttons
+                    UIView *matchBtn=[objSharedData NumberOfMatchButton:[[dicResponce valueForKey:@"microscorecard_data_items"] count]];
+                    [self.view addSubview:matchBtn];
+                    
+                    
+//                if([[dicResponce valueForKey:@"microscorecard_data_items"] count]==1){
+//                    self.btnMatch1.hidden=NO;
+//                   // [self callMiniScore:[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"]];
+//
+//                }
+//                else if ([[dicResponce valueForKey:@"microscorecard_data_items"] count]==2){
+//                    self.btnMatch1.hidden=NO;
+//                    self.btnMatch2.hidden=NO;
+//                }else if([[dicResponce valueForKey:@"microscorecard_data_items"] count]==3){
+//                    self.btnMatch1.hidden=NO;
+//                    self.btnMatch2.hidden=NO;
+//                    self.btnMatch3.hidden=NO;
+//                }
                 //setup or reload live data
                     [self callMiniScore:[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"]];
            
@@ -299,18 +322,23 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
     [appDelegate stopActivityIndicator];
         //remove it after WS call
 }
-- (IBAction)btnActionMatch:(id)sender {
+-(void)selectedMatch:(id)sender{
     
-     [self callMiniScore:[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"]];
-    
+    UIButton *btnSelected=(UIButton*)sender;
+    [self callMiniScore:[[objTotalMatchs objectAtIndex:btnSelected.tag] objectForKey:@"matchid"]];
 }
-- (IBAction)btnActionMatch2:(id)sender {
-     [self callMiniScore:[[objTotalMatchs objectAtIndex:1] objectForKey:@"matchid"]];
-}
-
-- (IBAction)btnActionMatch3:(id)sender {
-     [self callMiniScore:[[objTotalMatchs objectAtIndex:2] objectForKey:@"matchid"]];
-}
+//- (IBAction)btnActionMatch:(id)sender {
+//    
+//     [self callMiniScore:[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"]];
+//    
+//}
+//- (IBAction)btnActionMatch2:(id)sender {
+//     [self callMiniScore:[[objTotalMatchs objectAtIndex:1] objectForKey:@"matchid"]];
+//}
+//
+//- (IBAction)btnActionMatch3:(id)sender {
+//     [self callMiniScore:[[objTotalMatchs objectAtIndex:2] objectForKey:@"matchid"]];
+//}
 
 
 - (IBAction)tblActionFullScore:(id)sender {

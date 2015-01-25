@@ -154,8 +154,10 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
      if(self.btnCatOutlet.selected){
     AS_CustomNavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentController"];
-    
+    objSharedData.isCheckTrue=NO;
+         
     if (indexPath.row == 0) {
+        objSharedData.isCheckTrue=YES;
         CDDashboardController *homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Dashboard"];
         navigationController.viewControllers = @[homeViewController];
     } else  if (indexPath.row == 1) {
@@ -187,6 +189,13 @@
     
     self.frostedViewController.contentViewController = navigationController;
     [self.frostedViewController hideMenuViewController];
+         
+         
+         if( objSharedData.isCheckTrue==YES){
+            // [appDelegate StartTimeForRefresh];
+         }else{
+              [appDelegate StopTimeForRefresh];
+         }
      }
 }
 
@@ -209,7 +218,6 @@
     switch (objtempbtn.tag) {
         case 1:
             self.btnCatOutlet.selected=YES;
-           
             break;
         case 2:
             self.btnResOutlet.selected=YES;

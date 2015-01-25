@@ -10,7 +10,7 @@
 @protocol HeadViewDelegate; 
 
 @interface HeadView : UIView{
-    id<HeadViewDelegate> _delegate;//代理
+    id<HeadViewDelegate> _delegate;
     NSInteger section;
     UIButton* backBtn;
     BOOL open;
