@@ -15,4 +15,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnNotiOutlet;
 - (IBAction)btnAllSliderPanalAction:(id)sender;
 
+-(void)loadWhatNext:(int )index;
 @end

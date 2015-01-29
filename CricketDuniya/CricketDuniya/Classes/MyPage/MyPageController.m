@@ -97,11 +97,11 @@
     if(tableView.tag==1){
     HeadView* headView = [self.headViewArray objectAtIndex:indexPath.section];
     
-    return headView.open?35:0;
+    return headView.open?27:0;
     }else {
         HeadView* headView = [self.headViewClosed objectAtIndex:indexPath.section];
         
-        return headView.open?35:0;
+        return headView.open?27:0;
     }
 }
 
@@ -122,10 +122,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if(tableView.tag==1){
     HeadView* headView = [self.headViewArray objectAtIndex:section];
-    return headView.open?4:0;
+    return headView.open?1:0;
     }else{
         HeadView* headView = [self.headViewClosed objectAtIndex:section];
-        return headView.open?4:0;
+        return headView.open?1:0;
     }
 }
 

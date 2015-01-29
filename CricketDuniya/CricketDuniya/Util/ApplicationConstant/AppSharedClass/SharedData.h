@@ -24,6 +24,7 @@
 @interface SharedData : NSObject<WebServiceHandlerDelegate >
 {
     UIView *objMatchButtons;
+    UIView *firstHeaderView;
 }
 @property(nonatomic, retain) id<MatchBtnSection> Pdelegate;
 
@@ -46,7 +47,7 @@
 @property(nonatomic,retain) NSString *UserTypeId;
 @property(nonatomic,retain) NSString *strJidPassword;
 @property(nonatomic,retain) NSMutableArray *arr_Doctorlist;
-@property(nonatomic,retain) NSMutableArray *arrTeamList;
+@property(nonatomic,retain) NSMutableArray *arrMatchList;
 @property(nonatomic,retain) NSString *strloginuserEmail;
 @property(nonatomic,retain) NSString *strLoginUserPassword;
 @property(nonatomic,retain) NSMutableDictionary *dictOnlineChatuserDetail;

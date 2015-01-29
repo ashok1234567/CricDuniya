@@ -16,7 +16,7 @@
 #import "ScheduleController.h"
 #import "LeaderBoardController.h"
 #import "MatchResultController.h"
-#import "MyPageController.h";
+#import "MyPageController.h"
 @interface MenuController ()
 {
     NSArray *titles;
@@ -26,6 +26,7 @@
 @end
 
 @implementation MenuController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -188,9 +189,11 @@
     }
     
     self.frostedViewController.contentViewController = navigationController;
+         
     [self.frostedViewController hideMenuViewController];
          
          
+         //For Timer
          if( objSharedData.isCheckTrue==YES){
             // [appDelegate StartTimeForRefresh];
          }else{
@@ -199,6 +202,11 @@
      }
 }
 
+-(void)loadWhatNext:(int )index{
+    
+    
+
+}
 /*
 #pragma mark - Navigation
 

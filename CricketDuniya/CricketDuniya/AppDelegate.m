@@ -11,6 +11,7 @@
 #import "AlertDialogProgressView.h"
 AppDelegate *appDelegate;
 SharedData *objSharedData;
+CustomPopData *objCustomPop;
 @interface AppDelegate ()
 {
     AppLoader *objLoader;
@@ -29,6 +30,8 @@ SharedData *objSharedData;
      appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
    
     objSharedData=[SharedData instance];
+    objCustomPop=[[CustomPopData alloc]init];
+    
     
     //call charck network part
      [self callNetwork];

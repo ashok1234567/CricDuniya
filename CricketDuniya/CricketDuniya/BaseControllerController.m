@@ -24,11 +24,30 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
     UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, appDelegate.window.frame.size.height-4,appDelegate.window.frame.size.width,4)];
     view.backgroundColor=[UIColor redColor];
+    
+    UIButton *btnKheloLive=[UIButton buttonWithType:UIButtonTypeCustom];
+    [btnKheloLive setTitle:@"KHELO LIVE" forState:UIControlStateNormal];
+    [btnKheloLive setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btnKheloLive.titleLabel setFont:[UIFont systemFontOfSize:11]];
+    
+    [btnKheloLive setBackgroundImage:[UIImage imageNamed:@"1_0001_live-button"] forState:UIControlStateNormal];
+    [btnKheloLive setFrame:CGRectMake((appDelegate.window.frame.size.width/2)-35, appDelegate.window.frame.size.height-30,70,30)];
+    btnKheloLive.tag=1;
+    
+    [btnKheloLive addTarget:self action:@selector(clickOnKheloLive:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnKheloLive];
     [self.view addSubview:view];
 
+    
+}
+-(void)clickOnKheloLive:(id)sender{
+    
+    
+   // [self callServiceForWhatNext];
+    [objCustomPop ShowWhatNextSmallWindow];
+    
     
 }
 
@@ -36,6 +55,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 /*
 #pragma mark - Navigation

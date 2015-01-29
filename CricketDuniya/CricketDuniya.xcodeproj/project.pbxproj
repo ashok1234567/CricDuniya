@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BD0754FF1A7502C000346A28 /* SmallWhatNextController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0754FD1A7502C000346A28 /* SmallWhatNextController.m */; };
-		BD0755001A7502C000346A28 /* SmallWhatNextController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD0754FE1A7502C000346A28 /* SmallWhatNextController.xib */; };
 		BD0755021A75642600346A28 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD0755011A75642600346A28 /* Default-568h@2x.png */; };
 		BD2836B81A68297800AE2BA8 /* SelectionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2836B71A68297800AE2BA8 /* SelectionsController.m */; };
 		BD4A9D1B1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG in Resources */ = {isa = PBXBuildFile; fileRef = BD4A9D1A1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG */; };
@@ -18,6 +16,8 @@
 		BD4A9D251A5C7F7300CD6FAF /* CategoryCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4A9D231A5C7F7300CD6FAF /* CategoryCustomCell.xib */; };
 		BD52FA561A7008F2007A239A /* MatchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD52FA551A7008F2007A239A /* MatchResultController.m */; };
 		BD52FA5A1A702F41007A239A /* FullLiveScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD52FA591A702F41007A239A /* FullLiveScoreController.m */; };
+		BD59F3C61A7678E200D80BA7 /* WhatNext.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD59F3C51A7678E200D80BA7 /* WhatNext.xib */; };
+		BD59F3CA1A767F1300D80BA7 /* CustomPopData.m in Sources */ = {isa = PBXBuildFile; fileRef = BD59F3C91A767F1300D80BA7 /* CustomPopData.m */; };
 		BD6938521A735E2F00D291FE /* MyPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6938511A735E2F00D291FE /* MyPageController.m */; };
 		BD6938551A735E4500D291FE /* HeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6938541A735E4500D291FE /* HeadView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BD69385C1A7375E800D291FE /* AnwserCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69385A1A7375E800D291FE /* AnwserCellView.m */; };
@@ -130,9 +130,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BD0754FC1A7502C000346A28 /* SmallWhatNextController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallWhatNextController.h; sourceTree = "<group>"; };
-		BD0754FD1A7502C000346A28 /* SmallWhatNextController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallWhatNextController.m; sourceTree = "<group>"; };
-		BD0754FE1A7502C000346A28 /* SmallWhatNextController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallWhatNextController.xib; sourceTree = "<group>"; };
 		BD0755011A75642600346A28 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BD2836B61A68297800AE2BA8 /* SelectionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionsController.h; sourceTree = "<group>"; };
 		BD2836B71A68297800AE2BA8 /* SelectionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionsController.m; sourceTree = "<group>"; };
@@ -151,6 +148,9 @@
 		BD52FA551A7008F2007A239A /* MatchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchResultController.m; sourceTree = "<group>"; };
 		BD52FA581A702F41007A239A /* FullLiveScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullLiveScoreController.h; sourceTree = "<group>"; };
 		BD52FA591A702F41007A239A /* FullLiveScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullLiveScoreController.m; sourceTree = "<group>"; };
+		BD59F3C51A7678E200D80BA7 /* WhatNext.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WhatNext.xib; path = ../../../../../../../../../Documents/WhatNext.xib; sourceTree = "<group>"; };
+		BD59F3C81A767F1300D80BA7 /* CustomPopData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPopData.h; sourceTree = "<group>"; };
+		BD59F3C91A767F1300D80BA7 /* CustomPopData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPopData.m; sourceTree = "<group>"; };
 		BD6938501A735E2F00D291FE /* MyPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageController.h; sourceTree = "<group>"; };
 		BD6938511A735E2F00D291FE /* MyPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageController.m; sourceTree = "<group>"; };
 		BD6938531A735E4500D291FE /* HeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadView.h; sourceTree = "<group>"; };
@@ -345,16 +345,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BD0754FB1A75029200346A28 /* SmallWindow */ = {
-			isa = PBXGroup;
-			children = (
-				BD0754FC1A7502C000346A28 /* SmallWhatNextController.h */,
-				BD0754FD1A7502C000346A28 /* SmallWhatNextController.m */,
-				BD0754FE1A7502C000346A28 /* SmallWhatNextController.xib */,
-			);
-			path = SmallWindow;
-			sourceTree = "<group>";
-		};
 		BD2836B51A68294C00AE2BA8 /* Selection */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +391,16 @@
 				BD7909721A717B7A00F8CD39 /* SecoundHeader.xib */,
 			);
 			path = FullLiveScore;
+			sourceTree = "<group>";
+		};
+		BD59F3C71A767EDB00D80BA7 /* CustomPopViews */ = {
+			isa = PBXGroup;
+			children = (
+				BD59F3C51A7678E200D80BA7 /* WhatNext.xib */,
+				BD59F3C81A767F1300D80BA7 /* CustomPopData.h */,
+				BD59F3C91A767F1300D80BA7 /* CustomPopData.m */,
+			);
+			path = CustomPopViews;
 			sourceTree = "<group>";
 		};
 		BD69384F1A735E1300D291FE /* MyPage */ = {
@@ -592,14 +592,6 @@
 			path = ../Dashboard;
 			sourceTree = "<group>";
 		};
-		BDC6B4AD1A5AF17A00E09F36 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Login;
-			path = ../Login;
-			sourceTree = "<group>";
-		};
 		BDC6B4AE1A5AF17B00E09F36 /* Signup */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,7 +605,6 @@
 		BDC6B4B21A5AF33000E09F36 /* WhatNext */ = {
 			isa = PBXGroup;
 			children = (
-				BD0754FB1A75029200346A28 /* SmallWindow */,
 				BDC6B4B31A5AF34600E09F36 /* WhatNextController.h */,
 				BDC6B4B41A5AF34600E09F36 /* WhatNextController.m */,
 			);
@@ -624,6 +615,7 @@
 		BDC6B4B91A5B1A0700E09F36 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BD59F3C71A767EDB00D80BA7 /* CustomPopViews */,
 				BD6938581A7375CD00D291FE /* AnwserView */,
 				BD69384F1A735E1300D291FE /* MyPage */,
 				BD52FA571A702F16007A239A /* FullLiveScore */,
@@ -633,7 +625,6 @@
 				BDC6B4BA1A5B1A4A00E09F36 /* SliderMenu */,
 				BDC6B4B21A5AF33000E09F36 /* WhatNext */,
 				BDC6B4AC1A5AF17A00E09F36 /* Dashboard */,
-				BDC6B4AD1A5AF17A00E09F36 /* Login */,
 				BDC6B4AE1A5AF17B00E09F36 /* Signup */,
 			);
 			name = Classes;
@@ -1034,6 +1025,7 @@
 				BDD5AF691A62BDB700604979 /* loader_step4@2x.png in Resources */,
 				BDD5AF661A62BDB700604979 /* loader_step3.png in Resources */,
 				BD7909691A715B1800F8CD39 /* FirstHeader.xib in Resources */,
+				BD59F3C61A7678E200D80BA7 /* WhatNext.xib in Resources */,
 				BD9BB8A01A592E09008D9D06 /* Main.storyboard in Resources */,
 				BD7909731A717B7A00F8CD39 /* SecoundHeader.xib in Resources */,
 				BD69385D1A7375E800D291FE /* AnwserCellView.xib in Resources */,
@@ -1048,7 +1040,6 @@
 				BD7909711A71753600F8CD39 /* FirstFooter.xib in Resources */,
 				BD79097F1A71811000F8CD39 /* ThirdCellView.xib in Resources */,
 				BD4A9D1B1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG in Resources */,
-				BD0755001A7502C000346A28 /* SmallWhatNextController.xib in Resources */,
 				BDD5AF621A62BDB700604979 /* loader_step1.png in Resources */,
 				BDFD54D21A5EF2B90062881B /* Raleway-Regular.ttf in Resources */,
 				BDD5879D1A617A2B00200284 /* checkmark.jpg in Resources */,
@@ -1078,7 +1069,6 @@
 				BDFD54DE1A5EF2B90062881B /* REFrostedContainerViewController.m in Sources */,
 				BDFD54F91A5EF2BA0062881B /* UIButton+AFNetworking.m in Sources */,
 				BDFD54D61A5EF2B90062881B /* NSString+HTML.m in Sources */,
-				BD0754FF1A7502C000346A28 /* SmallWhatNextController.m in Sources */,
 				BDFD54DB1A5EF2B90062881B /* AS_CustomNavigationController.m in Sources */,
 				BDFD54F01A5EF2B90062881B /* AFURLConnectionOperation.m in Sources */,
 				BDFD54E61A5EF2B90062881B /* TPKeyboardAvoidingScrollView.m in Sources */,
@@ -1087,6 +1077,7 @@
 				BDFD54E11A5EF2B90062881B /* UIView+REFrostedViewController.m in Sources */,
 				BDFD54CE1A5EF2B90062881B /* NSData+Base64.m in Sources */,
 				BDFD54CF1A5EF2B90062881B /* AlertDialogView.m in Sources */,
+				BD59F3CA1A767F1300D80BA7 /* CustomPopData.m in Sources */,
 				BDFD54DD1A5EF2B90062881B /* RECommonFunctions.m in Sources */,
 				BDFD54D41A5EF2B90062881B /* AppLoader.m in Sources */,
 				BDFD54F71A5EF2BA0062881B /* UIActivityIndicatorView+AFNetworking.m in Sources */,

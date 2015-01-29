@@ -180,13 +180,12 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
 
 
 - (IBAction)btnMenu:(id)sender {
+    
         // Dismiss keyboard (optional)
-        //
     [self.view endEditing:YES];
     [self.frostedViewController.view endEditing:YES];
 
         // Present the view controller
-        //
     self.frostedViewController.backgroundFadeAmount=0.2;
     self.frostedViewController.direction=REFrostedViewControllerDirectionRight;
     [self.frostedViewController presentMenuViewController];
@@ -218,7 +217,7 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
     NSDictionary* valueDic=[[NSDictionary alloc]init];
 
         //for ActivityIndicator start
-     [self performSelector:@selector(startActivityIndicator) withObject:nil afterDelay:0.5];
+    // [self performSelector:@selector(startActivityIndicator) withObject:nil afterDelay:0.5];
    // [appDelegate startActivityIndicator:self.view withText:Progressing];
 
     WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
@@ -241,7 +240,7 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
     NSString *methodName = LiveScore_Url;
 
         //for ActivityIndicator start
-    [self performSelector:@selector(startActivityIndicator) withObject:nil afterDelay:0.5];
+    [self performSelector:@selector(startActivityIndicator) withObject:nil afterDelay:0.1];
    
      //[appDelegate performSelectorInBackground:@selector(startActivityIndicator) withObject:nil];
 
@@ -273,7 +272,7 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
                 }
                 else
                 {
-                    [appDelegate StartTimeForRefresh];
+                   
             objDicLiveMatchData=[[dicResponce valueForKey:@"microscorecard_data_items"] objectAtIndex:0];
                 
                     
@@ -281,21 +280,12 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
                     //load match buttons
                     UIView *matchBtn=[objSharedData NumberOfMatchButton:[[dicResponce valueForKey:@"microscorecard_data_items"] count]];
                     [self.view addSubview:matchBtn];
+                    [objSharedData.arrMatchList removeAllObjects];
+                    for(int i=0;i<[objTotalMatchs count];i++){
+                        [objSharedData.arrMatchList addObject:[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"]];
+                    }
                     
-                    
-//                if([[dicResponce valueForKey:@"microscorecard_data_items"] count]==1){
-//                    self.btnMatch1.hidden=NO;
-//                   // [self callMiniScore:[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"]];
-//
-//                }
-//                else if ([[dicResponce valueForKey:@"microscorecard_data_items"] count]==2){
-//                    self.btnMatch1.hidden=NO;
-//                    self.btnMatch2.hidden=NO;
-//                }else if([[dicResponce valueForKey:@"microscorecard_data_items"] count]==3){
-//                    self.btnMatch1.hidden=NO;
-//                    self.btnMatch2.hidden=NO;
-//                    self.btnMatch3.hidden=NO;
-//                }
+
                 //setup or reload live data
                     [self callMiniScore:[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"]];
            

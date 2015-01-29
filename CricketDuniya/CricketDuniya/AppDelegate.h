@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "CustomPopData.h"
 @class AppDelegate;
 extern AppDelegate *appDelegate;
 @class SharedData;
 @class Reachability;
 extern AppDelegate *appDelegate;
 extern SharedData *objSharedData;
+@class CustomPopData;
+extern CustomPopData *objCustomPop;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     //use for all type of Reachability

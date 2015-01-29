@@ -34,6 +34,7 @@
 #import "AFNetworking.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "UIImageView+AFNetworking.h"
+#import "CustomPopData.h"
 #endif
 #pragma mark - Appliction Webservice URL
 //For Development
@@ -70,6 +71,9 @@
 
 #define Tournament_Url           @"livescore/fixtures/tournaments_list.json"
 #define Country_Url           @"livescore/fixtures/team_list.json"
+
+#define WhatNext_Url           @"alerts/questions.json"
+#define WhatNextAnwser_Url   @"http://cricapi.amarujala.com/setdata/save_user_question_answer"
 
 
 #define GenerateToken_url        @"GenerateToken"

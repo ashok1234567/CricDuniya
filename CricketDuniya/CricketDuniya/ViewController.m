@@ -94,7 +94,7 @@
         [self callServiceForSignIn];
     }
     
-   // [objSharedData ShowWhatNextSmallWindow];
+
 }
 - (IBAction)btnActionLogin:(id)sender {
 }

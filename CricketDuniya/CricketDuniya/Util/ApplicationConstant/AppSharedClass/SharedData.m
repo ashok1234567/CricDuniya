@@ -11,7 +11,6 @@
 #import <CommonCrypto/CommonDigest.h>
 #include <ifaddrs.h>
 #include <arpa/inet.h>
-#import "SmallWhatNextController.h"
 static SharedData * objAppSharedData;
 
 @implementation SharedData
@@ -33,7 +32,7 @@ static SharedData * objAppSharedData;
 @synthesize strLoginJid=_strLoginJid;
 @synthesize strJidPassword=_strJidPassword;
 @synthesize arr_Doctorlist=_arr_Doctorlist;
-@synthesize arrTeamList=_arrTeamList;
+@synthesize arrMatchList=_arrMatchList;
 @synthesize strloginuserEmail=_strloginuserEmail;
 @synthesize strLoginUserPassword=_strLoginUserPassword;
 @synthesize dictOnlineChatuserDetail =_dictOnlineChatuserDetail;
@@ -57,7 +56,7 @@ static SharedData * objAppSharedData;
         self.objCurrentUser=[[User alloc]init];
         
         //For chat
-        _arrTeamList=[[NSMutableArray alloc] init];
+        _arrMatchList=[[NSMutableArray alloc] init];
         _arr_Doctorlist=[[NSMutableArray alloc] init];
         _dictOnlineChatuserDetail=[[NSMutableDictionary alloc] init];
         _isComeFromPatientDashboard=NO;
@@ -350,14 +349,8 @@ static SharedData * objAppSharedData;
                          }
                      }];
 }
--(void)ShowWhatNextSmallWindow{
-    
-//    SmallWhatNextController  *objRVSignupViewController = [[SmallWhatNextController alloc] initWithNibName:@"SmallWhatNextController" bundle:nil];
-//    [objRVSignupViewController.view setFrame:CGRectMake(0,appDelegate.window.frame.origin.y+(appDelegate.window.frame.size.height/2), appDelegate.window.frame.size.width, appDelegate.window.frame.size.height-appDelegate.window.frame.size.height/2)];
-//    
-//    [appDelegate.window addSubview:objRVSignupViewController.view];
-    
-}
+
+
 -(UIView*)NumberOfMatchButton :(int)buttonCount{
     
     CGRect windowFrame=appDelegate.window.frame;

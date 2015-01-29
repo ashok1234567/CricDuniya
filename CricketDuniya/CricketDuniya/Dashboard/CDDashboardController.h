@@ -54,4 +54,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnMatch2;
 @property (nonatomic)int selected_service;
 @property (weak, nonatomic) IBOutlet UIButton *btnMatch1;
+
+-(void)loadWhatNext:(int )index;
 @end
