@@ -12,4 +12,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblquestion;
 @property (weak, nonatomic) IBOutlet UILabel *lblpoints;
 
+
 @end
