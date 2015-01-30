@@ -16,10 +16,10 @@
 		BD4A9D251A5C7F7300CD6FAF /* CategoryCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4A9D231A5C7F7300CD6FAF /* CategoryCustomCell.xib */; };
 		BD52FA561A7008F2007A239A /* MatchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD52FA551A7008F2007A239A /* MatchResultController.m */; };
 		BD52FA5A1A702F41007A239A /* FullLiveScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD52FA591A702F41007A239A /* FullLiveScoreController.m */; };
-		BD59F3C61A7678E200D80BA7 /* WhatNext.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD59F3C51A7678E200D80BA7 /* WhatNext.xib */; };
 		BD59F3CA1A767F1300D80BA7 /* CustomPopData.m in Sources */ = {isa = PBXBuildFile; fileRef = BD59F3C91A767F1300D80BA7 /* CustomPopData.m */; };
 		BD5E13381A7BDCAC00D3E883 /* CustomwinAndLoss.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5E13361A7BDCAC00D3E883 /* CustomwinAndLoss.m */; };
 		BD5E13391A7BDCAC00D3E883 /* CustomwinAndLoss.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5E13371A7BDCAC00D3E883 /* CustomwinAndLoss.xib */; };
+		BD5E133B1A7BE9CF00D3E883 /* WhatNext.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5E133A1A7BE9CF00D3E883 /* WhatNext.xib */; };
 		BD6938521A735E2F00D291FE /* MyPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6938511A735E2F00D291FE /* MyPageController.m */; };
 		BD6938551A735E4500D291FE /* HeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6938541A735E4500D291FE /* HeadView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BD69385C1A7375E800D291FE /* AnwserCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69385A1A7375E800D291FE /* AnwserCellView.m */; };
@@ -150,12 +150,12 @@
 		BD52FA551A7008F2007A239A /* MatchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchResultController.m; sourceTree = "<group>"; };
 		BD52FA581A702F41007A239A /* FullLiveScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullLiveScoreController.h; sourceTree = "<group>"; };
 		BD52FA591A702F41007A239A /* FullLiveScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullLiveScoreController.m; sourceTree = "<group>"; };
-		BD59F3C51A7678E200D80BA7 /* WhatNext.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WhatNext.xib; path = ../../../../../../../../../Documents/WhatNext.xib; sourceTree = "<group>"; };
 		BD59F3C81A767F1300D80BA7 /* CustomPopData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPopData.h; sourceTree = "<group>"; };
 		BD59F3C91A767F1300D80BA7 /* CustomPopData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPopData.m; sourceTree = "<group>"; };
 		BD5E13351A7BDCAC00D3E883 /* CustomwinAndLoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomwinAndLoss.h; sourceTree = "<group>"; };
 		BD5E13361A7BDCAC00D3E883 /* CustomwinAndLoss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomwinAndLoss.m; sourceTree = "<group>"; };
 		BD5E13371A7BDCAC00D3E883 /* CustomwinAndLoss.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomwinAndLoss.xib; sourceTree = "<group>"; };
+		BD5E133A1A7BE9CF00D3E883 /* WhatNext.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WhatNext.xib; sourceTree = "<group>"; };
 		BD6938501A735E2F00D291FE /* MyPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageController.h; sourceTree = "<group>"; };
 		BD6938511A735E2F00D291FE /* MyPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageController.m; sourceTree = "<group>"; };
 		BD6938531A735E4500D291FE /* HeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadView.h; sourceTree = "<group>"; };
@@ -401,7 +401,7 @@
 		BD59F3C71A767EDB00D80BA7 /* CustomPopViews */ = {
 			isa = PBXGroup;
 			children = (
-				BD59F3C51A7678E200D80BA7 /* WhatNext.xib */,
+				BD5E133A1A7BE9CF00D3E883 /* WhatNext.xib */,
 				BD59F3C81A767F1300D80BA7 /* CustomPopData.h */,
 				BD59F3C91A767F1300D80BA7 /* CustomPopData.m */,
 			);
@@ -1041,7 +1041,7 @@
 				BDD5AF691A62BDB700604979 /* loader_step4@2x.png in Resources */,
 				BDD5AF661A62BDB700604979 /* loader_step3.png in Resources */,
 				BD7909691A715B1800F8CD39 /* FirstHeader.xib in Resources */,
-				BD59F3C61A7678E200D80BA7 /* WhatNext.xib in Resources */,
+				BD5E133B1A7BE9CF00D3E883 /* WhatNext.xib in Resources */,
 				BD9BB8A01A592E09008D9D06 /* Main.storyboard in Resources */,
 				BD5E13391A7BDCAC00D3E883 /* CustomwinAndLoss.xib in Resources */,
 				BD7909731A717B7A00F8CD39 /* SecoundHeader.xib in Resources */,

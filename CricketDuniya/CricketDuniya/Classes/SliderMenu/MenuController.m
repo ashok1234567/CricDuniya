@@ -185,7 +185,16 @@
         
     }else if (indexPath.row == 9) {
         
-       //  [self.navigationController popToRootViewControllerAnimated:YES];
+
+        UINavigationController *objUINavigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"logout"];
+        appDelegate.window.rootViewController=objUINavigationController;
+        
+        FBSession* session = [FBSession activeSession];
+        [session closeAndClearTokenInformation];
+        [session close];
+        [FBSession setActiveSession:nil];
+        
+        return;
     }
     
     self.frostedViewController.contentViewController = navigationController;
