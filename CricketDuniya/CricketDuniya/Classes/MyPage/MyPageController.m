@@ -11,6 +11,7 @@
 #import "REFrostedViewController.h"
 #import "AnwserCellView.h"
 #import "ClosedCellView.h"
+#import "CustomwinAndLoss.h"
 @interface MyPageController ()
 
 @end
@@ -23,10 +24,14 @@
     
      self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:58/255.0f green:147/255.0f blue:74/255.0f alpha:1.0]};
     
-    
     [_tblLiveContestQue registerNib:[UINib nibWithNibName:@"AnwserCellView" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"Cellans"];
+    
      [_tblClosedContestQue registerNib:[UINib nibWithNibName:@"ClosedCellView" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cellclosed"];
     
+    [_lblWinLoss registerNib:[UINib nibWithNibName:@"CustomwinAndLoss" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cellWinandloss"];
+    
+
+    _lblWinLoss.hidden=YES;
     //for live
     [self loadModelLive];
     
@@ -63,7 +68,8 @@
         headview.section = i;
         headview.backBtn.tag=1;
         [headview.backBtn setTitle:[NSString stringWithFormat:@"What will happen in next ball ?=%d",i] forState:UIControlStateNormal];
-        headview.lblMatchTitle.text=@"Match 1 Q. no 54";
+        headview.lblMatchTitle.text=@"Q. no 54";
+        headview.lblMatchTitle2.text=@"Match 1";
         [self.headViewArray addObject:headview];
         
     }
@@ -78,7 +84,8 @@
         headview.section = i;
         headview.backBtn.tag=2;
         [headview.backBtn setTitle:[NSString stringWithFormat:@"What will happen in next ball ?=%d",i] forState:UIControlStateNormal];
-        headview.lblMatchTitle.text=@"Match 1 Q. no 54";
+        headview.lblMatchTitle.text=@"Q. no 54";
+        headview.lblMatchTitle2.text=@"Match 1";
         [self.headViewClosed addObject:headview];
         
     }
@@ -98,15 +105,22 @@
     HeadView* headView = [self.headViewArray objectAtIndex:indexPath.section];
     
     return headView.open?27:0;
-    }else {
+    }else  if(tableView.tag==2){
         HeadView* headView = [self.headViewClosed objectAtIndex:indexPath.section];
         
         return headView.open?27:0;
+    }else{
+        return 60;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 50.0;
+    if(tableView.tag==3){
+        return 0.01;
+    }else{
+    return 50.0;    
+    }
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 10.0;
@@ -116,25 +130,26 @@
 - (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if(tableView.tag==1)
     return [self.headViewArray objectAtIndex:section];
-    else return [self.headViewClosed objectAtIndex:section];
+    else if(tableView.tag==2) return [self.headViewClosed objectAtIndex:section];
+    else return  nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if(tableView.tag==1){
     HeadView* headView = [self.headViewArray objectAtIndex:section];
     return headView.open?1:0;
-    }else{
+    }else if(tableView.tag==2){
         HeadView* headView = [self.headViewClosed objectAtIndex:section];
         return headView.open?1:0;
-    }
+    }else return 4;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     if(tableView.tag==1){
         return [self.headViewArray count];
-    }else{
+    }else  if(tableView.tag==2){
       return [self.headViewClosed count];
-    }
+    }else return 1;
    
 }
 
@@ -158,7 +173,12 @@
         return cell;
     }else{
    
-    return nil;
+        static NSString *CellIdentifier = @"cellWinandloss";
+        CustomwinAndLoss*cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        cell.lblquestion.text=[NSString stringWithFormat:@"Ans_%d",indexPath.row+1];
+       // [cell.imgBG.layer setCornerRadius:2.0];
+        
+        return cell;
     }
 }
 
@@ -169,9 +189,11 @@
         
     _currentRow = indexPath.row;
     [_tblLiveContestQue reloadData];
-    }else{
+    }else if(tableView.tag==2){
         _currentRowClosed = indexPath.row;
         [_tblClosedContestQue reloadData];
+    }else{
+        
     }
 }
 
@@ -262,4 +284,37 @@
 }
 */
 
+- (IBAction)btnActionAll:(id)sender {
+    
+    UIButton *tempbtn=(UIButton*)sender;
+    
+    _tblClosedContestQue.hidden=YES;
+    _tblLiveContestQue.hidden=YES;
+    _lblWinLoss.hidden=YES;
+    _lblsepline.hidden=YES;
+    _lbltitle1.hidden=YES;
+    _lbltitle2.hidden=YES;
+
+    switch (tempbtn.tag) {
+        case 1:
+            _tblClosedContestQue.hidden=NO;
+            _tblLiveContestQue.hidden=NO;
+            _lblsepline.hidden=NO;
+            _lbltitle1.hidden=NO;
+            _lbltitle2.hidden=NO;
+            break;
+        case 2:
+            _lblWinLoss.hidden=NO;
+            break;
+        case 3:
+           _lblWinLoss.hidden=NO;
+            break;
+        case 4:
+           _lblWinLoss.hidden=NO;
+            break;
+            
+        default:
+            break;
+    }
+}
 @end

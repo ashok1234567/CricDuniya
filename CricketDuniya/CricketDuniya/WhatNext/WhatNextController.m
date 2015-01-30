@@ -77,10 +77,11 @@
         headview.section = i;
         headview.backBtn.tag=1;
         [headview.backBtn setTitle:[NSString stringWithFormat:@"%@",[[arrLiveQuestion objectAtIndex:i] valueForKey:@"question"]] forState:UIControlStateNormal];
-       
+        headview.lblMatchTitle2.text=@"Match 1";
         
         headview.lblMatchTitle.text=[NSString stringWithFormat:@"Q. no %@",[[arrLiveQuestion objectAtIndex:i] valueForKey:@"q_id"]];//@"Match 1 Q. no 54";
         [headview.lblMatchTitle setTextColor:[UIColor lightGrayColor]];
+        [headview.lblMatchTitle2 setTextColor:[UIColor blackColor]];
         [self.headViewArray addObject:headview];
         
     }
@@ -97,7 +98,8 @@
         headview.backBtn.tag=2;
         [headview.backBtn setTitle:[NSString stringWithFormat:@"%@",[[arrClosedQuestion objectAtIndex:i] valueForKey:@"question"]] forState:UIControlStateNormal];
         
-        
+        headview.lblMatchTitle2.text=@"Match 1";
+        [headview.lblMatchTitle2 setTextColor:[UIColor blackColor]];
         headview.lblMatchTitle.text=[NSString stringWithFormat:@"Q. no %@",[[arrClosedQuestion objectAtIndex:i] valueForKey:@"q_id"]];//@"Match 1 Q. no
          [headview.lblMatchTitle setTextColor:[UIColor lightGrayColor]];
         [self.headViewClosed addObject:headview];

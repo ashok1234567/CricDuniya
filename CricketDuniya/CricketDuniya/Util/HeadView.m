@@ -10,7 +10,7 @@
 
 @implementation HeadView
 @synthesize delegate = _delegate;
-@synthesize section,open,backBtn,lblMatchTitle;
+@synthesize section,open,backBtn,lblMatchTitle,lblMatchTitle2;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -22,7 +22,7 @@
         UILabel *lblMatchTitle1=[[UILabel alloc]init];
         UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(0,5, 145, 60.5);
-        lblMatchTitle1.frame=CGRectMake(5, 0, 158,20.5);
+        lblMatchTitle1.frame=CGRectMake(70, 0, 158,20.5);
         [lblMatchTitle1 setFont:[UIFont fontWithName:@"Arial" size:11]];
           [lblMatchTitle1 setTextColor:[UIColor lightGrayColor]];
         
@@ -34,7 +34,14 @@
         [self addSubview:lblMatchTitle1];
         self.backBtn = btn;
         self.lblMatchTitle=lblMatchTitle1;
+        
+         UILabel *lblMatchTitle22=[[UILabel alloc]init];
+         lblMatchTitle22.frame=CGRectMake(5, 0, 70,20.5);
+        [lblMatchTitle22 setFont:[UIFont fontWithName:@"Arial" size:13]];
+        [lblMatchTitle22 setTextColor:[UIColor yellowColor]];
 
+        [self addSubview:lblMatchTitle22];
+        self.lblMatchTitle2=lblMatchTitle22;
     }
     return self;
 }

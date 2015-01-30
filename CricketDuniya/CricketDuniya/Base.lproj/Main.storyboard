@@ -451,7 +451,7 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="0A749013-0AC0-46C0-9572-EE58A24B6DDC">
+                                <state key="selected" backgroundImage="44BCDA58-D6FF-4F9D-9A62-16E47313CCA6">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -466,7 +466,7 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="0A749013-0AC0-46C0-9572-EE58A24B6DDC">
+                                <state key="selected" backgroundImage="44BCDA58-D6FF-4F9D-9A62-16E47313CCA6">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -920,7 +920,7 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="0A749013-0AC0-46C0-9572-EE58A24B6DDC"/>
+                                <state key="selected" backgroundImage="44BCDA58-D6FF-4F9D-9A62-16E47313CCA6"/>
                                 <connections>
                                     <action selector="btnActionMatch:" destination="fhA-9L-fAZ" eventType="touchUpInside" id="K6Z-pC-kYy"/>
                                 </connections>
@@ -1822,7 +1822,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d91-CH-pjD">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d91-CH-pjD">
                                 <rect key="frame" x="29" y="165" width="66" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
@@ -1834,8 +1834,11 @@
                                 <state key="selected">
                                     <color key="titleColor" red="0.24313725489999999" green="0.64313725489999995" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnActionAll:" destination="uqf-CL-UEe" eventType="touchUpInside" id="rHy-9V-nW7"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zHF-Wx-mge">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zHF-Wx-mge">
                                 <rect key="frame" x="109" y="165" width="87" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
@@ -1847,8 +1850,11 @@
                                 <state key="selected">
                                     <color key="titleColor" red="0.24313725489999999" green="0.64313725489999995" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnActionAll:" destination="uqf-CL-UEe" eventType="touchUpInside" id="sLF-vf-quz"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kOS-cg-4fh">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kOS-cg-4fh">
                                 <rect key="frame" x="210" y="165" width="38" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
@@ -1860,8 +1866,11 @@
                                 <state key="selected">
                                     <color key="titleColor" red="0.24313725489999999" green="0.64313725489999995" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnActionAll:" destination="uqf-CL-UEe" eventType="touchUpInside" id="yE2-yd-rhP"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0Im-Mq-z3d">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0Im-Mq-z3d">
                                 <rect key="frame" x="257" y="165" width="38" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
@@ -1873,7 +1882,28 @@
                                 <state key="selected">
                                     <color key="titleColor" red="0.24313725489999999" green="0.64313725489999995" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnActionAll:" destination="uqf-CL-UEe" eventType="touchUpInside" id="51v-Vi-289"/>
+                                </connections>
                             </button>
+                            <tableView clipsSubviews="YES" tag="3" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="lCs-V4-lmy">
+                                <rect key="frame" x="0.0" y="190" width="320" height="378"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Fhw-Wy-qsb">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fhw-Wy-qsb" id="aAx-qv-bhP">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="uqf-CL-UEe" id="XrW-jj-njK"/>
+                                    <outlet property="delegate" destination="uqf-CL-UEe" id="ocv-Mx-y2E"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.13725490200000001" green="0.33725490200000002" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -1896,6 +1926,10 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="lblWinLoss" destination="lCs-V4-lmy" id="s3l-fH-mZB"/>
+                        <outlet property="lblsepline" destination="B5y-UL-2lw" id="wRI-5L-QJa"/>
+                        <outlet property="lbltitle1" destination="mGX-w2-OXq" id="bjw-i5-aZa"/>
+                        <outlet property="lbltitle2" destination="ZPR-h6-GEU" id="mdG-Im-SXq"/>
                         <outlet property="tblClosedContestQue" destination="oZt-t3-6oz" id="yqZ-ij-4Sj"/>
                         <outlet property="tblLiveContestQue" destination="Ztw-1M-M5Z" id="EtX-ok-eto"/>
                     </connections>
@@ -2071,7 +2105,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="0A749013-0AC0-46C0-9572-EE58A24B6DDC" width="137" height="17">
+        <image name="1_0008_Shape-27" width="156" height="21"/>
+        <image name="1_0023_refresh" width="12" height="12"/>
+        <image name="44BCDA58-D6FF-4F9D-9A62-16E47313CCA6" width="137" height="17">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -2277,8 +2313,6 @@ LcQtzS3gLeQt9y4CLgsuEC4YLhsuIC4vLjMuOi5CLk8uVC5WLlguXS5lLmgubS51Lnguii6NLpIAAAAA
 AAACAQAAAAAAAABCAAAAAAAAAAAAAAAAAAAulA
 </mutableData>
         </image>
-        <image name="1_0008_Shape-27" width="156" height="21"/>
-        <image name="1_0023_refresh" width="12" height="12"/>
         <image name="Cricket Duniya logo copy.JPG" width="269" height="79"/>
         <image name="Untitle.png" width="81" height="78"/>
         <image name="checkmark.jpg" width="20" height="20"/>

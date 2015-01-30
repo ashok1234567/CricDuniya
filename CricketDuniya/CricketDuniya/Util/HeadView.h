@@ -20,6 +20,7 @@
 @property(nonatomic, assign) BOOL open;
 @property(nonatomic, retain) UIButton* backBtn;
 @property(nonatomic, retain) UILabel *lblMatchTitle;
+@property(nonatomic, retain) UILabel *lblMatchTitle2;
 @end
 
 @protocol HeadViewDelegate <NSObject>

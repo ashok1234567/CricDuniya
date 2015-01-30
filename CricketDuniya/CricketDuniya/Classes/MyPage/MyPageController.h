@@ -18,9 +18,14 @@ NSInteger _currentRow;
     
     
 }
+@property (weak, nonatomic) IBOutlet UILabel *lbltitle2;
+@property (weak, nonatomic) IBOutlet UILabel *lbltitle1;
+@property (weak, nonatomic) IBOutlet UILabel *lblsepline;
 @property(nonatomic, retain) NSMutableArray* headViewArray;
 @property(nonatomic, retain) NSMutableArray* headViewClosed;
 @property (weak, nonatomic) IBOutlet UITableView *tblLiveContestQue;
 @property (weak, nonatomic) IBOutlet UITableView *tblClosedContestQue;
+@property (weak, nonatomic) IBOutlet UITableView *lblWinLoss;
+- (IBAction)btnActionAll:(id)sender;
 
 @end
