@@ -189,6 +189,8 @@
         UINavigationController *objUINavigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"logout"];
         appDelegate.window.rootViewController=objUINavigationController;
         
+        NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+        [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
         FBSession* session = [FBSession activeSession];
         [session closeAndClearTokenInformation];
         [session close];

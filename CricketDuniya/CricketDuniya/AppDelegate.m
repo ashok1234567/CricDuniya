@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Reachability.h"
 #import "AlertDialogProgressView.h"
+#import "ViewController.h"
 AppDelegate *appDelegate;
 SharedData *objSharedData;
 CustomPopData *objCustomPop;
@@ -41,11 +42,11 @@ CustomPopData *objCustomPop;
     else
         self.isIOS8=FALSE;
     
-    
-    
     UIView *view=[[UIView alloc] initWithFrame:CGRectMake(0, self.window.frame.size.height-4,self.window.frame.size.width,4)];
     view.backgroundColor=[UIColor redColor];
     [self.window.rootViewController.view addSubview:view];
+
+
     return YES;
 }
 

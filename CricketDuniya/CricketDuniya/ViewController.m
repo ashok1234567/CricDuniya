@@ -11,6 +11,7 @@
 @interface ViewController ()
 {
     BOOL isLoginWithFB;
+    BOOL isAutoLogin;
     int intServiceResponce;
     NSMutableDictionary *fbLoginUserData;
     //facebook objects
@@ -71,8 +72,36 @@
 
 - (IBAction)btnEnterAction:(id)sender {
     
-    _btnEnterOutlet.hidden=YES;
-    _viewLoginOutlet.hidden=NO;
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if(([userDefaults valueForKey:@"UserName"] !=nil || [userDefaults valueForKey:@"UserName"]) && ([userDefaults valueForKey:@"UserPass"]!=nil || [userDefaults valueForKey:@"UserPass"])){
+        
+         isAutoLogin=YES;
+        if([[userDefaults valueForKey:@"isLoginWithFB"] isEqualToString:@"YES"]){
+            isLoginWithFB=YES;
+        fbLoginUserData = [[NSMutableDictionary alloc] init];
+        [fbLoginUserData setValue:[userDefaults valueForKey:@"UserName"] forKey:@"id"];
+            [fbLoginUserData setValue:[userDefaults valueForKey:@"name"] forKey:@"name"];
+            [fbLoginUserData setValue:[userDefaults valueForKey:@"age"] forKey:@"age"];
+            [fbLoginUserData setValue:[userDefaults valueForKey:@"profilepic"] forKey:@"profilepic"];//first_name
+             [fbLoginUserData setValue:[userDefaults valueForKey:@"first_name"] forKey:@"first_name"];
+           
+        
+        }
+        else{
+            _txtEmailOrMobileNo.text=[userDefaults valueForKey:@"UserName"];
+            _txtPassword.text=[userDefaults valueForKey:@"UserPass"];
+            isLoginWithFB=NO;
+        }
+        
+        [self callServiceForSignIn];
+        
+    }else{
+         isAutoLogin=NO;
+        _btnEnterOutlet.hidden=YES;
+        _viewLoginOutlet.hidden=NO;
+    }
+    
     
     
 }
@@ -167,6 +196,14 @@
     if(!isLoginWithFB){
     if([[dicResponce valueForKey:@"message"] isEqualToString:@"User Login Sucessfully"]){
         
+       
+        //store user login creadintion for autologin
+         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setValue:_txtEmailOrMobileNo.text forKey:@"UserName"];
+        [userDefaults setValue:_txtPassword.text forKey:@"UserPass"];
+        [userDefaults setValue:@"NO" forKey:@"isLoginWithFB"];
+        [userDefaults synchronize];
+        
         objSharedData.logingUserInfo=[dicResponce valueForKey:@"data"];
         
         [self performSegueWithIdentifier:@"login" sender:nil];
@@ -179,14 +216,35 @@
     }
     }else{
         
-        //login with FB
-        [self callServiceForSignUp];
         
+        //login with FB
+        if(!isAutoLogin)
+        [self callServiceForSignUp];
+        else{
+            objSharedData.logingUserInfo=[dicResponce valueForKey:@"data"];
+        
+        [self performSegueWithIdentifier:@"login" sender:nil];
+        }
     }
     }else{
         
         //load live score board
         if([[dicResponce valueForKey:@"message"] isEqualToString:@"Update Sucessfully"]){
+            
+            //store user login creadintion for autologin
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            [userDefaults setValue:[fbLoginUserData valueForKey:@"id"] forKey:@"UserName"];
+            [userDefaults setValue:[fbLoginUserData valueForKey:@"id"] forKey:@"UserPass"];
+            [userDefaults setValue:@"YES" forKey:@"isLoginWithFB"];
+            
+             [userDefaults setValue:[fbLoginUserData valueForKey:@"name"] forKey:@"name"];
+             [userDefaults setValue:[fbLoginUserData valueForKey:@"first_name"] forKey:@"first_name"];
+                        [userDefaults setValue:[fbLoginUserData valueForKey:@"gender"] forKey:@"age"];
+             [userDefaults setValue:[fbLoginUserData valueForKey:@"profilepic"] forKey:@"profilepic"];
+            
+            
+            [userDefaults synchronize];
+            
             objSharedData.logingUserInfo=[dicResponce valueForKey:@"data"];
             [self performSegueWithIdentifier:@"login" sender:nil];
         }else{

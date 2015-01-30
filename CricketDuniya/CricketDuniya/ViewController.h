@@ -11,6 +11,7 @@
 #import "WebserviceHandler.h"
 @interface ViewController : UIViewController<WebServiceHandlerDelegate>
 
+
 @property (weak, nonatomic) IBOutlet TPKeyboardAvoidingScrollView *viewLoginOutlet;
 @property (weak, nonatomic) IBOutlet UIButton *btnEnterOutlet;
 - (IBAction)btnEnterAction:(id)sender;
@@ -21,6 +22,6 @@
 - (IBAction)btnActionLogin:(id)sender;
 - (IBAction)btnActionLoginWithFacebook:(id)sender;
 - (IBAction)TextDidChange:(id)sender;
-
+-(void)callServiceForSignIn;
 @end
 
