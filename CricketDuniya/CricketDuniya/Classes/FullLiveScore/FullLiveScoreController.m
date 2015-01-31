@@ -117,7 +117,7 @@
         cell.lbl4s.text=[[objArrBattingPlayer objectAtIndex:indexPath.row] valueForKey:@"player_4s"];
         cell.lbl6s.text=[[objArrBattingPlayer objectAtIndex:indexPath.row] valueForKey:@"player_6s"];
         cell.lblSR.text=[[objArrBattingPlayer objectAtIndex:indexPath.row] valueForKey:@"player_sr"];
-        cell.lblPlayerStatus.text=[[objArrBattingPlayer objectAtIndex:indexPath.row] valueForKey:@"status"];
+        cell.lblPlayerStatus.text=[[objArrBattingPlayer objectAtIndex:indexPath.row] valueForKey:@"wicketline"];
 
 
     return cell;
