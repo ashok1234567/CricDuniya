@@ -1211,8 +1211,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Avinash Mahajan (5L5M76M2Q6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Avinash Mahajan (5L5M76M2Q6)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1232,7 +1232,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "977a9386-1003-4f19-b909-9be3cedfbc85";
+				PROVISIONING_PROFILE = "54620185-dcdf-4c63-b7c4-a48bc9d7d3b1";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1254,8 +1254,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Avinash Mahajan (5L5M76M2Q6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Avinash Mahajan (5L5M76M2Q6)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1268,7 +1268,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "977a9386-1003-4f19-b909-9be3cedfbc85";
+				PROVISIONING_PROFILE = "54620185-dcdf-4c63-b7c4-a48bc9d7d3b1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1278,7 +1278,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Avinash Mahajan (5L5M76M2Q6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Avinash Mahajan (5L5M76M2Q6)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/vivekjain/Documents/FacebookSDK,
@@ -1290,7 +1291,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "977a9386-1003-4f19-b909-9be3cedfbc85";
+				PROVISIONING_PROFILE = "54620185-dcdf-4c63-b7c4-a48bc9d7d3b1";
 			};
 			name = Debug;
 		};
@@ -1298,7 +1299,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Avinash Mahajan (5L5M76M2Q6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Avinash Mahajan (5L5M76M2Q6)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/vivekjain/Documents/FacebookSDK,
@@ -1310,7 +1312,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "977a9386-1003-4f19-b909-9be3cedfbc85";
+				PROVISIONING_PROFILE = "54620185-dcdf-4c63-b7c4-a48bc9d7d3b1";
 			};
 			name = Release;
 		};

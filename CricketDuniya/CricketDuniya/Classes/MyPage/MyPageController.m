@@ -13,7 +13,12 @@
 #import "ClosedCellView.h"
 #import "CustomwinAndLoss.h"
 @interface MyPageController ()
-
+{
+    NSMutableArray *objArrLiveContest;
+    NSMutableArray *objArrCloseContest;
+    NSMutableArray *objArrWinLoss;
+    NSMutableArray *objComplete;
+}
 @end
 
 @implementation MyPageController
@@ -29,14 +34,17 @@
      [_tblClosedContestQue registerNib:[UINib nibWithNibName:@"ClosedCellView" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cellclosed"];
     
     [_lblWinLoss registerNib:[UINib nibWithNibName:@"CustomwinAndLoss" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cellWinandloss"];
-    
+
+      [_imgMyPage setImageWithURL:[NSURL URLWithString:[objSharedData.logingUserInfo valueForKey:@"profile_img"]]] ;
 
     _lblWinLoss.hidden=YES;
-    //for live
-    [self loadModelLive];
-    
-    //for closed
-    [self loadModelClosed];
+        //quiz_results
+    [self callServiceForSchedule:[objSharedData.logingUserInfo valueForKey:@"quiz_results"] ];
+        //for live
+        //[self loadModelLive];
+
+        //for closed
+        //[self loadModelClosed]
     
     
 }
@@ -61,35 +69,45 @@
 - (void)loadModelLive{
     _currentRow = -1;
     headViewArray = [[NSMutableArray alloc]init ];
-    for(int i = 0;i< 3 ;i++)
-    {
+    NSLog(@"LiveContestCount: %d",[objArrLiveContest count] );
+    for(int i = 0;i< [objArrLiveContest count] ;i++)
+        {
         HeadView* headview = [[HeadView alloc] init];
         headview.delegate = self;
         headview.section = i;
         headview.backBtn.tag=1;
-        [headview.backBtn setTitle:[NSString stringWithFormat:@"What will happen in next ball ?=%d",i] forState:UIControlStateNormal];
-        headview.lblMatchTitle.text=@"Q. no 54";
+        [headview.backBtn setTitle:[[objArrLiveContest  valueForKey:@"question"] objectAtIndex:i] forState:UIControlStateNormal];
+        NSMutableString *questionId=[NSMutableString string];
+        [questionId appendString:@"Q. no"];
+        [questionId appendString:[[objArrLiveContest  valueForKey:@"question_id"] objectAtIndex:i]];
+        headview.lblMatchTitle.text=questionId;
         headview.lblMatchTitle2.text=@"Match 1";
         [self.headViewArray addObject:headview];
-        
-    }
+
+        }
+    [self.tblLiveContestQue reloadData];
 }
 - (void)loadModelClosed{
     _currentRow = -1;
     headViewClosed = [[NSMutableArray alloc]init ];
-    for(int i = 0;i< 2 ;i++)
-    {
+    for(int i = 0;i< [objArrCloseContest count] ;i++)
+        {
         HeadView* headview = [[HeadView alloc] init];
         headview.delegate = self;
         headview.section = i;
         headview.backBtn.tag=2;
-        [headview.backBtn setTitle:[NSString stringWithFormat:@"What will happen in next ball ?=%d",i] forState:UIControlStateNormal];
-        headview.lblMatchTitle.text=@"Q. no 54";
+        [headview.backBtn setTitle:[[objArrCloseContest  valueForKey:@"question"] objectAtIndex:i] forState:UIControlStateNormal];
+        NSMutableString *questionId=[NSMutableString string];
+        [questionId appendString:@"Q. no"];
+        [questionId appendString:[[objArrCloseContest  valueForKey:@"question_id"] objectAtIndex:i]];
+        headview.lblMatchTitle.text=questionId;
         headview.lblMatchTitle2.text=@"Match 1";
         [self.headViewClosed addObject:headview];
-        
-    }
+
+        }
+    [self.tblClosedContestQue reloadData];
 }
+
 
 
 
@@ -141,7 +159,7 @@
     }else if(tableView.tag==2){
         HeadView* headView = [self.headViewClosed objectAtIndex:section];
         return headView.open?1:0;
-    }else return 4;
+    }else return [objArrWinLoss count];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -159,25 +177,35 @@
    
     if(tableView.tag==1){
         static NSString *CellIdentifier = @"Cellans";
-        
+
         AnwserCellView *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        cell.lblAns.text=[NSString stringWithFormat:@"Ans_%d",indexPath.row+1];
+            //cell.lblAns.text=[NSString stringWithFormat:@"Ans_%d",indexPath.row+1];
+        cell.lblAns.text=[[objArrLiveContest  valueForKey:@"ans_status"] objectAtIndex:indexPath.section];
+            //[[objArrLiveContest  valueForKey:@"correct_ans"] objectAtIndex:i]]
         [cell.imgBG.layer setCornerRadius:2.0];
+        cell.lblpoints.hidden=YES;
         return cell;
     }else if(tableView.tag==2){
-        
+
         static NSString *CellIdentifier = @"cellclosed";
         ClosedCellView *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        cell.lblAns.text=[NSString stringWithFormat:@"Ans_%d",indexPath.row+1];
+        cell.lblAns.text=[[objArrCloseContest  valueForKey:@"correct_ans"] objectAtIndex:indexPath.section];
         [cell.imgBG.layer setCornerRadius:2.0];
+        cell.lblpoints.hidden=YES;
         return cell;
     }else{
-   
+
         static NSString *CellIdentifier = @"cellWinandloss";
         CustomwinAndLoss*cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        cell.lblquestion.text=[NSString stringWithFormat:@"Ans_%d",indexPath.row+1];
-       // [cell.imgBG.layer setCornerRadius:2.0];
-        
+        NSMutableString *questionId=[NSMutableString string];
+        [questionId appendString:@"Q. no "];
+        [questionId appendString:[[objArrWinLoss  valueForKey:@"question_id"] objectAtIndex:indexPath.row]];
+        cell.lblpoints.text=questionId;
+        cell.lblquestion.text=[[objArrWinLoss  valueForKey:@"question"] objectAtIndex:indexPath.row];
+        cell.lblMatch.text=@"MATCH1";
+        cell.lblAns.text=[[objArrWinLoss objectAtIndex:indexPath.row] valueForKey:@"message"];
+            // [cell.imgBG.layer setCornerRadius:2.0];
+
         return cell;
     }
 }
@@ -308,13 +336,71 @@
             break;
         case 3:
            _lblWinLoss.hidden=NO;
+            objArrWinLoss=[objComplete valueForKey:@"win"] ;
+            [self.lblWinLoss reloadData];
             break;
         case 4:
            _lblWinLoss.hidden=NO;
+            objArrWinLoss=[objComplete valueForKey:@"loss"] ;
+            [self.lblWinLoss reloadData];
             break;
             
         default:
             break;
     }
+}
+#pragma marg WebService
+
+-(void)callServiceForSchedule :(NSString*)methodName
+{
+    NSDictionary* valueDic=[[NSDictionary alloc]init];
+        //for ActivityIndicator start
+    [appDelegate startActivityIndicator:self.view withText:Progressing];
+
+    WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
+    objWebServiceHandler.delegate = self;
+
+        //for AFNetworking request
+    [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
+}
+
+-(void)webServiceHandler:(WebserviceHandler *)webHandler recievedResponse:(NSDictionary *)dicResponce
+{
+
+          objComplete =dicResponce ;
+     NSLog(@"total_points:-%@",[objComplete valueForKey:@"total_points"]  );
+
+    NSMutableString *totalPoints=[NSMutableString string];
+    [totalPoints appendString:[NSString stringWithFormat:@"%@", [objComplete valueForKey:@"total_points"]]];
+    [totalPoints appendString:@" Points"];
+
+    NSMutableString *totalWins=[NSMutableString string];
+    [totalWins appendString:[NSString stringWithFormat:@"%@", [objComplete valueForKey:@"total_wins"]]];
+    [totalWins appendString:@" WINS"];
+
+    NSMutableString *totalLoss=[NSMutableString string];
+    [totalLoss appendString:[NSString stringWithFormat:@"%@", [objComplete valueForKey:@"total_loss"]]];
+    [totalLoss appendString:@" LOSS"];
+
+
+    _lblPoints.text=totalPoints;
+    _lblwins.text=totalWins;
+    _lblLoss.text=totalLoss;
+    objArrLiveContest =[dicResponce valueForKey:@"pending"] ;
+    objArrCloseContest=[dicResponce valueForKey:@"closed"] ;
+    objArrWinLoss=[objComplete valueForKey:@"win"] ;
+    [self loadModelLive];
+    [self loadModelClosed];
+
+
+    [appDelegate stopActivityIndicator];
+
+}
+-(void) webServiceHandler:(WebserviceHandler *)webHandler requestFailedWithError:(NSError *)error
+{
+
+    NSLog(@"dicResponce:-%@",[error description]);
+    [appDelegate stopActivityIndicator];
+        //remove it after WS call
 }
 @end

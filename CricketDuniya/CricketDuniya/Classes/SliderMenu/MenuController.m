@@ -17,6 +17,7 @@
 #import "LeaderBoardController.h"
 #import "MatchResultController.h"
 #import "MyPageController.h"
+#import "UIImageView+AFNetworking.h"
 @interface MenuController ()
 {
     NSArray *titles;
@@ -35,16 +36,18 @@
     self.btnCatOutlet.selected=YES;
     
     //allocation of arraes
-    objDicResult=[[NSMutableArray alloc]initWithCapacity:0];
+
     objDicNotification=[[NSMutableArray alloc]initWithCapacity:0];
-    
+
+    objDicResult=[[NSMutableArray alloc]initWithCapacity:0];
+    [self callServiceForSchedule:[objSharedData.logingUserInfo valueForKey:@"quiz_results"] ];
     for (int i=0; i<5; i++) {
         NSMutableDictionary *objTempDicResult=[[NSMutableDictionary alloc]init];
         [objTempDicResult setValue:@"Match 1 Q. 5" forKey:@"date1"];
         [objTempDicResult setValue:@"you won 30 points" forKey:@"date2"];
         [objTempDicResult setValue:@"What will happen in this Ball" forKey:@"date3"];
         
-        [objDicResult addObject:objTempDicResult];
+            // [objDicResult addObject:objTempDicResult];
         [objDicNotification addObject:objTempDicResult];
     }
     
@@ -58,7 +61,7 @@
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(20, 0, 0, 45.0f)];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(-3, 10, 35, 35)];
         imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        imageView.image = [UIImage imageNamed:@"ashok.jpg"];
+        [imageView setImageWithURL:[NSURL URLWithString:[objSharedData.logingUserInfo valueForKey:@"profile_img"]]] ;
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 17.5;
         imageView.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -128,9 +131,14 @@
         
         ResultAndNotificationCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (self.btnResOutlet.selected) {
-            cell.lblMatchQ.text=[[objDicResult objectAtIndex:indexPath.row] valueForKey:@"date1"];
-            cell.lblPointScore.text=[[objDicResult objectAtIndex:indexPath.row] valueForKey:@"date2"];
-            cell.lblQuestionTitle.text=[[objDicResult objectAtIndex:indexPath.row] valueForKey:@"date3"];
+
+            NSMutableString *questionId=[NSMutableString string];
+            [questionId appendString:@"Q. no "];
+            [questionId appendString:[[objDicResult objectAtIndex:indexPath.row] valueForKey:@"question_id"]];
+            cell.lblMatchQ.text=questionId;
+            cell.lblPointScore.text=[[objDicResult objectAtIndex:indexPath.row] valueForKey:@"question"];
+            cell.lblQuestionTitle.text=[[objDicResult objectAtIndex:indexPath.row] valueForKey:@"message"];
+            cell.lblMatch.text=@"MATCH1";
             
         }else{
             cell.lblMatchQ.text=[[objDicNotification objectAtIndex:indexPath.row] valueForKey:@"date1"];
@@ -240,16 +248,51 @@
             break;
         case 2:
             self.btnResOutlet.selected=YES;
-            
+            [self.tblMenuAndNotification reloadData];
             break;
         case 3:
             self.btnNotiOutlet.selected=YES;
-            
+            [self.tblMenuAndNotification reloadData];
             break;
             
         default:
             break;
     }
     [self.tblMenuAndNotification reloadData];
+}
+#pragma marg WebService
+
+-(void)callServiceForSchedule :(NSString*)methodName
+{
+    NSDictionary* valueDic=[[NSDictionary alloc]init];
+        //for ActivityIndicator start
+    [appDelegate startActivityIndicator:self.view withText:Progressing];
+
+    WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
+    objWebServiceHandler.delegate = self;
+
+        //for AFNetworking request
+    [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
+}
+
+-(void)webServiceHandler:(WebserviceHandler *)webHandler recievedResponse:(NSDictionary *)dicResponce
+{
+
+
+    NSLog(@"total_points:-%@",dicResponce);
+
+
+    objDicResult=[dicResponce valueForKey:@"win"] ;
+
+    [self.tblMenuAndNotification reloadData];
+    [appDelegate stopActivityIndicator];
+
+}
+-(void) webServiceHandler:(WebserviceHandler *)webHandler requestFailedWithError:(NSError *)error
+{
+
+    NSLog(@"dicResponce:-%@",[error description]);
+    [appDelegate stopActivityIndicator];
+        //remove it after WS call
 }
 @end

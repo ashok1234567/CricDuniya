@@ -11,6 +11,8 @@
 @interface CustomwinAndLoss : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *lblquestion;
 @property (weak, nonatomic) IBOutlet UILabel *lblpoints;
+@property (weak, nonatomic) IBOutlet UILabel *lblMatch;
+@property (weak, nonatomic) IBOutlet UILabel *lblAns;
 
 
 @end

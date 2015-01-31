@@ -18,6 +18,7 @@ NSInteger _currentRow;
     
     
 }
+@property (weak, nonatomic) IBOutlet UIImageView *imgMyPage;
 @property (weak, nonatomic) IBOutlet UILabel *lbltitle2;
 @property (weak, nonatomic) IBOutlet UILabel *lbltitle1;
 @property (weak, nonatomic) IBOutlet UILabel *lblsepline;
@@ -26,6 +27,9 @@ NSInteger _currentRow;
 @property (weak, nonatomic) IBOutlet UITableView *tblLiveContestQue;
 @property (weak, nonatomic) IBOutlet UITableView *tblClosedContestQue;
 @property (weak, nonatomic) IBOutlet UITableView *lblWinLoss;
+@property (weak, nonatomic) IBOutlet UILabel *lblLoss;
 - (IBAction)btnActionAll:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *lblPoints;
+@property (weak, nonatomic) IBOutlet UILabel *lblwins;
 
 @end

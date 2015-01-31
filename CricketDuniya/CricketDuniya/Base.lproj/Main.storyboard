@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="gdn-IV-tAI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="gdn-IV-tAI">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -451,7 +451,7 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="3B17972D-2037-4B5C-8E5A-973E78A81A4D">
+                                <state key="selected" backgroundImage="D929E1BF-BA23-4EA0-9B15-84C7D83BA581">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -466,7 +466,7 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="3B17972D-2037-4B5C-8E5A-973E78A81A4D">
+                                <state key="selected" backgroundImage="D929E1BF-BA23-4EA0-9B15-84C7D83BA581">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -920,7 +920,7 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="3B17972D-2037-4B5C-8E5A-973E78A81A4D"/>
+                                <state key="selected" backgroundImage="D929E1BF-BA23-4EA0-9B15-84C7D83BA581"/>
                                 <connections>
                                     <action selector="btnActionMatch:" destination="fhA-9L-fAZ" eventType="touchUpInside" id="K6Z-pC-kYy"/>
                                 </connections>
@@ -1926,10 +1926,14 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="imgMyPage" destination="b3C-D4-4qp" id="aOM-ib-ZvS"/>
+                        <outlet property="lblLoss" destination="MIT-Sq-bhw" id="pSm-tv-F1d"/>
+                        <outlet property="lblPoints" destination="RmS-uF-9Az" id="d2v-El-u4P"/>
                         <outlet property="lblWinLoss" destination="lCs-V4-lmy" id="s3l-fH-mZB"/>
                         <outlet property="lblsepline" destination="B5y-UL-2lw" id="wRI-5L-QJa"/>
                         <outlet property="lbltitle1" destination="mGX-w2-OXq" id="bjw-i5-aZa"/>
                         <outlet property="lbltitle2" destination="ZPR-h6-GEU" id="mdG-Im-SXq"/>
+                        <outlet property="lblwins" destination="6d2-Y1-waP" id="WYH-Gj-iaG"/>
                         <outlet property="tblClosedContestQue" destination="oZt-t3-6oz" id="yqZ-ij-4Sj"/>
                         <outlet property="tblLiveContestQue" destination="Ztw-1M-M5Z" id="EtX-ok-eto"/>
                     </connections>
@@ -2107,7 +2111,8 @@
     <resources>
         <image name="1_0008_Shape-27" width="156" height="21"/>
         <image name="1_0023_refresh" width="12" height="12"/>
-        <image name="3B17972D-2037-4B5C-8E5A-973E78A81A4D" width="137" height="17">
+        <image name="Cricket Duniya logo copy.JPG" width="269" height="79"/>
+        <image name="D929E1BF-BA23-4EA0-9B15-84C7D83BA581" width="137" height="17">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -2313,7 +2318,6 @@ LcQtzS3gLeQt9y4CLgsuEC4YLhsuIC4vLjMuOi5CLk8uVC5WLlguXS5lLmgubS51Lnguii6NLpIAAAAA
 AAACAQAAAAAAAABCAAAAAAAAAAAAAAAAAAAulA
 </mutableData>
         </image>
-        <image name="Cricket Duniya logo copy.JPG" width="269" height="79"/>
         <image name="Untitle.png" width="81" height="78"/>
         <image name="checkmark.jpg" width="20" height="20"/>
         <image name="selected" width="68" height="28"/>
