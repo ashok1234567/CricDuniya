@@ -24,11 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-   
-    
-    
-        // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:58/255.0f green:147/255.0f blue:74/255.0f alpha:1.0]};
 
     urlLiveMatchFullScore=@"";
@@ -37,6 +33,9 @@
     self.btnMatch1.hidden=YES;
         self.btnMatch2.hidden=YES;
         self.btnMatch3.hidden=YES;
+    
+    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(callServiceForDashboard) name:@"loadlivescore" object:nil];
     
     //call for live score
     [self callServiceForDashboard];
@@ -264,12 +263,16 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
                 objTotalMatchs=[dicResponce valueForKey:@"microscorecard_data_items"];
                 if ([[[objTotalMatchs objectAtIndex:0] objectForKey:@"match_status"] isEqualToString:@"No Live Match"] )
                 {
+                    
+                    objSharedData.isCheckTrue=NO;
+                    [appDelegate StopTimeForRefresh];
+                    
                     ScheduleController *objScheduleController = [self.storyboard instantiateViewControllerWithIdentifier:@"schedule"];
                     self.navigationController.viewControllers = @[objScheduleController];
                 }
                 else
                 {
-                   
+                
             objDicLiveMatchData=[[dicResponce valueForKey:@"microscorecard_data_items"] objectAtIndex:0];
                 
                     
@@ -284,7 +287,10 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
                     
 
                 //setup or reload live data
+                    
+                    objSharedData.strLiveMatchId=[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"];
                     [self callMiniScore:[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"]];
+
            
 
                                }
@@ -293,7 +299,7 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
         }
     else if (_selected_service==2)
         {
-
+            [appDelegate StartTimeForRefresh];
         objDicLiveMatchData=dicResponce;
         [self reloadDataOnScreen];
         [appDelegate stopActivityIndicator];
@@ -312,6 +318,8 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
 -(void)selectedMatch:(id)sender{
     
     UIButton *btnSelected=(UIButton*)sender;
+    
+    objSharedData.strLiveMatchId=[[objTotalMatchs objectAtIndex:btnSelected.tag] objectForKey:@"matchid"];
     [self callMiniScore:[[objTotalMatchs objectAtIndex:btnSelected.tag] objectForKey:@"matchid"]];
 }
 //- (IBAction)btnActionMatch:(id)sender {

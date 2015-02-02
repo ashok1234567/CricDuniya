@@ -9,14 +9,18 @@
 #import "CustomPopData.h"
 #import "MenuController.h"
 #import "CDDashboardController.h"
+#define  kTimeRemovePopup 10.0
 @implementation CustomPopData
 {
     NSMutableArray *arrLiveMatchQue;
+    int serviceType;
 }
 -(void)ShowWhatNextSmallWindow{
     
     
     [self callServiceForWhatNext];
+    
+    
     firstHeaderView=[[[NSBundle mainBundle] loadNibNamed:@"WhatNext" owner:self options:nil] lastObject];
     firstHeaderView.frame=CGRectMake(0,appDelegate.window.frame.origin.y+(appDelegate.window.frame.size.height/2), appDelegate.window.frame.size.width, appDelegate.window.frame.size.height-appDelegate.window.frame.size.height/2);
     UIButton *tempfull=(UIButton*)[firstHeaderView viewWithTag:1];
@@ -24,6 +28,8 @@
     
     UIButton *tempclose=(UIButton*)[firstHeaderView viewWithTag:2];
     [tempclose addTarget:self action:@selector(clickOnClose:) forControlEvents:UIControlEventTouchUpInside];
+    
+     [self performSelector:@selector(clickOnClose:) withObject:self afterDelay:kTimeRemovePopup];
     
     [appDelegate.window addSubview:firstHeaderView];
     
@@ -38,10 +44,9 @@
     
 }
 -(void)clickOnClose :(id)sender{
-    
-    UIButton *tempbtn=(UIButton*)sender;
-    NSLog(@"click button tag=%ld",(long)tempbtn.tag);
+  
     [firstHeaderView removeFromSuperview];
+    [viewCommanPopUp removeFromSuperview];
 }
 
 -(void)selectedMatch:(id)sender{
@@ -49,7 +54,7 @@
     UIButton *btnSelected=(UIButton*)sender;
     
     //load data in view
-   // [self refreshDataInView:btnSelected.tag];
+    [self refreshDataInView:btnSelected.tag];
     
 }
 -(void)refreshDataInView :(int)index{
@@ -98,17 +103,69 @@
     if([[[arrLiveMatchQue objectAtIndex:index] valueForKey:@"b_ans"] isEqualToString:@""]){
         btnq2.hidden=YES;
         lblMatchpoint2.hidden=YES;
+    }else{
+        btnq2.hidden=NO;
+        lblMatchpoint2.hidden=NO;
     }
     if([[[arrLiveMatchQue objectAtIndex:index] valueForKey:@"c_ans"] isEqualToString:@""]){
         btnq3.hidden=YES;
                 lblMatchpoint3.hidden=YES;
+    }else{
+        btnq3.hidden=NO;
+        lblMatchpoint3.hidden=NO;
     }
     if([[[arrLiveMatchQue objectAtIndex:index] valueForKey:@"d_ans"] isEqualToString:@""]){
         btnq4.hidden=YES;
             lblMatchpoint4.hidden=YES;
+    }else{
+        btnq4.hidden=NO;
+        lblMatchpoint4.hidden=NO;
     }
     
 }
+-(void)loadPopup{
+    viewCommanPopUp=[[[NSBundle mainBundle] loadNibNamed:@"CommanPopUp" owner:self options:nil] lastObject];
+    
+    viewCommanPopUp.frame=CGRectMake(0,appDelegate.window.frame.origin.y+(appDelegate.window.frame.size.height/2), appDelegate.window.frame.size.width, appDelegate.window.frame.size.height-appDelegate.window.frame.size.height/2);
+    
+    UIButton *tempclose=(UIButton*)[viewCommanPopUp viewWithTag:2];
+    [tempclose addTarget:self action:@selector(clickOnClose:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [appDelegate.window addSubview:viewCommanPopUp];
+    
+    [self performSelector:@selector(clickOnClose:) withObject:self afterDelay:kTimeRemovePopup];
+}
+
+-(void)ShowCommanPopupForFour{
+
+    [self loadPopup];
+     UIImageView *tempimg=(UIImageView*)[viewCommanPopUp viewWithTag:3];
+    [tempimg setImage:[UIImage imageNamed:@"FOUR"]];
+    
+}
+-(void)ShowCommanPopupForSix{
+    
+    [self loadPopup];
+    UIImageView *tempimg=(UIImageView*)[viewCommanPopUp viewWithTag:3];
+    [tempimg setImage:[UIImage imageNamed:@"six"]];
+    
+}
+-(void)ShowCommanPopupForWicket{
+    
+    [self loadPopup];
+    UIImageView *tempimg=(UIImageView*)[viewCommanPopUp viewWithTag:3];
+    [tempimg setImage:[UIImage imageNamed:@"Wicket"]];
+    
+}
+-(void)ShowCommanPopupForImage{
+    
+    [self loadPopup];
+    UIImageView *tempimg=(UIImageView*)[viewCommanPopUp viewWithTag:3];
+    [tempimg setImage:[UIImage imageNamed:@"FOUR"]];
+    
+}
+
+
 -(void)callServiceForWhatNext
 {
     
@@ -117,13 +174,30 @@
     //for ActivityIndicator start
     [appDelegate startActivityIndicator:firstHeaderView withText:Progressing];
     
-    
-    
     WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
     objWebServiceHandler.delegate = self;
     
     NSString *methodName=WhatNext_Url;
     
+    serviceType=1;
+    //for AFNetworking request
+    [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
+    
+}
+-(void)callServiceForCommanPopup
+{
+    
+    NSDictionary* valueDic=[[NSDictionary alloc]init];
+    
+    //for ActivityIndicator start
+    [appDelegate startActivityIndicator:firstHeaderView withText:Progressing];
+    
+    WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
+    objWebServiceHandler.delegate = self;
+    
+    NSString *methodName=CommanPopup_Url;
+    
+    serviceType=2;
     //for AFNetworking request
     [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
     
@@ -136,7 +210,7 @@
     
     //  ShowAlert(AppName, [dicResponce valueForKey:@"message"]);
     //arrTotalWhatNextQuestion=[dicResponce valueForKey:@"match_id"];
-    
+    if(serviceType==1){
     arrLiveMatchQue=[[NSMutableArray alloc]init];
     for(int i=0;i<[[dicResponce valueForKey:@"match_id"] count];i++){
        
@@ -169,7 +243,36 @@
        UIView *matchBtn=[objSharedData NumberOfMatchButton:[arrLiveMatchQue count]];
     [matchBtn setFrame:CGRectMake(matchBtn.frame.origin.x, matchBtn.frame.origin.y-20, matchBtn.frame.size.width, matchBtn.frame.size.height)];
     [firstHeaderView addSubview:matchBtn];
-    
+    }else if(serviceType==2){
+        
+        
+        //responce for comman popup
+        if([[dicResponce valueForKey:@"flag"] intValue]==1){
+            if([[dicResponce valueForKey:@"fixture_id"] isEqualToString:objSharedData.strLiveMatchId] ){
+                
+                //Is for user and check now only type for message
+                if([[dicResponce valueForKey:@"seltype"] isEqualToString:@"seltxt"]){
+                    
+                    if([[dicResponce valueForKey:@"ddval"] isEqualToString:@"FOUR!!!"]){
+                        
+                        [self ShowCommanPopupForFour];
+                    }else  if([[dicResponce valueForKey:@"ddval"] isEqualToString:@"SIX!!!"]){
+                        [self ShowCommanPopupForSix];
+                    }else  if([[dicResponce valueForKey:@"ddval"] isEqualToString:@"WICKET!!!"]){
+                        [self ShowCommanPopupForWicket];
+                    }
+                    
+                }else if([[dicResponce valueForKey:@"seltype"] isEqualToString:@"selimg"]){
+                    
+                    if([dicResponce valueForKey:@"ddval_2"]){
+                        UIImageView *tempimg=(UIImageView*)[viewCommanPopUp viewWithTag:3];
+                        [tempimg setImageWithURL:[NSURL URLWithString:[dicResponce valueForKey:@"ddval_2"]]];
+                    }
+                    
+                }
+            }
+        }
+    }
     
     
     [appDelegate stopActivityIndicator];
@@ -183,5 +286,6 @@
     [appDelegate stopActivityIndicator];
     //remove it after WS call
 }
+
 
 @end

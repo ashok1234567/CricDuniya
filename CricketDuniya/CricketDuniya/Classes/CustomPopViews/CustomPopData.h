@@ -11,6 +11,8 @@
 @interface CustomPopData : NSObject
 {
     UIView  *firstHeaderView;
+     UIView  *viewCommanPopUp;
 }
 -(void)ShowWhatNextSmallWindow;
+-(void)callServiceForCommanPopup;
 @end

@@ -16,6 +16,7 @@
 		BD4A9D251A5C7F7300CD6FAF /* CategoryCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD4A9D231A5C7F7300CD6FAF /* CategoryCustomCell.xib */; };
 		BD52FA561A7008F2007A239A /* MatchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD52FA551A7008F2007A239A /* MatchResultController.m */; };
 		BD52FA5A1A702F41007A239A /* FullLiveScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD52FA591A702F41007A239A /* FullLiveScoreController.m */; };
+		BD5988E61A7FD7B900E98AB0 /* CommanPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5988E51A7FD7B900E98AB0 /* CommanPopUp.xib */; };
 		BD59F3CA1A767F1300D80BA7 /* CustomPopData.m in Sources */ = {isa = PBXBuildFile; fileRef = BD59F3C91A767F1300D80BA7 /* CustomPopData.m */; };
 		BD5E13381A7BDCAC00D3E883 /* CustomwinAndLoss.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5E13361A7BDCAC00D3E883 /* CustomwinAndLoss.m */; };
 		BD5E13391A7BDCAC00D3E883 /* CustomwinAndLoss.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5E13371A7BDCAC00D3E883 /* CustomwinAndLoss.xib */; };
@@ -150,6 +151,7 @@
 		BD52FA551A7008F2007A239A /* MatchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchResultController.m; sourceTree = "<group>"; };
 		BD52FA581A702F41007A239A /* FullLiveScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullLiveScoreController.h; sourceTree = "<group>"; };
 		BD52FA591A702F41007A239A /* FullLiveScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullLiveScoreController.m; sourceTree = "<group>"; };
+		BD5988E51A7FD7B900E98AB0 /* CommanPopUp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommanPopUp.xib; sourceTree = "<group>"; };
 		BD59F3C81A767F1300D80BA7 /* CustomPopData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomPopData.h; sourceTree = "<group>"; };
 		BD59F3C91A767F1300D80BA7 /* CustomPopData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomPopData.m; sourceTree = "<group>"; };
 		BD5E13351A7BDCAC00D3E883 /* CustomwinAndLoss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomwinAndLoss.h; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				BD5E133A1A7BE9CF00D3E883 /* WhatNext.xib */,
 				BD59F3C81A767F1300D80BA7 /* CustomPopData.h */,
 				BD59F3C91A767F1300D80BA7 /* CustomPopData.m */,
+				BD5988E51A7FD7B900E98AB0 /* CommanPopUp.xib */,
 			);
 			path = CustomPopViews;
 			sourceTree = "<group>";
@@ -1059,6 +1062,7 @@
 				BD4A9D1B1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG in Resources */,
 				BDD5AF621A62BDB700604979 /* loader_step1.png in Resources */,
 				BDFD54D21A5EF2B90062881B /* Raleway-Regular.ttf in Resources */,
+				BD5988E61A7FD7B900E98AB0 /* CommanPopUp.xib in Resources */,
 				BDD5879D1A617A2B00200284 /* checkmark.jpg in Resources */,
 				BD7001071A5D80820087BD85 /* ResultAndNotificationCustomCell.xib in Resources */,
 				BDD5AF641A62BDB700604979 /* loader_step2.png in Resources */,
@@ -1211,8 +1215,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Avinash Mahajan (5L5M76M2Q6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Avinash Mahajan (5L5M76M2Q6)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1232,7 +1236,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "54620185-dcdf-4c63-b7c4-a48bc9d7d3b1";
+				PROVISIONING_PROFILE = "977a9386-1003-4f19-b909-9be3cedfbc85";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1254,8 +1258,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Avinash Mahajan (5L5M76M2Q6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Avinash Mahajan (5L5M76M2Q6)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1268,7 +1272,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "54620185-dcdf-4c63-b7c4-a48bc9d7d3b1";
+				PROVISIONING_PROFILE = "977a9386-1003-4f19-b909-9be3cedfbc85";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1278,8 +1282,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Avinash Mahajan (5L5M76M2Q6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Avinash Mahajan (5L5M76M2Q6)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/vivekjain/Documents/FacebookSDK,
@@ -1291,7 +1295,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "54620185-dcdf-4c63-b7c4-a48bc9d7d3b1";
+				PROVISIONING_PROFILE = "977a9386-1003-4f19-b909-9be3cedfbc85";
 			};
 			name = Debug;
 		};
@@ -1299,8 +1303,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Avinash Mahajan (5L5M76M2Q6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Avinash Mahajan (5L5M76M2Q6)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/vivekjain/Documents/FacebookSDK,
@@ -1312,7 +1316,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "54620185-dcdf-4c63-b7c4-a48bc9d7d3b1";
+				PROVISIONING_PROFILE = "977a9386-1003-4f19-b909-9be3cedfbc85";
 			};
 			name = Release;
 		};

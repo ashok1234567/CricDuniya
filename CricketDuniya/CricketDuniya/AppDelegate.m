@@ -10,9 +10,14 @@
 #import "Reachability.h"
 #import "AlertDialogProgressView.h"
 #import "ViewController.h"
+#import "CDDashboardController.h"
+
+#define kTimeForRefresher 60.0
 AppDelegate *appDelegate;
 SharedData *objSharedData;
 CustomPopData *objCustomPop;
+
+
 @interface AppDelegate ()
 {
     AppLoader *objLoader;
@@ -32,9 +37,9 @@ CustomPopData *objCustomPop;
    
     objSharedData=[SharedData instance];
     objCustomPop=[[CustomPopData alloc]init];
+   
     
-    
-    //call charck network part
+    //call check network part
      [self callNetwork];
     
     if ([[[UIDevice currentDevice] systemVersion] compare:@"8" options:NSNumericSearch] != NSOrderedAscending)
@@ -128,26 +133,33 @@ CustomPopData *objCustomPop;
 }
 -(void)StartTimeForRefresh{
     
-    myTime=0;
-   timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown:) userInfo:nil repeats:YES];
+   
+    if(!timer){
+          NSLog(@"Titmer Start");
+   timer=[NSTimer scheduledTimerWithTimeInterval:kTimeForRefresher target:self selector:@selector(countDown:) userInfo:nil repeats:YES];
+    }
 }
 
 -(void)countDown:(NSTimer *) aTimer {
    
-    myTime=myTime+1;
     NSLog(@"Titmer running=%f",aTimer.timeInterval);
-
-    if(myTime==30.0){
-        myTime=0;
-        NSLog(@"callwebservies");
-    }
-
+   
+    //call server for live core
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"loadlivescore" object:nil];
+    
+    //load comman popup
+    [objCustomPop callServiceForCommanPopup];
+    
+    //load WHAT Next popup
+    [objCustomPop ShowWhatNextSmallWindow];
+    
+    
 }
-
 -(void)StopTimeForRefresh{
     if(timer){
     [timer invalidate];
     timer=nil;
+         NSLog(@"Titmer Stop");
     }
 }
 

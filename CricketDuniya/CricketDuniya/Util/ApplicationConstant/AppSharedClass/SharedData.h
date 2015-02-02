@@ -51,7 +51,7 @@
 @property(nonatomic,retain) NSString *strloginuserEmail;
 @property(nonatomic,retain) NSString *strLoginUserPassword;
 @property(nonatomic,retain) NSMutableDictionary *dictOnlineChatuserDetail;
-@property(nonatomic,retain) NSString *strPatientId;
+@property(nonatomic,retain) NSString *strLiveMatchId;
 @property(nonatomic,retain) NSMutableDictionary *dictPatientInfo;
 @property(nonatomic,assign) BOOL isComeFromPatientDashboard;
 

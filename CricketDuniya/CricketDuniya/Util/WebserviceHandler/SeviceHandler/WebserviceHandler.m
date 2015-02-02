@@ -81,7 +81,7 @@
     
     [operation start];
     }
-        else
+    else
         {
             [appDelegate stopActivityIndicator];
             ShowAlert (NetworkReachabilityTitle, NetworkReachabilityAlert)

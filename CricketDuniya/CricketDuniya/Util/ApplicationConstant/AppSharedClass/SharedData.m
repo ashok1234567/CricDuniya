@@ -36,7 +36,7 @@ static SharedData * objAppSharedData;
 @synthesize strloginuserEmail=_strloginuserEmail;
 @synthesize strLoginUserPassword=_strLoginUserPassword;
 @synthesize dictOnlineChatuserDetail =_dictOnlineChatuserDetail;
-@synthesize strPatientId=_strPatientId;
+@synthesize strLiveMatchId=_strLiveMatchId;
 @synthesize dictPatientInfo=_dictPatientInfo;
 @synthesize isComeFromPatientDashboard=_isComeFromPatientDashboard;
 @synthesize strLastTagName=_strLastTagName;

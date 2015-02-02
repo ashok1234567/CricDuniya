@@ -41,6 +41,7 @@
 
     objDicResult=[[NSMutableArray alloc]initWithCapacity:0];
     [self callServiceForSchedule:[objSharedData.logingUserInfo valueForKey:@"quiz_results"] ];
+   
     for (int i=0; i<5; i++) {
         NSMutableDictionary *objTempDicResult=[[NSMutableDictionary alloc]init];
         [objTempDicResult setValue:@"Match 1 Q. 5" forKey:@"date1"];
@@ -61,6 +62,7 @@
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(20, 0, 0, 45.0f)];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(-3, 10, 35, 35)];
         imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+        if([objSharedData.logingUserInfo valueForKey:@"profile_img"]==[NSNull class])
         [imageView setImageWithURL:[NSURL URLWithString:[objSharedData.logingUserInfo valueForKey:@"profile_img"]]] ;
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 17.5;
