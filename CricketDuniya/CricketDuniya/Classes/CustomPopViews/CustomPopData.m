@@ -9,11 +9,18 @@
 #import "CustomPopData.h"
 #import "MenuController.h"
 #import "CDDashboardController.h"
+#import "WhatNextController.h"
+#import "AS_CustomNavigationController.h"
+#import "BaseControllerController.h"
+
 #define  kTimeRemovePopup 10.0
+#define  kTimeRemoveWhatNextPopup 20.0
 @implementation CustomPopData
 {
     NSMutableArray *arrLiveMatchQue;
     int serviceType;
+    NSString *strUserAns;
+    int selectedMatch;
 }
 -(void)ShowWhatNextSmallWindow{
     
@@ -29,8 +36,7 @@
     UIButton *tempclose=(UIButton*)[firstHeaderView viewWithTag:2];
     [tempclose addTarget:self action:@selector(clickOnClose:) forControlEvents:UIControlEventTouchUpInside];
     
-     [self performSelector:@selector(clickOnClose:) withObject:self afterDelay:kTimeRemovePopup];
-    
+     [self performSelector:@selector(clickOnClose:) withObject:self afterDelay:kTimeRemoveWhatNextPopup];
     [appDelegate.window addSubview:firstHeaderView];
     
 }
@@ -40,6 +46,17 @@
     NSLog(@"click button tag=%ld",(long)tempbtn.tag);
      [firstHeaderView removeFromSuperview];
    
+    UIStoryboard *storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    
+//  
+//    
+     BaseControllerController *objBasecontroller = [storyboard instantiateViewControllerWithIdentifier:@"baseCon"];
+    objSharedData.isComeFromPopUp=YES;
+
+    appDelegate.window.rootViewController=objBasecontroller;
+    
+    
+  
     
     
 }
@@ -53,6 +70,7 @@
     
     UIButton *btnSelected=(UIButton*)sender;
     
+    selectedMatch=btnSelected.tag;
     //load data in view
     [self refreshDataInView:btnSelected.tag];
     
@@ -81,17 +99,21 @@
     
     UIButton *btnq1=(UIButton*)[firstHeaderView viewWithTag:4];
     [btnq1 setTitle:[NSString stringWithFormat:@"1. %@",[[arrLiveMatchQue objectAtIndex:index] valueForKey:@"a_ans"]] forState:UIControlStateNormal];
-    
+    [btnq1 addTarget:self action:@selector(clickonAns:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *btnq2=(UIButton*)[firstHeaderView viewWithTag:6];
     [btnq2 setTitle:[NSString stringWithFormat:@"2. %@",[[arrLiveMatchQue objectAtIndex:index] valueForKey:@"b_ans"]] forState:UIControlStateNormal];
-    
+     [btnq2 addTarget:self action:@selector(clickonAns:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *btnq3=(UIButton*)[firstHeaderView viewWithTag:8];
     [btnq3 setTitle:[NSString stringWithFormat:@"3. %@",[[arrLiveMatchQue objectAtIndex:index] valueForKey:@"c_ans"]] forState:UIControlStateNormal];
+     [btnq3 addTarget:self action:@selector(clickonAns:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     UIButton *btnq4=(UIButton*)[firstHeaderView viewWithTag:10];
     [btnq4 setTitle:[NSString stringWithFormat:@"4. %@",[[arrLiveMatchQue objectAtIndex:index] valueForKey:@"d_ans"]] forState:UIControlStateNormal];
+     [btnq4 addTarget:self action:@selector(clickonAns:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     if([[[arrLiveMatchQue objectAtIndex:index] valueForKey:@"a_ans"] isEqualToString:@""]){
         btnq1.hidden=YES;
@@ -123,7 +145,35 @@
     }
     
 }
+-(void)clickonAns:(UIButton*)sender{
+    
+    switch (sender.tag) {
+        case 4:
+            strUserAns=@"a_ans";
+            break;
+        case 6:
+            strUserAns=@"b_ans";
+            break;
+        case 8:
+            strUserAns=@"c_ans";
+            break;
+        case 10:
+            strUserAns=@"d_ans";
+            break;
+            
+        default:
+            break;
+    }
+    
+    if([objSharedData.arrMatchList count]>selectedMatch){
+    NSDictionary* valueDic=[NSDictionary dictionaryWithObjectsAndKeys:[objSharedData.arrMatchList objectAtIndex:selectedMatch],@"match_id",[objSharedData.logingUserInfo valueForKey:@"user_id"],@"user_id",[[arrLiveMatchQue objectAtIndex:selectedMatch] valueForKey:@"q_id"],@"question_id",strUserAns,@"question_user_ans",nil];
+    
+    [self callServiceForWAnwser:valueDic];
+    }
+}
 -(void)loadPopup{
+    
+    
     viewCommanPopUp=[[[NSBundle mainBundle] loadNibNamed:@"CommanPopUp" owner:self options:nil] lastObject];
     
     viewCommanPopUp.frame=CGRectMake(0,appDelegate.window.frame.origin.y+(appDelegate.window.frame.size.height/2), appDelegate.window.frame.size.width, appDelegate.window.frame.size.height-appDelegate.window.frame.size.height/2);
@@ -165,6 +215,26 @@
     
 }
 
+#pragma marg WebService
+
+-(void)callServiceForWAnwser :(NSDictionary*)valueDic
+{
+    
+    
+    
+    //for ActivityIndicator start
+    [appDelegate startActivityIndicator:firstHeaderView withText:Progressing];
+    
+    serviceType=3;
+    WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
+    objWebServiceHandler.delegate = self;
+    
+    NSString *methodName=WhatNextAnwser_Url;
+    
+    //for AFNetworking request
+    [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
+    
+}
 
 -(void)callServiceForWhatNext
 {
@@ -190,7 +260,7 @@
     NSDictionary* valueDic=[[NSDictionary alloc]init];
     
     //for ActivityIndicator start
-    [appDelegate startActivityIndicator:firstHeaderView withText:Progressing];
+    [appDelegate startActivityIndicator:viewCommanPopUp withText:Progressing];
     
     WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
     objWebServiceHandler.delegate = self;
@@ -232,6 +302,7 @@
     //load data in view
     if([arrLiveMatchQue count]>0){
         tempview.hidden=YES;
+        selectedMatch=0;
     [self refreshDataInView:0];
         }
         else{
@@ -272,6 +343,9 @@
                 }
             }
         }
+    }else if(serviceType==3){
+        
+        ShowAlert(AppName, [dicResponce valueForKey:@"message"]);
     }
     
     

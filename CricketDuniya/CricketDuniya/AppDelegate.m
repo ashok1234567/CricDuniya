@@ -39,6 +39,7 @@ CustomPopData *objCustomPop;
     objCustomPop=[[CustomPopData alloc]init];
    
     
+    
     //call check network part
      [self callNetwork];
     

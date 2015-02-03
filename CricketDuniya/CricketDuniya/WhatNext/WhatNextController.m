@@ -173,6 +173,7 @@
             cell.hidden=YES;
         else
             cell.hidden=NO;
+        
          cell.lblpoints.text=[NSString stringWithFormat:@"%@ points",[[arrLiveQuestion objectAtIndex:indexPath.section] valueForKey:[NSString stringWithFormat:@"%@_points",[ansOpation objectAtIndex:indexPath.row]]]];
         
         [cell.imgBG.layer setCornerRadius:2.0];

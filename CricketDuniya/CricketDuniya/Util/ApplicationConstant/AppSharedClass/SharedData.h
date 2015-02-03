@@ -53,7 +53,7 @@
 @property(nonatomic,retain) NSMutableDictionary *dictOnlineChatuserDetail;
 @property(nonatomic,retain) NSString *strLiveMatchId;
 @property(nonatomic,retain) NSMutableDictionary *dictPatientInfo;
-@property(nonatomic,assign) BOOL isComeFromPatientDashboard;
+@property(nonatomic) BOOL isComeFromPopUp;
 
 @property(nonatomic,retain) NSString *strTokenGuid;
 @property(nonatomic,retain) NSString *strEncryptionKey;

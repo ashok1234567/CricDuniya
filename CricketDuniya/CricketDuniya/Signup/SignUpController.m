@@ -17,7 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
+    UIView *paddingViewPassword = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 15, 35)];
+    self.txtFirstName.leftView = paddingViewPassword;
+    self.txtFirstName.leftViewMode = UITextFieldViewModeAlways;
+    [self.txtFirstName.layer setCornerRadius:5.0];
+    [self.txtAge.layer setCornerRadius:4.0];
+   }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

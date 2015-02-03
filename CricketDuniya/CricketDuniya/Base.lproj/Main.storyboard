@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="gdn-IV-tAI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="gdn-IV-tAI">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -41,21 +41,23 @@
                                 <rect key="frame" x="16" y="214" width="289" height="266"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bhl-3r-ycT">
-                                        <rect key="frame" x="7" y="39" width="273" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bhl-3r-ycT">
+                                        <rect key="frame" x="8" y="38" width="272" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.047058823530000002" green="0.3294117647" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                        <state key="normal" title="Countinue with facebook">
+                                        <color key="backgroundColor" red="0.1803921568627451" green="0.28627450980392155" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <inset key="imageEdgeInsets" minX="-28" minY="0.0" maxX="41" maxY="0.0"/>
+                                        <state key="normal" title="Countinue with facebook" image="1_0000_Layer-16">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="btnActionLoginWithFacebook:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lgW-0s-0vH"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email or Mobile no." minimumFontSize="17" clearButtonMode="whileEditing" id="FR1-GY-HKp">
-                                        <rect key="frame" x="7" y="118" width="273" height="30"/>
+                                        <rect key="frame" x="7" y="114" width="273" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.21176470588235294" green="0.51372549019607838" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -67,7 +69,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Create password" minimumFontSize="17" clearButtonMode="whileEditing" id="P3u-J0-Lel">
-                                        <rect key="frame" x="7" y="164" width="273" height="30"/>
+                                        <rect key="frame" x="7" y="163" width="273" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.21176470589999999" green="0.51372549020000002" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -78,8 +80,8 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RGn-CP-YBN">
-                                        <rect key="frame" x="7" y="206" width="273" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="7" y="206" width="273" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.73333333333333328" green="0.039215686274509803" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                         <state key="normal" title="Log  in/Sign up">
@@ -92,7 +94,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7CJ-Uv-UI6">
-                                        <rect key="frame" x="7" y="240" width="187" height="22"/>
+                                        <rect key="frame" x="7" y="244" width="187" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Forgot password?">
@@ -111,13 +113,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.17254901960784313" green="0.38039215686274508" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.17254901960784313" green="0.38039215686274508" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Enter" id="jGR-zX-7eX"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="btnEnterOutlet" destination="6QT-Dd-ijj" id="Dnj-rK-YpR"/>
+                        <outlet property="btnFacebookLogin" destination="bhl-3r-ycT" id="8hI-to-VrK"/>
                         <outlet property="btnLoginOutlet" destination="RGn-CP-YBN" id="5Rf-cq-6iN"/>
                         <outlet property="txtEmailOrMobileNo" destination="FR1-GY-HKp" id="aPw-PK-9R1"/>
                         <outlet property="txtPassword" destination="P3u-J0-Lel" id="cQT-0b-N9l"/>
@@ -223,7 +226,7 @@
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.51372549020000002" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="yN2-c3-Plk" id="Y03-ty-v3u"/>
                                 </connections>
@@ -292,7 +295,7 @@
         <!--Base Controller Controller-->
         <scene sceneID="fFH-QE-q2r">
             <objects>
-                <viewController id="ALv-5C-xfn" customClass="BaseControllerController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="baseCon" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ALv-5C-xfn" customClass="BaseControllerController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pCa-Px-Vds">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -451,7 +454,7 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="D929E1BF-BA23-4EA0-9B15-84C7D83BA581">
+                                <state key="selected" backgroundImage="087ACFBD-65E4-4E1F-B90C-7F5B1215B49C">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -466,7 +469,7 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="D929E1BF-BA23-4EA0-9B15-84C7D83BA581">
+                                <state key="selected" backgroundImage="087ACFBD-65E4-4E1F-B90C-7F5B1215B49C">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -920,7 +923,7 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="D929E1BF-BA23-4EA0-9B15-84C7D83BA581"/>
+                                <state key="selected" backgroundImage="087ACFBD-65E4-4E1F-B90C-7F5B1215B49C"/>
                                 <connections>
                                     <action selector="btnActionMatch:" destination="fhA-9L-fAZ" eventType="touchUpInside" id="K6Z-pC-kYy"/>
                                 </connections>
@@ -1291,7 +1294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7e9-B8-Ljt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2151" y="570"/>
+            <point key="canvasLocation" x="-2144" y="546"/>
         </scene>
         <!--Schedule-->
         <scene sceneID="qij-nV-4bD">
@@ -1940,7 +1943,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="llr-gV-6hC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2797" y="1872"/>
+            <point key="canvasLocation" x="-2717" y="1974"/>
         </scene>
         <!--Match Result-->
         <scene sceneID="1d4-so-GzA">
@@ -2109,10 +2112,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1_0008_Shape-27" width="156" height="21"/>
-        <image name="1_0023_refresh" width="12" height="12"/>
-        <image name="Cricket Duniya logo copy.JPG" width="269" height="79"/>
-        <image name="D929E1BF-BA23-4EA0-9B15-84C7D83BA581" width="137" height="17">
+        <image name="087ACFBD-65E4-4E1F-B90C-7F5B1215B49C" width="137" height="17">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -2318,6 +2318,10 @@ LcQtzS3gLeQt9y4CLgsuEC4YLhsuIC4vLjMuOi5CLk8uVC5WLlguXS5lLmgubS51Lnguii6NLpIAAAAA
 AAACAQAAAAAAAABCAAAAAAAAAAAAAAAAAAAulA
 </mutableData>
         </image>
+        <image name="1_0000_Layer-16" width="12" height="25"/>
+        <image name="1_0008_Shape-27" width="156" height="21"/>
+        <image name="1_0023_refresh" width="12" height="12"/>
+        <image name="Cricket Duniya logo copy.JPG" width="269" height="79"/>
         <image name="Untitle.png" width="81" height="78"/>
         <image name="checkmark.jpg" width="20" height="20"/>
         <image name="selected" width="68" height="28"/>
@@ -2329,8 +2333,8 @@ AAACAQAAAAAAAABCAAAAAAAAAAAAAAAAAAAulA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="2tH-h4-Z5H"/>
         <segue reference="WRz-o7-afz"/>
-        <segue reference="ayn-dV-MGw"/>
+        <segue reference="19r-YL-hQz"/>
+        <segue reference="2tH-h4-Z5H"/>
     </inferredMetricsTieBreakers>
 </document>

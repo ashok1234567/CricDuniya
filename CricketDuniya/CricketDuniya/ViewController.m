@@ -34,7 +34,8 @@
     
     
    
-    
+ 
+
     //setup textfield layout
     UIView *paddingViewUserName = [[UIView alloc] initWithFrame:CGRectMake(0, 0,15, 35)];
     self.txtEmailOrMobileNo.leftView = paddingViewUserName;
@@ -43,6 +44,11 @@
     UIView *paddingViewPassword = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 15, 35)];
     self.txtPassword.leftView = paddingViewPassword;
     self.txtPassword.leftViewMode = UITextFieldViewModeAlways;
+
+    [self.txtEmailOrMobileNo.layer setCornerRadius:5.0];
+    [self.txtPassword.layer setCornerRadius:5.0];
+    [self.btnLoginOutlet.layer setCornerRadius:5.0];
+    [self.btnFacebookLogin.layer setCornerRadius:5.0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -221,9 +227,9 @@
         if(!isAutoLogin)
         [self callServiceForSignUp];
         else{
+            
             objSharedData.logingUserInfo=[dicResponce valueForKey:@"data"];
-        
-        [self performSegueWithIdentifier:@"login" sender:nil];
+            [self performSegueWithIdentifier:@"login" sender:nil];
         }
     }
     }else{

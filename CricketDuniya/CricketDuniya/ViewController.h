@@ -23,5 +23,6 @@
 - (IBAction)btnActionLoginWithFacebook:(id)sender;
 - (IBAction)TextDidChange:(id)sender;
 -(void)callServiceForSignIn;
+@property (weak, nonatomic) IBOutlet UIButton *btnFacebookLogin;
 @end
 

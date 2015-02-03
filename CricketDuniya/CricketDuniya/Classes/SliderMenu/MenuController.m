@@ -85,6 +85,9 @@
         view;
     });
 }
+-(void)viewWillAppear:(BOOL)animated{
+    objSharedData.isComeFromPopUp=NO;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -208,7 +211,6 @@
         
         return;
     }
-    
     self.frostedViewController.contentViewController = navigationController;
          
     [self.frostedViewController hideMenuViewController];

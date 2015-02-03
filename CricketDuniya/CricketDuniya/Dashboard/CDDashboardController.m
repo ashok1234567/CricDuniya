@@ -11,6 +11,7 @@
 #import "AS_CustomNavigationController.h"
 #import "ScheduleController.h"
 #import "FullLiveScoreController.h"
+#import "WhatNextController.h"
 @interface CDDashboardController ()<MatchBtnSection>
 {
     NSMutableDictionary*objDicLiveMatchData;
@@ -44,6 +45,10 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
   
+    if(objSharedData.isComeFromPopUp==YES){
+    WhatNextController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"whatnext"];
+    self.navigationController.viewControllers = @[secondViewController];//mypage
+    }
 }
 
 - (void)didReceiveMemoryWarning {

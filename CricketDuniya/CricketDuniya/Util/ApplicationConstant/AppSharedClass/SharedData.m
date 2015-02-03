@@ -38,7 +38,7 @@ static SharedData * objAppSharedData;
 @synthesize dictOnlineChatuserDetail =_dictOnlineChatuserDetail;
 @synthesize strLiveMatchId=_strLiveMatchId;
 @synthesize dictPatientInfo=_dictPatientInfo;
-@synthesize isComeFromPatientDashboard=_isComeFromPatientDashboard;
+@synthesize isComeFromPopUp=_isComeFromPopUp;
 @synthesize strLastTagName=_strLastTagName;
 @synthesize logingUserInfo=_logingUserInfo;
 @synthesize isNoLiveMatch=_isNoLiveMatch;
@@ -59,7 +59,7 @@ static SharedData * objAppSharedData;
         _arrMatchList=[[NSMutableArray alloc] init];
         _arr_Doctorlist=[[NSMutableArray alloc] init];
         _dictOnlineChatuserDetail=[[NSMutableDictionary alloc] init];
-        _isComeFromPatientDashboard=NO;
+        _isComeFromPopUp=NO;
         _isFirsttimeLanch=YES;
         return self;
     }

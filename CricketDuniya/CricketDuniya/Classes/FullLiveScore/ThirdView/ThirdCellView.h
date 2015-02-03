@@ -19,5 +19,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *lblTeam1Banch;
 @property (weak, nonatomic) IBOutlet UITextView *lblTeam2;
 @property (weak, nonatomic) IBOutlet UITextView *lblTeam2Banch;
+@property (weak, nonatomic) IBOutlet UILabel *lblTeam2squrd;
+@property (weak, nonatomic) IBOutlet UILabel *lblTeam1Squard;
+@property (weak, nonatomic) IBOutlet UITextView *lblCommentry;
+@property (weak, nonatomic) IBOutlet UIImageView *imgAd;
 
 @end

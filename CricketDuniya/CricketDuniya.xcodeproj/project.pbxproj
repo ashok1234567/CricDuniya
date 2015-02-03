@@ -1281,7 +1281,7 @@
 		BD9BB8B51A592E0A008D9D06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1302,7 +1302,7 @@
 		BD9BB8B61A592E0A008D9D06 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
 				FRAMEWORK_SEARCH_PATHS = (

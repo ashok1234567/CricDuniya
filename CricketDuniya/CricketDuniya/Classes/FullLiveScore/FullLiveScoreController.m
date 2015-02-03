@@ -145,9 +145,13 @@
         cell.lblUmpires.text=[objArrMatch  valueForKey:@"umpires_1"];
         cell.lbl3rdUmpire.text=[objArrMatch  valueForKey:@"umpires_tv"];
         cell.lblMetchReferee.text=[objArrMatch  valueForKey:@"match_referees"];
-       
+        if([[objArrMatch valueForKey:@"recent_commentry"] count]>0)
+        cell.lblCommentry.text=[[[objArrMatch valueForKey:@"recent_commentry"] objectAtIndex:0] valueForKey:@"comm_text"];
+        cell.lblTeam1Squard.text=[NSString stringWithFormat:@"%@ Squard", [objArrMatch valueForKey:@"batting_team_tname"]];
+        cell.lblTeam2squrd.text=[NSString stringWithFormat:@"%@ Squard", [objArrMatch valueForKey:@"bowling_team_tname"]];
         cell.lblTeam1.text=battingTeam;
        cell.lblTeam2.text=bowlingTeam;
+        
         return cell;
     }
     
@@ -164,7 +168,7 @@
             return 40.f;
             break;
         case 2:
-            return 1109.0f;
+            return 1068.0f;
             break;
         default: return 0;
             break;
