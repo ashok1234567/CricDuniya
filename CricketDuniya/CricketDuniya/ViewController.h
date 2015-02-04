@@ -18,7 +18,9 @@
 - (IBAction)btnActionSignIn:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *txtEmailOrMobileNo;
 @property (weak, nonatomic) IBOutlet UITextField *txtPassword;
+@property (weak, nonatomic) IBOutlet UILabel *lbltitle;
 @property (weak, nonatomic) IBOutlet UIButton *btnLoginOutlet;
+@property (weak, nonatomic) IBOutlet UIImageView *imgLogo;
 - (IBAction)btnActionLogin:(id)sender;
 - (IBAction)btnActionLoginWithFacebook:(id)sender;
 - (IBAction)TextDidChange:(id)sender;

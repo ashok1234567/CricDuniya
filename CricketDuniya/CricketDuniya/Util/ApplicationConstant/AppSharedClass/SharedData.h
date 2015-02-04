@@ -95,4 +95,7 @@
 
 #pragma mark MatchButton
 -(UIView*)NumberOfMatchButton :(int)buttonCount;
+
+#pragma mark BounceView
+-(void)bounce :(id)sender;
 @end

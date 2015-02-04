@@ -39,6 +39,7 @@ CustomPopData *objCustomPop;
     objCustomPop=[[CustomPopData alloc]init];
    
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     //call check network part
      [self callNetwork];

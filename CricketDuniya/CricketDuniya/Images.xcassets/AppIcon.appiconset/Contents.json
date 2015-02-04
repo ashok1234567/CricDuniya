@@ -1,0 +1,14 @@
+{
+  "images" : [
+    {
+      "size" : "120x120",
+      "idiom" : "car",
+      "filename" : "appicon.png",
+      "scale" : "1x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

@@ -28,14 +28,21 @@
     
     //view load
      _viewLoginOutlet.hidden=YES;
+    _viewLoginOutlet.alpha = 0.0;
+     _btnEnterOutlet.alpha = 0.0;
+    _imgLogo.alpha=0.0;
+    self.lbltitle.alpha=0.0;
+    
+   
+    
     [self preperLayout];
 }
+
+
+
 -(void)preperLayout{
     
     
-   
- 
-
     //setup textfield layout
     UIView *paddingViewUserName = [[UIView alloc] initWithFrame:CGRectMake(0, 0,15, 35)];
     self.txtEmailOrMobileNo.leftView = paddingViewUserName;
@@ -49,6 +56,27 @@
     [self.txtPassword.layer setCornerRadius:5.0];
     [self.btnLoginOutlet.layer setCornerRadius:5.0];
     [self.btnFacebookLogin.layer setCornerRadius:5.0];
+    
+}
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [UIView beginAnimations:@"fadeInBgView" context:NULL];
+    [UIView setAnimationDuration:1.5];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(animationCompletedFirst)];
+    [_imgLogo setFrame:CGRectMake(105, 67,110, 110)];
+     _imgLogo.alpha=1.0;
+    [UIView commitAnimations];
+    
+}
+-(void)animationCompletedFirst{
+        [UIView animateWithDuration:.5 animations:^() {
+            _lbltitle.alpha=1.0;
+            _btnEnterOutlet.alpha=1.0;
+           
+    
+        }];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,6 +106,7 @@
 
 - (IBAction)btnEnterAction:(id)sender {
     
+    [objSharedData bounce:sender];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if(([userDefaults valueForKey:@"UserName"] !=nil || [userDefaults valueForKey:@"UserName"]) && ([userDefaults valueForKey:@"UserPass"]!=nil || [userDefaults valueForKey:@"UserPass"])){
@@ -104,12 +133,24 @@
         
     }else{
          isAutoLogin=NO;
-        _btnEnterOutlet.hidden=YES;
-        _viewLoginOutlet.hidden=NO;
-    }
+        
+        
+        [self performSelector:@selector(stepOne) withObject:nil afterDelay:0.4];
+            }
     
     
     
+}
+-(void)stepOne{
+    _btnEnterOutlet.hidden=YES;
+    _viewLoginOutlet.hidden=NO;
+    [UIView animateWithDuration:0.5 animations:^() {
+        _viewLoginOutlet.alpha = 1.0;
+         _btnEnterOutlet.alpha = 0.0;
+        
+        
+    }];
+
 }
 - (IBAction)btnActionSignIn:(id)sender {
   

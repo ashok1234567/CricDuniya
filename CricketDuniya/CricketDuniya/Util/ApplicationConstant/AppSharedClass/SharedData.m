@@ -404,4 +404,16 @@ static SharedData * objAppSharedData;
     
    
 }
+-(void)bounce :(id)sender{
+    
+    UIView*temp=(UIView*)sender;
+    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"transform"];
+    anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    anim.duration = 0.125;
+    anim.repeatCount = 1;
+    anim.autoreverses = YES;
+    anim.removedOnCompletion = YES;
+    anim.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.2, 1.2, 1.0)];
+    [temp.layer addAnimation:anim forKey:nil];
+}
 @end

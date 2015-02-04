@@ -21,6 +21,8 @@
 		BD5E13381A7BDCAC00D3E883 /* CustomwinAndLoss.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5E13361A7BDCAC00D3E883 /* CustomwinAndLoss.m */; };
 		BD5E13391A7BDCAC00D3E883 /* CustomwinAndLoss.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5E13371A7BDCAC00D3E883 /* CustomwinAndLoss.xib */; };
 		BD5E133B1A7BE9CF00D3E883 /* WhatNext.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5E133A1A7BE9CF00D3E883 /* WhatNext.xib */; };
+		BD5F4C081A82876D0085E2FC /* LastOverChancePeyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5F4C071A82876D0085E2FC /* LastOverChancePeyController.m */; };
+		BD5F4C0A1A8297260085E2FC /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = BD5F4C091A8297260085E2FC /* appicon.png */; };
 		BD6938521A735E2F00D291FE /* MyPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6938511A735E2F00D291FE /* MyPageController.m */; };
 		BD6938551A735E4500D291FE /* HeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6938541A735E4500D291FE /* HeadView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BD69385C1A7375E800D291FE /* AnwserCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69385A1A7375E800D291FE /* AnwserCellView.m */; };
@@ -158,6 +160,9 @@
 		BD5E13361A7BDCAC00D3E883 /* CustomwinAndLoss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomwinAndLoss.m; sourceTree = "<group>"; };
 		BD5E13371A7BDCAC00D3E883 /* CustomwinAndLoss.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomwinAndLoss.xib; sourceTree = "<group>"; };
 		BD5E133A1A7BE9CF00D3E883 /* WhatNext.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WhatNext.xib; sourceTree = "<group>"; };
+		BD5F4C061A82876D0085E2FC /* LastOverChancePeyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastOverChancePeyController.h; sourceTree = "<group>"; };
+		BD5F4C071A82876D0085E2FC /* LastOverChancePeyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastOverChancePeyController.m; sourceTree = "<group>"; };
+		BD5F4C091A8297260085E2FC /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
 		BD6938501A735E2F00D291FE /* MyPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageController.h; sourceTree = "<group>"; };
 		BD6938511A735E2F00D291FE /* MyPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageController.m; sourceTree = "<group>"; };
 		BD6938531A735E4500D291FE /* HeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadView.h; sourceTree = "<group>"; };
@@ -421,6 +426,15 @@
 			path = CustomViewForWinAndLoss;
 			sourceTree = "<group>";
 		};
+		BD5F4C051A8287420085E2FC /* LastOverChancePey */ = {
+			isa = PBXGroup;
+			children = (
+				BD5F4C061A82876D0085E2FC /* LastOverChancePeyController.h */,
+				BD5F4C071A82876D0085E2FC /* LastOverChancePeyController.m */,
+			);
+			path = LastOverChancePey;
+			sourceTree = "<group>";
+		};
 		BD69384F1A735E1300D291FE /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +500,7 @@
 		BD9BB8881A592E09008D9D06 = {
 			isa = PBXGroup;
 			children = (
+				BD5F4C091A8297260085E2FC /* appicon.png */,
 				BDD5879C1A617A2B00200284 /* checkmark.jpg */,
 				BD6B7A7D1A611A4600C43E8E /* Untitle.png */,
 				BD4A9D1A1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG */,
@@ -634,6 +649,7 @@
 		BDC6B4B91A5B1A0700E09F36 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BD5F4C051A8287420085E2FC /* LastOverChancePey */,
 				BD59F3C71A767EDB00D80BA7 /* CustomPopViews */,
 				BD6938581A7375CD00D291FE /* AnwserView */,
 				BD69384F1A735E1300D291FE /* MyPage */,
@@ -1068,6 +1084,7 @@
 				BDD5AF641A62BDB700604979 /* loader_step2.png in Resources */,
 				BD9BB8A21A592E09008D9D06 /* Images.xcassets in Resources */,
 				BD0755021A75642600346A28 /* Default-568h@2x.png in Resources */,
+				BD5F4C0A1A8297260085E2FC /* appicon.png in Resources */,
 				BDFD54D31A5EF2B90062881B /* Raleway-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1114,6 +1131,7 @@
 				BD6938521A735E2F00D291FE /* MyPageController.m in Sources */,
 				BDFD54EE1A5EF2B90062881B /* AFNetworkReachabilityManager.m in Sources */,
 				BDFD54ED1A5EF2B90062881B /* AFHTTPSessionManager.m in Sources */,
+				BD5F4C081A82876D0085E2FC /* LastOverChancePeyController.m in Sources */,
 				BD69385C1A7375E800D291FE /* AnwserCellView.m in Sources */,
 				BDC6B4BD1A5B1A5D00E09F36 /* MenuController.m in Sources */,
 				BD7909781A717E7500F8CD39 /* SecoundCellView.m in Sources */,
@@ -1281,7 +1299,6 @@
 		BD9BB8B51A592E0A008D9D06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1302,7 +1319,6 @@
 		BD9BB8B61A592E0A008D9D06 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Avinash Mahajan (2P4GTY3S8F)";
 				FRAMEWORK_SEARCH_PATHS = (

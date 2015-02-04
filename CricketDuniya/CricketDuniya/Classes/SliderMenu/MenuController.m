@@ -18,7 +18,9 @@
 #import "MatchResultController.h"
 #import "MyPageController.h"
 #import "UIImageView+AFNetworking.h"
-@interface MenuController ()
+#import "LastOverChancePeyController.h"
+#import <MessageUI/MessageUI.h>
+@interface MenuController ()<MFMailComposeViewControllerDelegate,WebServiceHandlerDelegate>
 {
     NSArray *titles;
     NSMutableArray *objDicResult;
@@ -191,7 +193,7 @@
         
         LeaderBoardController *objLeaderBoardController = [self.storyboard instantiateViewControllerWithIdentifier:@"leaderboard"];
         navigationController.viewControllers = @[objLeaderBoardController];
-    //metchresult
+    
         
     }else if(indexPath.row==6){
         
@@ -199,7 +201,17 @@
         navigationController.viewControllers = @[objMatchResultController];
         //metchresult
         
-    }else if (indexPath.row == 9) {
+    }else if(indexPath.row==7){
+        
+        [self sendInvitation];
+        
+    } else if(indexPath.row==3){
+        
+        LastOverChancePeyController *objLastOverChancePeyController = [self.storyboard instantiateViewControllerWithIdentifier:@"lastoverchancepey"];
+        navigationController.viewControllers = @[objLastOverChancePeyController];
+        
+        
+    } else if (indexPath.row == 9) {
         
 
         UINavigationController *objUINavigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"logout"];
@@ -266,6 +278,21 @@
             break;
     }
     [self.tblMenuAndNotification reloadData];
+}
+-(void)sendInvitation{
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        
+        [[UINavigationBar appearance] setBackgroundImage:nil forBarPosition:UIBarPositionTop barMetrics:UIBarMetricsDefault];
+        
+        [UINavigationBar appearance].tintColor = [UIColor colorWithRed:58/255.0f green:147/255.0f blue:74/255.0f alpha:1.0];
+        MFMailComposeViewController *composeViewController = [[MFMailComposeViewController alloc] initWithNibName:nil bundle:nil];
+        [composeViewController setMailComposeDelegate:self];
+        NSArray *usersTo = [NSArray arrayWithObject: @""];
+        [composeViewController setToRecipients:usersTo];
+        [composeViewController setSubject:@"From Cricket duniya App"];
+        [self presentViewController:composeViewController animated:YES completion:nil];
+    }
 }
 #pragma marg WebService
 
