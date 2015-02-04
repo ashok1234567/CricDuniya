@@ -40,6 +40,7 @@
     objDicNotification=[[NSMutableArray alloc]initWithCapacity:0];
 
     objDicResult=[[NSMutableArray alloc]initWithCapacity:0];
+   
     [self callServiceForSchedule:[objSharedData.logingUserInfo valueForKey:@"quiz_results"] ];
    
     for (int i=0; i<5; i++) {
@@ -73,7 +74,9 @@
         imageView.clipsToBounds = YES;
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 0, 24)];
-        label.text =  [objSharedData.logingUserInfo valueForKey:@"userName"];
+        NSArray *temparr=[[objSharedData.logingUserInfo valueForKey:@"userName"] componentsSeparatedByString:@"@"];
+        
+        label.text =  [temparr objectAtIndex:0];
         label.font = [UIFont fontWithName:@"Helvetica Neue" size:17];
         label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
@@ -252,11 +255,11 @@
             break;
         case 2:
             self.btnResOutlet.selected=YES;
-            [self.tblMenuAndNotification reloadData];
+           
             break;
         case 3:
             self.btnNotiOutlet.selected=YES;
-            [self.tblMenuAndNotification reloadData];
+
             break;
             
         default:

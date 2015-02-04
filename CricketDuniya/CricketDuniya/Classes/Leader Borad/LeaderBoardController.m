@@ -9,9 +9,10 @@
 #import "LeaderBoardController.h"
 #import "UIImageView+AFNetworking.h"
 #import "REFrostedViewController.h"
-@interface LeaderBoardController ()
+@interface LeaderBoardController ()<WebServiceHandlerDelegate>
 {
     NSMutableArray *objArrLeaders;
+    NSString *selectedCat;
 }
 @end
 
@@ -27,6 +28,7 @@
 
     objArrLeaders=[[NSMutableArray alloc]initWithCapacity:0];
 
+    selectedCat=@"OVERALL";
         //call web services for get learder from server and open new controller
     [self callServiceForSchedule:LeaderboardComplete_Url];
 
@@ -57,7 +59,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -118,13 +120,13 @@
     return 15.f;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(15.0, 5, 100,15.0)];
+    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(15.0,0,_tblLeaderBoard.frame.size.width,15.0)];
     UILabel *label = [[UILabel alloc] initWithFrame:header.frame];
-    label.backgroundColor= [UIColor clearColor];
+    label.backgroundColor= [UIColor colorWithRed:42/255.0f green:97/255.0f blue:41/255.0f alpha:1.0];
     label.textColor= [UIColor blackColor];
-    label.font = [UIFont fontWithName:@"Helvetica Neue Medium" size:11.0];
-        // label.text = @"OVER ALL";
-        //[header addSubview:label];
+    label.font = [UIFont boldSystemFontOfSize:11.0];
+    label.text = selectedCat;
+    [header addSubview:label];
     return header;
 }
 
@@ -140,14 +142,20 @@
  */
 
 - (IBAction)btnActionDay:(id)sender {
+    
+    selectedCat=@"DAY";
     [self callServiceForSchedule:LeaderboardDaily_Url];
 }
 
 - (IBAction)btnActionWeek:(id)sender {
+    
+    selectedCat=@"WEEK";
     [self callServiceForSchedule:LeaderboardWeekly_Url];
 }
 
 - (IBAction)btnActionMonth:(id)sender {
+    
+    selectedCat=@"MONTH";
     [self callServiceForSchedule:LeaderboardMonthly_Url];
 }
 
@@ -170,6 +178,11 @@
 {
     NSLog(@"leaderboard:-%@",[dicResponce valueForKey:@"leaderboard"]);
     objArrLeaders =[dicResponce valueForKey:@"leaderboard"] ;
+    if([objArrLeaders count]>0){
+        _lblNorecordfound.hidden=YES;
+    }else{
+        _lblNorecordfound.hidden=NO;
+    }
     [self.myTbl reloadData];
     [appDelegate stopActivityIndicator];
 
@@ -180,5 +193,10 @@
     NSLog(@"dicResponce:-%@",[error description]);
     [appDelegate stopActivityIndicator];
         //remove it after WS call
+}
+- (IBAction)btnActionOverll:(id)sender {
+    
+    //Get overall leader record from server
+     [self callServiceForSchedule:LeaderboardComplete_Url];
 }
 @end

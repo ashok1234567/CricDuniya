@@ -12,10 +12,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnDay;
 @property (weak, nonatomic) IBOutlet UIButton *btnWeek;
 @property (weak, nonatomic) IBOutlet UIButton *btnMonth;
+@property (weak, nonatomic) IBOutlet UILabel *lblNorecordfound;
 - (IBAction)btnActionDay:(id)sender;
 - (IBAction)btnActionWeek:(id)sender;
 - (IBAction)btnActionMonth:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *tblLeaderBoard;
+- (IBAction)btnActionOverll:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *myTbl;
 
 @end

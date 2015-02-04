@@ -38,6 +38,8 @@
 
         // Present the view controller
         //
+    self.frostedViewController.backgroundFadeAmount=0.2;
+    self.frostedViewController.direction=REFrostedViewControllerDirectionRight;
     [self.frostedViewController panGestureRecognized:sender];
 }
 
