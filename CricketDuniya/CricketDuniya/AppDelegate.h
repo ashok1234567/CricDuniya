@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "CustomPopData.h"
+#import "NotificationTimer.h"
 @class AppDelegate;
 extern AppDelegate *appDelegate;
 @class SharedData;
@@ -17,6 +18,8 @@ extern AppDelegate *appDelegate;
 extern SharedData *objSharedData;
 @class CustomPopData;
 extern CustomPopData *objCustomPop;
+@class NotificationTimer;
+extern NotificationTimer *objNotificationtimer;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     //use for all type of Reachability

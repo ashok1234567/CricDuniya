@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -53,6 +53,7 @@
                 <outlet property="lblMatchQ" destination="FEW-C8-7Dw" id="hQa-ld-dc0"/>
                 <outlet property="lblPointScore" destination="yU8-1e-Bep" id="FWl-4B-HhB"/>
                 <outlet property="lblQuestionTitle" destination="FQL-UM-2I0" id="I8A-5u-Wvm"/>
+                <outlet property="lblline" destination="bcH-rZ-bCa" id="vB2-3Y-757"/>
             </connections>
             <point key="canvasLocation" x="259.5" y="313.5"/>
         </tableViewCell>

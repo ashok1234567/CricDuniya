@@ -12,7 +12,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "WebserviceHandler.h"
 #import <MapKit/MKPlacemark.h>
-
+#import "CustomBadge.h"
 @protocol MatchBtnSection <NSObject>
 
 @required
@@ -27,7 +27,7 @@
     UIView *firstHeaderView;
 }
 @property(nonatomic, retain) id<MatchBtnSection> Pdelegate;
-
+@property(nonatomic,retain) CustomBadge *badge51;
 @property (nonatomic,strong)  CLLocation *currentLocation;
 @property (nonatomic,strong)  NSString* str_DeviceToken;
 @property (nonatomic,strong)  NSMutableDictionary* logingUserInfo;

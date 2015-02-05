@@ -23,6 +23,14 @@
 @implementation CDDashboardController
 
 - (void)viewDidLoad {
+    
+    
+    //firt time call notifcation service
+    [objNotificationtimer CallWebService];
+    
+    //Start notification service for every 10 secound 
+    [objNotificationtimer StartTimerForNotification];
+    
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.

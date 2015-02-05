@@ -74,7 +74,7 @@
             [delegate performSelector:@selector(webServiceHandler:recievedResponse:) withObject:self withObject:responseObject];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error: %@", [error description]);
-        ShowAlert(AppName, msgReqFail);
+        //ShowAlert(AppName, msgReqFail);
         if([delegate respondsToSelector:@selector(webServiceHandler:requestFailedWithError:)])
             [delegate performSelector:@selector(webServiceHandler:requestFailedWithError:) withObject:self withObject:error];
     }];

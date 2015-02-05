@@ -35,6 +35,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "UIImageView+AFNetworking.h"
 #import "CustomPopData.h"
+#import "CustomBadge.h"
 #endif
 #pragma mark - Appliction Webservice URL
 //For Development

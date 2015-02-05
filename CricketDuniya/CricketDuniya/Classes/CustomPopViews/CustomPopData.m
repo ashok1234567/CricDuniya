@@ -79,7 +79,7 @@
     UILabel *lblMatchNo=(UILabel*)[firstHeaderView viewWithTag:15];
     lblMatchNo.text=[NSString stringWithFormat:@"Q. No. %@",[[arrLiveMatchQue objectAtIndex:index] valueForKey:@"q_id"]];
     
-    UIImageView *imgres=(UIImageView*)[firstHeaderView viewWithTag:16];
+   // UIImageView *imgres=(UIImageView*)[firstHeaderView viewWithTag:16];
   //  [imgres setImageWithURL:[NSURL URLWithString:[[arrLiveMatchQue objectAtIndex:0] valueForKey:@"q_id"]]];
     
     UITextView *lblQues=(UITextView*)[firstHeaderView viewWithTag:3];

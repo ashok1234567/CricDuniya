@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblPointScore;
 @property (weak, nonatomic) IBOutlet UILabel *lblQuestionTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblMatch;
+@property (weak, nonatomic) IBOutlet UILabel *lblline;
 
 @end

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		BD0755021A75642600346A28 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD0755011A75642600346A28 /* Default-568h@2x.png */; };
 		BD2836B81A68297800AE2BA8 /* SelectionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD2836B71A68297800AE2BA8 /* SelectionsController.m */; };
+		BD398E071A83C8B000CF14B4 /* NotificationTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = BD398E061A83C8B000CF14B4 /* NotificationTimer.m */; };
+		BD398E0A1A83D42000CF14B4 /* CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = BD398E091A83D42000CF14B4 /* CustomBadge.m */; };
+		BD398E0D1A83D44E00CF14B4 /* BadgeStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = BD398E0C1A83D44E00CF14B4 /* BadgeStyle.m */; };
+		BD398E0F1A83ECA600CF14B4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD398E0E1A83ECA600CF14B4 /* MessageUI.framework */; };
 		BD4A9D1B1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG in Resources */ = {isa = PBXBuildFile; fileRef = BD4A9D1A1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG */; };
 		BD4A9D1D1A5C6D8E00CD6FAF /* uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4A9D1C1A5C6D8E00CD6FAF /* uncheck.png */; };
 		BD4A9D201A5C6EDB00CD6FAF /* SignUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4A9D1F1A5C6EDB00CD6FAF /* SignUpController.m */; };
@@ -138,6 +142,13 @@
 		BD0755011A75642600346A28 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		BD2836B61A68297800AE2BA8 /* SelectionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionsController.h; sourceTree = "<group>"; };
 		BD2836B71A68297800AE2BA8 /* SelectionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionsController.m; sourceTree = "<group>"; };
+		BD398E051A83C8B000CF14B4 /* NotificationTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationTimer.h; sourceTree = "<group>"; };
+		BD398E061A83C8B000CF14B4 /* NotificationTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationTimer.m; sourceTree = "<group>"; };
+		BD398E081A83D42000CF14B4 /* CustomBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBadge.h; sourceTree = "<group>"; };
+		BD398E091A83D42000CF14B4 /* CustomBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBadge.m; sourceTree = "<group>"; };
+		BD398E0B1A83D44E00CF14B4 /* BadgeStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeStyle.h; sourceTree = "<group>"; };
+		BD398E0C1A83D44E00CF14B4 /* BadgeStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeStyle.m; sourceTree = "<group>"; };
+		BD398E0E1A83ECA600CF14B4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BD4A9CDF1A5C630800CD6FAF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BD4A9CE11A5C632400CD6FAF /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		BD4A9CE31A5C634700CD6FAF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -340,6 +351,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD398E0F1A83ECA600CF14B4 /* MessageUI.framework in Frameworks */,
 				BDA975EB1A6EC8C7009A69C3 /* FacebookSDK.framework in Frameworks */,
 				BDFD55031A5EFB2E0062881B /* libxml2.2.dylib in Frameworks */,
 				BDFD55011A5EFB280062881B /* Security.framework in Frameworks */,
@@ -366,9 +378,23 @@
 			path = Selection;
 			sourceTree = "<group>";
 		};
+		BD398E041A83C89700CF14B4 /* Notificationtimer */ = {
+			isa = PBXGroup;
+			children = (
+				BD398E0B1A83D44E00CF14B4 /* BadgeStyle.h */,
+				BD398E0C1A83D44E00CF14B4 /* BadgeStyle.m */,
+				BD398E081A83D42000CF14B4 /* CustomBadge.h */,
+				BD398E091A83D42000CF14B4 /* CustomBadge.m */,
+				BD398E051A83C8B000CF14B4 /* NotificationTimer.h */,
+				BD398E061A83C8B000CF14B4 /* NotificationTimer.m */,
+			);
+			path = Notificationtimer;
+			sourceTree = "<group>";
+		};
 		BD4A9D191A5C642800CD6FAF /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				BD398E0E1A83ECA600CF14B4 /* MessageUI.framework */,
 				BDA975EA1A6EC8C7009A69C3 /* FacebookSDK.framework */,
 				BDFD55021A5EFB2E0062881B /* libxml2.2.dylib */,
 				BDFD55001A5EFB280062881B /* Security.framework */,
@@ -649,6 +675,7 @@
 		BDC6B4B91A5B1A0700E09F36 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BD398E041A83C89700CF14B4 /* Notificationtimer */,
 				BD5F4C051A8287420085E2FC /* LastOverChancePey */,
 				BD59F3C71A767EDB00D80BA7 /* CustomPopViews */,
 				BD6938581A7375CD00D291FE /* AnwserView */,
@@ -1108,6 +1135,7 @@
 				BDFD54F91A5EF2BA0062881B /* UIButton+AFNetworking.m in Sources */,
 				BDFD54D61A5EF2B90062881B /* NSString+HTML.m in Sources */,
 				BDFD54DB1A5EF2B90062881B /* AS_CustomNavigationController.m in Sources */,
+				BD398E071A83C8B000CF14B4 /* NotificationTimer.m in Sources */,
 				BDFD54F01A5EF2B90062881B /* AFURLConnectionOperation.m in Sources */,
 				BDFD54E61A5EF2B90062881B /* TPKeyboardAvoidingScrollView.m in Sources */,
 				BDFD54F11A5EF2BA0062881B /* AFURLRequestSerialization.m in Sources */,
@@ -1151,6 +1179,7 @@
 				BDFD54D51A5EF2B90062881B /* GTMNSString+HTML.m in Sources */,
 				BDFD54E01A5EF2B90062881B /* UIImage+REFrostedViewController.m in Sources */,
 				BD4A9D201A5C6EDB00CD6FAF /* SignUpController.m in Sources */,
+				BD398E0D1A83D44E00CF14B4 /* BadgeStyle.m in Sources */,
 				BDFD54E81A5EF2B90062881B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				BDFD54FA1A5EF2BA0062881B /* UIImageView+AFNetworking.m in Sources */,
 				BDFD54E41A5EF2B90062881B /* TTUITableViewZoomController.m in Sources */,
@@ -1160,6 +1189,7 @@
 				BD6938621A737CB500D291FE /* ClosedCellView.m in Sources */,
 				BDFD54F61A5EF2BA0062881B /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BD52FA5A1A702F41007A239A /* FullLiveScoreController.m in Sources */,
+				BD398E0A1A83D42000CF14B4 /* CustomBadge.m in Sources */,
 				BD7001061A5D80820087BD85 /* ResultAndNotificationCustomCell.m in Sources */,
 				BDFD54D91A5EF2B90062881B /* UIImage+scale_resize.m in Sources */,
 				BDFD54DF1A5EF2B90062881B /* REFrostedViewController.m in Sources */,

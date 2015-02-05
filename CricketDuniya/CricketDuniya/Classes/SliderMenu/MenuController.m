@@ -20,11 +20,12 @@
 #import "UIImageView+AFNetworking.h"
 #import "LastOverChancePeyController.h"
 #import <MessageUI/MessageUI.h>
-@interface MenuController ()<MFMailComposeViewControllerDelegate,WebServiceHandlerDelegate>
+@interface MenuController ()<MFMailComposeViewControllerDelegate,MFMessageComposeViewControllerDelegate,WebServiceHandlerDelegate>
 {
     NSArray *titles;
     NSMutableArray *objDicResult;
-    NSMutableArray *objDicNotification;
+    AS_CustomNavigationController *navigationController;
+   
 }
 @end
 
@@ -39,21 +40,21 @@
     
     //allocation of arraes
 
-    objDicNotification=[[NSMutableArray alloc]initWithCapacity:0];
+    //objDicNotification=[[NSMutableArray alloc]initWithCapacity:0];
 
     objDicResult=[[NSMutableArray alloc]initWithCapacity:0];
    
     [self callServiceForSchedule:[objSharedData.logingUserInfo valueForKey:@"quiz_results"] ];
    
-    for (int i=0; i<5; i++) {
-        NSMutableDictionary *objTempDicResult=[[NSMutableDictionary alloc]init];
-        [objTempDicResult setValue:@"Match 1 Q. 5" forKey:@"date1"];
-        [objTempDicResult setValue:@"you won 30 points" forKey:@"date2"];
-        [objTempDicResult setValue:@"What will happen in this Ball" forKey:@"date3"];
-        
-            // [objDicResult addObject:objTempDicResult];
-        [objDicNotification addObject:objTempDicResult];
-    }
+//    for (int i=0; i<5; i++) {
+//        NSMutableDictionary *objTempDicResult=[[NSMutableDictionary alloc]init];
+//        [objTempDicResult setValue:@"Match 1 Q. 5" forKey:@"date1"];
+//        [objTempDicResult setValue:@"you won 30 points" forKey:@"date2"];
+//        [objTempDicResult setValue:@"What will happen in this Ball" forKey:@"date3"];
+//        
+//            // [objDicResult addObject:objTempDicResult];
+//        [objDicNotification addObject:objTempDicResult];
+//    }
     
     titles = @[@"LIVE SCORE", @"WHAT NEXT", @"MY PAGE",@"LAST OVER CHANGE PEY",@"SCHEDULE",@"LEADER BOARD",@"MATCH RESULT",@"INVITE FRIENDS",@"SETTING",@"LOG OUT"];
 
@@ -92,6 +93,11 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     objSharedData.isComeFromPopUp=NO;
+    objSharedData.badge51.hidden=YES;
+    
+}
+-(void)viewDidDisappear:(BOOL)animated{
+    objSharedData.badge51.hidden=NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,8 +113,9 @@
 {
     if(self.btnCatOutlet.selected)
         return 35;
-    else
-        return 83;
+    else if(self.btnNotiOutlet.selected)
+        return 40;
+     else   return 83;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -123,7 +130,7 @@
     else if(self.btnResOutlet.self)
         return [objDicResult count];
     else
-        return [objDicNotification count];
+        return [objNotificationtimer.objDicNotification count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -149,11 +156,15 @@
             cell.lblPointScore.text=[[objDicResult objectAtIndex:indexPath.row] valueForKey:@"question"];
             cell.lblQuestionTitle.text=[[objDicResult objectAtIndex:indexPath.row] valueForKey:@"message"];
             cell.lblMatch.text=@"MATCH1";
+
+            
             
         }else{
-            cell.lblMatchQ.text=[[objDicNotification objectAtIndex:indexPath.row] valueForKey:@"date1"];
-            cell.lblPointScore.text=[[objDicNotification objectAtIndex:indexPath.row] valueForKey:@"date2"];
-            cell.lblQuestionTitle.text=[[objDicNotification objectAtIndex:indexPath.row] valueForKey:@"date3"];
+            cell.lblMatchQ.text=[[objNotificationtimer.objDicNotification objectAtIndex:indexPath.row] valueForKey:@"date1"];
+            cell.lblPointScore.text=[[objNotificationtimer.objDicNotification objectAtIndex:indexPath.row] valueForKey:@"msg"];
+            cell.lblQuestionTitle.text=[[objNotificationtimer.objDicNotification objectAtIndex:indexPath.row] valueForKey:@"date3"];
+            
+                        cell.lblline.hidden=YES;
         }
        // cell.lblCategoryTitle.text=titles[indexPath.row];
         return cell;
@@ -172,44 +183,61 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
      if(self.btnCatOutlet.selected){
-    AS_CustomNavigationController *navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentController"];
+    navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentController"];
     objSharedData.isCheckTrue=NO;
          
     if (indexPath.row == 0) {
         objSharedData.isCheckTrue=YES;
         CDDashboardController *homeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Dashboard"];
         navigationController.viewControllers = @[homeViewController];
+        self.frostedViewController.contentViewController = navigationController;
+        [self.frostedViewController hideMenuViewController];
+        
     } else  if (indexPath.row == 1) {
         WhatNextController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"whatnext"];
         navigationController.viewControllers = @[secondViewController];//mypage
+        self.frostedViewController.contentViewController = navigationController;
+        [self.frostedViewController hideMenuViewController];
+        
     }else if (indexPath.row == 2) {
         MyPageController *objMyPageController = [self.storyboard instantiateViewControllerWithIdentifier:@"mypage"];
         navigationController.viewControllers = @[objMyPageController];//mypage
+        self.frostedViewController.contentViewController = navigationController;
+        [self.frostedViewController hideMenuViewController];
+        
     }else  if (indexPath.row == 4){
         
         ScheduleController *objScheduleController = [self.storyboard instantiateViewControllerWithIdentifier:@"schedule"];
         navigationController.viewControllers = @[objScheduleController];
+        self.frostedViewController.contentViewController = navigationController;
+        [self.frostedViewController hideMenuViewController];
+        
     }else if(indexPath.row==5){
         
         LeaderBoardController *objLeaderBoardController = [self.storyboard instantiateViewControllerWithIdentifier:@"leaderboard"];
         navigationController.viewControllers = @[objLeaderBoardController];
-    
+        self.frostedViewController.contentViewController = navigationController;
+        [self.frostedViewController hideMenuViewController];
         
     }else if(indexPath.row==6){
         
         MatchResultController *objMatchResultController = [self.storyboard instantiateViewControllerWithIdentifier:@"metchresult"];
         navigationController.viewControllers = @[objMatchResultController];
         //metchresult
+        self.frostedViewController.contentViewController = navigationController;
+        [self.frostedViewController hideMenuViewController];
         
     }else if(indexPath.row==7){
         
         [self sendInvitation];
         
+        
     } else if(indexPath.row==3){
         
         LastOverChancePeyController *objLastOverChancePeyController = [self.storyboard instantiateViewControllerWithIdentifier:@"lastoverchancepey"];
         navigationController.viewControllers = @[objLastOverChancePeyController];
-        
+        self.frostedViewController.contentViewController = navigationController;
+        [self.frostedViewController hideMenuViewController];
         
     } else if (indexPath.row == 9) {
         
@@ -224,11 +252,15 @@
         [session close];
         [FBSession setActiveSession:nil];
         
+        
+        //stop timer notification refresh
+        [objNotificationtimer StopNotificationTime];
+        
+        //stop timer for refresh live score
+        [appDelegate StopTimeForRefresh];
         return;
     }
-    self.frostedViewController.contentViewController = navigationController;
-         
-    [self.frostedViewController hideMenuViewController];
+    
          
          
          //For Timer
@@ -282,17 +314,45 @@
 -(void)sendInvitation{
     
     if ([MFMailComposeViewController canSendMail]) {
+    
+        [self.frostedViewController hideMenuViewController];
+
+        [objNotificationtimer StopNotificationTime];
         
         [[UINavigationBar appearance] setBackgroundImage:nil forBarPosition:UIBarPositionTop barMetrics:UIBarMetricsDefault];
         
         [UINavigationBar appearance].tintColor = [UIColor colorWithRed:58/255.0f green:147/255.0f blue:74/255.0f alpha:1.0];
         MFMailComposeViewController *composeViewController = [[MFMailComposeViewController alloc] initWithNibName:nil bundle:nil];
         [composeViewController setMailComposeDelegate:self];
-        NSArray *usersTo = [NSArray arrayWithObject: @""];
+        NSArray *usersTo = [NSArray arrayWithObject: @"abc@mail.com"];
         [composeViewController setToRecipients:usersTo];
         [composeViewController setSubject:@"From Cricket duniya App"];
-        [self presentViewController:composeViewController animated:YES completion:nil];
+        
+       
+        //self.frostedViewController.contentViewController = navigationController;
+
+        UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+        
+        while (topController.presentedViewController) {
+            topController = topController.presentedViewController;
+        }
+        [topController presentViewController:composeViewController animated:YES completion:nil];
+        
     }
+}
+#pragma mark Email delegate
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    
+    [objNotificationtimer StartTimerForNotification];
+     UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    //Add an alert in case of failure
+    while (topController.presentedViewController) {
+        topController = topController.presentedViewController;
+    }
+    
+    [topController dismissViewControllerAnimated:YES completion:nil];
+    
 }
 #pragma marg WebService
 
@@ -314,8 +374,6 @@
 
 
     NSLog(@"total_points:-%@",dicResponce);
-
-
     objDicResult=[dicResponce valueForKey:@"win"] ;
 
     [self.tblMenuAndNotification reloadData];
