@@ -25,7 +25,7 @@
     NSArray *titles;
     NSMutableArray *objDicResult;
     AS_CustomNavigationController *navigationController;
-   
+    int serviceType;
 }
 @end
 
@@ -127,7 +127,7 @@
 {
     if(self.btnCatOutlet.selected)
          return [titles count];
-    else if(self.btnResOutlet.self)
+    else if(self.btnResOutlet.selected)
         return [objDicResult count];
     else
         return [objNotificationtimer.objDicNotification count];
@@ -159,7 +159,7 @@
 
             
             
-        }else{
+        }else if (self.btnResOutlet.selected){
             cell.lblMatchQ.text=[[objNotificationtimer.objDicNotification objectAtIndex:indexPath.row] valueForKey:@"date1"];
             cell.lblPointScore.text=[[objNotificationtimer.objDicNotification objectAtIndex:indexPath.row] valueForKey:@"msg"];
             cell.lblQuestionTitle.text=[[objNotificationtimer.objDicNotification objectAtIndex:indexPath.row] valueForKey:@"date3"];
@@ -303,7 +303,8 @@
             break;
         case 3:
             self.btnNotiOutlet.selected=YES;
-
+            
+            [self callServiceForResetNotification];
             break;
             
         default:
@@ -356,6 +357,23 @@
 }
 #pragma marg WebService
 
+-(void)callServiceForResetNotification
+{
+    NSDictionary* valueDic=[[NSDictionary alloc]initWithObjectsAndKeys:[objSharedData.logingUserInfo valueForKey:@"user_id"],@"user_id", nil];
+    
+    
+    //for ActivityIndicator start
+    [appDelegate startActivityIndicator:self.view withText:Progressing];
+    NSString *methodName=RestNoti_Url
+    
+    serviceType=2;
+    WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
+    objWebServiceHandler.delegate = self;
+    
+    //for AFNetworking request
+    [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
+}
+
 -(void)callServiceForSchedule :(NSString*)methodName
 {
     NSDictionary* valueDic=[[NSDictionary alloc]init];
@@ -365,6 +383,7 @@
     WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
     objWebServiceHandler.delegate = self;
 
+    serviceType=1;
         //for AFNetworking request
     [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
 }
@@ -372,11 +391,16 @@
 -(void)webServiceHandler:(WebserviceHandler *)webHandler recievedResponse:(NSDictionary *)dicResponce
 {
 
-
-    NSLog(@"total_points:-%@",dicResponce);
+     NSLog(@"total_points:-%@",dicResponce);
+    if(serviceType==1){
+   
     objDicResult=[dicResponce valueForKey:@"win"] ;
 
     [self.tblMenuAndNotification reloadData];
+        
+    }else{
+    
+    }
     [appDelegate stopActivityIndicator];
 
 }

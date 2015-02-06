@@ -75,7 +75,17 @@
 
 #define WhatNext_Url           @"alerts/questions.json"
 #define WhatNextAnwser_Url   @"http://cricapi.amarujala.com/setdata/save_user_question_answer"
+
 #define CommanPopup_Url @"alerts/alerts.json"
+#define RestNoti_Url @"http://cricapi.amarujala.com/setdata/changeAlertStatus";
+
+#define LastOverChangePey_Url @"last_over/last_over.json"
+
+#define  SaveLastOverChance_Url   @"http://cricapi.amarujala.com/getdata/save_last_over_chance"
+#define SaveResultAfterPlay_Url  @"http://cricapi.amarujala.com/getdata/save_last_over_chance_results"
+
+
+
 
 
 #define GenerateToken_url        @"GenerateToken"

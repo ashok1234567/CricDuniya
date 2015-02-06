@@ -25,7 +25,7 @@
     NSLog(@"Titmer running=%f",aTimer.timeInterval);
     
     //call server for live core
-    [self CallWebService];
+  //  [self CallWebService];
     
     
     

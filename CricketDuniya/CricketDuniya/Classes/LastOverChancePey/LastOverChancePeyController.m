@@ -8,9 +8,14 @@
 
 #import "LastOverChancePeyController.h"
 
-@interface LastOverChancePeyController ()
+@interface LastOverChancePeyController ()<WebServiceHandlerDelegate>
 {
     NSMutableDictionary *objArrLastOverChance;
+        NSMutableDictionary *objDicCommenatary;
+        NSMutableDictionary *objDicRuns;
+    
+    int ballClickCount;
+    BOOL *isAlreadyPlayed;
 }
 
 @end
@@ -29,6 +34,9 @@
     _viewsSartUp.hidden=NO;
     _viewSecoundStep.hidden=YES;
     _viewFinalPlay.hidden=YES;
+    
+    
+    
     [self CallWebService];
 }
 
@@ -85,30 +93,61 @@
 }
 
 - (IBAction)btnActionBat:(id)sender {
-    _selected_service=2;
-    [self callServiceForLastChance];
+   
+    [self callServiceForSaveLastChance:@"bat"];
     [objSharedData bounce:sender];
     [self performSelector:@selector(stepOne) withObject:nil afterDelay:0.4];
     
 }
 - (IBAction)btnActionBowl:(id)sender {
     
+    [self callServiceForSaveLastChance:@"bowl"];
     [objSharedData bounce:sender];
     [self performSelector:@selector(stepOne) withObject:nil afterDelay:0.4];
 }
 - (IBAction)btnActionSecondStepBall:(id)sender {
     [objSharedData bounce:sender];
     [self performSelector:@selector(stepTwo) withObject:nil afterDelay:0.4];
-    
-    
-    
+  
 }
 - (IBAction)btnActionAllPlay:(id)sender {
     
     [objSharedData bounce:sender];
-    _lblBallbyBallCommentary.text=@"dummy text";
+    
+    if(ballClickCount<[objDicCommenatary count]){
+        
+        NSMutableDictionary *temp=[objDicCommenatary valueForKey:[NSString stringWithFormat:@"%d",ballClickCount+1]];
+         NSMutableDictionary *temprun=[objDicRuns valueForKey:[NSString stringWithFormat:@"%d",ballClickCount+1]];
+        
+        _lblBallbyBallCommentary.text=[NSString stringWithFormat:@"%@",[temp valueForKey:@"comment"]];
+        
+        _lblPlayer1Runs.text=[NSString stringWithFormat:@"%@",[temprun valueForKey:@"player1_run"]];
+                _lblPlayer1Ball.text=[NSString stringWithFormat:@"%@",[temprun valueForKey:@"player1_balls"]];
+        
+        
+         _lblPlayer2Runs.text=[NSString stringWithFormat:@"%@",[temprun valueForKey:@"player2_run"]];
+        _lblPlayer2Ball.text=[NSString stringWithFormat:@"%@",[temprun valueForKey:@"player1_balls"]];
+         ballClickCount=ballClickCount+1;
+        
+    }else{
+        
+        if(!isAlreadyPlayed){
+         //Done game
+        _lblBallbyBallCommentary.text=[objArrLastOverChance valueForKey:@"match_result"];
+        
+        //call service for set final result
+        [self callServiceForSaveResultAfterPlay];
+        }else {
+            ShowAlert(AppName, @"You have already played");
+        }
+    }
+   
+    
+    
+   
 }
 -(void)reloadDataOnScreen {
+    
     _lblAskRate.text=[objArrLastOverChance objectForKey:@"batting_requird_runrate"];
     _lblpresentRate.text=[objArrLastOverChance objectForKey:@"batting_runrate"];
     _lblPlayer1.text=[objArrLastOverChance objectForKey:@"player_1_eng"];
@@ -125,21 +164,21 @@
 #pragma marg WebService
 
 -(void)CallWebService{
-    _selected_service=1;
-    [self callServiceForSchedule:@"http://api.amarujala.com/crid/last_over/last_over.json" ];
+   
+    //get first step
+    [self callServiceForLastChange:LastOverChangePey_Url];
 }
--(void)callServiceForLastChance
+-(void)callServiceForSaveLastChance:(NSString*)playerType
 {
 
+    NSDictionary* valueDic=[NSDictionary dictionaryWithObjectsAndKeys:[objArrLastOverChance objectForKey:@"last_over_id"],@"last_over",[objSharedData.logingUserInfo valueForKey:@"user_id"],@"user_id",playerType,@"player_action",nil];
 
-
-    NSDictionary* valueDic=[NSDictionary dictionaryWithObjectsAndKeys:[objArrLastOverChance objectForKey:@"last_over"],@"last_over",@"299",@"user_id",@"bat",@"player_action",nil];
-
-    NSString *methodName = @"http://cricapi.amarujala.com/getdata/save_last_over_chance";
+    NSString *methodName = SaveLastOverChance_Url;
 
         //for ActivityIndicator start
     [appDelegate startActivityIndicator:self.view withText:Progressing];
 
+     _selected_service=2;
     WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
     objWebServiceHandler.delegate = self;
 
@@ -147,8 +186,27 @@
     [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
     
 }
+-(void)callServiceForSaveResultAfterPlay
+{
+    
+    NSDictionary* valueDic=[NSDictionary dictionaryWithObjectsAndKeys:[objArrLastOverChance objectForKey:@"last_over_id"],@"last_over",[objSharedData.logingUserInfo valueForKey:@"user_id"],@"user_id",[objArrLastOverChance valueForKey:@"result_flag"],@"result_flag",@"win",@"match_result",nil];
+    
+    NSString *methodName = SaveResultAfterPlay_Url;
+    
+    //for ActivityIndicator start
+    [appDelegate startActivityIndicator:self.view withText:Progressing];
+    
+    _selected_service=3;
+    WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
+    objWebServiceHandler.delegate = self;
+    
+    //for AFNetworking request
+    [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
+    
+}
 
--(void)callServiceForSchedule :(NSString*)methodName
+
+-(void)callServiceForLastChange :(NSString*)methodName
 {
 
         //  NSDictionary* valueDic=[NSDictionary dictionaryWithObjectsAndKeys:_txtFirstName.text,@"first_last_name",_txtAge.text,@"gender",@"M",@"age",@"",@"profile_img",SocialType,@"user_from",@"0",@"facebook_id",nil];
@@ -162,6 +220,7 @@
     WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
     objWebServiceHandler.delegate = self;
 
+     _selected_service=1;
         //for AFNetworking request
     [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
 
@@ -172,18 +231,32 @@
     if (_selected_service==1)
         {
         //last_over_pey_chance
-    objArrLastOverChance=[[dicResponce valueForKey:@"last_over_pey_chance"] objectAtIndex:0];
+    objArrLastOverChance=[[NSMutableDictionary alloc]initWithDictionary:[[dicResponce valueForKey:@"last_over_pey_chance"] objectAtIndex:0]];
     NSLog(@"objArrLastOverChance:-%@",[[dicResponce valueForKey:@"last_over_pey_chance"] objectAtIndex:0]);
-        // objArrMatchResult =dicResponce ;
-        //[self.tblMatchResult reloadData];
+        
+            isAlreadyPlayed=NO;
     [self reloadDataOnScreen];
-    [appDelegate stopActivityIndicator];
-        }
+   
+    }
     else if (_selected_service==2)
         {
         NSLog(@"LastOverChance:-%@",dicResponce );
+            ballClickCount=0;
+            
+            [objArrLastOverChance setObject:[dicResponce valueForKey:@"match_result"] forKey:@"match_result"];
+            [objArrLastOverChance setObject:[dicResponce valueForKey:@"result_flag"] forKey:@"result_flag"];
+            
+            
+            objDicCommenatary=[dicResponce valueForKey:@"commentry"];
+            objDicRuns=[dicResponce valueForKey:@"runs"];
+            
         }
-
+    else if (_selected_service==3)
+    {
+        isAlreadyPlayed=YES;
+        _lblBallbyBallCommentary.text=[dicResponce valueForKey:@"message"];
+    }
+ [appDelegate stopActivityIndicator];
 
 }
 -(void) webServiceHandler:(WebserviceHandler *)webHandler requestFailedWithError:(NSError *)error
