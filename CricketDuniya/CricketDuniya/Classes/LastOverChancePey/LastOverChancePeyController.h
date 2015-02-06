@@ -25,7 +25,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblPlayer2;
 @property (weak, nonatomic) IBOutlet UILabel *lblPlayer1Runs;
 @property (weak, nonatomic) IBOutlet UILabel *lblPlayer1Ball;
+@property (weak, nonatomic) IBOutlet UILabel *lblrunstowin;
+@property (weak, nonatomic) IBOutlet UILabel *lbltarget;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblOverBy;
 @property (weak, nonatomic) IBOutlet UITextView *lblBallbyBallCommentary;
+@property (nonatomic)int selected_service;
 @end
