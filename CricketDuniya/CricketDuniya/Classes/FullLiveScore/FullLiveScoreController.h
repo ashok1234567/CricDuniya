@@ -13,4 +13,5 @@
 - (IBAction)btnActionCancel:(id)sender;
 @property (retain, nonatomic)NSString *urlForFullScore;
 @property (weak, nonatomic) IBOutlet UITableView *tblFullScoreBoard;
+@property (nonatomic)int selected_ining;
 @end
