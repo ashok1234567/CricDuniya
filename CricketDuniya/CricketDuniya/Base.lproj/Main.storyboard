@@ -457,7 +457,7 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="2FA39502-5FE7-4ECA-A0A2-311D7D59A5CB">
+                                <state key="selected" backgroundImage="31B78CAD-31B2-48AA-9425-95658A95A67A">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -472,7 +472,7 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="2FA39502-5FE7-4ECA-A0A2-311D7D59A5CB">
+                                <state key="selected" backgroundImage="31B78CAD-31B2-48AA-9425-95658A95A67A">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -926,7 +926,7 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="2FA39502-5FE7-4ECA-A0A2-311D7D59A5CB"/>
+                                <state key="selected" backgroundImage="31B78CAD-31B2-48AA-9425-95658A95A67A"/>
                                 <connections>
                                     <action selector="btnActionMatch:" destination="fhA-9L-fAZ" eventType="touchUpInside" id="K6Z-pC-kYy"/>
                                 </connections>
@@ -1955,6 +1955,10 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="btnLoss" destination="0Im-Mq-z3d" id="R6G-Xp-kP8"/>
+                        <outlet property="btnWin" destination="kOS-cg-4fh" id="WRq-fU-Ckf"/>
+                        <outlet property="btncant" destination="d91-CH-pjD" id="SWk-L7-Jdx"/>
+                        <outlet property="btnnoty" destination="zHF-Wx-mge" id="6xi-YS-KDK"/>
                         <outlet property="imgMyPage" destination="b3C-D4-4qp" id="aOM-ib-ZvS"/>
                         <outlet property="lblLoss" destination="MIT-Sq-bhw" id="pSm-tv-F1d"/>
                         <outlet property="lblPoints" destination="RmS-uF-9Az" id="d2v-El-u4P"/>
@@ -2508,11 +2512,11 @@
     <resources>
         <image name="1_0000_Layer-16" width="12" height="25"/>
         <image name="1_0008_Shape-27" width="156" height="21"/>
-        <image name="1_0011_Shape-10" width="46" height="46"/>
+        <image name="1_0011_Shape-10" width="114" height="114"/>
         <image name="1_0023_refresh" width="12" height="12"/>
         <image name="1_0025_Q" width="39" height="39"/>
         <image name="24_0012_Layer-2" width="33" height="23"/>
-        <image name="2FA39502-5FE7-4ECA-A0A2-311D7D59A5CB" width="137" height="17">
+        <image name="31B78CAD-31B2-48AA-9425-95658A95A67A" width="137" height="17">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

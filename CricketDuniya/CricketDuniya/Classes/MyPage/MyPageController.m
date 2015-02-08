@@ -18,6 +18,7 @@
     NSMutableArray *objArrCloseContest;
     NSMutableArray *objArrWinLoss;
     NSMutableArray *objComplete;
+  int serviceType;
 }
 @end
 
@@ -160,7 +161,10 @@
     }else if(tableView.tag==2){
         HeadView* headView = [self.headViewClosed objectAtIndex:section];
         return headView.open?1:0;
-    }else return [objArrWinLoss count];
+    }else if(_btnnoty.selected==YES)
+        return [objNotificationtimer.objDicNotification count];
+        else
+        return [objArrWinLoss count];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -195,9 +199,16 @@
         cell.lblpoints.hidden=YES;
         return cell;
     }else{
-
         static NSString *CellIdentifier = @"cellWinandloss";
         CustomwinAndLoss*cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
+        if(_btnnoty.selected==YES){
+            
+            
+            cell.lblquestion.text=[[objNotificationtimer.objDicNotification objectAtIndex:indexPath.row] valueForKey:@"msg"];
+            
+        }else{
+        
         NSMutableString *questionId=[NSMutableString string];
         [questionId appendString:@"Q. no "];
         [questionId appendString:[[objArrWinLoss  valueForKey:@"question_id"] objectAtIndex:indexPath.row]];
@@ -207,6 +218,8 @@
         cell.lblAns.text=[[objArrWinLoss objectAtIndex:indexPath.row] valueForKey:@"message"];
             // [cell.imgBG.layer setCornerRadius:2.0];
 
+        
+        }
         return cell;
     }
 }
@@ -324,6 +337,11 @@
     _lbltitle1.hidden=YES;
     _lbltitle2.hidden=YES;
 
+    _btncant.selected=NO;
+    _btnnoty.selected=NO;
+        _btnWin.selected=NO;
+        _btnLoss.selected=NO;
+    
     switch (tempbtn.tag) {
         case 1:
             _tblClosedContestQue.hidden=NO;
@@ -331,16 +349,23 @@
             _lblsepline.hidden=NO;
             _lbltitle1.hidden=NO;
             _lbltitle2.hidden=NO;
+            _btncant.selected=YES;
+            
             break;
         case 2:
+            
+             _btnnoty.selected=YES;
+            [self CallWebService];
             _lblWinLoss.hidden=NO;
             break;
         case 3:
+             _btnWin.selected=YES;
            _lblWinLoss.hidden=NO;
             objArrWinLoss=[objComplete valueForKey:@"win"] ;
             [self.lblWinLoss reloadData];
             break;
         case 4:
+             _btnLoss.selected=YES;
            _lblWinLoss.hidden=NO;
             objArrWinLoss=[objComplete valueForKey:@"loss"] ;
             [self.lblWinLoss reloadData];
@@ -351,6 +376,24 @@
     }
 }
 #pragma marg WebService
+-(void)CallWebService{
+    
+    [self callServiceForNotifacetion:[objSharedData.logingUserInfo valueForKey:@"notification"]];
+}
+-(void)callServiceForNotifacetion :(NSString*)methodName
+{
+    NSDictionary* valueDic=[[NSDictionary alloc]init];
+    //for ActivityIndicator start
+    [appDelegate startActivityIndicator:appDelegate.window withText:Progressing];
+    
+    WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
+    objWebServiceHandler.delegate = self;
+    serviceType=2;
+    
+    
+    //for AFNetworking request
+    [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
+}
 
 -(void)callServiceForSchedule :(NSString*)methodName
 {
@@ -361,6 +404,7 @@
     WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
     objWebServiceHandler.delegate = self;
 
+    serviceType=1;
         //for AFNetworking request
     [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
 }
@@ -368,6 +412,7 @@
 -(void)webServiceHandler:(WebserviceHandler *)webHandler recievedResponse:(NSDictionary *)dicResponce
 {
 
+    if(serviceType==1){
           objComplete =dicResponce ;
      NSLog(@"total_points:-%@",[objComplete valueForKey:@"total_points"]  );
 
@@ -393,7 +438,36 @@
     [self loadModelLive];
     [self loadModelClosed];
 
-
+    }else if(serviceType==2){
+        
+        NSLog(@"Notification service:-%@",[dicResponce valueForKeyPath:@"data.notification"]);
+        objNotificationtimer.objDicNotification=[[NSMutableArray alloc]initWithCapacity:0];
+        objNotificationtimer.objDicNotification=[dicResponce valueForKeyPath:@"data.notification"];
+        
+        [_lblWinLoss reloadData];
+        
+//        if([objNotificationtimer.objDicNotification count]>0){
+//            
+//            [objSharedData.badge51 removeFromSuperview];
+//            objSharedData.badge51=nil;
+//            objSharedData.badge51 = [CustomBadge customBadgeWithString:[NSString stringWithFormat:@"%d",[objNotificationtimer.objDicNotification count]]];
+//            
+//            UIStoryboard *storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//            AS_CustomNavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"contentController"];
+//            
+//            NSArray *temp=navigationController.navigationBar.subviews;
+//            
+//            UIButton *btn=(UIButton*)[temp lastObject];
+//            
+//            [ objSharedData.badge51  setFrame:CGRectMake(btn.frame.origin.x-btn.frame.size.width*2, btn.frame.origin.y,35, 35)];
+//            
+//            [appDelegate.window addSubview: objSharedData.badge51];
+//        }else{
+//            [objSharedData.badge51 removeFromSuperview];
+//            objSharedData.badge51=nil;
+//        }
+        
+    }
     [appDelegate stopActivityIndicator];
 
 }
