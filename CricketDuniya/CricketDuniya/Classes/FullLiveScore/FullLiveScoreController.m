@@ -25,10 +25,19 @@
 
 {
     NSMutableDictionary *objDicFullScore;
+
     NSMutableArray *objArrBattingTeam;
     NSMutableArray *objArtBowlingTeam;
     NSMutableArray *objArrBattingPlayer;
     NSMutableArray *objArrBowlingPlayer;
+
+    NSMutableDictionary *objDicFullScoreInning2;
+    NSMutableArray *objArrBattingTeam2;
+    NSMutableArray *objArtBowlingTeam2;
+
+
+
+
     NSMutableArray *objArrMatch;
     
     NSString *battingTeam,*bowlingTeam;
@@ -40,6 +49,7 @@
 @synthesize urlForFullScore;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _selected_ining=0;
     // Do any additional setup after loading the view.
     objArrBattingPlayer=[[NSMutableArray alloc]initWithCapacity:0];
      [_tblFullScoreBoard registerNib:[UINib nibWithNibName:@"FirstCellView" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"Cell1"];
@@ -87,10 +97,10 @@
     switch (section) {
         case 0:
            // NSLog(@"objArrBowlingPlayerCount:-%d",[[objDicFullScore valueForKey:arrBattingTeamPlayer] count]);
-           return  [[objDicFullScore valueForKey:arrBattingTeamPlayer] count];
+           return  [objArrBattingPlayer count];
             break;
         case 1:
-           return  [[objDicFullScore valueForKey:arrBowlingTeamPlayer] count];
+           return  [objArrBowlingPlayer count];
             break;
         case 2:
           return 1;
@@ -226,7 +236,13 @@
            UIView *firstHeaderView=[[[NSBundle mainBundle] loadNibNamed:@"FirstHeader" owner:self options:nil] lastObject];
             firstHeaderView.frame=header.frame;
             if(objArrMatch!=nil){
-            
+
+                UIButton *btn1st =(UIButton*) [firstHeaderView viewWithTag:20];
+                [btn1st addTarget:self action:@selector(myIning1:) forControlEvents:UIControlEventTouchUpInside];
+
+                UIButton *btn2st =(UIButton*) [firstHeaderView viewWithTag:21];
+                [btn2st addTarget:self action:@selector(myIning2:) forControlEvents:UIControlEventTouchUpInside];
+
             UILabel *labelteam1=(UILabel*)[firstHeaderView viewWithTag:1];
             labelteam1.text = [objArrMatch valueForKey:@"batting_team_tinitial"];
             
@@ -345,10 +361,10 @@
             if(objArrMatch!=nil){
             UILabel *label=(UILabel*)[firstHeaderView viewWithTag:1];
                 if([[objArrMatch valueForKeyPath:@"inning.inning_items"] count]>0)
-            label.text = [[[objArrMatch valueForKeyPath:@"inning.inning_items"] objectAtIndex:0] valueForKeyPath:@"extras"];//extras
+            label.text = [[[objArrMatch valueForKeyPath:@"inning.inning_items"] objectAtIndex:_selected_ining] valueForKeyPath:@"extras"];//extras
             
             UILabel *labeltotal=(UILabel*)[firstHeaderView viewWithTag:3];
-            labeltotal.text = [[objArrMatch valueForKeyPath:@"match_score.inning"] objectAtIndex:0];
+            labeltotal.text = [[objArrMatch valueForKeyPath:@"match_score.inning"] objectAtIndex:_selected_ining];
             }
             [header addSubview:firstHeaderView];
         }
@@ -383,6 +399,30 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)myIning1:(id)sender{
+
+    objArrBattingPlayer =[[objArrMatch valueForKeyPath:@"inning.inning_items.batting_team"]objectAtIndex:0] ;
+
+
+    objArrBowlingPlayer =[[objArrMatch valueForKeyPath:@"inning.inning_items.bowlers_team"]objectAtIndex:0] ;
+    _selected_ining=0;
+    [self.tblFullScoreBoard reloadData];
+    
+
+    NSLog(@"button was clicked");
+}
+
+- (void)myIning2:(id)sender{
+    objArrBattingPlayer =[[objArrMatch valueForKeyPath:@"inning.inning_items.batting_team"]objectAtIndex:1] ;
+
+
+    objArrBowlingPlayer =[[objArrMatch valueForKeyPath:@"inning.inning_items.bowlers_team"]objectAtIndex:1] ;
+    _selected_ining=1;
+    [self.tblFullScoreBoard reloadData];
+
+    NSLog(@"button was clicked");
+}
+
 #pragma marg WebService
 
 -(void)callServiceForSchedule :(NSString*)methodName
@@ -408,7 +448,7 @@
 {
         //objArrLeaders =[dicResponce valueForKey:@"leaderboard"] ;
 
-    NSLog(@"Fullscore:-%@",dicResponce);
+        NSLog(@"Fullscore:-%@",dicResponce);
           objArrMatch =dicResponce ;
     battingTeam=@"";
     bowlingTeam=@"";
@@ -435,11 +475,11 @@
 
          objArrBowlingPlayer =[[dicResponce valueForKeyPath:@"inning.inning_items.bowlers_team"]objectAtIndex:0] ;
 
-    NSLog(@"objArrBattingPlayer %@",objArrBattingPlayer );
-    NSLog(@"objArrBattingPlayer %d",[objArrBattingPlayer count]);
-    NSLog(@"objArrBattingTeam %d",[objArrBattingTeam count]);
-    NSLog(@"objArtBowlingTeam %d",[objArtBowlingTeam count]);
-    NSLog(@"objArrBowlingPlayer %d",[objArrBowlingPlayer count]);
+    objDicFullScoreInning2=[[dicResponce valueForKeyPath:@"inning.inning_items"]objectAtIndex:1];
+
+
+        NSLog(@"inning2 %@",[[dicResponce valueForKeyPath:@"inning.inning_items"]objectAtIndex:1] );
+
 
     [objDicFullScore setValue:objArrBattingTeam forKey:arrBattingTeam];
     [objDicFullScore setValue:objArtBowlingTeam forKey:arrBowlingTeam];
