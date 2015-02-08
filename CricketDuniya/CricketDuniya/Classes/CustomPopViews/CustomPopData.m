@@ -12,6 +12,7 @@
 #import "WhatNextController.h"
 #import "AS_CustomNavigationController.h"
 #import "BaseControllerController.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 #define  kTimeRemovePopup 10.0
 #define  kTimeRemoveWhatNextPopup 20.0
@@ -21,6 +22,7 @@
     int serviceType;
     NSString *strUserAns;
     int selectedMatch;
+    MPMoviePlayerViewController *moviePlayerController;
 }
 -(void)ShowWhatNextSmallWindow{
     
@@ -63,6 +65,11 @@
 -(void)clickOnClose :(id)sender{
   
     [firstHeaderView removeFromSuperview];
+    
+    if(moviePlayerController){
+        [moviePlayerController.moviePlayer stop];
+        [moviePlayerController removeFromParentViewController];
+    }
     [viewCommanPopUp removeFromSuperview];
 }
 
@@ -174,6 +181,7 @@
 -(void)loadPopup{
     
     
+    
     viewCommanPopUp=[[[NSBundle mainBundle] loadNibNamed:@"CommanPopUp" owner:self options:nil] lastObject];
     
     viewCommanPopUp.frame=CGRectMake(0,appDelegate.window.frame.origin.y+(appDelegate.window.frame.size.height/2), appDelegate.window.frame.size.width, appDelegate.window.frame.size.height-appDelegate.window.frame.size.height/2);
@@ -183,36 +191,106 @@
     
     [appDelegate.window addSubview:viewCommanPopUp];
     
+}
+
+-(void)ShowCommanPopupForFour:(NSString*)text{
+
+    [self loadPopup];
     [self performSelector:@selector(clickOnClose:) withObject:self afterDelay:kTimeRemovePopup];
+    
+    UILabel *temptext=(UILabel*)[viewCommanPopUp viewWithTag:4];
+    temptext.text=text;
+    
+    UINavigationBar *navBar=(UINavigationBar*)[viewCommanPopUp viewWithTag:100];
+    UINavigationItem *title=[navBar.items objectAtIndex:0];
+    
+    title.title=text;
+    [self UpdateView:1];
+
 }
 
--(void)ShowCommanPopupForFour{
+-(void)ShowCommanPopupForImage:(NSString*)url{
+    
+    [self loadPopup];
+    
+    [self performSelector:@selector(clickOnClose:) withObject:self afterDelay:kTimeRemovePopup];
+    
+    UINavigationBar *navBar=(UINavigationBar*)[viewCommanPopUp viewWithTag:100];
+    UINavigationItem *title=[navBar.items objectAtIndex:0];
+    
+    title.title=url;
+    
+    UIImageView *tempimg1=(UIImageView*)[viewCommanPopUp viewWithTag:5];
+    [tempimg1 setImageWithURL:[NSURL URLWithString:url]];
+    [self UpdateView:2];
+   
+}
+-(void)ShowWebViewPopup:(NSString*)url{
+    [self loadPopup];
+    
+    
+    UINavigationBar *navBar=(UINavigationBar*)[viewCommanPopUp viewWithTag:100];
+    UINavigationItem *title=[navBar.items objectAtIndex:0];
+    
+    title.title=url;
+    UIWebView *tempwebview=(UIWebView*)[viewCommanPopUp viewWithTag:6];
+    NSURLRequest *tempreq=[NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [tempwebview loadRequest:tempreq];
+    
+    [self UpdateView:3];
+}
+-(void)ShowVideoPopup:(NSString*)url{
+    
+    [self loadPopup];
 
-    [self loadPopup];
-     UIImageView *tempimg=(UIImageView*)[viewCommanPopUp viewWithTag:3];
-    [tempimg setImage:[UIImage imageNamed:@"FOUR"]];
+    UINavigationBar *navBar=(UINavigationBar*)[viewCommanPopUp viewWithTag:100];
+    UINavigationItem *title=[navBar.items objectAtIndex:0];
+    
+    title.title=@"Video";
+    
+  moviePlayerController = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL URLWithString:url]];
+    [moviePlayerController.view setFrame:CGRectMake(0,44,viewCommanPopUp.frame.size.width,viewCommanPopUp.frame.size.height)];
+    [viewCommanPopUp addSubview:moviePlayerController.view];
+    [moviePlayerController.moviePlayer prepareToPlay];
+    moviePlayerController.moviePlayer.shouldAutoplay=YES;
+    [moviePlayerController.moviePlayer play];
+    
+    //add player using url
+    [self UpdateView:4];
     
 }
--(void)ShowCommanPopupForSix{
+-(void)UpdateView:(int)viewtag{
     
-    [self loadPopup];
     UIImageView *tempimg=(UIImageView*)[viewCommanPopUp viewWithTag:3];
-    [tempimg setImage:[UIImage imageNamed:@"six"]];
+    UILabel *temptext=(UILabel*)[viewCommanPopUp viewWithTag:4];
+    UIImageView *tempimg1=(UIImageView*)[viewCommanPopUp viewWithTag:5];
+    UIWebView *tempwebview=(UIWebView*)[viewCommanPopUp viewWithTag:6];
     
-}
--(void)ShowCommanPopupForWicket{
+//    100
+   
     
-    [self loadPopup];
-    UIImageView *tempimg=(UIImageView*)[viewCommanPopUp viewWithTag:3];
-    [tempimg setImage:[UIImage imageNamed:@"Wicket"]];
     
-}
--(void)ShowCommanPopupForImage{
+    tempimg.hidden=YES;
+    temptext.hidden=YES;
+    tempimg1.hidden=YES;
+    tempwebview.hidden=YES;
     
-    [self loadPopup];
-    UIImageView *tempimg=(UIImageView*)[viewCommanPopUp viewWithTag:3];
-    [tempimg setImage:[UIImage imageNamed:@"FOUR"]];
-    
+    switch (viewtag) {
+        case 1:
+            
+           
+            tempimg.hidden=NO;
+            temptext.hidden=NO;
+            break;
+        case 2:
+            tempimg1.hidden=NO;
+            break;
+        case 3:
+            tempwebview.hidden=NO;
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma marg WebService
@@ -316,33 +394,33 @@
     [firstHeaderView addSubview:matchBtn];
     }else if(serviceType==2){
         
-        
+       
         //responce for comman popup
         if([[dicResponce valueForKey:@"flag"] intValue]==1){
             if([[dicResponce valueForKey:@"fixture_id"] isEqualToString:objSharedData.strLiveMatchId] ){
                 
                 //Is for user and check now only type for message
                 if([[dicResponce valueForKey:@"seltype"] isEqualToString:@"seltxt"]){
-                    
-                    if([[dicResponce valueForKey:@"ddval"] isEqualToString:@"FOUR!!!"]){
-                        
-                        [self ShowCommanPopupForFour];
-                    }else  if([[dicResponce valueForKey:@"ddval"] isEqualToString:@"SIX!!!"]){
-                        [self ShowCommanPopupForSix];
-                    }else  if([[dicResponce valueForKey:@"ddval"] isEqualToString:@"WICKET!!!"]){
-                        [self ShowCommanPopupForWicket];
-                    }
-                    
+                   
+                    //show all text
+                    [self ShowCommanPopupForFour:[dicResponce valueForKey:@"ddval"]];
                 }else if([[dicResponce valueForKey:@"seltype"] isEqualToString:@"selimg"]){
-                    
                     if([dicResponce valueForKey:@"ddval_2"]){
-                        UIImageView *tempimg=(UIImageView*)[viewCommanPopUp viewWithTag:3];
-                        [tempimg setImageWithURL:[NSURL URLWithString:[dicResponce valueForKey:@"ddval_2"]]];
+                       
+                        //show image
+                        [self ShowCommanPopupForImage:[dicResponce valueForKey:@"ddval_2"]];
                     }
+                }else if([[dicResponce valueForKey:@"seltype"] isEqualToString:@"selhtml"]){
                     
+                   //show html with webview
+                   [self ShowWebViewPopup:[dicResponce valueForKey:@"ddval"]];
+                }else if([[dicResponce valueForKey:@"seltype"] isEqualToString:@"selvideo"]){
+                  
+                        //show view from url
+                    [self ShowVideoPopup:[dicResponce valueForKey:@"ddval"]];
                 }
-            }
-        }
+           }
+       }
     }else if(serviceType==3){
         
         ShowAlert(AppName, [dicResponce valueForKey:@"message"]);

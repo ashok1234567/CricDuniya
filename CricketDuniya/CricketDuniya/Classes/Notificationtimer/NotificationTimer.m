@@ -40,7 +40,7 @@
 
 -(void)CallWebService{
 
-     [self callServiceForSchedule:@"http://api.amarujala.com/crid/profile/1/420_notification.json" ];
+     [self callServiceForSchedule:[objSharedData.logingUserInfo valueForKey:@"notification"]];
 }
 -(void)callServiceForSchedule :(NSString*)methodName
 {

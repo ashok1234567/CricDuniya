@@ -11,12 +11,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="296"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <navigationBar contentMode="scaleToFill" id="em3-u7-BaF">
+                <navigationBar tag="100" contentMode="scaleToFill" id="em3-u7-BaF">
                     <rect key="frame" x="0.0" y="-2" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                     <color key="barTintColor" red="0.15294117647058825" green="0.33725490196078434" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
-                        <navigationItem title="What Next" id="LZ4-xv-Sm7">
+                        <navigationItem id="LZ4-xv-Sm7">
                             <barButtonItem key="rightBarButtonItem" style="plain" id="jG6-9R-TId">
                                 <button key="customView" opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cDu-TR-wPO">
                                     <rect key="frame" x="-23" y="-15" width="71" height="30"/>
@@ -37,6 +37,23 @@
                     <rect key="frame" x="40" y="84" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" dsfdsjh dsfdskfh  dsfsd dsfddsdas sfdsf dsfdsfd dfds" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dLG-XW-hRF">
+                    <rect key="frame" x="47" y="96" width="223" height="109"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                    <color key="textColor" red="1" green="1" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" tag="5" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="M0y-le-tvp">
+                    <rect key="frame" x="0.0" y="42" width="320" height="246"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.01087962963" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </imageView>
+                <webView tag="6" contentMode="scaleToFill" id="Zva-AH-X7E">
+                    <rect key="frame" x="0.0" y="42" width="320" height="246"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </webView>
             </subviews>
             <color key="backgroundColor" red="0.17254901960784313" green="0.38039215686274508" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

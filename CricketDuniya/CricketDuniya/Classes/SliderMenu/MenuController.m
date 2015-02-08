@@ -112,9 +112,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(self.btnCatOutlet.selected)
-        return 35;
-    else if(self.btnNotiOutlet.selected)
         return 40;
+    else if(self.btnNotiOutlet.selected)
+        return 50;
      else   return 83;
 }
 
@@ -159,7 +159,7 @@
 
             
             
-        }else if (self.btnResOutlet.selected){
+        }else if (self.btnNotiOutlet.selected){
             cell.lblMatchQ.text=[[objNotificationtimer.objDicNotification objectAtIndex:indexPath.row] valueForKey:@"date1"];
             cell.lblPointScore.text=[[objNotificationtimer.objDicNotification objectAtIndex:indexPath.row] valueForKey:@"msg"];
             cell.lblQuestionTitle.text=[[objNotificationtimer.objDicNotification objectAtIndex:indexPath.row] valueForKey:@"date3"];
