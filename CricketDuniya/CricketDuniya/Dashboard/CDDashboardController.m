@@ -176,7 +176,11 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
         _lblResult.text=[objDicLiveMatchData valueForKey:@"match_status_overs_remaining"];
         _lblStatus.hidden=NO;
         _lblResult.hidden=NO;
+        
+        _viewcomnnentryBG.hidden=YES;
+        
     }else{
+        _viewcomnnentryBG.hidden=NO;
         _lblStatus.hidden=YES;
         _lblResult.hidden=YES;
         _lblRequiredRate.hidden=NO;
@@ -290,9 +294,13 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
                 
                     
                     objSharedData.Pdelegate=self;
-                    //load match buttons
+                    //load match buttons//match_status
+                    if([[[[dicResponce valueForKey:@"microscorecard_data_items"] valueForKey:@"match_status"] objectAtIndex:0] isEqualToString:@"Completed"]){
+                        
+                    }else{
                     UIView *matchBtn=[objSharedData NumberOfMatchButton:[[dicResponce valueForKey:@"microscorecard_data_items"] count]];
                     [self.view addSubview:matchBtn];
+                    }
                     [objSharedData.arrMatchList removeAllObjects];
                     for(int i=0;i<[objTotalMatchs count];i++){
                         [objSharedData.arrMatchList addObject:[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"]];
@@ -315,6 +323,7 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
             [appDelegate StartTimeForRefresh];
         objDicLiveMatchData=dicResponce;
         [self reloadDataOnScreen];
+            
         [appDelegate stopActivityIndicator];
         }
     

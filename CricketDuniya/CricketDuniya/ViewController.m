@@ -64,7 +64,7 @@
     [UIView setAnimationDuration:1.5];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(animationCompletedFirst)];
-    [_imgLogo setFrame:CGRectMake(105, 67,110, 110)];
+    [_imgLogo setFrame:CGRectMake(105, 57,110, 110)];
      _imgLogo.alpha=1.0;
     [UIView commitAnimations];
     

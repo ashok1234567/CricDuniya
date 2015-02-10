@@ -138,7 +138,7 @@
     if(tableView.tag==3){
         return 0.01;
     }else{
-    return 50.0;    
+    return 80.0;
     }
     
 }

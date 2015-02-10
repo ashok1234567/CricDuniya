@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ThirdCellView : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIView *viewCommentryBG;
 @property (weak, nonatomic) IBOutlet UITextView *lblMatch;
 @property (weak, nonatomic) IBOutlet UITextView *lblDate;
 @property (weak, nonatomic) IBOutlet UITextView *lblVenue;

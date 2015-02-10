@@ -160,7 +160,12 @@
         cell.lblTeam1Squard.text=[NSString stringWithFormat:@"%@ Squard", [objArrMatch valueForKey:@"batting_team_tname"]];
         cell.lblTeam2squrd.text=[NSString stringWithFormat:@"%@ Squard", [objArrMatch valueForKey:@"bowling_team_tname"]];
         cell.lblTeam1.text=battingTeam;
-       cell.lblTeam2.text=bowlingTeam;
+        cell.lblTeam2.text=bowlingTeam;
+         if([[objArrMatch valueForKey:@"match_status"] isEqualToString:@"Completed"]){
+             cell.viewCommentryBG.hidden=YES;
+         }else{
+             cell.viewCommentryBG.hidden=NO;
+         }
         
         return cell;
     }
@@ -178,7 +183,13 @@
             return 40.f;
             break;
         case 2:
-            return 1068.0f;
+            if([[objArrMatch valueForKey:@"match_status"] isEqualToString:@"Completed"]){
+                 return 868.0f;
+            }else{
+                 return 1068.0f;
+            }
+
+           
             break;
         default: return 0;
             break;
@@ -310,10 +321,6 @@
                     labelMatchStatus.hidden=YES;
                     labelMatchResult.hidden=YES;
                 }
-            
-            
-            
-            
             }
             
             [header addSubview:firstHeaderView];

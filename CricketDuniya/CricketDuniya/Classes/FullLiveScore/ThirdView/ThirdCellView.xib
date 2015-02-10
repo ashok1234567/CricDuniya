@@ -206,6 +206,7 @@
                 <outlet property="lblTeam2squrd" destination="tba-T1-i0n" id="bXd-LF-MCX"/>
                 <outlet property="lblUmpires" destination="qaL-EX-AH9" id="h6i-k9-TMF"/>
                 <outlet property="lblVenue" destination="cgq-Pj-BXx" id="UXa-gK-ckH"/>
+                <outlet property="viewCommentryBG" destination="LT3-4I-fRr" id="8Gf-Se-Fmb"/>
             </connections>
             <point key="canvasLocation" x="291" y="388"/>
         </tableViewCell>

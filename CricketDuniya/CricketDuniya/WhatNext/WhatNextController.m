@@ -130,7 +130,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 50;
+    return 80;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 10.0;
@@ -203,7 +203,7 @@
         
         NSLog(@"selected and=%@",[NSString stringWithFormat:@"%@_ans",[ansOpation objectAtIndex:indexPath.row]]);
         
-        NSDictionary* valueDic=[NSDictionary dictionaryWithObjectsAndKeys:[[arrTotalWhatNextQuestion objectAtIndex:indexPath.section] valueForKeyPath:@"match_id"],@"match_id",[objSharedData.logingUserInfo valueForKey:@"user_id"],@"user_id",[[arrLiveQuestion objectAtIndex:indexPath.section] valueForKey:@"q_id"],@"question_id",[NSString stringWithFormat:@"%@_ans",[ansOpation objectAtIndex:indexPath.row]],@"question_user_ans",nil];
+        NSDictionary* valueDic=[NSDictionary dictionaryWithObjectsAndKeys:[[arrTotalWhatNextQuestion valueForKey:[NSString stringWithFormat:@"%d",indexPath.section]] valueForKeyPath:@"match_id"],@"match_id",[objSharedData.logingUserInfo valueForKey:@"user_id"],@"user_id",[[arrLiveQuestion objectAtIndex:indexPath.section] valueForKey:@"q_id"],@"question_id",[NSString stringWithFormat:@"%@_ans",[ansOpation objectAtIndex:indexPath.row]],@"question_user_ans",nil];
         
         [self callServiceForWAnwser:valueDic];
         
@@ -421,11 +421,11 @@
         for(int i=0;i<[[dicResponce valueForKey:@"match_id"] count];i++){
             
             for(int j=0;j<[objSharedData.arrMatchList count];j++){
-                if([[[[dicResponce valueForKey:@"match_id"]objectAtIndex:i] valueForKey:@"match_id"] intValue]==[[objSharedData.arrMatchList objectAtIndex:j] intValue]){
+                if([[[[dicResponce valueForKey:@"match_id"]valueForKey:[NSString stringWithFormat:@"%d",i]] valueForKey:@"match_id"] intValue]==[[objSharedData.arrMatchList objectAtIndex:j] intValue]){
                     
-                    if([[[[dicResponce valueForKey:@"match_id"]objectAtIndex:i] valueForKey:@"live_question"] count]>0){
-                        if([[[[[dicResponce valueForKey:@"match_id"]objectAtIndex:i] valueForKeyPath:@"live_question.force_push"]objectAtIndex:0] intValue]==1){
-                            [arrLiveMatchQue addObjectsFromArray: [[[dicResponce valueForKey:@"match_id"]objectAtIndex:i] valueForKeyPath:@"live_question"]];
+                    if([[[[dicResponce valueForKey:@"match_id"]valueForKey:[NSString stringWithFormat:@"%d",i]] valueForKey:@"live_question"] count]>0){
+                        if([[[[[dicResponce valueForKey:@"match_id"]valueForKey:[NSString stringWithFormat:@"%d",i]] valueForKeyPath:@"live_question.force_push"]objectAtIndex:0] intValue]==1){
+                            [arrLiveMatchQue addObjectsFromArray: [[[dicResponce valueForKey:@"match_id"]valueForKey:[NSString stringWithFormat:@"%d",i]] valueForKeyPath:@"live_question"]];
                         }
                     }
                     
@@ -449,8 +449,8 @@
         
         for(int i=0;i<[arrTotalWhatNextQuestion count];i++){
             
-       [arrClosedQuestion addObjectsFromArray:[[[dicResponce valueForKey:@"match_id"] objectAtIndex:i] valueForKeyPath:@"expired_question"]];
-                [arrLiveQuestion addObjectsFromArray:[[[dicResponce valueForKey:@"match_id"] objectAtIndex:i] valueForKeyPath:@"live_question"] ];
+       [arrClosedQuestion addObjectsFromArray:[[[dicResponce valueForKey:@"match_id"] valueForKey:[NSString stringWithFormat:@"%d",i]] valueForKeyPath:@"expired_question"]];
+                [arrLiveQuestion addObjectsFromArray:[[[dicResponce valueForKey:@"match_id"] valueForKey:[NSString stringWithFormat:@"%d",i]] valueForKeyPath:@"live_question"] ];
             
         }
         _selectedMatch=0;

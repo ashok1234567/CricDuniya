@@ -55,5 +55,15 @@
 	<string>UIStatusBarStyleLightContent</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>CFBundleIcons</key>
+	<dict>
+		<key>CFBundlePrimaryIcon</key>
+		<dict>
+			<key>UIPrerenderedIcon</key>
+			<false/>
+			<key>CFBundleIconFiles</key>
+			<array/>
+		</dict>
+	</dict>
 </dict>
 </plist>

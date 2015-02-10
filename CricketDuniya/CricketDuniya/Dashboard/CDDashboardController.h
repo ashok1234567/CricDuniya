@@ -14,7 +14,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblStatus;
 @property (weak, nonatomic) IBOutlet UILabel *tempRR;
 @property (weak, nonatomic) IBOutlet UILabel *tempCR;
+@property (weak, nonatomic) IBOutlet UIView *viewcomnnentryBG;
 @property (weak, nonatomic) IBOutlet UIButton *btnOutletMatch1;
+@property (weak, nonatomic) IBOutlet UILabel *lblCommentryBG;
 - (IBAction)btnActionMatch2:(id)sender;
 - (IBAction)btnActionMatch3:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *lblMatchDate;

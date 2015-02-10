@@ -56,7 +56,7 @@
 //        [objDicNotification addObject:objTempDicResult];
 //    }
     
-    titles = @[@"LIVE SCORE", @"WHAT NEXT", @"MY PAGE",@"LAST OVER CHANGE PEY",@"SCHEDULE",@"LEADER BOARD",@"MATCH RESULT",@"INVITE FRIENDS",@"SETTING",@"LOG OUT"];
+    titles = @[@"LIVE SCORE", @"WHAT NEXT", @"MY PAGE",@"LAST OVER CHANGE PEY",@"SCHEDULE",@"LEADER BOARD",@"MATCH RESULT",@"INVITE FRIENDS",@"LOG OUT"];
 
 
      [self.tblMenuAndNotification registerNib:[UINib nibWithNibName:@"CategoryCustomCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"Cell"];
@@ -239,7 +239,7 @@
         self.frostedViewController.contentViewController = navigationController;
         [self.frostedViewController hideMenuViewController];
         
-    } else if (indexPath.row == 9) {
+    } else if (indexPath.row == 8) {
         
 
         UINavigationController *objUINavigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"logout"];
@@ -260,9 +260,7 @@
         [appDelegate StopTimeForRefresh];
         return;
     }
-    
-         
-         
+     
          //For Timer
          if( objSharedData.isCheckTrue==YES){
             // [appDelegate StartTimeForRefresh];
