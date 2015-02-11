@@ -388,6 +388,11 @@
     }
     return header;
 }
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell  forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [objSharedData AnimationWithCell:indexPath.row :cell];
+}
+
 
 
 

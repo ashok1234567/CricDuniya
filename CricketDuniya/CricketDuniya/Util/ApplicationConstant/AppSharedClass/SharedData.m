@@ -55,6 +55,7 @@ static SharedData * objAppSharedData;
         objAppSharedData=self;
         self.objCurrentUser=[[User alloc]init];
         
+        row=0;
         //For chat
         _arrMatchList=[[NSMutableArray alloc] init];
         _arr_Doctorlist=[[NSMutableArray alloc] init];
@@ -415,5 +416,35 @@ static SharedData * objAppSharedData;
     anim.removedOnCompletion = YES;
     anim.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.2, 1.2, 1.0)];
     [temp.layer addAnimation:anim forKey:nil];
+}
+-(void)AnimationWithCell:(NSInteger)rowCount :(UITableViewCell*)cell{
+    
+    if(rowCount>row){
+        
+        row=rowCount;
+        cell.frame=CGRectMake(cell.frame.origin.x,cell.frame.origin.y+80, cell.frame.size.width, cell.frame.size.height);
+        cell.alpha=0;
+        
+        //3. Define the final state (After the animation) and commit the animation
+        [UIView beginAnimations:@"rotation" context:NULL];
+        [UIView setAnimationDuration:.8];
+        cell.frame=CGRectMake(cell.frame.origin.x,cell.frame.origin.y-80, cell.frame.size.width, cell.frame.size.height);
+        cell.alpha = 1;
+        [UIView commitAnimations];
+        
+    }else{
+        
+        row=rowCount;
+        cell.frame=CGRectMake(cell.frame.origin.x,cell.frame.origin.y-80, cell.frame.size.width, cell.frame.size.height);
+        cell.alpha=0;
+        
+        //3. Define the final state (After the animation) and commit the animation
+        [UIView beginAnimations:@"rotation" context:NULL];
+        [UIView setAnimationDuration:.8];
+        cell.frame=CGRectMake(cell.frame.origin.x,cell.frame.origin.y+80, cell.frame.size.width, cell.frame.size.height);
+        cell.alpha = 1;
+        [UIView commitAnimations];
+        
+    }
 }
 @end

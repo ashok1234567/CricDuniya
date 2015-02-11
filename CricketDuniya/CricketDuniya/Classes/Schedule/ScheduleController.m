@@ -12,7 +12,7 @@
 @interface ScheduleController ()<WebServiceHandlerDelegate,SelectCategory>
 {
     NSMutableArray *objArrScheduleData;
-}
+   }
 @end
 
 @implementation ScheduleController
@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+   
     objArrScheduleData=[[NSMutableArray alloc]initWithCapacity:0];
     
     //set navagition title color
@@ -112,6 +112,10 @@
         return cell;
     
     
+}
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell  forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [objSharedData AnimationWithCell:indexPath.row :cell];
 }
 
 - (IBAction)btnActionSoftByCatgory:(id)sender {

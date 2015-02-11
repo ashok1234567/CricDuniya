@@ -86,6 +86,11 @@
     
     
 }
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell  forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [objSharedData AnimationWithCell:indexPath.row :cell];
+}
+
 -(void)SelectedCategory:(NSString*)Cat{
     NSDictionary* selectedValue=[[NSDictionary alloc]init];
     NSLog(@"Avinash Mahajan @%d",_selected_category);

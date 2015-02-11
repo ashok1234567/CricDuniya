@@ -25,6 +25,7 @@
 {
     UIView *objMatchButtons;
     UIView *firstHeaderView;
+    NSInteger row;
 }
 @property(nonatomic, retain) id<MatchBtnSection> Pdelegate;
 @property(nonatomic,retain) CustomBadge *badge51;
@@ -98,4 +99,7 @@
 
 #pragma mark BounceView
 -(void)bounce :(id)sender;
+
+#pragma mark CellAniamtion
+-(void)AnimationWithCell:(NSInteger)rowCount :(UITableViewCell*)cell;
 @end
