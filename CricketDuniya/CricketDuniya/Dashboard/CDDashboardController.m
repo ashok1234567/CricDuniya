@@ -109,7 +109,8 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
     _lblBowlingTeamInitial.text=[objDicLiveMatchData objectForKey:@"bowling_teamt_initial"];
     _lblIningDescription.text=[objDicLiveMatchData objectForKey:@"inning_descr"];
     _lblCurrentRate.text=[objDicLiveMatchData objectForKey:@"curr_runrate"];
-        //_lblRequiredRate.text=[objDicLiveMatchData objectForKey:@"requird_runrate"];
+    if([objDicLiveMatchData objectForKey:@"requird_runrate"] !=[NSNull null])
+    _lblRequiredRate.text=[objDicLiveMatchData objectForKey:@"requird_runrate"];
 
     _lblTeam2Score.text = [[objDicLiveMatchData valueForKeyPath:@"match_score.inning"] objectAtIndex:0];
     
@@ -296,6 +297,7 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
                     objSharedData.Pdelegate=self;
                     //load match buttons//match_status
                     if([[[[dicResponce valueForKey:@"microscorecard_data_items"] valueForKey:@"match_status"] objectAtIndex:0] isEqualToString:@"Completed"]){
+                        
                         
                     }else{
                     UIView *matchBtn=[objSharedData NumberOfMatchButton:[[dicResponce valueForKey:@"microscorecard_data_items"] count]];

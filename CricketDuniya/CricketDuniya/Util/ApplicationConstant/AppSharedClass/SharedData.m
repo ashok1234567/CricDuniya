@@ -369,7 +369,7 @@ static SharedData * objAppSharedData;
         }else{
          btn.frame=CGRectMake((width*i),0, width-10, 30);
         }
-        [btn setTitle:[NSString stringWithFormat:@"Match %d",i+1] forState:UIControlStateNormal];
+       // [btn setTitle:[NSString stringWithFormat:@"Match %d",i+1] forState:UIControlStateNormal];
         btn.tag=i;
         [btn addTarget:self action:@selector(selectbtn:) forControlEvents:UIControlEventTouchUpInside];
        // [btn.titleLabel setFont:[UIFont fontWithName:@"Helvetica Neue Medium" size:10]];
@@ -377,7 +377,7 @@ static SharedData * objAppSharedData;
         
         //state
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-        [btn setTitleColor:[UIColor colorWithRed:68/255.0 green:117/255.0 blue:129/255.0 alpha:1.0] forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor colorWithRed:66/255.0 green:149/255.0 blue:61/255.0 alpha:1.0] forState:UIControlStateNormal];
        
         [btn setBackgroundImage:[UIImage imageNamed:@"1_0040_Layer-2"] forState:UIControlStateSelected];
         [btn setBackgroundImage:[UIImage imageNamed:@"1_0040_Layer-21"] forState:UIControlStateNormal];

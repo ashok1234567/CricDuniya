@@ -62,7 +62,10 @@
 			<key>UIPrerenderedIcon</key>
 			<false/>
 			<key>CFBundleIconFiles</key>
-			<array/>
+			<array>
+				<string>180x180.png</string>
+				<string>120x120.png</string>
+			</array>
 		</dict>
 	</dict>
 </dict>

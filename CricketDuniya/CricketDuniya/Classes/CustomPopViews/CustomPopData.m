@@ -363,10 +363,10 @@
     for(int i=0;i<[[dicResponce valueForKey:@"match_id"] count];i++){
        
         for(int j=0;j<[objSharedData.arrMatchList count];j++){
-        if([[[[dicResponce valueForKey:@"match_id"] valueForKey:[NSString stringWithFormat:@"%d",i]] valueForKey:@"match_id"] intValue]==[[objSharedData.arrMatchList objectAtIndex:j] intValue]){
+            if([[[[dicResponce valueForKey:@"match_id"] objectAtIndex:i] valueForKey:@"match_id"] intValue]==[[objSharedData.arrMatchList objectAtIndex:j] intValue]){
             
             if([[[[dicResponce valueForKey:@"match_id"]valueForKey:[NSString stringWithFormat:@"%d",i]] valueForKey:@"live_question"] count]>0){
-                if([[[[[dicResponce valueForKey:@"match_id"]valueForKey:[NSString stringWithFormat:@"%d",i]] valueForKeyPath:@"live_question.force_push"]objectAtIndex:0] intValue]==1){
+                if([[[[[dicResponce valueForKey:@"match_id"] objectAtIndex:i] valueForKeyPath:@"live_question.force_push"]objectAtIndex:0] intValue]==1){
                     [arrLiveMatchQue addObjectsFromArray: [[[dicResponce valueForKey:@"match_id"]objectAtIndex:i] valueForKeyPath:@"live_question"]];
                 }
             }

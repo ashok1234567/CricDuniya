@@ -22,7 +22,7 @@
         UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(-10,7, 145, 80.5);
         [btn setImage:[UIImage imageNamed:@"arrowQ"] forState:UIControlStateNormal];
-        [btn setImageEdgeInsets:UIEdgeInsetsMake(25, btn.frame.size.width-20, 0, 0)];
+        [btn setImageEdgeInsets:UIEdgeInsetsMake(25, btn.frame.size.width-12, 0, 0)];
         
         
         [btn addTarget:self action:@selector(doSelected) forControlEvents:UIControlEventTouchUpInside];
