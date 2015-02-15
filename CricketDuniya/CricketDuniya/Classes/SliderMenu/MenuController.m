@@ -66,7 +66,7 @@
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(20, 0, 0, 45.0f)];
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(-3, 10, 35, 35)];
         imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        if([objSharedData.logingUserInfo valueForKey:@"profile_img"]==[NSNull class])
+        if([objSharedData.logingUserInfo valueForKey:@"profile_img"]!=[NSNull null])
         [imageView setImageWithURL:[NSURL URLWithString:[objSharedData.logingUserInfo valueForKey:@"profile_img"]]] ;
         imageView.layer.masksToBounds = YES;
         imageView.layer.cornerRadius = 17.5;

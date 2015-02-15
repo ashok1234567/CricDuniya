@@ -55,6 +55,8 @@
 @property(nonatomic,retain) NSString *strLiveMatchId;
 @property(nonatomic,retain) NSMutableDictionary *dictPatientInfo;
 @property(nonatomic) BOOL isComeFromPopUp;
+@property(nonatomic,retain) NSString *isComeFor;
+
 
 @property(nonatomic,retain) NSString *strTokenGuid;
 @property(nonatomic,retain) NSString *strEncryptionKey;

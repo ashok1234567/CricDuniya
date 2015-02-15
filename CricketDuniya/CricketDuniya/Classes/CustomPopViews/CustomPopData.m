@@ -31,7 +31,7 @@
     
     
     firstHeaderView=[[[NSBundle mainBundle] loadNibNamed:@"WhatNext" owner:self options:nil] lastObject];
-    firstHeaderView.frame=CGRectMake(0,appDelegate.window.frame.origin.y+(appDelegate.window.frame.size.height/2), appDelegate.window.frame.size.width, appDelegate.window.frame.size.height-appDelegate.window.frame.size.height/2);
+    firstHeaderView.frame=CGRectMake(0,appDelegate.window.frame.origin.y+(appDelegate.window.frame.size.height/2)-50, appDelegate.window.frame.size.width, appDelegate.window.frame.size.height-(appDelegate.window.frame.size.height/2)+50);
     UIButton *tempfull=(UIButton*)[firstHeaderView viewWithTag:1];
     [tempfull addTarget:self action:@selector(clickOnFullWindow:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -42,6 +42,20 @@
     [appDelegate.window addSubview:firstHeaderView];
     
 }
+
+-(void)callServiceForSchedule :(NSString*)methodName
+{
+    NSDictionary* valueDic=[[NSDictionary alloc]init];
+    //for ActivityIndicator start
+    [appDelegate startActivityIndicator:firstHeaderView withText:Progressing];
+    
+    WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
+    objWebServiceHandler.delegate = self;
+    
+    serviceType=4;
+    //for AFNetworking request
+    [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
+}
 -(void)clickOnFullWindow :(id)sender{
     
     UIButton *tempbtn=(UIButton*)sender;
@@ -49,18 +63,9 @@
      [firstHeaderView removeFromSuperview];
    
     UIStoryboard *storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    
-//  
-//    
      BaseControllerController *objBasecontroller = [storyboard instantiateViewControllerWithIdentifier:@"baseCon"];
     objSharedData.isComeFromPopUp=YES;
-
     appDelegate.window.rootViewController=objBasecontroller;
-    
-    
-  
-    
-    
 }
 -(void)clickOnClose :(id)sender{
   
@@ -351,6 +356,7 @@
     
 }
 
+
 -(void)webServiceHandler:(WebserviceHandler *)webHandler recievedResponse:(NSDictionary *)dicResponce
 {
     
@@ -359,6 +365,10 @@
     //  ShowAlert(AppName, [dicResponce valueForKey:@"message"]);
     //arrTotalWhatNextQuestion=[dicResponce valueForKey:@"match_id"];
     if(serviceType==1){
+        
+        //Get overall leader record from server
+        [self callServiceForSchedule:LeaderboardComplete_Url];
+        
     arrLiveMatchQue=[[NSMutableArray alloc]init];
     for(int i=0;i<[[dicResponce valueForKey:@"match_id"] count];i++){
        
@@ -424,6 +434,34 @@
     }else if(serviceType==3){
         
         ShowAlert(AppName, [dicResponce valueForKey:@"message"]);
+    }else if(serviceType==4){
+        
+    
+        @try {
+           
+        
+       
+      NSMutableArray  *objArrLeaders =[[NSMutableArray alloc] initWithArray:[dicResponce valueForKey:@"leaderboard"]];
+        
+            for(int i=1;i<=5;i++){
+                
+                if([[objArrLeaders objectAtIndex:i-1] valueForKey:@"user_img"]!=[NSNull null]){
+                UIImageView *L1=(UIImageView*)[firstHeaderView viewWithTag:1000+i];
+                 [L1 setImageWithURL:[NSURL URLWithString:[[objArrLeaders objectAtIndex:i-1] valueForKey:@"user_img"]] placeholderImage:nil];
+                }
+                
+                if([[objArrLeaders objectAtIndex:i-1] valueForKey:@"user_points"]!=[NSNull null]){
+                    UILabel *lbl1=(UILabel*)[firstHeaderView viewWithTag:2000+i];
+                    lbl1.text=[[[objArrLeaders objectAtIndex:i-1] valueForKey:@"user_points"] capitalizedString];
+                }
+            }
+            
+            
+               
+        }
+        @catch (NSException *exception) {
+            
+        }
     }
     
     

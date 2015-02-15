@@ -36,7 +36,7 @@
     
     [_lblWinLoss registerNib:[UINib nibWithNibName:@"CustomwinAndLoss" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"cellWinandloss"];
 
-    if([objSharedData.logingUserInfo valueForKey:@"profile_img"]==[NSNull class])
+    if([objSharedData.logingUserInfo valueForKey:@"profile_img"]!=[NSNull null])
       [_imgMyPage setImageWithURL:[NSURL URLWithString:[objSharedData.logingUserInfo valueForKey:@"profile_img"]]] ;
 
     _lblWinLoss.hidden=YES;

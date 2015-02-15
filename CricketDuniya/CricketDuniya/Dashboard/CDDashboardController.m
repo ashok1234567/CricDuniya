@@ -12,6 +12,7 @@
 #import "ScheduleController.h"
 #import "FullLiveScoreController.h"
 #import "WhatNextController.h"
+#import "MatchResultController.h"
 @interface CDDashboardController ()<MatchBtnSection>
 {
     NSMutableDictionary*objDicLiveMatchData;
@@ -46,9 +47,14 @@
     
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(callServiceForDashboard) name:@"loadlivescore" object:nil];
     
+    if([objSharedData.isComeFor isEqualToString:@"schedule"]){
+        
+    }else if([objSharedData.isComeFor isEqualToString:@"matchresule"]){
+        
+    }else{
     //call for live score
     [self callServiceForDashboard];
-    
+    }
    
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -56,6 +62,30 @@
     if(objSharedData.isComeFromPopUp==YES){
     WhatNextController *secondViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"whatnext"];
     self.navigationController.viewControllers = @[secondViewController];//mypage
+    }
+    
+    if([objSharedData.isComeFor isEqualToString:@"schedule"]){
+       
+        objSharedData.isCheckTrue=NO;
+       objSharedData.isComeFor=@"";
+        
+         //[appDelegate StartTimeForRefresh];
+        ScheduleController *objScheduleController = [self.storyboard instantiateViewControllerWithIdentifier:@"schedule"];
+        self.navigationController.viewControllers = @[objScheduleController];
+
+        
+    }else if([objSharedData.isComeFor isEqualToString:@"matchresule"]){
+       
+        objSharedData.isComeFor=@"";
+         objSharedData.isCheckTrue=NO;
+        // [appDelegate StartTimeForRefresh];
+        
+        
+        MatchResultController *objMatchResultController = [self.storyboard instantiateViewControllerWithIdentifier:@"metchresult"];
+        self.navigationController.viewControllers = @[objMatchResultController];
+        
+    }else{
+       
     }
 }
 
@@ -112,7 +142,7 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
     if([objDicLiveMatchData objectForKey:@"requird_runrate"] !=[NSNull null])
     _lblRequiredRate.text=[objDicLiveMatchData objectForKey:@"requird_runrate"];
 
-    _lblTeam2Score.text = [[objDicLiveMatchData valueForKeyPath:@"match_score.inning"] objectAtIndex:0];
+    _lblTeam2Score.text = [objDicLiveMatchData valueForKeyPath:@"inning_data_2"];
     
  NSMutableString *player1=[NSMutableString string];
 
@@ -290,8 +320,7 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
                 }
                 else
                 {
-                
-            objDicLiveMatchData=[[dicResponce valueForKey:@"microscorecard_data_items"] objectAtIndex:0];
+                objDicLiveMatchData=[[dicResponce valueForKey:@"microscorecard_data_items"] objectAtIndex:0];
                 
                     
                     objSharedData.Pdelegate=self;

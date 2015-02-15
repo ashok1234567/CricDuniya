@@ -49,6 +49,10 @@
 @synthesize urlForFullScore;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Do any additional setup after loading the view.
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:58/255.0f green:147/255.0f blue:74/255.0f alpha:1.0]};
+    
     _selected_ining=0;
     // Do any additional setup after loading the view.
     objArrBattingPlayer=[[NSMutableArray alloc]initWithCapacity:0];
@@ -253,6 +257,14 @@
 
                 UIButton *btn2st =(UIButton*) [firstHeaderView viewWithTag:21];
                 [btn2st addTarget:self action:@selector(myIning2:) forControlEvents:UIControlEventTouchUpInside];
+                
+                if([[objArrMatch valueForKeyPath:@"inning.inning_items"] count]>1){
+                btn2st.hidden=NO;
+                }else{
+                     btn2st.hidden=YES;
+                }
+                
+                
 
             UILabel *labelteam1=(UILabel*)[firstHeaderView viewWithTag:1];
             labelteam1.text = [objArrMatch valueForKey:@"batting_team_tinitial"];
@@ -296,7 +308,7 @@
             UILabel *labelteam1RRR=(UILabel*)[firstHeaderView viewWithTag:7];
             labelteam1RRR.text = [objArrMatch valueForKey:@"batting_team_tinitial"];
             UILabel *labelteam2Score=(UILabel*)[firstHeaderView viewWithTag:8];
-            labelteam2Score.text = [[objArrMatch valueForKeyPath:@"match_score.inning"] objectAtIndex:0];
+            labelteam2Score.text = [objArrMatch valueForKeyPath:@"inning_data_2"];
           
             UILabel *labelMatchDay=(UILabel*)[firstHeaderView viewWithTag:9];
             labelMatchDay.text = matchDate;
@@ -486,13 +498,20 @@
 
 
          objArrBowlingPlayer =[[dicResponce valueForKeyPath:@"inning.inning_items.bowlers_team"]objectAtIndex:0] ;
-
-    objDicFullScoreInning2=[[dicResponce valueForKeyPath:@"inning.inning_items"]objectAtIndex:1];
-
-
+    
+   // UIButton *btn1st =(UIButton*) [firstHeaderView viewWithTag:21];
+    if([[dicResponce valueForKeyPath:@"inning.inning_items"] count]>1){
+        objDicFullScoreInning2=[[dicResponce valueForKeyPath:@"inning.inning_items"]objectAtIndex:1];
+        
+        
         NSLog(@"inning2 %@",[[dicResponce valueForKeyPath:@"inning.inning_items"]objectAtIndex:1] );
-
-
+        
+       // btn1st.hidden=NO;
+    }
+    else{
+        //btn1st.hidden=YES;
+    }
+   
     [objDicFullScore setValue:objArrBattingTeam forKey:arrBattingTeam];
     [objDicFullScore setValue:objArtBowlingTeam forKey:arrBowlingTeam];
     [objDicFullScore setValue:objArrBattingPlayer forKey:arrBattingTeamPlayer];

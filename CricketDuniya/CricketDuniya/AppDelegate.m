@@ -32,12 +32,19 @@ NotificationTimer *objNotificationtimer;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
+    
+
+    
+    
     // Override point for customization after application launch.
      appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
    
     objSharedData=[SharedData instance];
     objCustomPop=[[CustomPopData alloc]init];
      objNotificationtimer=[[NotificationTimer alloc]init];
+   
    
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -156,7 +163,7 @@ NotificationTimer *objNotificationtimer;
     //load WHAT Next popup
     [objCustomPop ShowWhatNextSmallWindow];
     
-    
+   
 }
 -(void)StopTimeForRefresh{
     if(timer){

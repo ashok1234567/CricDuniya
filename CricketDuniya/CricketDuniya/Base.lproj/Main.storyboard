@@ -128,12 +128,12 @@
                         <outlet property="txtPassword" destination="P3u-J0-Lel" id="cQT-0b-N9l"/>
                         <outlet property="viewLoginOutlet" destination="XNy-IB-5gZ" id="l6i-Lc-Y2Z"/>
                         <segue destination="yN2-c3-Plk" kind="push" identifier="signup" id="WRz-o7-afz"/>
-                        <segue destination="ALv-5C-xfn" kind="modal" identifier="login" id="ayn-dV-MGw"/>
+                        <segue destination="bB4-oY-PnG" kind="push" identifier="login" id="PRh-Ux-kKV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3840" y="479"/>
+            <point key="canvasLocation" x="-4566" y="555"/>
         </scene>
         <!--Login-->
         <scene sceneID="MTh-cA-ycU">
@@ -190,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H80-UP-x03" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3387" y="73"/>
+            <point key="canvasLocation" x="-4387" y="1"/>
         </scene>
         <!--Signup-->
         <scene sceneID="HQx-oK-4Fj">
@@ -287,12 +287,136 @@
                         <outlet property="btnSignuOutlet" destination="cAm-AI-76a" id="34U-mv-IFR"/>
                         <outlet property="txtAge" destination="Qye-qa-oib" id="XXK-Zp-Sk6"/>
                         <outlet property="txtFirstName" destination="Yln-sV-CLK" id="uA8-ea-jZD"/>
-                        <segue destination="ALv-5C-xfn" kind="modal" identifier="dashboard" id="19r-YL-hQz"/>
+                        <segue destination="bB4-oY-PnG" kind="push" identifier="dashboard" id="mRO-Kn-4Yy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5QI-3d-6Go" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3387" y="1295"/>
+            <point key="canvasLocation" x="-4127" y="991"/>
+        </scene>
+        <!--Well Come Controller-->
+        <scene sceneID="i9q-Qn-mP9">
+            <objects>
+                <viewController id="bB4-oY-PnG" customClass="WellComeController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L4q-QC-Ynf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newBG" id="2Wk-oa-L9S">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1529411765" green="0.33725490200000002" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEKHO. KHELO LIVE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8GX-NV-uBR">
+                                <rect key="frame" x="16" y="248" width="288" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.64313725489999995" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" id="sxZ-ah-eO7">
+                                <rect key="frame" x="105" y="113" width="110" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SCG-d7-AfQ">
+                                <rect key="frame" x="15" y="299" width="291" height="74"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <color key="backgroundColor" red="0.61176470588235299" green="0.81568627450980391" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mma-br-Wg4">
+                                <rect key="frame" x="20" y="305" width="46" height="52"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <attributedString key="attributedText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EMX-VE-JJn">
+                                <rect key="frame" x="79" y="299" width="225" height="31"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
+                                <color key="textColor" red="0.01087962963" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jas-uh-3ML">
+                                <rect key="frame" x="79" y="325" width="208" height="21"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" red="0.13725490200000001" green="0.33725490200000002" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rjb-k2-7ae">
+                                <rect key="frame" x="79" y="343" width="225" height="29"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="11"/>
+                                <color key="textColor" red="0.1960784314" green="0.3803921569" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1MY-tJ-BPQ">
+                                <rect key="frame" x="16" y="426" width="288" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.73333333333333328" green="0.039215686274509803" blue="0.0078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Go Live">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnGoLive:" destination="bB4-oY-PnG" eventType="touchUpInside" id="dlz-AT-czw"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fvr-7g-m8b">
+                                <rect key="frame" x="15" y="426" width="135" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.73333333329999995" green="0.039215686270000001" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Schedule">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSchedule:" destination="bB4-oY-PnG" eventType="touchUpInside" id="Abf-Q2-dhE"/>
+                                </connections>
+                            </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sepreater" id="edW-hw-Irr">
+                                <rect key="frame" x="69" y="312" width="1" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.27058823529999998" green="0.58431372550000005" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JGZ-It-xAp">
+                                <rect key="frame" x="169" y="426" width="135" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.73333333329999995" green="0.039215686270000001" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <state key="normal" title="Match Result">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnMatchresult:" destination="bB4-oY-PnG" eventType="touchUpInside" id="rQo-5U-7cT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zVV-gV-vXA"/>
+                    <connections>
+                        <outlet property="btnGoLive" destination="1MY-tJ-BPQ" id="HjC-Yy-LWm"/>
+                        <outlet property="btnMatchresult" destination="JGZ-It-xAp" id="aLg-1U-Q4u"/>
+                        <outlet property="btnschedule" destination="fvr-7g-m8b" id="h0t-tR-cIQ"/>
+                        <outlet property="imgsepareteline" destination="edW-hw-Irr" id="69E-XY-ANW"/>
+                        <outlet property="lblBG" destination="SCG-d7-AfQ" id="gIM-uo-oDZ"/>
+                        <outlet property="lblMatchDate" destination="mma-br-Wg4" id="vj0-AO-Ea9"/>
+                        <outlet property="lblMatchPlace" destination="Rjb-k2-7ae" id="V5j-f7-k3a"/>
+                        <outlet property="lblMatchTime" destination="jas-uh-3ML" id="olj-mM-Lp3"/>
+                        <outlet property="lblMatchTitle" destination="EMX-VE-JJn" id="9Pz-fw-9ft"/>
+                        <segue destination="ALv-5C-xfn" kind="modal" identifier="livescore" id="56D-vT-8hU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ysG-1v-2VH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3647" y="510"/>
         </scene>
         <!--Base Controller Controller-->
         <scene sceneID="fFH-QE-q2r">
@@ -308,7 +432,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J52-6W-hgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2973" y="1304"/>
+            <point key="canvasLocation" x="-3188" y="500"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sNJ-X6-jZC">
@@ -328,7 +452,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHI-FT-TwK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4267" y="471"/>
+            <point key="canvasLocation" x="-5267" y="399"/>
         </scene>
         <!--Menu Controller-->
         <scene sceneID="mBJ-NY-WN5">
@@ -457,7 +581,7 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="B1492F54-124D-4E71-8070-59D70EB7576D">
+                                <state key="selected" backgroundImage="3CFB0C69-088D-4CC2-99B4-E52FC70B49C2">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -472,7 +596,7 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="B1492F54-124D-4E71-8070-59D70EB7576D">
+                                <state key="selected" backgroundImage="3CFB0C69-088D-4CC2-99B4-E52FC70B49C2">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -933,7 +1057,7 @@
                                     <color key="titleColor" red="0.2666666667" green="0.45882352939999999" blue="0.50588235290000005" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="B1492F54-124D-4E71-8070-59D70EB7576D"/>
+                                <state key="selected" backgroundImage="3CFB0C69-088D-4CC2-99B4-E52FC70B49C2"/>
                                 <connections>
                                     <action selector="btnActionMatch:" destination="fhA-9L-fAZ" eventType="touchUpInside" id="K6Z-pC-kYy"/>
                                 </connections>
@@ -1034,13 +1158,13 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="XBx-wE-cVd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="XBx-wE-cVd">
                                 <rect key="frame" x="16" y="51" width="288" height="517"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="pGe-y9-r6x">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="pGe-y9-r6x">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pGe-y9-r6x" id="bFH-hv-SRb">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -1218,7 +1342,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bzc-bT-Vpc">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="bzc-bT-Vpc">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bzc-bT-Vpc" id="ex1-os-QdG">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -1321,7 +1445,7 @@
                                 <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="135" sectionHeaderHeight="22" sectionFooterHeight="22" id="7pp-Gv-HMs">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="135" sectionHeaderHeight="22" sectionFooterHeight="22" id="7pp-Gv-HMs">
                                 <rect key="frame" x="0.0" y="97" width="320" height="471"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1513,7 +1637,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="49" id="lAV-fB-ir2">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="49" id="lAV-fB-ir2">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lAV-fB-ir2" id="k1E-HV-Sro">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -1558,13 +1682,13 @@
                                 <color key="textColor" red="0.21176470589999999" green="0.51372549020000002" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="22" sectionFooterHeight="22" id="sP4-HM-eyC">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="101" sectionHeaderHeight="22" sectionFooterHeight="22" id="sP4-HM-eyC">
                                 <rect key="frame" x="0.0" y="97" width="320" height="471"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="101" id="JSt-Dj-Fam">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="101" id="JSt-Dj-Fam">
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JSt-Dj-Fam" id="S6f-AQ-55g">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2367,13 +2491,13 @@
                                 <color key="textColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="135" sectionHeaderHeight="22" sectionFooterHeight="22" id="RwB-LD-nSM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="135" sectionHeaderHeight="22" sectionFooterHeight="22" id="RwB-LD-nSM">
                                 <rect key="frame" x="0.0" y="97" width="320" height="471"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="135" id="j3g-0p-8Ok">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="135" id="j3g-0p-8Ok">
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j3g-0p-8Ok" id="HKP-eH-Fpe">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2524,7 +2648,7 @@
         <image name="1_0023_refresh" width="12" height="12"/>
         <image name="1_0025_Q" width="39" height="39"/>
         <image name="24_0012_Layer-2" width="33" height="23"/>
-        <image name="B1492F54-124D-4E71-8070-59D70EB7576D" width="137" height="17">
+        <image name="3CFB0C69-088D-4CC2-99B4-E52FC70B49C2" width="137" height="17">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -2734,7 +2858,9 @@ AAACAQAAAAAAAABCAAAAAAAAAAAAAAAAAAAulA
         <image name="Logo" width="109" height="110"/>
         <image name="Untitle.png" width="81" height="78"/>
         <image name="checkmark.jpg" width="20" height="20"/>
+        <image name="newBG" width="320" height="564"/>
         <image name="selected" width="68" height="28"/>
+        <image name="sepreater" width="1" height="40"/>
         <image name="uncheck.png" width="19" height="18"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -2743,8 +2869,8 @@ AAACAQAAAAAAAABCAAAAAAAAAAAAAAAAAAAulA
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="19r-YL-hQz"/>
+        <segue reference="mRO-Kn-4Yy"/>
         <segue reference="WRz-o7-afz"/>
-        <segue reference="YeV-iR-abp"/>
+        <segue reference="JqT-Np-bVq"/>
     </inferredMetricsTieBreakers>
 </document>

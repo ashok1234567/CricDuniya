@@ -22,6 +22,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    // Do any additional setup after loading the view.
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:58/255.0f green:147/255.0f blue:74/255.0f alpha:1.0]};
+    
     objArrMatchResult=[[NSMutableArray alloc]initWithCapacity:0];
     [self callMonthSchedule];
 }
