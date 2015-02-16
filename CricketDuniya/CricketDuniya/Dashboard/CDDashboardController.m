@@ -324,15 +324,22 @@ NSArray *myArray = [[objDicLiveMatchData objectForKey:@"match_time"] componentsS
                 
                     
                     objSharedData.Pdelegate=self;
-                    //load match buttons//match_status
-                    if([[[[dicResponce valueForKey:@"microscorecard_data_items"] valueForKey:@"match_status"] objectAtIndex:0] isEqualToString:@"Completed"]){
-                        
-                        
-                    }else{
-                    UIView *matchBtn=[objSharedData NumberOfMatchButton:[[dicResponce valueForKey:@"microscorecard_data_items"] count]];
+
+                    
+//                    //load match buttons//match_status
+//                    if([[[[dicResponce valueForKey:@"microscorecard_data_items"] valueForKey:@"match_status"] objectAtIndex:0] isEqualToString:@"Completed"]){
+//                       
+//                    }else{
+//                    UIView *matchBtn=[objSharedData NumberOfMatchButton:[dicResponce valueForKey:@"microscorecard_data_items"]];
+//                    [self.view addSubview:matchBtn];
+//                    }
+                    
+                    
+                    UIView *matchBtn=[objSharedData NumberOfMatchButton:[dicResponce valueForKey:@"microscorecard_data_items"]];
                     [self.view addSubview:matchBtn];
-                    }
                     [objSharedData.arrMatchList removeAllObjects];
+                    
+                    
                     for(int i=0;i<[objTotalMatchs count];i++){
                         [objSharedData.arrMatchList addObject:[[objTotalMatchs objectAtIndex:0] objectForKey:@"matchid"]];
                     }

@@ -83,7 +83,7 @@
         [questionId appendString:@"Q. no"];
         [questionId appendString:[[objArrLiveContest  valueForKey:@"question_id"] objectAtIndex:i]];
         headview.lblMatchTitle.text=questionId;
-        headview.lblMatchTitle2.text=@"Match 1";
+        headview.lblMatchTitle2.text=@"Match";
         [self.headViewArray addObject:headview];
 
         }
@@ -214,7 +214,7 @@
         [questionId appendString:[[objArrWinLoss  valueForKey:@"question_id"] objectAtIndex:indexPath.row]];
         cell.lblpoints.text=questionId;
         cell.lblquestion.text=[[objArrWinLoss  valueForKey:@"question"] objectAtIndex:indexPath.row];
-        cell.lblMatch.text=@"MATCH1";
+        cell.lblMatch.text=@"MATCH";
         cell.lblAns.text=[[objArrWinLoss objectAtIndex:indexPath.row] valueForKey:@"message"];
             // [cell.imgBG.layer setCornerRadius:2.0];
 

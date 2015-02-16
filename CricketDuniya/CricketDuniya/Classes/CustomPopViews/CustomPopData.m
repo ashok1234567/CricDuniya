@@ -368,40 +368,48 @@
         
         //Get overall leader record from server
         [self callServiceForSchedule:LeaderboardComplete_Url];
-        
-    arrLiveMatchQue=[[NSMutableArray alloc]init];
-    for(int i=0;i<[[dicResponce valueForKey:@"match_id"] count];i++){
-       
-        for(int j=0;j<[objSharedData.arrMatchList count];j++){
-            if([[[[dicResponce valueForKey:@"match_id"] objectAtIndex:i] valueForKey:@"match_id"] intValue]==[[objSharedData.arrMatchList objectAtIndex:j] intValue]){
-            
-            if([[[[dicResponce valueForKey:@"match_id"]valueForKey:[NSString stringWithFormat:@"%d",i]] valueForKey:@"live_question"] count]>0){
-                if([[[[[dicResponce valueForKey:@"match_id"] objectAtIndex:i] valueForKeyPath:@"live_question.force_push"]objectAtIndex:0] intValue]==1){
-                    [arrLiveMatchQue addObjectsFromArray: [[[dicResponce valueForKey:@"match_id"]objectAtIndex:i] valueForKeyPath:@"live_question"]];
+        @try {
+            arrLiveMatchQue=[[NSMutableArray alloc]init];
+            for(int i=0;i<[[dicResponce valueForKey:@"match_id"] count];i++){
+                
+                for(int j=0;j<[objSharedData.arrMatchList count];j++){
+                    if([[[[dicResponce valueForKey:@"match_id"] objectAtIndex:i] valueForKey:@"match_id"] intValue]==[[objSharedData.arrMatchList objectAtIndex:j] intValue]){
+                        
+                        if([[[[dicResponce valueForKey:@"match_id"]valueForKey:[NSString stringWithFormat:@"%d",i]] valueForKey:@"live_question"] count]>0){
+                            if([[[[[dicResponce valueForKey:@"match_id"] objectAtIndex:i] valueForKeyPath:@"live_question.force_push"]objectAtIndex:0] intValue]==1){
+                                [arrLiveMatchQue addObjectsFromArray: [[[dicResponce valueForKey:@"match_id"]objectAtIndex:i] valueForKeyPath:@"live_question"]];
+                            }
+                        }
+                        
+                    }
+                    
                 }
             }
-
+            UIView *tempview=(UIView*)[firstHeaderView viewWithTag:20];
+            //load data in view
+            if([arrLiveMatchQue count]>0){
+                tempview.hidden=YES;
+                selectedMatch=0;
+                [self refreshDataInView:0];
+            }
+            else{
+                tempview.hidden=NO;
+            }
+            
+            //load match buttons
+            objSharedData.Pdelegate=self;
+            
+            UIView *matchBtn=[objSharedData NumberOfMatchButton:arrLiveMatchQue];
+            [matchBtn setFrame:CGRectMake(matchBtn.frame.origin.x, matchBtn.frame.origin.y-20, matchBtn.frame.size.width, matchBtn.frame.size.height)];
+            [firstHeaderView addSubview:matchBtn];
+        }
+        @catch (NSException *exception) {
+            
         }
         
-        }
-    }
     
-      UIView *tempview=(UIView*)[firstHeaderView viewWithTag:20];
-    //load data in view
-    if([arrLiveMatchQue count]>0){
-        tempview.hidden=YES;
-        selectedMatch=0;
-    [self refreshDataInView:0];
-        }
-        else{
-        tempview.hidden=NO;
-        }
-    
-     //load match buttons
-    objSharedData.Pdelegate=self;
-       UIView *matchBtn=[objSharedData NumberOfMatchButton:[arrLiveMatchQue count]];
-    [matchBtn setFrame:CGRectMake(matchBtn.frame.origin.x, matchBtn.frame.origin.y-20, matchBtn.frame.size.width, matchBtn.frame.size.height)];
-    [firstHeaderView addSubview:matchBtn];
+        
+        
     }else if(serviceType==2){
         
        

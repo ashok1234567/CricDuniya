@@ -97,7 +97,7 @@
 -(void)ShowWhatNextSmallWindow;
 
 #pragma mark MatchButton
--(UIView*)NumberOfMatchButton :(int)buttonCount;
+-(UIView*)NumberOfMatchButton :(NSMutableArray*)buttonCount;
 
 #pragma mark BounceView
 -(void)bounce :(id)sender;

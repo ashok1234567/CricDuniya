@@ -160,6 +160,7 @@
             
             
         }else if (self.btnNotiOutlet.selected){
+            cell.lblMatch.text=[[objNotificationtimer.objDicNotification objectAtIndex:indexPath.row] valueForKey:@"match_name"];
             cell.lblMatchQ.text=[[objNotificationtimer.objDicNotification objectAtIndex:indexPath.row] valueForKey:@"date1"];
             cell.lblPointScore.text=[[objNotificationtimer.objDicNotification objectAtIndex:indexPath.row] valueForKey:@"msg"];
             cell.lblQuestionTitle.text=[[objNotificationtimer.objDicNotification objectAtIndex:indexPath.row] valueForKey:@"date3"];

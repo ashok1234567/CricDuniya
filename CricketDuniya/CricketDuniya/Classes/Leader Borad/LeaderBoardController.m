@@ -94,9 +94,11 @@
 
 
     UILabel *lblLeaderPoints=(UILabel*)[cell viewWithTag:3];
+    
+    if([[objArrLeaders objectAtIndex:indexPath.row] valueForKey:@"user_points"]!=[NSNull null])
     lblLeaderPoints.text=[[[objArrLeaders objectAtIndex:indexPath.row] valueForKey:@"user_points"] capitalizedString];
-
-
+    else  lblLeaderPoints.text=@"0";
+        
     return cell;
 
 

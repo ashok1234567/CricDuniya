@@ -77,7 +77,7 @@
         headview.section = i;
         headview.backBtn.tag=1;
         [headview.backBtn setTitle:[NSString stringWithFormat:@"%@",[[arrLiveQuestion objectAtIndex:i] valueForKey:@"question"]] forState:UIControlStateNormal];
-        headview.lblMatchTitle2.text=@"Match 1";
+        headview.lblMatchTitle2.text=@"Match";
         
         headview.lblMatchTitle.text=[NSString stringWithFormat:@"Q. no %@",[[arrLiveQuestion objectAtIndex:i] valueForKey:@"q_id"]];//@"Match 1 Q. no 54";
         [headview.lblMatchTitle setTextColor:[UIColor lightGrayColor]];
@@ -416,50 +416,56 @@
     if(serviceCall==1){
     if([dicResponce valueForKey:@"match_id"]){
         
-        //For forcepush count 1
-        arrLiveMatchQue=[[NSMutableArray alloc]init];
-        for(int i=0;i<[[dicResponce valueForKey:@"match_id"] count];i++){
-            
-            for(int j=0;j<[objSharedData.arrMatchList count];j++){
-                if([[[[dicResponce valueForKey:@"match_id"] objectAtIndex:i] valueForKey:@"match_id"] intValue]==[[objSharedData.arrMatchList objectAtIndex:j] intValue]){
-                    
-                    if([[[[dicResponce valueForKey:@"match_id"]objectAtIndex:i] valueForKey:@"live_question"] count]>0){
-                        if([[[[[dicResponce valueForKey:@"match_id"] objectAtIndex:i] valueForKeyPath:@"live_question.force_push"]objectAtIndex:0] intValue]==1){
-                            [arrLiveMatchQue addObjectsFromArray: [[[dicResponce valueForKey:@"match_id"]objectAtIndex:i] valueForKeyPath:@"live_question"]];
+        @try {
+            //For forcepush count 1
+            arrLiveMatchQue=[[NSMutableArray alloc]init];
+            for(int i=0;i<[[dicResponce valueForKey:@"match_id"] count];i++){
+                
+                for(int j=0;j<[objSharedData.arrMatchList count];j++){
+                    if([[[[dicResponce valueForKey:@"match_id"] objectAtIndex:i] valueForKey:@"match_id"] intValue]==[[objSharedData.arrMatchList objectAtIndex:j] intValue]){
+                        
+                        if([[[[dicResponce valueForKey:@"match_id"]objectAtIndex:i] valueForKey:@"live_question"] count]>0){
+                            if([[[[[dicResponce valueForKey:@"match_id"] objectAtIndex:i] valueForKeyPath:@"live_question.force_push"]objectAtIndex:0] intValue]==1){
+                                [arrLiveMatchQue addObjectsFromArray: [[[dicResponce valueForKey:@"match_id"]objectAtIndex:i] valueForKeyPath:@"live_question"]];
+                            }
                         }
+                        
                     }
                     
                 }
+            }
+            
+            if([arrLiveMatchQue count]>0){
+                _viewnotlivecontest.hidden=YES;
+                
+                [self refreshDataInView:0];
+            }
+            else
+                _viewnotlivecontest.hidden=NO;
+            
+            arrTotalWhatNextQuestion=[dicResponce valueForKey:@"match_id"];
+            
+            arrClosedQuestion=[[NSMutableArray alloc]init];
+            arrLiveQuestion=[[NSMutableArray alloc]init];
+            
+            for(int i=0;i<[arrTotalWhatNextQuestion count];i++){
+                
+                [arrClosedQuestion addObjectsFromArray:[[[dicResponce valueForKey:@"match_id"] objectAtIndex:i] valueForKeyPath:@"expired_question"]];
+                [arrLiveQuestion addObjectsFromArray:[[[dicResponce valueForKey:@"match_id"] objectAtIndex:i] valueForKeyPath:@"live_question"] ];
                 
             }
-        }
-
-        if([arrLiveMatchQue count]>0){
-             _viewnotlivecontest.hidden=YES;
-        
-        [self refreshDataInView:0];
-        }
-        else
-        _viewnotlivecontest.hidden=NO;
-        
-        arrTotalWhatNextQuestion=[dicResponce valueForKey:@"match_id"];
-        
-        arrClosedQuestion=[[NSMutableArray alloc]init];
-        arrLiveQuestion=[[NSMutableArray alloc]init];
-        
-        for(int i=0;i<[arrTotalWhatNextQuestion count];i++){
+            _selectedMatch=0;
             
-       [arrClosedQuestion addObjectsFromArray:[[[dicResponce valueForKey:@"match_id"] objectAtIndex:i] valueForKeyPath:@"expired_question"]];
-                [arrLiveQuestion addObjectsFromArray:[[[dicResponce valueForKey:@"match_id"] objectAtIndex:i] valueForKeyPath:@"live_question"] ];
+            //for live
+            [self loadModelLive];
+            
+            //for closed
+            [self loadModelClosed];
+        }
+        @catch (NSException *exception) {
             
         }
-        _selectedMatch=0;
-        
-        //for live
-        [self loadModelLive];
-        
-        //for closed
-        [self loadModelClosed];
+       
     }
     } else if(serviceCall==2){
         

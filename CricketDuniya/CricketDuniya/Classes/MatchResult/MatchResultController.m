@@ -152,9 +152,7 @@
     [methodName appendString: [NSString stringWithFormat:@"%d",year]];
     [methodName appendString: @".json"];
 
-
-
-        //call web services for get schedule from server and open new controller
+    //call web services for get schedule from server and open new controller
     [self callServiceForSchedule:methodName];
 }
 

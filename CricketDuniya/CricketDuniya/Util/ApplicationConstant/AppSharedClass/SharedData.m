@@ -352,15 +352,15 @@ static SharedData * objAppSharedData;
 }
 
 
--(UIView*)NumberOfMatchButton :(int)buttonCount{
+-(UIView*)NumberOfMatchButton :(NSMutableArray*)buttonCount{
     
     CGRect windowFrame=appDelegate.window.frame;
-    float width=roundf(windowFrame.size.width/buttonCount);
+    float width=roundf(windowFrame.size.width/[buttonCount count]);
     objMatchButtons=[[UIView alloc]initWithFrame:CGRectMake(0, 65, windowFrame.size.width, 30)];
     [objMatchButtons setBackgroundColor:[UIColor clearColor]];
     
     
-    for (int i=0; i<buttonCount; i++) {
+    for (int i=0; i<[buttonCount count]; i++) {
         UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
         
         if(i==0){
@@ -369,7 +369,7 @@ static SharedData * objAppSharedData;
         }else{
          btn.frame=CGRectMake((width*i),0, width-10, 30);
         }
-       // [btn setTitle:[NSString stringWithFormat:@"Match %d",i+1] forState:UIControlStateNormal];
+        [btn setTitle:[NSString stringWithFormat:@"%@ / %@",[[buttonCount objectAtIndex:i] valueForKey:@"batting_team_tinitial"],[[buttonCount objectAtIndex:i] valueForKey:@"bowling_team_tinitial"]] forState:UIControlStateNormal];
         btn.tag=i;
         [btn addTarget:self action:@selector(selectbtn:) forControlEvents:UIControlEventTouchUpInside];
        // [btn.titleLabel setFont:[UIFont fontWithName:@"Helvetica Neue Medium" size:10]];
