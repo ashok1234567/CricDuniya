@@ -35,5 +35,6 @@ NSInteger _currentRow;
 @property (weak, nonatomic) IBOutlet UILabel *lblPoints;
 @property (weak, nonatomic) IBOutlet UILabel *lblwins;
 @property (weak, nonatomic) IBOutlet UIButton *btncant;
+@property (weak, nonatomic) IBOutlet UILabel *lblName;
 
 @end

@@ -33,7 +33,7 @@
         
         
         UILabel *lblMatchTitle1=[[UILabel alloc]init];
-        lblMatchTitle1.frame=CGRectMake(70, 0, 158,20.5);
+        lblMatchTitle1.frame=CGRectMake(90, 0, 158,20.5);
         [lblMatchTitle1 setFont:[UIFont fontWithName:@"Arial" size:11]];
         [lblMatchTitle1 setTextColor:[UIColor lightGrayColor]];
         [self addSubview:lblMatchTitle1];

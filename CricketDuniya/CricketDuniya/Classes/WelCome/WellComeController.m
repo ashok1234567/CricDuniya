@@ -7,8 +7,9 @@
 //
 
 #import "WellComeController.h"
-
-@interface WellComeController ()<WebServiceHandlerDelegate>
+#import <AVFoundation/AVFoundation.h>
+#include <AudioToolbox/AudioToolbox.h>
+@interface WellComeController ()<WebServiceHandlerDelegate,AVAudioPlayerDelegate>
 
 @end
 
@@ -16,6 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self playMusic];
+    });
+   
+   
+    
     // Do any additional setup after loading the view.
     [self.btnGoLive.layer setCornerRadius:5.0];
      [self.btnMatchresult.layer setCornerRadius:5.0];
@@ -25,6 +33,27 @@
     self.lblBG.clipsToBounds = YES;
     
     [self callServiceForLiveMatch];
+}
+-(void)viewDidAppear:(BOOL)animated{
+   
+}
+-(void)playMusic{
+    //start a background sound
+    NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"publicnoice" ofType: @"mp3"];
+     NSError *error;
+    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:soundFilePath ];
+    _myAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:&error];
+    _myAudioPlayer.delegate=self;
+    _myAudioPlayer.volume=8.0;
+      [_myAudioPlayer prepareToPlay];
+   
+    if (error)
+    {
+        NSLog(@"Error in audioPlayer: %@",
+              [error localizedDescription]);
+    } else {
+    [_myAudioPlayer play];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,9 +123,13 @@
             
            _lblMatchDate.text= [self getDateAndTime:[temparr valueForKey:@"match_time"]];
             //live match hare...
-            _lblMatchTitle.text=[temparr valueForKey:@"match_title"];
+            _lblMatchTitle.text=[objSharedData getString15FromString:[temparr valueForKey:@"match_title"]];
             _lblMatchPlace.text=[temparr valueForKey:@"match_venue"];
             _lblMatchTime.text=[temparr valueForKey:@"match_time"];
+            
+            _lblMatchTitle.text=[_lblMatchTitle.text stringByAppendingString:[NSString stringWithFormat:@"  %@ v/s %@",[temparr  valueForKey:@"batting_team_tinitial"],[temparr  valueForKey:@"bowling_team_tinitial"]]];
+            
+            
             
             _btnGoLive.hidden=NO;
             _lblMatchDate.hidden=NO;

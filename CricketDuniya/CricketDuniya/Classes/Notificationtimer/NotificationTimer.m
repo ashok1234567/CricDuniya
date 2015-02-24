@@ -25,7 +25,7 @@
     NSLog(@"Titmer running=%f",aTimer.timeInterval);
     
     //call server for live core
-  //  [self CallWebService];
+    [self CallWebService];
     
     
     
@@ -69,7 +69,8 @@
         
          [ objSharedData.badge51 removeFromSuperview];
         objSharedData.badge51=nil;
-    objSharedData.badge51 = [CustomBadge customBadgeWithString:[NSString stringWithFormat:@"%d",[_objDicNotification count]]];
+        
+    objSharedData.badge51 = [CustomBadge customBadgeWithString:[NSString stringWithFormat:@"%d",[[dicResponce valueForKeyPath:@"data.user_points"] intValue]]];
     
     UIStoryboard *storyboard=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     AS_CustomNavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"contentController"];

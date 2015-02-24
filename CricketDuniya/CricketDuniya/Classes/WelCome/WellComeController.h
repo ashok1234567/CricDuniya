@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <AVFoundation/AVFoundation.h>
+#include <AudioToolbox/AudioToolbox.h>
 @interface WellComeController : UIViewController
 - (IBAction)btnSchedule:(id)sender;
 - (IBAction)btnMatchresult:(id)sender;
@@ -21,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblMatchTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblMatchTime;
 @property (weak, nonatomic) IBOutlet UILabel *lblMatchPlace;
+@property (retain, nonatomic) AVAudioPlayer *myAudioPlayer;
 
 @end

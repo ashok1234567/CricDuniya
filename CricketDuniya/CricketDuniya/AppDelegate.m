@@ -11,7 +11,7 @@
 #import "AlertDialogProgressView.h"
 #import "ViewController.h"
 #import "CDDashboardController.h"
-
+#import "AppLoader.h"
 #define kTimeForRefresher 60.0
 AppDelegate *appDelegate;
 SharedData *objSharedData;

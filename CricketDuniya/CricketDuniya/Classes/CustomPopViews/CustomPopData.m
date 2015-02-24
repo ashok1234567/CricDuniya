@@ -14,8 +14,8 @@
 #import "BaseControllerController.h"
 #import <MediaPlayer/MediaPlayer.h>
 
-#define  kTimeRemovePopup 10.0
-#define  kTimeRemoveWhatNextPopup 20.0
+#define  kTimeRemovePopup 40.0
+#define  kTimeRemoveWhatNextPopup 15.0
 @implementation CustomPopData
 {
     NSMutableArray *arrLiveMatchQue;
@@ -356,6 +356,21 @@
     
 }
 
+-(void)callServiceForScore :(NSString*)methodName
+{
+    NSDictionary* valueDic=[[NSDictionary alloc]init];
+    //for ActivityIndicator start
+    //  [appDelegate startActivityIndicator:appDelegate.window withText:Progressing];
+    
+    WebserviceHandler *objWebServiceHandler=[[WebserviceHandler alloc]init];
+    objWebServiceHandler.delegate = self;
+    
+    
+    serviceType=5;
+    //for AFNetworking request
+    [objWebServiceHandler callWebserviceWithRequest:methodName RequestString:valueDic RequestType:@""];
+}
+
 
 -(void)webServiceHandler:(WebserviceHandler *)webHandler recievedResponse:(NSDictionary *)dicResponce
 {
@@ -366,8 +381,6 @@
     //arrTotalWhatNextQuestion=[dicResponce valueForKey:@"match_id"];
     if(serviceType==1){
         
-        //Get overall leader record from server
-        [self callServiceForSchedule:LeaderboardComplete_Url];
         @try {
             arrLiveMatchQue=[[NSMutableArray alloc]init];
             for(int i=0;i<[[dicResponce valueForKey:@"match_id"] count];i++){
@@ -402,6 +415,11 @@
             UIView *matchBtn=[objSharedData NumberOfMatchButton:arrLiveMatchQue];
             [matchBtn setFrame:CGRectMake(matchBtn.frame.origin.x, matchBtn.frame.origin.y-20, matchBtn.frame.size.width, matchBtn.frame.size.height)];
             [firstHeaderView addSubview:matchBtn];
+            
+            
+            //Get overall leader record from server
+            [self callServiceForSchedule:LeaderboardComplete_Url];
+
         }
         @catch (NSException *exception) {
             
@@ -412,33 +430,41 @@
         
     }else if(serviceType==2){
         
-       
-        //responce for comman popup
-        if([[dicResponce valueForKey:@"flag"] intValue]==1){
-            if([[dicResponce valueForKey:@"fixture_id"] isEqualToString:objSharedData.strLiveMatchId] ){
-                
-                //Is for user and check now only type for message
-                if([[dicResponce valueForKey:@"seltype"] isEqualToString:@"seltxt"]){
-                   
-                    //show all text
-                    [self ShowCommanPopupForFour:[dicResponce valueForKey:@"ddval"]];
-                }else if([[dicResponce valueForKey:@"seltype"] isEqualToString:@"selimg"]){
-                    if([dicResponce valueForKey:@"ddval_2"]){
-                       
-                        //show image
-                        [self ShowCommanPopupForImage:[dicResponce valueForKey:@"ddval_2"]];
-                    }
-                }else if([[dicResponce valueForKey:@"seltype"] isEqualToString:@"selhtml"]){
+        @try {
+            //responce for comman popup
+            if([[dicResponce valueForKey:@"flag"] intValue]==1){
+                if([[dicResponce valueForKey:@"fixture_id"] isEqualToString:objSharedData.strLiveMatchId] ){
                     
-                   //show html with webview
-                   [self ShowWebViewPopup:[dicResponce valueForKey:@"ddval"]];
-                }else if([[dicResponce valueForKey:@"seltype"] isEqualToString:@"selvideo"]){
-                  
+                    //Is for user and check now only type for message
+                    if([[dicResponce valueForKey:@"seltype"] isEqualToString:@"seltxt"]){
+                        
+                        //show all text
+                        [self ShowCommanPopupForFour:[dicResponce valueForKey:@"ddval"]];
+                    }else if([[dicResponce valueForKey:@"seltype"] isEqualToString:@"selimg"]){
+                        if([dicResponce valueForKey:@"ddval_2"]){
+                            
+                            //show image
+                            [self ShowCommanPopupForImage:[dicResponce valueForKey:@"ddval_2"]];
+                        }
+                    }else if([[dicResponce valueForKey:@"seltype"] isEqualToString:@"selhtml"]){
+                        
+                        //show html with webview
+                        [self ShowWebViewPopup:[dicResponce valueForKey:@"ddval"]];
+                    }else if([[dicResponce valueForKey:@"seltype"] isEqualToString:@"selvideo"]){
+                        
                         //show view from url
-                    [self ShowVideoPopup:[dicResponce valueForKey:@"ddval"]];
+                        [self ShowVideoPopup:[dicResponce valueForKey:@"ddval"]];
+                    }
                 }
-           }
-       }
+            }
+        }
+        @catch (NSException *exception) {
+            
+        }
+        @finally {
+            
+        }
+        
     }else if(serviceType==3){
         
         ShowAlert(AppName, [dicResponce valueForKey:@"message"]);
@@ -447,7 +473,7 @@
     
         @try {
            
-        
+            
        
       NSMutableArray  *objArrLeaders =[[NSMutableArray alloc] initWithArray:[dicResponce valueForKey:@"leaderboard"]];
         
@@ -465,12 +491,25 @@
             }
             
             
-               
+           [self callServiceForScore:[objSharedData.logingUserInfo valueForKey:@"notification"]];    
         }
         @catch (NSException *exception) {
             
         }
-    }
+    }else if(serviceType==5){
+        @try {
+            UILabel *lbl1=(UILabel*)[firstHeaderView viewWithTag:2006];
+            int points=[[dicResponce valueForKeyPath:@"data.user_points"] intValue];
+            lbl1.text=[NSString stringWithFormat:@"%d",points];
+        }
+        @catch (NSException *exception) {
+            
+        }
+        @finally {
+            
+        }
+       
+}
     
     
     [appDelegate stopActivityIndicator];

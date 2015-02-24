@@ -34,8 +34,10 @@
     
     [btnKheloLive setBackgroundImage:[UIImage imageNamed:@"1_0001_live-button"] forState:UIControlStateNormal];
     [btnKheloLive setFrame:CGRectMake((appDelegate.window.frame.size.width/2)-35, appDelegate.window.frame.size.height-30,70,30)];
-    btnKheloLive.tag=1;
     
+    
+    btnKheloLive.tag=1;
+    [btnKheloLive setBackgroundColor:[UIColor clearColor]];
     [btnKheloLive addTarget:self action:@selector(clickOnKheloLive:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnKheloLive];
     [self.view addSubview:view];

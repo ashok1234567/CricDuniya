@@ -104,4 +104,7 @@
 
 #pragma mark CellAniamtion
 -(void)AnimationWithCell:(NSInteger)rowCount :(UITableViewCell*)cell;
+
+#pragma mark GetShortString
+-(NSString*)getString15FromString:(NSString*)string;
 @end

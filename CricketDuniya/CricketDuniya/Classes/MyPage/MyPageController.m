@@ -38,7 +38,12 @@
 
     if([objSharedData.logingUserInfo valueForKey:@"profile_img"]!=[NSNull null])
       [_imgMyPage setImageWithURL:[NSURL URLWithString:[objSharedData.logingUserInfo valueForKey:@"profile_img"]]] ;
-
+    else
+        [_imgMyPage setImage:[UIImage imageNamed:@"defaulticon"]] ;
+    
+//    if([objSharedData.logingUserInfo valueForKey:@"firstName"]!=[NSNull null])
+//        self.lblName.text=[objSharedData.logingUserInfo valueForKey:@"firstName"];
+    
     _lblWinLoss.hidden=YES;
         //quiz_results
     [self callServiceForSchedule:[objSharedData.logingUserInfo valueForKey:@"quiz_results"] ];
@@ -80,10 +85,10 @@
         headview.backBtn.tag=1;
         [headview.backBtn setTitle:[[objArrLiveContest  valueForKey:@"question"] objectAtIndex:i] forState:UIControlStateNormal];
         NSMutableString *questionId=[NSMutableString string];
-        [questionId appendString:@"Q. no"];
+        [questionId appendString:@"Q. no "];
         [questionId appendString:[[objArrLiveContest  valueForKey:@"question_id"] objectAtIndex:i]];
         headview.lblMatchTitle.text=questionId;
-        headview.lblMatchTitle2.text=@"Match";
+        headview.lblMatchTitle2.text=[objSharedData getString15FromString:[[objArrLiveContest  valueForKey:@"matchtile"] objectAtIndex:i]];
         [self.headViewArray addObject:headview];
 
         }
@@ -100,10 +105,10 @@
         headview.backBtn.tag=2;
         [headview.backBtn setTitle:[[objArrCloseContest  valueForKey:@"question"] objectAtIndex:i] forState:UIControlStateNormal];
         NSMutableString *questionId=[NSMutableString string];
-        [questionId appendString:@"Q. no"];
+        [questionId appendString:@"Q. no "];
         [questionId appendString:[[objArrCloseContest  valueForKey:@"question_id"] objectAtIndex:i]];
         headview.lblMatchTitle.text=questionId;
-        headview.lblMatchTitle2.text=@"Match 1";
+        headview.lblMatchTitle2.text=[objSharedData getString15FromString:[[objArrCloseContest  valueForKey:@"matchtile"] objectAtIndex:i]];
         [self.headViewClosed addObject:headview];
 
         }
@@ -204,7 +209,7 @@
 
         if(_btnnoty.selected==YES){
             
-            
+          cell.lblMatch.text=[objSharedData getString15FromString:[[objNotificationtimer.objDicNotification objectAtIndex:indexPath.row] valueForKey:@"match_name"]];
             cell.lblquestion.text=[[objNotificationtimer.objDicNotification objectAtIndex:indexPath.row] valueForKey:@"msg"];
             
         }else{
@@ -214,7 +219,7 @@
         [questionId appendString:[[objArrWinLoss  valueForKey:@"question_id"] objectAtIndex:indexPath.row]];
         cell.lblpoints.text=questionId;
         cell.lblquestion.text=[[objArrWinLoss  valueForKey:@"question"] objectAtIndex:indexPath.row];
-        cell.lblMatch.text=@"MATCH";
+         cell.lblMatch.text=[objSharedData getString15FromString:[[objArrWinLoss objectAtIndex:indexPath.row] valueForKey:@"matchtile"]];
         cell.lblAns.text=[[objArrWinLoss objectAtIndex:indexPath.row] valueForKey:@"message"];
             // [cell.imgBG.layer setCornerRadius:2.0];
 
@@ -415,7 +420,9 @@
     if(serviceType==1){
           objComplete =dicResponce ;
      NSLog(@"total_points:-%@",[objComplete valueForKey:@"total_points"]  );
-
+       
+        
+        
     NSMutableString *totalPoints=[NSMutableString string];
     [totalPoints appendString:[NSString stringWithFormat:@"%@", [objComplete valueForKey:@"total_points"]]];
     [totalPoints appendString:@" Points"];

@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Match" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TaU-Ah-uAa">
-                        <rect key="frame" x="9" y="8" width="62" height="21"/>
+                        <rect key="frame" x="9" y="8" width="262" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.98574361313868608" green="0.86684534671532842" blue="0.16554516423357665" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -32,7 +32,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYn-j5-NzV">
-                        <rect key="frame" x="71" y="7" width="155" height="21"/>
+                        <rect key="frame" x="136" y="8" width="155" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -46,7 +46,7 @@
                 <outlet property="lblpoints" destination="oYn-j5-NzV" id="HLg-vL-RQj"/>
                 <outlet property="lblquestion" destination="k6e-i6-872" id="qnz-pW-ueC"/>
             </connections>
-            <point key="canvasLocation" x="352" y="318.5"/>
+            <point key="canvasLocation" x="352" y="317.5"/>
         </tableViewCell>
     </objects>
 </document>

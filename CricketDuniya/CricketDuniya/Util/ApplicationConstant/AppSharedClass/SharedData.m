@@ -369,7 +369,7 @@ static SharedData * objAppSharedData;
         }else{
          btn.frame=CGRectMake((width*i),0, width-10, 30);
         }
-        [btn setTitle:[NSString stringWithFormat:@"%@ / %@",[[buttonCount objectAtIndex:i] valueForKey:@"batting_team_tinitial"],[[buttonCount objectAtIndex:i] valueForKey:@"bowling_team_tinitial"]] forState:UIControlStateNormal];
+        [btn setTitle:[NSString stringWithFormat:@"%@ v/s %@",[[buttonCount objectAtIndex:i] valueForKey:@"batting_team_tinitial"],[[buttonCount objectAtIndex:i] valueForKey:@"bowling_team_tinitial"]] forState:UIControlStateNormal];
         btn.tag=i;
         [btn addTarget:self action:@selector(selectbtn:) forControlEvents:UIControlEventTouchUpInside];
        // [btn.titleLabel setFont:[UIFont fontWithName:@"Helvetica Neue Medium" size:10]];
@@ -446,5 +446,12 @@ static SharedData * objAppSharedData;
         [UIView commitAnimations];
         
     }
+}
+-(NSString*)getString15FromString:(NSString*)string{
+    
+    if(string.length>=11){
+        return [string substringWithRange:NSMakeRange(0,11)];
+    }else
+        return string;
 }
 @end

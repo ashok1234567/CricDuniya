@@ -26,7 +26,9 @@
 		BD5E13391A7BDCAC00D3E883 /* CustomwinAndLoss.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5E13371A7BDCAC00D3E883 /* CustomwinAndLoss.xib */; };
 		BD5E133B1A7BE9CF00D3E883 /* WhatNext.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD5E133A1A7BE9CF00D3E883 /* WhatNext.xib */; };
 		BD5F4C081A82876D0085E2FC /* LastOverChancePeyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD5F4C071A82876D0085E2FC /* LastOverChancePeyController.m */; };
-		BD5F4C0A1A8297260085E2FC /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = BD5F4C091A8297260085E2FC /* appicon.png */; };
+		BD62C6C81A97BB5500DD269E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD62C6C71A97BB5500DD269E /* AVFoundation.framework */; };
+		BD62C6CA1A97BB5D00DD269E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD62C6C91A97BB5D00DD269E /* AudioToolbox.framework */; };
+		BD62C6CC1A97C06A00DD269E /* publicnoice.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BD62C6CB1A97C06A00DD269E /* publicnoice.mp3 */; };
 		BD6938521A735E2F00D291FE /* MyPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6938511A735E2F00D291FE /* MyPageController.m */; };
 		BD6938551A735E4500D291FE /* HeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD6938541A735E4500D291FE /* HeadView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BD69385C1A7375E800D291FE /* AnwserCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD69385A1A7375E800D291FE /* AnwserCellView.m */; };
@@ -54,6 +56,9 @@
 		BD9BB8B11A592E0A008D9D06 /* CricketDuniyaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9BB8B01A592E0A008D9D06 /* CricketDuniyaTests.m */; };
 		BDA975EB1A6EC8C7009A69C3 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDA975EA1A6EC8C7009A69C3 /* FacebookSDK.framework */; };
 		BDA975EF1A6ED6F8009A69C3 /* LeaderBoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDA975EE1A6ED6F8009A69C3 /* LeaderBoardController.m */; };
+		BDC519761A8F959A0049AFC6 /* 120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = BDC519741A8F959A0049AFC6 /* 120x120.png */; };
+		BDC519771A8F959A0049AFC6 /* 180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = BDC519751A8F959A0049AFC6 /* 180x180.png */; };
+		BDC5197B1A8FB4B70049AFC6 /* WellComeController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC5197A1A8FB4B70049AFC6 /* WellComeController.m */; };
 		BDC673561A62AE0A0023D2F4 /* ScheduleController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC673551A62AE0A0023D2F4 /* ScheduleController.m */; };
 		BDC6B4B11A5AF1A000E09F36 /* CDDashboardController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC6B4B01A5AF1A000E09F36 /* CDDashboardController.m */; };
 		BDC6B4B51A5AF34600E09F36 /* WhatNextController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC6B4B41A5AF34600E09F36 /* WhatNextController.m */; };
@@ -173,7 +178,9 @@
 		BD5E133A1A7BE9CF00D3E883 /* WhatNext.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WhatNext.xib; sourceTree = "<group>"; };
 		BD5F4C061A82876D0085E2FC /* LastOverChancePeyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastOverChancePeyController.h; sourceTree = "<group>"; };
 		BD5F4C071A82876D0085E2FC /* LastOverChancePeyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastOverChancePeyController.m; sourceTree = "<group>"; };
-		BD5F4C091A8297260085E2FC /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
+		BD62C6C71A97BB5500DD269E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BD62C6C91A97BB5D00DD269E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		BD62C6CB1A97C06A00DD269E /* publicnoice.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = publicnoice.mp3; sourceTree = "<group>"; };
 		BD6938501A735E2F00D291FE /* MyPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPageController.h; sourceTree = "<group>"; };
 		BD6938511A735E2F00D291FE /* MyPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPageController.m; sourceTree = "<group>"; };
 		BD6938531A735E4500D291FE /* HeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadView.h; sourceTree = "<group>"; };
@@ -216,6 +223,10 @@
 		BDA975EA1A6EC8C7009A69C3 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		BDA975ED1A6ED6F8009A69C3 /* LeaderBoardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaderBoardController.h; sourceTree = "<group>"; };
 		BDA975EE1A6ED6F8009A69C3 /* LeaderBoardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaderBoardController.m; sourceTree = "<group>"; };
+		BDC519741A8F959A0049AFC6 /* 120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120x120.png; sourceTree = "<group>"; };
+		BDC519751A8F959A0049AFC6 /* 180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180x180.png; sourceTree = "<group>"; };
+		BDC519791A8FB4B70049AFC6 /* WellComeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WellComeController.h; sourceTree = "<group>"; };
+		BDC5197A1A8FB4B70049AFC6 /* WellComeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WellComeController.m; sourceTree = "<group>"; };
 		BDC673541A62AE0A0023D2F4 /* ScheduleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleController.h; sourceTree = "<group>"; };
 		BDC673551A62AE0A0023D2F4 /* ScheduleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleController.m; sourceTree = "<group>"; };
 		BDC6B4AF1A5AF1A000E09F36 /* CDDashboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDDashboardController.h; sourceTree = "<group>"; };
@@ -351,6 +362,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD62C6CA1A97BB5D00DD269E /* AudioToolbox.framework in Frameworks */,
+				BD62C6C81A97BB5500DD269E /* AVFoundation.framework in Frameworks */,
 				BD398E0F1A83ECA600CF14B4 /* MessageUI.framework in Frameworks */,
 				BDA975EB1A6EC8C7009A69C3 /* FacebookSDK.framework in Frameworks */,
 				BDFD55031A5EFB2E0062881B /* libxml2.2.dylib in Frameworks */,
@@ -394,6 +407,8 @@
 		BD4A9D191A5C642800CD6FAF /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				BD62C6C91A97BB5D00DD269E /* AudioToolbox.framework */,
+				BD62C6C71A97BB5500DD269E /* AVFoundation.framework */,
 				BD398E0E1A83ECA600CF14B4 /* MessageUI.framework */,
 				BDA975EA1A6EC8C7009A69C3 /* FacebookSDK.framework */,
 				BDFD55021A5EFB2E0062881B /* libxml2.2.dylib */,
@@ -526,7 +541,9 @@
 		BD9BB8881A592E09008D9D06 = {
 			isa = PBXGroup;
 			children = (
-				BD5F4C091A8297260085E2FC /* appicon.png */,
+				BD62C6CB1A97C06A00DD269E /* publicnoice.mp3 */,
+				BDC519741A8F959A0049AFC6 /* 120x120.png */,
+				BDC519751A8F959A0049AFC6 /* 180x180.png */,
 				BDD5879C1A617A2B00200284 /* checkmark.jpg */,
 				BD6B7A7D1A611A4600C43E8E /* Untitle.png */,
 				BD4A9D1A1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG */,
@@ -604,6 +621,15 @@
 			path = "Leader Borad";
 			sourceTree = "<group>";
 		};
+		BDC519781A8FB4900049AFC6 /* WelCome */ = {
+			isa = PBXGroup;
+			children = (
+				BDC519791A8FB4B70049AFC6 /* WellComeController.h */,
+				BDC5197A1A8FB4B70049AFC6 /* WellComeController.m */,
+			);
+			path = WelCome;
+			sourceTree = "<group>";
+		};
 		BDC673531A62ADE80023D2F4 /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
@@ -675,6 +701,7 @@
 		BDC6B4B91A5B1A0700E09F36 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BDC519781A8FB4900049AFC6 /* WelCome */,
 				BD398E041A83C89700CF14B4 /* Notificationtimer */,
 				BD5F4C051A8287420085E2FC /* LastOverChancePey */,
 				BD59F3C71A767EDB00D80BA7 /* CustomPopViews */,
@@ -1077,6 +1104,7 @@
 			files = (
 				BDFD54D01A5EF2B90062881B /* Raleway-Light.ttf in Resources */,
 				BDD5AF6A1A62BDB700604979 /* loader_rotate_arrow.png in Resources */,
+				BD62C6CC1A97C06A00DD269E /* publicnoice.mp3 in Resources */,
 				BDFD54D11A5EF2B90062881B /* Raleway-Medium.ttf in Resources */,
 				BD4A9D251A5C7F7300CD6FAF /* CategoryCustomCell.xib in Resources */,
 				BDD5AF671A62BDB700604979 /* loader_step3@2x.png in Resources */,
@@ -1101,17 +1129,18 @@
 				BDFD54DC1A5EF2B90062881B /* ashok.jpg in Resources */,
 				BDD5AF611A62BDB700604979 /* loader_rotate_arrow.png in Resources */,
 				BD7909711A71753600F8CD39 /* FirstFooter.xib in Resources */,
+				BDC519761A8F959A0049AFC6 /* 120x120.png in Resources */,
 				BD79097F1A71811000F8CD39 /* ThirdCellView.xib in Resources */,
 				BD4A9D1B1A5C673C00CD6FAF /* Cricket Duniya logo copy.JPG in Resources */,
 				BDD5AF621A62BDB700604979 /* loader_step1.png in Resources */,
 				BDFD54D21A5EF2B90062881B /* Raleway-Regular.ttf in Resources */,
+				BDC519771A8F959A0049AFC6 /* 180x180.png in Resources */,
 				BD5988E61A7FD7B900E98AB0 /* CommanPopUp.xib in Resources */,
 				BDD5879D1A617A2B00200284 /* checkmark.jpg in Resources */,
 				BD7001071A5D80820087BD85 /* ResultAndNotificationCustomCell.xib in Resources */,
 				BDD5AF641A62BDB700604979 /* loader_step2.png in Resources */,
 				BD9BB8A21A592E09008D9D06 /* Images.xcassets in Resources */,
 				BD0755021A75642600346A28 /* Default-568h@2x.png in Resources */,
-				BD5F4C0A1A8297260085E2FC /* appicon.png in Resources */,
 				BDFD54D31A5EF2B90062881B /* Raleway-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1165,6 +1194,7 @@
 				BD7909781A717E7500F8CD39 /* SecoundCellView.m in Sources */,
 				BDFD54CB1A5EF2B90062881B /* SharedData.m in Sources */,
 				BDFD54F41A5EF2BA0062881B /* Reachability.m in Sources */,
+				BDC5197B1A8FB4B70049AFC6 /* WellComeController.m in Sources */,
 				BDFD54EA1A5EF2B90062881B /* ValidationManager.m in Sources */,
 				BDFD54E91A5EF2B90062881B /* RegexKitLite.m in Sources */,
 				BDFD54EF1A5EF2B90062881B /* AFSecurityPolicy.m in Sources */,
@@ -1284,7 +1314,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "bc2c10f3-ebd6-4dd8-abe8-6ff953003e28";
+				PROVISIONING_PROFILE = "77e8e239-57a6-40d0-a14e-053d85243f49";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1320,7 +1350,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "bc2c10f3-ebd6-4dd8-abe8-6ff953003e28";
+				PROVISIONING_PROFILE = "77e8e239-57a6-40d0-a14e-053d85243f49";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1342,7 +1372,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bc2c10f3-ebd6-4dd8-abe8-6ff953003e28";
+				PROVISIONING_PROFILE = "77e8e239-57a6-40d0-a14e-053d85243f49";
 			};
 			name = Debug;
 		};
@@ -1362,7 +1392,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bc2c10f3-ebd6-4dd8-abe8-6ff953003e28";
+				PROVISIONING_PROFILE = "77e8e239-57a6-40d0-a14e-053d85243f49";
 			};
 			name = Release;
 		};

@@ -186,8 +186,10 @@
     objArrLeaders =[dicResponce valueForKey:@"leaderboard"] ;
     if([objArrLeaders count]>0){
         _lblNorecordfound.hidden=YES;
+        _lblNorecordfound.text=@"";
     }else{
         _lblNorecordfound.hidden=NO;
+        _lblNorecordfound.text=[NSString stringWithFormat:@"No data available for the %@",[selectedCat lowercaseString]];
     }
     [self.myTbl reloadData];
     [appDelegate stopActivityIndicator];
@@ -202,6 +204,7 @@
 }
 - (IBAction)btnActionOverll:(id)sender {
     
+    selectedCat=@"OVERALL";
     //Get overall leader record from server
      [self callServiceForSchedule:LeaderboardComplete_Url];
 }
